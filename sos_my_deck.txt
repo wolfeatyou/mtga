@@ -1,0 +1,26 @@
+Deck
+8 Island (SOS) 275
+5 Forest (SOS) 281
+3 Swamp (SOS) 277
+1 Titan's Grave (SOS) 266
+1 Campus Composer (SOS) 40
+1 Environmental Scientist (SOS) 147
+1 Grapple with Death (SOS) 192
+1 Deluge Virtuoso (SOS) 42
+1 Pterafractyl (SOS) 215
+1 Geometer's Arthropod (SOS) 191
+1 Textbook Tabulator (SOS) 70
+1 Quick Study (SOS) 65
+1 Potioner's Trove (SOS) 251
+1 Run Behind (SOS) 66
+1 Fractal Mascot (SOS) 189
+1 Cuboid Colony (SOS) 183
+2 Spellbook Seeker (SOS) 68
+1 Wander Off (SOS) 104
+1 Paradox Surveyor (SOS) 208
+1 Hydro-Channeler (SOS) 54
+1 Feed the Swarm (SOA) 29
+2 Orysa, Tide Choreographer (SOS) 62
+1 Stock Up (SOA) 24
+1 Flow State (SOS) 49
+1 Quandrix Charm (SOS) 217
