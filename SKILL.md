@@ -18,7 +18,37 @@ Arena → **Settings → Account → Detailed Logs (Plugin Support)** = ON, then
 
 ## Mode 1 — Live draft (the main job)
 
-The user does **not** type "pack" each pick. The flow is **wake → self-read → advise**: a background `wake` loop blocks until a new pack appears and just **wakes you** (one-line marker, no analysis); then **you re-read the *current* pack yourself** with a snapshot and evaluate *that*. Re-reading at advise-time means you judge the freshest pack in the log, not a stale one captured while you were thinking. Loop it.
+**Model/effort: default to Sonnet 5, effort medium** for the live loop below — validated via the
+`draft_sim.py` latency harness described further down this file (see also the
+`mtg-draft-use-sonnet-for-speed` memory). Opus / high / xhigh effort was measured at 20–55s per
+pick even in the fastest mode and made the user consistently pick faster than advice arrived.
+Switch models with `/model` / `/effort` at the start of a live session if not already there;
+there's no pick-clock constraint for post-game analysis or deckbuilding, so Opus/high effort is
+fine for those.
+
+The user does **not** type "pack" each pick. The flow is a **single foreground blocking call**:
+run `draft_live.py <set> watch` (not `wake`) as a **foreground Bash command with `timeout: 600000`**
+(10 min — it blocks until a new pack appears, no polling needed). It returns the fully analyzed
+pack **as the tool result** — one inference pass gets you straight to advice, no separate snapshot
+call. Give the pick (see format below), then immediately re-issue the same blocking `watch` call
+for the next pick. Repeat for the whole draft.
+
+```bash
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch fresh   # first call of a NEW draft
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch         # every call after
+```
+- `fresh` only on the very first call of a draft (clears last-seen state + pick history).
+- **`MTGA_SETTLE=<seconds>`** (default 1.0) debounces rapid picks: if the user picks faster than
+  you can answer, the watcher waits for N seconds of "quiet" after the newest pack before
+  returning, so it always hands you the LATEST pack and silently skips stale ones instead of
+  making you advise on a pick already gone. Tune to your own think time: **Sonnet medium → 1 is
+  fine**; if ever running on a slow config, raise to 5–8 so you don't chase a moving target.
+- On real Arena logs (not the sim), 17Lands color-pair fetches (`cache_17l_<set>_<PAIR>.json`) hit
+  the network the first time a pair isn't cached — usually fine live, but if it ever stalls, set
+  `MTGA_OFFLINE=1` to skip the fetch entirely (color-filtered GIH just won't show that pick).
+- If the call times out with no pack (10 min of silence) or returns `DRAFT COMPLETE`, stop looping
+  — the latter means move to deck building (Mode 3). **После сборки колоды — спросить пользователя
+  что запомнить из этого драфта и записать в `<set>_knowledge.md`.**
 
 **При старте каждого нового драфта — обязательно прочитать перед первым пиком:**
 ```bash
@@ -29,25 +59,11 @@ cat ~/.claude/skills/mtg-draft-helper/msh_cheat.md          # (для sos/mkm: d
 ```
 Что вынести: какие архетипы open, какой топ-1 сейчас, какие карты over/underperform свой GIH, **в какую выигрышную линию/архетип тянуть исходя из `<set>_insights.md`** (что реально побеждает в наших партиях).
 
-**Start a NEW draft** (resets last-seen pack + history state):
-```bash
-python3 ~/.claude/skills/mtg-draft-helper/draft_live.py sos wake fresh
-```
-**Every subsequent pick** (re-arm the waker):
-```bash
-python3 ~/.claude/skills/mtg-draft-helper/draft_live.py sos wake
-```
-
-Run each `wake` as a **background Bash command**. When it completes:
-- If output is `WAKE <pack>/<pick> — N карт …` → a new pack landed. **Now run the snapshot yourself** to read and evaluate *the current pack*:
-  ```bash
-  python3 ~/.claude/skills/mtg-draft-helper/draft_live.py sos
-  ```
-  Read it, give the pick (see below), then immediately relaunch `wake` for the next pack. The snapshot **records the pack it showed as "seen"**, so the next `wake` won't re-fire on a pack you already advised (anti-lag).
-- If output is `WAITING` (25 min, nothing new) → just relaunch `wake`. The draft isn't open yet, or the user is thinking.
-- If output is `DRAFT COMPLETE` → the draft ended; move to deck building (Mode 3). **После сборки колоды — спросить пользователя что запомнить из этого драфта и записать в `<set>_knowledge.md`.**
-
-Why split it: the old `watch` did detection **and** printed the analysis at detection-time — so if you lagged, you'd advise on a pack the user had already moved past. The waker is now a cheap pure detector (regex only, no card/rating/network load); **you** pull the live pack the instant you actually advise. (The old combined `watch` mode still exists if ever needed — it prints the full analyzed block on detection.)
+**Older 2-pass modes (kept for reference, not the default):** a background `wake` loop that only
+prints a one-line marker (`WAKE <pack>/<pick> — N карт`), requiring a *separate* snapshot call
+(`draft_live.py <set>`) to actually read the pack — this costs a second inference pass per pick
+(waking on the notification is itself a pass) and was measured at ~2× slower than the blocking
+single-pass call above. Use it only if a foreground blocking call is impossible in your harness.
 
 The snapshot prints cards **sorted by GIH WR**, each with `[tier|GIH xx.x|<PAIR> xx.x|IWD ±y.y|OH zz.z|ALSA a.a]` plus pool-aware flags, the booster/pick number, and the user's full **POOL** (colors + curve).
 - **GIH** — win-rate of games with the card in hand (the headline number; tier is derived from it).
@@ -75,10 +91,18 @@ P{pack}/P{pick} — **{Card}** · {P/T} · {Color} · {mana}
 **открыто:** {open colors}             ← ONLY if a СИГНАЛЫ banner fired
 **не хватает:** {gap: curve / evasion / removal}
 **пивот:** {pivot note}                ← ONLY if a СИГНАЛЫ banner fired
+**альтернатива:** {2nd card + why passed}  ← ONLY on a genuinely close 2-card decision
+**сосед:** {left/right neighbor read}  ← ONLY on a real negative-signal inference (a color that never shows up = neighbor is eating it), not on every pick
+**план:** {what to prioritize next booster}  ← ONLY on the LAST pick of a booster (P1P14/P2P14/etc.)
+**мысли:** {fork / hypothesis / forward-looking note}  ← ONLY when there's a genuine one worth flagging
 ```
 - Card name **bold**, ALWAYS in English. Colors as WORDS: White/Blue/Black/Red/Green (C=Colorless).
 - Drop `открыто` / `пивот` entirely when no signal fired. P1P1–P2: collapse to header + `собираем: рано — беру силу`.
-- **No GIH numbers or alternatives unless the user asks «почему».**
+- All of `альтернатива` / `сосед` / `план` / `мысли` are OPTIONAL and ONE line each — print only on picks where there's a genuine, non-manufactured thing to say. Most picks print NONE of these; don't pad every pick to look thorough. Added once Sonnet 5 + effort medium proved fast enough to afford them (see `mtg-draft-use-sonnet-for-speed` memory) — don't let them erode the block's terseness or slow the pick below the live pace that justified adding them.
+- `альтернатива`: name + a short phrase why it lost (not a GIH number dump) — only when the call was genuinely close, not "here's what I didn't pick" on every pick.
+- `сосед`: an inference from what's conspicuously ABSENT across packs (not from a СИГНАЛЫ banner — that's `открыто`/`пивот`'s job) — e.g. "красный вообще не идёт с P1P3 — сосед слева, видимо, в красном".
+- `план`: booster-boundary only — 1 line on what to prioritize (curve slot / removal / evasion) walking into the next booster, based on current pool gaps.
+- **No GIH numbers unless the user asks «почему».**
 
 **Pick process — always in this order:**
 1. **Scan** — read full pack by GIH. Flag the top in-color card, top off-color card, and any high-IWD outlier.
@@ -158,6 +182,32 @@ If a card shows `[нет данных]` or an unmapped name, look it up in `17l_
 - `sos_cheatsheet.html` / `msh_cheatsheet.html` — visual draft cheat sheets (open in browser).
 - **MSH (Marvel Super Heroes)** — Arena 23.06.2026. 17L live с 25.06. Advise from `msh_cheat.md` + `msh_tier.md` + `msh_knowledge.md`. Core axes: +1/+1 counters (74), Villain/Hero tribal, Power-up, Teamwork, Connive, Plan.
 - `mtg_readme.md` — full setup notes + **§6 match lessons** (read these; они encode реальные ошибки из партий).
+
+### Latency practice / model tuning — `draft_sim.py`
+Not for real drafts — a **replay test-harness** to practice the live-draft workflow above and/or
+A/B advice speed across models/effort without waiting for a real Arena draft. It replays a REAL
+past draft's log lines verbatim from `Player.log`/`Player-prev.log` into `sim/sim_player.log`,
+pick-by-pick, driven by the **user from a separate console** (not you):
+```bash
+cd ~/.claude/skills/mtg-draft-helper
+python3 draft_sim.py list            # drafts found in the real logs, newest last
+python3 draft_sim.py init [id8]      # extract one (default: newest), reset the fake log
+python3 draft_sim.py next [N]        # feed the next wake-pick (pick<=11), N times
+python3 draft_sim.py status          # where the replay currently is
+python3 draft_sim.py reset           # rewind the same draft to pick 1
+```
+Your side: point the Mode 1 blocking `watch` loop at the fake log instead of the real one —
+```bash
+MTGA_SETTLE=1 MTGA_LOG=~/.claude/skills/mtg-draft-helper/sim/sim_player.log \
+  python3 draft_live.py <set> watch fresh   # first call; drop `fresh` on subsequent calls
+```
+Same draft replays identically every run, so it's a fair, deterministic comparison across models
+and effort levels. Because it's a pre-recorded historical draft, **the pool reflects the real
+historical picks, not your advice** — you're practicing/timing the advice, not steering the draft.
+`MTGA_OFFLINE=1` is worth setting for pure latency tests so a first-time 17Lands fetch never
+pollutes the timing. See the `mtg-latency-test-harness` memory for the validated result (Sonnet 5 +
+effort medium is the live-draft default) and iteration history (why blocking single-pass + debounce
+won over the older two-pass wake/watch modes).
 
 ---
 

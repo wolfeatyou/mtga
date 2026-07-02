@@ -308,12 +308,16 @@ def color_ratings(pair):
         except Exception:
             data = None
     if data is None:
+        # Латентный тест / оффлайн: НИКОГДА не блокируемся на сети. Без локального кэша
+        # color-filtered GIH просто отсутствует (деградирует тихо, как и при офлайне).
+        if os.environ.get("MTGA_OFFLINE"):
+            return {}
         import urllib.request
         url = (f"https://www.17lands.com/card_ratings/data?expansion={setcode().upper()}"
                f"&format=PremierDraft&colors={pair}")
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "mtg-draft-helper"})
-            data = json.load(urllib.request.urlopen(req, timeout=12))
+            data = json.load(urllib.request.urlopen(req, timeout=6))
             json.dump(data, open(cache, "w"))
         except Exception:
             return {}
@@ -502,6 +506,11 @@ def watch(mode="full"):
                   `draft_live.py <set>` в момент совета (свежий пак, без лага от его задержки)."""
     import time
     state_path = os.path.join(HERE, ".draft_watch.json")
+    # Debounce: при детекте нового пака не возвращаемся мгновенно, а ждём SETTLE секунд
+    # «тишины». Если за это время появился ещё более новый пак (юзер быстро пикает пак-за-
+    # паком) — следуем к нему и сбрасываем таймер. Возвращаем ТОЛЬКО последний устоявшийся
+    # пак → ассистент никогда не советует пик, который юзер уже пролистал. 0 = выключить.
+    SETTLE = float(os.environ.get("MTGA_SETTLE", "1.0"))
     last_sig = None
     if "fresh" in sys.argv[1:]:
         for p in (state_path, HIST_PATH):
@@ -545,14 +554,27 @@ def watch(mode="full"):
                     last_sig = sig
                     json.dump({"sig": sig, "set": setcode()}, open(state_path, "w"))
                 else:
-                    print(f"WAKE {pnum}/{pick} — {ncards} карт. Перечитай текущий пак: "
+                    ts = time.strftime("%H:%M:%S") + f".{int((time.time()%1)*1000):03d}"
+                    print(f"WAKE [{ts}] {pnum}/{pick} — {ncards} карт. Перечитай текущий пак: "
                           f"python3 {os.path.basename(__file__)} {setcode()}")
                     json.dump({"sig": sig, "set": setcode()}, open(state_path, "w"))
                     return
         else:
-            draft_id = current_draft_id(text)
-            sig, block = current_block(text, by_id, ratings, draft_id)
+            sig, pnum, pick, ncards = pack_sig(text)  # дешёвый детект (без карт/блока)
             if sig and sig != last_sig:
+                # debounce: следуем за быстрыми пиками к самому свежему паку, блок считаем
+                # ОДИН раз — по устоявшемуся последнему (промежуточные пропускаем целиком).
+                if SETTLE > 0:
+                    stable_since = time.time()
+                    while time.time() - stable_since < SETTLE:
+                        time.sleep(0.15)
+                        t2 = read_log_text()
+                        s2, _, _, _ = pack_sig(t2)
+                        if s2 and s2 != sig:
+                            sig, text = s2, t2
+                            stable_since = time.time()
+                draft_id = current_draft_id(text)
+                _, block = current_block(text, by_id, ratings, draft_id)
                 print(block)
                 json.dump({"sig": sig, "set": setcode()}, open(state_path, "w"))
                 return
