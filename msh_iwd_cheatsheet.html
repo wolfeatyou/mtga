@@ -1,0 +1,768 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MSH — Top by IWD</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--line:#262b36;--txt:#e7e9ee;--dim:#9aa3b2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:14px/1.4 -apple-system,Segoe UI,Roboto,sans-serif;padding:24px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--dim);margin:0 0 16px;font-size:13px}
+.legend{display:flex;gap:18px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:16px;font-size:12px;color:var(--dim)}
+.legend b{color:var(--txt)}
+table{border-collapse:collapse;width:100%;max-width:900px}
+th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{position:sticky;top:0;background:var(--bg);color:var(--dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em;z-index:2}
+tr:hover{background:#1d222c}
+.rank{color:var(--dim);width:34px;text-align:right;font-variant-numeric:tabular-nums}
+.name{font-weight:600}
+.type{display:block;color:var(--dim);font-weight:400;font-size:11px}
+.iwd{font-weight:700;text-align:center;color:#fff;border-radius:6px;font-variant-numeric:tabular-nums;min-width:52px}
+.tier{display:inline-block;width:20px;text-align:center;color:#fff;border-radius:5px;font-weight:700;font-size:12px}
+.dim{color:var(--dim);font-variant-numeric:tabular-nums}
+.pip{display:inline-block;width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;font-size:11px;font-weight:700;margin-right:2px}
+.rar{display:inline-block;width:18px;text-align:center;border-radius:4px;font-size:11px;font-weight:700;color:#111}
+.rarM{background:#e07b39}.rarR{background:#e9c46a}.rarU{background:#c0c7d1}.rarC{background:#8d99ae;color:#fff}
+#pv{position:fixed;pointer-events:none;z-index:99;width:244px;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.6);display:none}
+</style></head><body>
+<h1>MSH — Top-80 карт по IWD</h1>
+<p class="sub">Marvel Super Heroes · Premier Draft · 17Lands (выборка ≥400 игр) · наведи на строку → картинка</p>
+<div class="legend">
+<span><b>IWD</b> — improvement when drawn: насколько лучше идёт партия, когда карту ВЫТЯНУЛ (потолок/импакт). Сортировка по нему.</span>
+<span><b>GIH</b> — win% с картой в руке (+ тир).</span>
+<span><b>OH</b> — win% в стартовой руке (пол).</span>
+<span><b>ALSA</b> — средний пик, где её берут (чем ниже — тем раньше уходит).</span>
+</div>
+<table><thead><tr><th>#</th><th>Карта</th><th>Цвет</th><th>R</th><th>IWD</th><th>GIH·тир</th><th>OH</th><th>ALSA</th></tr></thead>
+<tbody><tr data-img="https://cards.scryfall.io/large/front/f/b/fbd1f333-5640-41f8-b9dd-1c322ac7724a.jpg?1780539596">
+      <td class="rank">1</td>
+      <td class="name">The Super Hero Civil War<span class="type">Enchantment - Saga</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+16.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 70.3</td>
+      <td class="dim">67.9</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/2/c/2c8aab8d-2dfe-49c8-9aa8-536b0587b467.jpg?1780413468">
+      <td class="rank">2</td>
+      <td class="name">Leader, Super-Genius<span class="type">Legendary Creature - Gamma Scientist Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+16.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 68.7</td>
+      <td class="dim">69.0</td>
+      <td class="dim">1.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/b/eb098550-22e6-4079-8c59-ed9ec2f764e3.jpg?1780413361">
+      <td class="rank">3</td>
+      <td class="name">Captain Marvel, Earth&#x27;s Protector<span class="type">Legendary Creature - Human Kree Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+14.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 70.2</td>
+      <td class="dim">66.9</td>
+      <td class="dim">1.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/8/38e87542-50f7-4812-9338-84e4b9b7bb44.jpg?1780413618">
+      <td class="rank">4</td>
+      <td class="name">M.O.D.O.K.<span class="type">Legendary Artifact Creature - Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+13.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 64.2</td>
+      <td class="dim">61.0</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/b/9b1f213a-e1d4-4a0f-954b-c83915698d98.jpg?1778243813">
+      <td class="rank">5</td>
+      <td class="name">Doctor Doom<span class="type">Legendary Creature - Human Scientist Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+13.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 66.4</td>
+      <td class="dim">65.7</td>
+      <td class="dim">1.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/c/3c379a3f-bde1-4dc1-9843-afcb5f40792f.jpg?1781065596">
+      <td class="rank">6</td>
+      <td class="name">Avengers: Under Siege<span class="type">Enchantment - Saga</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+12.3</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.9</td>
+      <td class="dim">64.0</td>
+      <td class="dim">2.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/d/4d8c8ceb-84cd-46d2-9230-ab6ca4569334.jpg?1780539580">
+      <td class="rank">7</td>
+      <td class="name">The Ruinous Wrecking Crew<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+11.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.7</td>
+      <td class="dim">59.8</td>
+      <td class="dim">2.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/0/4/04a38b92-619e-4fe8-b0cb-6fa31f0824ff.jpg?1778243954">
+      <td class="rank">8</td>
+      <td class="name">The Coming of Galactus<span class="type">Enchantment - Saga</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+11.5</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.3</td>
+      <td class="dim">61.8</td>
+      <td class="dim">1.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/d/cddd314c-c271-475a-b076-01a8599c8015.jpg?1780413681">
+      <td class="rank">9</td>
+      <td class="name">Thor, God of Thunder<span class="type">Legendary Creature - God Warrior Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+11.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 62.1</td>
+      <td class="dim">59.4</td>
+      <td class="dim">1.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/a/c/ac3e586c-d654-4631-beda-a5e29cf04717.jpg?1780413542">
+      <td class="rank">10</td>
+      <td class="name">Elektra, Daughter of the Hand<span class="type">Legendary Creature - Human Ninja Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+10.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.5</td>
+      <td class="dim">64.0</td>
+      <td class="dim">1.9</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/1/3/1383e587-df58-4b45-9067-b9399e90b9ed.jpg?1780453064">
+      <td class="rank">11</td>
+      <td class="name">Agent Phil Coulson<span class="type">Legendary Creature - Human Spy Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+9.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 64.6</td>
+      <td class="dim">68.4</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/1/c1c7aa22-51b0-45ee-9a8e-5493a1820d8c.jpg?1780458400">
+      <td class="rank">12</td>
+      <td class="name">Wolverine, Fierce Fighter<span class="type">Legendary Creature - Mutant Berserker Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+9.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.3</td>
+      <td class="dim">61.7</td>
+      <td class="dim">2.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/b/f/bf736399-af74-4f52-9159-67ea67d0cf83.jpg?1780413354">
+      <td class="rank">13</td>
+      <td class="name">Avengers Assemble!<span class="type">Enchantment</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+9.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 65.1</td>
+      <td class="dim">65.2</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/0/e0c7f566-5351-44e3-a346-b84b0eb10209.jpg?1780526037">
+      <td class="rank">14</td>
+      <td class="name">Mjölnir, Hammer of Thor<span class="type">Legendary Artifact - Equipment</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+9.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.7</td>
+      <td class="dim">57.3</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/f/3f995518-b12a-4623-9ab3-b79a5cef3cba.jpg?1780463659">
+      <td class="rank">15</td>
+      <td class="name">Monica Rambeau<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+9.2</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.3</td>
+      <td class="dim">61.4</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/f/a/fa01d35f-1064-4a7c-9475-4504566df850.jpg?1780920153">
+      <td class="rank">16</td>
+      <td class="name">Cloak and Dagger, Entwined<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+8.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.0</td>
+      <td class="dim">62.4</td>
+      <td class="dim">2.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/8/484e80a4-1d5f-4c27-98a8-ee2ef9d6cbdc.jpg?1780657794">
+      <td class="rank">17</td>
+      <td class="name">The Wondrous Wasp<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+8.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 63.9</td>
+      <td class="dim">63.9</td>
+      <td class="dim">2.0</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/1/1/11fc8221-756a-4919-9272-38793e9c1ad9.jpg?1778243894">
+      <td class="rank">18</td>
+      <td class="name">Super-Skrull<span class="type">Legendary Creature - Skrull Shapeshifter Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#166534">+8.6</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.9</td>
+      <td class="dim">56.3</td>
+      <td class="dim">2.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/6/1/61237530-ad49-469c-a952-67c92315708e.jpg?1780666746">
+      <td class="rank">19</td>
+      <td class="name">Jennifer Walters<span class="type">Legendary Creature - Human Advisor Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#166534">+8.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 65.1</td>
+      <td class="dim">66.2</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/c/4cea42fd-035e-4b8f-8b1d-ff363b694f14.jpg?1780463636">
+      <td class="rank">20</td>
+      <td class="name">Tony Stark<span class="type">Legendary Creature - Human Artificer Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+8.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.7</td>
+      <td class="dim">60.0</td>
+      <td class="dim">2.1</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/f/1/f1448731-d50e-4b9c-8eb2-3d85c21516c6.jpg?1780925908">
+      <td class="rank">21</td>
+      <td class="name">Justice, Vance Astrovik<span class="type">Legendary Creature - Mutant Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#15803d">+7.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 64.2</td>
+      <td class="dim">62.4</td>
+      <td class="dim">2.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/7/9/79747b45-fd7b-4023-9a9c-4d9dab2429fe.jpg?1780458239">
+      <td class="rank">22</td>
+      <td class="name">Kang the Conqueror<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+7.8</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 62.1</td>
+      <td class="dim">59.5</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/6/e669c0b2-0011-4feb-9263-f1ecc0a98f18.jpg?1780412364">
+      <td class="rank">23</td>
+      <td class="name">Thanos, the Mad Titan<span class="type">Legendary Creature - Eternal Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+7.8</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.6</td>
+      <td class="dim">—</td>
+      <td class="dim">3.0</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/0/c01afea6-645d-4d4f-bdaa-90794a628bcd.jpg?1780920186">
+      <td class="rank">24</td>
+      <td class="name">Vision Quest<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+7.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 62.0</td>
+      <td class="dim">57.8</td>
+      <td class="dim">3.9</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/9/9991b684-0ae0-4aa4-8f22-a9c473f5d69c.jpg?1780572843">
+      <td class="rank">25</td>
+      <td class="name">Hawkeye, Master Marksman<span class="type">Legendary Creature - Human Archer Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+7.4</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.5</td>
+      <td class="dim">59.5</td>
+      <td class="dim">2.0</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/a/d/add7d3ce-aa58-4da0-8c2a-cfd01c3a8975.jpg?1780629578">
+      <td class="rank">26</td>
+      <td class="name">King T&#x27;Challa<span class="type">Legendary Creature - Human Noble Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+7.3</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.7</td>
+      <td class="dim">62.2</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/9/49e36cac-3999-40b3-91b3-85af4fded679.jpg?1780413536">
+      <td class="rank">27</td>
+      <td class="name">Dark Deed<span class="type">Instant</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#15803d">+7.1</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.1</td>
+      <td class="dim">58.0</td>
+      <td class="dim">2.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/b/ebf71ffc-6e3e-4ca0-a84a-3c1ebd2b64b1.jpg?1780572962">
+      <td class="rank">28</td>
+      <td class="name">Winter Soldier, Icy Assassin<span class="type">Legendary Creature - Human Assassin Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+6.9</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.6</td>
+      <td class="dim">60.4</td>
+      <td class="dim">4.0</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/5/0/5060aa13-4b33-4b3a-8bdb-dd81308fa3e3.jpg?1780413784">
+      <td class="rank">29</td>
+      <td class="name">Killmonger, Scourge of Wakanda<span class="type">Legendary Creature - Human Mercenary Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#15803d">+6.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.8</td>
+      <td class="dim">59.0</td>
+      <td class="dim">4.1</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/0/e0dbbdcf-84e1-494f-8b8c-0a094f603fa9.jpg?1778243776">
+      <td class="rank">30</td>
+      <td class="name">Bruce Banner<span class="type">Legendary Creature - Human Scientist Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+6.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.8</td>
+      <td class="dim">62.7</td>
+      <td class="dim">1.9</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/f/5/f54197b8-6279-43ee-9340-69bd22cf3775.jpg?1780919747">
+      <td class="rank">31</td>
+      <td class="name">Madame Masque<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#15803d">+6.4</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.1</td>
+      <td class="dim">57.0</td>
+      <td class="dim">3.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/e/3e121d65-d341-40b9-bebc-1e7d1b83905c.jpg?1780658544">
+      <td class="rank">32</td>
+      <td class="name">Ares, God of War<span class="type">Legendary Creature - God Warrior Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+6.3</td>
+      <td><span class="tier" style="background:#10b981">B</span> 57.1</td>
+      <td class="dim">56.6</td>
+      <td class="dim">3.1</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/1/d1cf1ead-fe91-4328-89ab-6d0bc9ff6cbe.jpg?1780658779">
+      <td class="rank">33</td>
+      <td class="name">Cosmic Cube<span class="type">Artifact</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+6.2</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.7</td>
+      <td class="dim">57.8</td>
+      <td class="dim">1.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/3/33631d6c-c584-42ff-afe5-2647b5fb321f.jpg?1778243648">
+      <td class="rank">34</td>
+      <td class="name">Captain America, Super-Soldier<span class="type">Legendary Creature - Human Soldier Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+6.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.6</td>
+      <td class="dim">60.5</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/9/e90196a9-5a76-42f8-9b40-097d02b47f33.jpg?1780572941">
+      <td class="rank">35</td>
+      <td class="name">Storm, Windrider<span class="type">Legendary Creature - Mutant Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.1</td>
+      <td class="dim">60.0</td>
+      <td class="dim">2.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/8/c87ca9ce-5034-4137-99cc-c2b28f298912.jpg?1780658296">
+      <td class="rank">36</td>
+      <td class="name">Captain America, Wings of Freedom<span class="type">Legendary Creature - Human Soldier Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.9</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 62.8</td>
+      <td class="dim">64.1</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/7/1/7114ef87-53ff-43e9-864c-9faa455d86ef.jpg?1780572929">
+      <td class="rank">37</td>
+      <td class="name">Absorbing Man<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.1</td>
+      <td class="dim">61.6</td>
+      <td class="dim">3.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/8/d895d5a1-d382-438b-8551-e142bb5142af.jpg?1780919710">
+      <td class="rank">38</td>
+      <td class="name">Cruel Alliance<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#15803d">+5.5</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.2</td>
+      <td class="dim">55.7</td>
+      <td class="dim">3.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/6/3/63ce0909-7d7d-410d-ab6c-c87fa3e23877.jpg?1780919701">
+      <td class="rank">39</td>
+      <td class="name">Black Widow, Super Spy<span class="type">Legendary Creature - Human Spy Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+5.5</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 57.8</td>
+      <td class="dim">60.2</td>
+      <td class="dim">1.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/b/4b5433ac-0d36-4472-bf8b-d22f0ffd367b.jpg?1780590301">
+      <td class="rank">40</td>
+      <td class="name">Captain America&#x27;s Shield<span class="type">Legendary Artifact - Equipment</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.4</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.1</td>
+      <td class="dim">55.8</td>
+      <td class="dim">1.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/0/8/082cc8cc-bbea-4ca7-a0e8-da1f865d6626.jpg?1780657826">
+      <td class="rank">41</td>
+      <td class="name">The Mighty Thor, Jane Foster<span class="type">Legendary Creature - Human God Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.3</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.6</td>
+      <td class="dim">62.5</td>
+      <td class="dim">2.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/3/6/361c2f3b-f04e-446b-a683-9195e238daf0.jpg?1780920218">
+      <td class="rank">42</td>
+      <td class="name">Iron Man Armor<span class="type">Artifact - Equipment</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#15803d">+5.2</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.1</td>
+      <td class="dim">56.3</td>
+      <td class="dim">1.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/2/9/2961cf20-33c8-4e66-9d0f-6daca8ea7880.jpg?1778243975">
+      <td class="rank">43</td>
+      <td class="name">The Vision<span class="type">Legendary Artifact Creature - Robot Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#15803d">+5.2</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.0</td>
+      <td class="dim">59.3</td>
+      <td class="dim">1.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/a/caf70fc5-87a0-4b4d-bedd-74dd09569bed.jpg?1780658523">
+      <td class="rank">44</td>
+      <td class="name">Ka-Zar of the Savage Land<span class="type">Legendary Creature - Human Barbarian Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#15803d">+5.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.0</td>
+      <td class="dim">59.0</td>
+      <td class="dim">2.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/7/2/72d3e750-870b-497d-80d7-e3df097db554.jpg?1780572805">
+      <td class="rank">45</td>
+      <td class="name">Avengers Disassembled<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+5.0</td>
+      <td><span class="tier" style="background:#eab308">C</span> 54.4</td>
+      <td class="dim">54.0</td>
+      <td class="dim">3.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/3/e361b2f4-cd2f-44e9-a56d-c1d6b5ae742d.jpg?1780413499">
+      <td class="rank">46</td>
+      <td class="name">Secret Invasion<span class="type">Enchantment - Aura</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+4.8</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.6</td>
+      <td class="dim">54.8</td>
+      <td class="dim">2.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/8/e/8e651410-b829-4468-b866-a9dd15f909ad.jpg?1780539471">
+      <td class="rank">47</td>
+      <td class="name">S.H.I.E.L.D. Flying Car<span class="type">Artifact - Vehicle</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+4.7</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.5</td>
+      <td class="dim">56.2</td>
+      <td class="dim">2.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/2/d22a8d02-023c-4f71-a771-16b5aa2a05d7.jpg?1780920100">
+      <td class="rank">48</td>
+      <td class="name">She-Hulk, Jade Defender<span class="type">Legendary Creature - Gamma Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+4.7</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.5</td>
+      <td class="dim">58.4</td>
+      <td class="dim">3.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/e/a/eaf2251a-ffaf-4055-9474-7e3d08d89609.jpg?1780572732">
+      <td class="rank">49</td>
+      <td class="name">Baron Strucker, HYDRA Overlord<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+4.6</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.3</td>
+      <td class="dim">57.3</td>
+      <td class="dim">3.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/a/3/a33a4cb4-1b57-47ca-8e5e-58ff46a6e0ce.jpg?1780657807">
+      <td class="rank">50</td>
+      <td class="name">Punishing Punch<span class="type">Instant</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+4.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.1</td>
+      <td class="dim">58.2</td>
+      <td class="dim">3.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/5/d521b80b-4b0b-4d69-bd95-4c83feaf2145.jpg?1781065469">
+      <td class="rank">51</td>
+      <td class="name">Epic Fight<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+4.4</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.6</td>
+      <td class="dim">55.0</td>
+      <td class="dim">2.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/6/2/620376d0-dc0c-405f-8121-eb36d9b4f4c2.jpg?1780919676">
+      <td class="rank">52</td>
+      <td class="name">Trickster&#x27;s Stratagem<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+4.3</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.4</td>
+      <td class="dim">58.4</td>
+      <td class="dim">4.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/8/2/822b0249-e1df-453d-8b60-75a5196ed818.jpg?1780925824">
+      <td class="rank">53</td>
+      <td class="name">Villainous Hideout<span class="type">Land</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+4.3</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 57.7</td>
+      <td class="dim">56.5</td>
+      <td class="dim">5.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/f/b/fb96ee86-5139-472a-9c4b-8a8a4280fc7e.jpg?1780413777">
+      <td class="rank">54</td>
+      <td class="name">Kang, Temporal Tyrant<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+4.3</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.4</td>
+      <td class="dim">54.4</td>
+      <td class="dim">4.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/8/d8b94ebb-0b3a-4e68-8c0c-3a61ac32f3ef.jpg?1780413721">
+      <td class="rank">55</td>
+      <td class="name">The Unbeatable Squirrel Girl<span class="type">Legendary Creature - Squirrel Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+4.2</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.7</td>
+      <td class="dim">59.1</td>
+      <td class="dim">2.1</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/2/3/236c437f-ee9d-4145-a4db-b665908089cf.jpg?1780413476">
+      <td class="rank">56</td>
+      <td class="name">Loki, God of Mischief<span class="type">Legendary Creature - God Sorcerer Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+4.0</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.9</td>
+      <td class="dim">58.8</td>
+      <td class="dim">2.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/a/9a1b057b-229c-4f65-ba4e-12dd342238de.jpg?1780919576">
+      <td class="rank">57</td>
+      <td class="name">Web Up<span class="type">Enchantment</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+4.0</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.8</td>
+      <td class="dim">57.9</td>
+      <td class="dim">2.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/e/9e0034dd-396e-46af-b931-0daa25da4406.jpg?1780919723">
+      <td class="rank">58</td>
+      <td class="name">Hour of Defeat<span class="type">Instant</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+4.0</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.9</td>
+      <td class="dim">53.4</td>
+      <td class="dim">3.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/b/4/b48278fd-1d95-4ad6-9a51-f1c5a2ab9f4b.jpg?1780572425">
+      <td class="rank">59</td>
+      <td class="name">Jessica Jones, Private Eye<span class="type">Legendary Creature - Human Detective Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.9</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.4</td>
+      <td class="dim">58.6</td>
+      <td class="dim">4.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/8/d8f91212-2ff5-4024-8f14-86bb5c4a9754.jpg?1780919820">
+      <td class="rank">60</td>
+      <td class="name">Yellowjacket, Heartless Marauder<span class="type">Legendary Creature - Human Rogue Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.9</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.7</td>
+      <td class="dim">56.3</td>
+      <td class="dim">4.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/6/f/6f6e6767-4d20-469c-9f4b-7286b8cc1979.jpg?1780919806">
+      <td class="rank">61</td>
+      <td class="name">Whiplash, Vengeful Engineer<span class="type">Legendary Creature - Human Artificer Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.7</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.9</td>
+      <td class="dim">58.0</td>
+      <td class="dim">5.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/0/7/0742ddb6-71ed-444e-91ad-84f876725a4a.jpg?1780434091">
+      <td class="rank">62</td>
+      <td class="name">Hidden Lair<span class="type">Land</span></td>
+      <td class="ci"><span class="pip" style="background:#95a5a6">C</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.7</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.4</td>
+      <td class="dim">56.9</td>
+      <td class="dim">4.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/2/c281e0ee-155b-4022-b921-ebc391535aad.jpg?1780629742">
+      <td class="rank">63</td>
+      <td class="name">Titania, Rugged Rumbler<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.7</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.4</td>
+      <td class="dim">56.5</td>
+      <td class="dim">3.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/b/3/b38b9bd6-1dd7-4bbc-8a82-ce391c1172e1.jpg?1780658507">
+      <td class="rank">64</td>
+      <td class="name">Earth&#x27;s Mightiest Heroes<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#3f6212">+3.7</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 59.0</td>
+      <td class="dim">58.1</td>
+      <td class="dim">2.2</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/8/98df64ca-39c3-47e6-8143-4106c8e9cf59.jpg?1780413443">
+      <td class="rank">65</td>
+      <td class="name">Murdock&#x27;s Crusade<span class="type">Sorcery</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+3.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.0</td>
+      <td class="dim">58.7</td>
+      <td class="dim">4.3</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/1/4/14e821bb-55cc-474e-9b63-0ceecc2666c1.jpg?1780539551">
+      <td class="rank">66</td>
+      <td class="name">Daredevil, Man Without Fear<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#e74c3c;color:#fff">R</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.6</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.4</td>
+      <td class="dim">56.1</td>
+      <td class="dim">2.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/8/d/8dc209ed-0d4c-4d0c-90e8-04cadc3d4c3d.jpg?1780572667">
+      <td class="rank">67</td>
+      <td class="name">Falcon, Winged Wonder<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.6</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.7</td>
+      <td class="dim">57.8</td>
+      <td class="dim">3.6</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/0/d/0d4265fd-cbfa-4e57-89fd-a1d757acfe81.jpg?1780925794">
+      <td class="rank">68</td>
+      <td class="name">Taskmaster, Mercenary Mimic<span class="type">Legendary Creature - Human Mercenary Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.6</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.3</td>
+      <td class="dim">52.8</td>
+      <td class="dim">3.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/7/c79a86f8-24e9-49a2-8b1c-72a72fed1985.jpg?1780919741">
+      <td class="rank">69</td>
+      <td class="name">Klaw, Sonic Subjugator<span class="type">Legendary Creature - Human Rogue Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.5</td>
+      <td><span class="tier" style="background:#10b981">B</span> 57.3</td>
+      <td class="dim">55.8</td>
+      <td class="dim">3.9</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/2/0/209855ee-d531-4b58-926b-8da171d46619.jpg?1780658601">
+      <td class="rank">70</td>
+      <td class="name">The Serpent Society<span class="type">Legendary Creature - Human Snake Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span><span class="pip" style="background:#27ae60;color:#fff">G</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.5</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.3</td>
+      <td class="dim">54.5</td>
+      <td class="dim">3.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/4/9/495c08ea-5502-4bfe-aa15-fa85556755ae.jpg?1780413804">
+      <td class="rank">71</td>
+      <td class="name">The Kingpin of Crime<span class="type">Legendary Creature - Human Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.5</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.7</td>
+      <td class="dim">55.9</td>
+      <td class="dim">3.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/b/9b99894b-c774-45c2-9ee9-4d6a8e7522f5.jpg?1778243888">
+      <td class="rank">72</td>
+      <td class="name">Doom Reigns Supreme<span class="type">Enchantment - Plan</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.5</td>
+      <td><span class="tier" style="background:#eab308">C</span> 53.5</td>
+      <td class="dim">55.6</td>
+      <td class="dim">2.5</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/9/b/9b0701e8-e365-425a-b897-92f4df9edcb8.jpg?1780516509">
+      <td class="rank">73</td>
+      <td class="name">Origin of the Avengers<span class="type">Enchantment - Saga</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarR">R</span></td>
+      <td class="iwd" style="background:#3f6212">+3.5</td>
+      <td><span class="tier" style="background:#3b82f6">A</span> 58.3</td>
+      <td class="dim">59.4</td>
+      <td class="dim">1.9</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/1/3/13b70321-75bd-4d44-b9f6-5f062a5dda0f.jpg?1780919683">
+      <td class="rank">74</td>
+      <td class="name">We Say Thee Nay!<span class="type">Instant - Arcane</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+3.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.2</td>
+      <td class="dim">59.7</td>
+      <td class="dim">4.7</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/c/3/c3d0f02f-dfaf-47b6-8053-514417f4dfe2.jpg?1780925755">
+      <td class="rank">75</td>
+      <td class="name">S.H.I.E.L.D. Deployment Drone<span class="type">Artifact Creature - Robot</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+3.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.4</td>
+      <td class="dim">59.3</td>
+      <td class="dim">4.0</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/f/e/fe692959-64ca-4065-9f9e-1abe590e3d0f.jpg?1780657786">
+      <td class="rank">76</td>
+      <td class="name">Stature, Size Shifter<span class="type">Legendary Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.4</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 60.0</td>
+      <td class="dim">60.3</td>
+      <td class="dim">4.4</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/b/dbee18af-9ade-4251-81a1-f6e7ffbf480f.jpg?1780919813">
+      <td class="rank">77</td>
+      <td class="name">Widow&#x27;s Bite<span class="type">Instant</span></td>
+      <td class="ci"><span class="pip" style="background:#7d3c98;color:#fff">B</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+3.4</td>
+      <td><span class="tier" style="background:#10b981">B</span> 56.2</td>
+      <td class="dim">54.6</td>
+      <td class="dim">4.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/d/e/dec3dd36-b8ca-432b-8973-d37c6efc4c1a.jpg?1780516514">
+      <td class="rank">78</td>
+      <td class="name">Political Triumph<span class="type">Enchantment - Plan</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarU">U</span></td>
+      <td class="iwd" style="background:#3f6212">+3.3</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 61.0</td>
+      <td class="dim">65.3</td>
+      <td class="dim">3.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/1/0/105a937b-289c-47b5-96a4-654c697bbb7d.jpg?1780919524">
+      <td class="rank">79</td>
+      <td class="name">Hero in Training<span class="type">Creature - Human Hero</span></td>
+      <td class="ci"><span class="pip" style="background:#f9e79f;color:#111">W</span></td>
+      <td><span class="rar rarC">C</span></td>
+      <td class="iwd" style="background:#3f6212">+3.2</td>
+      <td><span class="tier" style="background:#8b5cf6">S</span> 62.1</td>
+      <td class="dim">61.2</td>
+      <td class="dim">3.8</td>
+    </tr><tr data-img="https://cards.scryfall.io/large/front/7/a/7aaefcf9-fbe1-4767-92a5-09825761d116.jpg?1778243782">
+      <td class="rank">80</td>
+      <td class="name">Namor the Sub-Mariner<span class="type">Legendary Creature - Mutant Merfolk Villain</span></td>
+      <td class="ci"><span class="pip" style="background:#5dade2;color:#fff">U</span></td>
+      <td><span class="rar rarM">M</span></td>
+      <td class="iwd" style="background:#3f6212">+3.1</td>
+      <td><span class="tier" style="background:#10b981">B</span> 55.7</td>
+      <td class="dim">52.9</td>
+      <td class="dim">2.5</td>
+    </tr></tbody></table>
+<img id="pv">
+<script>
+const pv=document.getElementById('pv');
+document.querySelectorAll('tr[data-img]').forEach(tr=>{
+  tr.addEventListener('mouseenter',()=>{const s=tr.dataset.img;if(s){pv.src=s;pv.style.display='block'}});
+  tr.addEventListener('mouseleave',()=>{pv.style.display='none'});
+  tr.addEventListener('mousemove',e=>{
+    let x=e.clientX+22,y=e.clientY-120;
+    if(x+250>innerWidth)x=e.clientX-266;
+    if(y<8)y=8; if(y+340>innerHeight)y=innerHeight-346;
+    pv.style.left=x+'px';pv.style.top=y+'px';
+  });
+});
+</script></body></html>

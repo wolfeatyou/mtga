@@ -1,0 +1,22 @@
+Deck
+3 Ninja of the Hand (MSH) 108
+1 Titania, Rugged Rumbler (MSH) 235
+3 Aerial Doombot (MSH) 43
+2 Widow's Bite (MSH) 122
+2 Hydraulic Helper (MSH) 57
+2 H.E.R.B.I.E. Scout Unit (MSH) 247
+3 Frozen in Ice (MSH) 54
+2 A.I.M. Scientists (MSH) 44
+2 Bold Biochemist (MSH) 48
+1 Atlantis Attacks (MSH) 46
+1 Falcon, Winged Wonder (MSH) 52
+1 Grim Reaper, Lethal Legionnaire (MSH) 98
+2 Falcon's Wing Harness (MSH) 53
+2 Kingpin's Enforcers (MSH) 102
+1 Stolen Stark Tech (MSH) 114
+2 Counterspell (MAR) 52
+3 Hour of Defeat (MSH) 99
+1 Echo, Perceptive Prodigy (MSH) 51
+1 Crossbones, Malicious Mercenary (MSH) 91
+15 Island (MSH) 290
+10 Swamp (MSH) 292

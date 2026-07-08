@@ -1,27 +1,23 @@
 Deck
-2 Aerial Doombot (MSH) 43
-3 Brave Brawler (MSH) 8
-2 Bold Biochemist (MSH) 48
-1 Raft Security Officer (MSH) 33
-1 Shuri, Wakandan Inventor (MSH) 75
-2 Hero in Training (MSH) 16
-2 S.H.I.E.L.D. Deployment Drone (MSH) 73
-1 Iron Lad, Diverging Destiny (MSH) 59
-2 Spider-Woman, Secret Agent (MSH) 229
-2 H.E.R.B.I.E. Scout Unit (MSH) 247
-2 Giant-Sized Flying Ant (MSH) 56
-2 U.S.Agent, John Walker (MSH) 236
-1 Attuma, Atlantean Warlord (MSH) 47
-1 The Sentry, Golden Guardian (MSH) 35
-2 Murdock's Crusade (MSH) 24
-1 Super Villain Lockup (MSH) 37
-2 Trickster's Stratagem (MSH) 81
-1 Futurist Forge (MSH) 55
-3 I Am Iron Man (MSH) 58
-1 Super Suit (MSH) 78
-1 Atlantis Attacks (MSH) 46
-13 Island (MSH) 290
-9 Plains (MSH) 288
-1 Avengers Hangar (MSH) 259
-1 Surveillance Room (MSH) 274
-1 Avengers Tower (MSH) 260
+1 Kid Loki
+2 Ms. Marvel, Kamala Khan
+1 Ghost, Spectral Saboteur
+1 Ultron Drone
+1 Spider-Woman, Secret Agent
+3 Giant-Sized Flying Ant
+2 Mister Fantastic, Reed Richards
+2 The Sentry, Golden Guardian
+2 Wakandan Drone Flock
+2 H.E.R.B.I.E. Scout Unit
+1 Attuma, Atlantean Warlord
+1 Cosmic Cube
+3 Helicarrier Strike
+2 Murdock's Crusade
+2 Web Up
+2 Frozen in Ice
+2 Secret Invasion
+2 Depower
+2 Trickster's Stratagem
+1 Borough Backup
+15 Island
+10 Plains

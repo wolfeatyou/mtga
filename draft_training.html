@@ -1,0 +1,469 @@
+<style>
+  :root{
+    --ink:#0d1420; --panel:#131d2e; --panel-2:#182541;
+    --line:#26344c; --line-soft:#1d2942;
+    --text:#e7edf8; --muted:#93a4c1; --faint:#64758f;
+    --accent:#65a8f1; --accent-deep:#3d80cb;
+    --gold:#e2ad58; --good:#5cc191; --rose:#e0776b;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","SFMono-Regular","Cascadia Code",Menlo,Consolas,monospace;
+    --serif:Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0}
+  .wrap{
+    background:
+      radial-gradient(1200px 600px at 70% -10%, rgba(61,128,203,.14), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(92,193,145,.06), transparent 55%),
+      var(--ink);
+    color:var(--text); font-family:var(--sans);
+    line-height:1.6; font-size:16px;
+    padding:clamp(20px,4vw,56px) clamp(16px,4vw,40px) 80px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .col{max-width:980px; margin:0 auto}
+  .read{max-width:720px}
+
+  .mast{border-bottom:1px solid var(--line); padding-bottom:34px; margin-bottom:40px}
+  .kicker{font-family:var(--mono); font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); margin:0 0 16px; display:flex; align-items:center; gap:10px}
+  .kicker::before{content:""; width:26px; height:1px; background:var(--accent); opacity:.7}
+  h1{font-size:clamp(30px,5.2vw,46px); line-height:1.08; margin:0 0 14px; letter-spacing:-.02em; text-wrap:balance; font-weight:700}
+  h1 .em{color:var(--accent)}
+  .dek{font-size:clamp(16px,2.2vw,18.5px); color:var(--muted); margin:0; max-width:660px; text-wrap:balance}
+  .mast-meta{font-family:var(--mono); font-size:12.5px; color:var(--faint); margin-top:20px; display:flex; flex-wrap:wrap; gap:8px 20px}
+  .mast-meta b{color:var(--muted); font-weight:600}
+
+  .sec-h{font-family:var(--mono); font-size:12.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--faint); margin:48px 0 18px; display:flex; align-items:center; gap:12px}
+  .sec-h::after{content:""; flex:1; height:1px; background:var(--line-soft)}
+  h2.blk{font-size:22px; margin:0 0 6px; letter-spacing:-.01em; text-wrap:balance}
+
+  .algo{display:grid; gap:14px; grid-template-columns:repeat(3,1fr); margin-bottom:22px}
+  .step{background:linear-gradient(180deg,var(--panel) 0%, #101827 100%); border:1px solid var(--line); border-radius:14px; padding:20px 20px 22px; position:relative; overflow:hidden}
+  .step::before{content:attr(data-n); position:absolute; top:-14px; right:2px; font-family:var(--mono); font-weight:700; font-size:72px; line-height:1; color:var(--accent); opacity:.09}
+  .step h3{margin:0 0 8px; font-size:16px; letter-spacing:-.01em}
+  .step h3 .t{font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:.08em; display:block; margin-bottom:3px; text-transform:uppercase}
+  .step p{margin:0; font-size:14px; color:var(--muted)}
+  .step ol{margin:8px 0 0; padding-left:18px; font-size:13.5px; color:var(--muted)}
+  .step ol li{margin:3px 0}
+
+  .chain{display:flex; flex-wrap:wrap; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; font-family:var(--mono); font-size:13px}
+  .chain .lab{color:var(--faint); text-transform:uppercase; letter-spacing:.12em; font-size:11px; margin-right:4px}
+  .chain .node{padding:5px 11px; border-radius:7px; background:var(--panel-2); border:1px solid var(--line); white-space:nowrap}
+  .chain .node.hi{background:rgba(101,168,241,.14); border-color:var(--accent-deep); color:#bcd9fb}
+  .chain .arw{color:var(--faint)}
+  .chain .node.lo{opacity:.72}
+
+  .legend{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .lg-card{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px}
+  .lg-card h4{margin:0 0 12px; font-size:13px; font-family:var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--accent)}
+  .lg-row{display:flex; gap:12px; padding:7px 0; border-top:1px solid var(--line-soft); font-size:13.5px}
+  .lg-row:first-of-type{border-top:0}
+  .lg-row .k{font-family:var(--mono); color:var(--text); min-width:64px; font-weight:600}
+  .lg-row .v{color:var(--muted)}
+  .lg-row .v b{color:var(--text); font-weight:600}
+  .tag{font-family:var(--mono); font-size:12px; padding:1px 6px; border-radius:5px; white-space:nowrap}
+  .tag.trap{color:var(--gold); border:1px solid rgba(226,173,88,.4); background:rgba(226,173,88,.08)}
+  .tag.off{color:var(--rose); border:1px solid rgba(224,119,107,.4); background:rgba(224,119,107,.08)}
+  .tag.syn{color:var(--good); border:1px solid rgba(92,193,145,.4); background:rgba(92,193,145,.08)}
+  .tag.spl{color:var(--muted); border:1px solid var(--line)}
+  .tag.sig{color:var(--accent); border:1px solid rgba(101,168,241,.4); background:rgba(101,168,241,.08)}
+
+  .pick{background:linear-gradient(180deg,rgba(24,37,65,.35),rgba(19,29,46,.5)); border:1px solid var(--line); border-radius:16px; padding:24px clamp(18px,3vw,30px) 26px; margin:20px 0}
+  .pick-head{display:flex; gap:18px; align-items:flex-start}
+  .pick-id{font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:.02em; color:var(--ink); background:var(--accent); padding:7px 11px; border-radius:9px; white-space:nowrap; flex-shrink:0; box-shadow:0 0 0 4px rgba(101,168,241,.12)}
+  .pick-title h2{margin:0 0 4px; font-size:20px; letter-spacing:-.01em; text-wrap:balance}
+  .pick-title h2 b{color:var(--accent); font-weight:700}
+  .pick-sub{margin:0; font-size:14px; color:var(--muted)}
+
+  .banner{font-family:var(--mono); font-size:13px; color:#f0d9a6; background:rgba(226,173,88,.09); border:1px solid rgba(226,173,88,.32); border-radius:10px; padding:11px 14px; margin:18px 0 0; display:flex; gap:10px; align-items:flex-start}
+  .banner .fl{color:var(--gold); font-weight:700; white-space:nowrap}
+  .banner.piv{color:#bcd9fb; background:rgba(101,168,241,.08); border-color:rgba(101,168,241,.3)}
+  .banner.piv .fl{color:var(--accent)}
+
+  .pack{margin-top:18px; background:rgba(9,14,23,.55); border:1px solid var(--line-soft); border-radius:12px; overflow:hidden}
+  .pack-label{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); padding:10px 14px; border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; gap:12px}
+  /* ---- draft pack grid (booster layout) ---- */
+  .pack-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:16px; padding:18px}
+  .dcard{position:relative; display:flex; flex-direction:column; gap:8px; scroll-margin:80px; cursor:zoom-in; transition:transform .14s ease}
+  .dcard:not(.has-img){cursor:default}
+  .dcard-img{position:relative; aspect-ratio:488/680; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#0a0f18; box-shadow:0 6px 16px rgba(0,0,0,.4)}
+  .dcard-img img{width:100%; height:100%; display:block; object-fit:cover}
+  .dcard.has-img:hover{transform:translateY(-5px)}
+  .dcard.has-img:hover .dcard-img{border-color:var(--accent)}
+  .dcard.picked{transform:translateY(-3px)}
+  .dcard.picked .dcard-img{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent), 0 0 26px rgba(101,168,241,.45)}
+  .dcard-img.nodata{display:flex; align-items:center; justify-content:center; border-style:dashed}
+  .dcard-img.nodata span{font-family:var(--mono); font-size:12px; color:var(--faint); text-align:center; line-height:1.3}
+  .dbadge{position:absolute; top:6px; left:6px; display:flex; align-items:center; gap:5px; font-family:var(--mono); font-size:11.5px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--text); background:rgba(6,10,17,.86); border:1px solid rgba(255,255,255,.14); border-radius:6px; padding:2px 6px}
+  .dbadge .tt{font-size:10px; font-weight:700; padding:0 4px; border-radius:4px; line-height:1.6}
+  .tt.A{color:#0e1a13; background:var(--good)}
+  .tt.B{color:#0c1622; background:#5b9bd8}
+  .tt.C{color:#e7edf8; background:#39485f}
+  .tt.D{color:#c4cede; background:#2a3346}
+  .tt.F{color:#f0cfca; background:#5a2f2c}
+  .tt.unk{color:var(--faint); background:transparent; border:1px solid var(--line)}
+  .dribbon{position:absolute; top:6px; right:6px; font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; color:var(--ink); background:var(--accent); border-radius:6px; padding:2px 7px; box-shadow:0 2px 8px rgba(0,0,0,.4)}
+  .dcap{font-family:var(--mono); font-size:11px; line-height:1.4}
+  .dcap .nm{display:block; color:var(--muted); font-weight:600; margin-bottom:2px}
+  .dcap .nt{display:block; color:var(--faint)}
+  .dcap .nt.warn{color:var(--gold)} .dcap .nt.pos{color:var(--good)} .dcap .nt.neg{color:var(--rose)}
+  .pool{font-family:var(--mono); font-size:12px; color:var(--faint); padding:10px 14px; border-top:1px solid var(--line-soft); background:rgba(9,14,23,.4)}
+  .pool b{color:var(--muted)}
+
+  .think{margin-top:18px; display:grid; gap:8px}
+  .q{display:flex; gap:12px; background:var(--panel); border:1px solid var(--line-soft); border-radius:10px; padding:12px 14px}
+  .qn{font-family:var(--mono); font-weight:700; font-size:12px; flex-shrink:0; width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; background:var(--panel-2); border:1px solid var(--line); color:var(--accent)}
+  .q .qbody{font-size:14px}
+  .q .qlab{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--faint); display:block; margin-bottom:2px}
+  .q .qbody b{color:var(--text); font-weight:600}
+  .q.skip{opacity:.6}
+
+  .verdict{margin-top:16px; display:flex; gap:14px; flex-wrap:wrap; align-items:baseline; padding:14px 16px; border-radius:10px; background:rgba(101,168,241,.07); border:1px solid rgba(101,168,241,.24)}
+  .verdict .vp{font-family:var(--mono); font-size:13px; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; white-space:nowrap}
+  .verdict .vwon{font-size:14px; color:var(--muted)}
+  .verdict .vwon b{color:var(--text)}
+
+  .principle{margin:16px 0 0; padding:16px 18px 16px 20px; border-left:3px solid var(--accent); background:rgba(255,255,255,.02); border-radius:0 10px 10px 0}
+  .principle .pl{font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:6px}
+  .principle p{margin:0; font-family:var(--serif); font-size:16.5px; font-style:italic; line-height:1.55; color:#e9eef8}
+  .principle p b{font-style:normal; color:#fff}
+
+  .checklist{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px clamp(18px,3vw,28px)}
+  .checklist ol{margin:0; padding:0; counter-reset:ck; list-style:none}
+  .checklist li{counter-increment:ck; padding:14px 0 14px 44px; position:relative; border-top:1px solid var(--line-soft); font-size:15px}
+  .checklist li:first-child{border-top:0}
+  .checklist li::before{content:counter(ck); position:absolute; left:0; top:12px; font-family:var(--mono); font-weight:700; font-size:13px; color:var(--accent); width:28px; height:28px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:var(--panel-2); border:1px solid var(--line)}
+  .checklist li b{color:var(--text)}
+  .checklist li .sub{display:block; color:var(--muted); font-size:13.5px; margin-top:3px}
+
+  .mistakes{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+  .mis{background:var(--panel); border:1px solid var(--line-soft); border-radius:11px; padding:15px 16px}
+  .mis .mh{font-family:var(--mono); font-size:12px; color:var(--rose); margin-bottom:5px; display:flex; gap:7px; align-items:center}
+  .mis .mh::before{content:"✗"; font-weight:700}
+  .mis p{margin:0; font-size:13.5px; color:var(--muted)}
+  .mis .fix{color:var(--good); font-family:var(--mono); font-size:12px; margin-top:7px; display:block}
+  .mis .fix::before{content:"→ "}
+
+  .foot{margin-top:44px; padding-top:20px; border-top:1px solid var(--line); font-family:var(--mono); font-size:12px; color:var(--faint); text-align:center}
+
+  /* floating card preview */
+  #cardpeek{position:fixed; left:0; top:0; width:300px; max-width:44vw; border-radius:12px; box-shadow:0 18px 50px rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.1); opacity:0; transform:scale(.94); transition:opacity .12s ease, transform .12s ease; pointer-events:none; z-index:50; display:block}
+  #cardpeek.on{opacity:1; transform:scale(1)}
+  #cardpeek.pinned{left:auto !important; right:24px; top:24px !important}
+  #cardpeek:not(.on){visibility:hidden}
+
+  a:focus-visible, .card:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+  @media (max-width:720px){
+    .algo{grid-template-columns:1fr}
+    .legend{grid-template-columns:1fr}
+    .mistakes{grid-template-columns:1fr}
+    .pick-head{flex-direction:column; gap:12px}
+    #cardpeek{width:210px}
+    .pack-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:12px; padding:12px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .pick,.step,.lg-card{opacity:0; transform:translateY(14px); animation:rise .6s ease forwards}
+    @keyframes rise{to{opacity:1; transform:none}}
+  }
+</style>
+
+<div class="wrap"><div class="col">
+  <header class="mast">
+    <p class="kicker">Draft Lab · MSH Premier · разбор открытия</p>
+    <h1>О чём думать <span class="em">перед</span> каждым пиком</h1>
+    <p class="dek">Разбор первых 7 пиков нашего WU-драфта — не «какую карту взять», а <b>какой алгоритм в голове</b> к ней приводит. Один и тот же мыслительный процесс, прокрученный семь раз.</p>
+    <div class="mast-meta">
+      <span><b>Сет:</b> Marvel Super Heroes</span>
+      <span><b>Фаза:</b> открытие (P1P1–P1P7)</span>
+      <span><b>Итог линии:</b> WU control</span>
+      <span><b>Данные:</b> 17Lands GIH / IWD</span>
+    </div>
+  </header>
+
+  <p class="sec-h">Универсальный алгоритм — 3 шага перед любым пиком</p>
+  <h2 class="blk">Скан → Думай → Пик</h2>
+  <p class="read" style="color:var(--muted); margin:6px 0 22px">GIH-ранг пака — это <b style="color:var(--text)">начало</b> размышления, а не его конец. Тул уже отсортировал карты по винрейту; твоя работа — наложить на этот список пул, цвета и дыры колоды. Весь «Думай»-шаг занимает ~30 секунд.</p>
+
+  <div class="algo">
+    <div class="step" data-n="1">
+      <h3><span class="t">Шаг 1</span>Скан пака</h3>
+      <p>Прочитай пак сверху вниз по GIH. Отметь три вещи:</p>
+      <ol><li>лучшая карта <b>в твоём цвете</b></li><li>лучшая карта <b>вне цвета</b> (кандидат на пивот)</li><li>выброс по <b>IWD</b> — бомба или ⚠trap</li></ol>
+    </div>
+    <div class="step" data-n="2">
+      <h3><span class="t">Шаг 2</span>Думай — 3 вопроса</h3>
+      <p>Ответь на три вопроса за полминуты:</p>
+      <ol><li><b>Якорь:</b> что наш движок и кормит ли это его?</li><li><b>Дыра:</b> чего колоде острее всего не хватает?</li><li><b>Дельта:</b> нет ли уже 2+ карт этой роли?</li></ol>
+    </div>
+    <div class="step" data-n="3">
+      <h3><span class="t">Шаг 3</span>Пик по приоритету</h3>
+      <p>Когда карты конфликтуют — выигрывает та, что выше в цепочке приоритета. GIH и кривая — в самом низу, а не наверху.</p>
+    </div>
+  </div>
+
+  <div class="chain">
+    <span class="lab">Приоритет</span>
+    <span class="node hi">якорь</span><span class="arw">›</span>
+    <span class="node hi">синергия</span><span class="arw">›</span>
+    <span class="node hi">дыра</span><span class="arw">›</span>
+    <span class="node">IWD-потолок</span><span class="arw">›</span>
+    <span class="node lo">GIH</span><span class="arw">›</span>
+    <span class="node lo">кривая</span>
+  </div>
+
+  <p class="sec-h">Как читать данные тула</p>
+  <div class="legend">
+    <div class="lg-card">
+      <h4>Метрики</h4>
+      <div class="lg-row"><span class="k">GIH</span><span class="v"><b>Games-in-hand winrate</b> — заголовочное число. Винрейт партий, где карта была в руке. Тир (A/B/C) выводится из него.</span></div>
+      <div class="lg-row"><span class="k">IWD</span><span class="v"><b>Improvement when drawn</b> — потолок карты. Насколько лучше идут партии, когда её тянешь. + = бомба; <b>минус = ⚠trap</b> (тянуть статистически ВРЕДНО).</span></div>
+      <div class="lg-row"><span class="k">OH</span><span class="v"><b>Opening-hand winrate</b> — пол карты. Не мертва ли она в стартовой руке.</span></div>
+      <div class="lg-row"><span class="k">ALSA</span><span class="v">Средний пик, на котором карту забирают. Низкий = её ценят рано.</span></div>
+      <div class="lg-row"><span class="k">WU 62.7</span><span class="v"><b>Цвет-фильтр</b> — винрейт карты именно в колодах твоей пары. «Как играет в МОЁМ архетипе», важнее общего GIH.</span></div>
+    </div>
+    <div class="lg-card">
+      <h4>Флаги и сигналы</h4>
+      <div class="lg-row"><span class="k"><span class="tag spl">~splash</span></span><span class="v">Нужен 1 вне-цветной пип. Реально только при 3+ источниках фикса (Rule of Three).</span></div>
+      <div class="lg-row"><span class="k"><span class="tag off">✗offcolor</span></span><span class="v">2+ вне-цветных пипа — не кастуется. Карты как бы нет, пока нет фикса.</span></div>
+      <div class="lg-row"><span class="k"><span class="tag syn">★synergy</span></span><span class="v">Пайофф, который твой пул уже поддерживает (≥6 энейблеров).</span></div>
+      <div class="lg-row"><span class="k"><span class="tag sig">⚑ ПИВОТ</span></span><span class="v">Сильные вне-цветные карты текут → цвет открыт слева. Адресуй, но не дёргайся рефлекторно.</span></div>
+      <div class="lg-row"><span class="k"><span class="tag sig">⚑ КОЛЕСО</span></span><span class="v">Сильная карта вернулась через круг → её цвет открыт, греби туда.</span></div>
+      <div class="lg-row"><span class="k"><span class="tag sig">SOUP-AUDIT</span></span><span class="v">Пик 5–6: счётчик фикса. ≥3 = можно в соуп; &lt;3 = держись 2 цветов.</span></div>
+    </div>
+  </div>
+
+<p class="sec-h">Семь пиков — один алгоритм · <span style="color:var(--accent)">наведи на карту, чтобы увеличить</span></p>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P1</span>
+    <div class="pick-title"><h2>Бомба без цвета → <b>Cosmic Cube</b></h2>
+    <p class="pick-sub">Пустой пул. Задача — взять максимум силы и не запереть себя в цвете.</p></div></div>
+  
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>14 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard picked has-img" data-slug="cosmic-cube" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/1/d1cf1ead-fe91-4328-89ab-6d0bc9ff6cbe.jpg?1780658779" alt="Cosmic Cube" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>61.0</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">Cosmic Cube</span><span class="nt pos">колорлесс-бомба · Ward 2 · движок карт · IWD +6.9</span></div></div>
+<div class="dcard has-img" data-slug="borough-backup" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/b/b/bb753ac8-67e1-44b0-b404-37f04c2b7438.jpg?1780919492" alt="Borough Backup" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>59.4</span><div class="dcap"><span class="nm">Borough Backup</span></div></div>
+<div class="dcard has-img" data-slug="giant-sized-flying-ant" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/a/da529bb3-725b-41aa-ac34-b4117ff5d95b.jpg?1780919628" alt="Giant-Sized Flying Ant" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.8</span><div class="dcap"><span class="nm">Giant-Sized Flying Ant</span></div></div>
+<div class="dcard has-img" data-slug="avengers-hangar" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/5/c5d03ebb-1ce9-4a6b-b13e-a72f0b075ae8.jpg?1780920267" alt="Avengers Hangar" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.8</span><div class="dcap"><span class="nm">Avengers Hangar</span><span class="nt">дуал-тапленд W/U</span></div></div>
+<div class="dcard has-img" data-slug="futurist-forge" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/5/a50feebf-c660-43f1-9fae-75294703b346.jpg?1780919622" alt="Futurist Forge" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.7</span><div class="dcap"><span class="nm">Futurist Forge</span><span class="nt">движок карт</span></div></div>
+<div class="dcard has-img" data-slug="baxter-building" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/a/1abc652f-8e9d-4df7-bc4e-d8b515a40fec.jpg?1780544612" alt="Baxter Building" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.0</span><div class="dcap"><span class="nm">Baxter Building</span><span class="nt">утилити-земля</span></div></div>
+<div class="dcard has-img" data-slug="wiccan-rising-magician" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/5/d/5d27ddec-716d-47e5-ac48-365e91b88ff1.jpg?1781065475" alt="Wiccan, Rising Magician" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.6</span><div class="dcap"><span class="nm">Wiccan, Rising Magician</span></div></div>
+<div class="dcard has-img" data-slug="guerrilla-gorilla" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/f/af6bc9d2-5783-489a-8963-af65f54f4f17.jpg?1780919979" alt="Guerrilla Gorilla" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.5</span><div class="dcap"><span class="nm">Guerrilla Gorilla</span></div></div>
+<div class="dcard has-img" data-slug="photon-blast-barrage" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/8/f85a77d2-e11e-44bc-a1e7-d783cd49d714.jpg?1780413661" alt="Photon Blast Barrage" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.7</span><div class="dcap"><span class="nm">Photon Blast Barrage</span></div></div>
+<div class="dcard has-img" data-slug="red-room-recruit" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/5/f52a5ba3-a618-4f52-9d33-ba85345eb627.jpg?1780919765" alt="Red Room Recruit" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.3</span><div class="dcap"><span class="nm">Red Room Recruit</span></div></div>
+<div class="dcard has-img" data-slug="hydra-troopers" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/0/40c202f1-6e0d-42f4-a41e-e0be3362d585.jpg?1780572397" alt="HYDRA Troopers" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.9</span><div class="dcap"><span class="nm">HYDRA Troopers</span></div></div>
+<div class="dcard has-img" data-slug="repulsor-blast" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/8/3/837265b0-fc15-4d96-9d6b-fd1c78534262.jpg?1780919908" alt="Repulsor Blast" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>51.9</span><div class="dcap"><span class="nm">Repulsor Blast</span></div></div>
+<div class="dcard has-img" data-slug="construct-a-cosmic-cube" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/4/448de757-ac16-4529-b851-1a1331b821a5.jpg?1780457773" alt="Construct a Cosmic Cube" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>48.7</span><div class="dcap"><span class="nm">Construct a Cosmic Cube</span><span class="nt warn">⚠trap · IWD −0.6 · похожее имя ≠ похожая сила</span></div></div>
+<div class="dcard has-img" data-slug="volcanic-villain" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/f/4f48ba40-9934-40fd-a251-e15a68e772d2.jpg?1780919953" alt="Volcanic Villain" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>48.0</span><div class="dcap"><span class="nm">Volcanic Villain</span><span class="nt warn">⚠trap · IWD −2.0</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> пусто</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>Пула нет — вопрос P1P1 переформулируется: <b>какая карта самая мощная и самая гибкая?</b> Cosmic Cube — движок карт-преимущества, кастуется в любой колоде.</div></div><div class="q skip"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Неприменимо — колоды ещё нет.</div></div><div class="q skip"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Неприменимо.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · Cosmic Cube</span><span class="vwon">Победил: <b>GIH + гибкость</b>. Единственная карта, что одновременно самая сильная (61.0), с высоким потолком (IWD +6.9) И бесцветная — ноль обязательств.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>P1P1 — бери силу, не коммить цвет.</b> Бесцветная бомба — идеальный первый пик: максимум мощи при нуле обязательств. И смотри не только на верхний GIH, но и на IWD (потолок) и гибкость.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P2</span>
+    <div class="pick-title"><h2>Гибкость против условного removal → <b>Spider-Woman</b></h2>
+    <p class="pick-sub">Всё ещё нет цвета. Развилка: гибридное тело или моно-белый убийца.</p></div></div>
+  
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>13 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard picked has-img" data-slug="spider-woman-secret-agent" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/0/a0325cb5-4c43-418a-8f1b-cf5bf29e74d7.jpg?1780413818" alt="Spider-Woman, Secret Agent" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>60.0</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">Spider-Woman, Secret Agent</span><span class="nt pos">1/4 flash · тапает и держит тапнутым (квази-removal)</span></div></div>
+<div class="dcard has-img" data-slug="red-guardian-super-soldier" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/0/c08f8163-319a-4a31-b15a-93974cacd5b7.jpg?1780919550" alt="Red Guardian, Super-Soldier" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>59.8</span><div class="dcap"><span class="nm">Red Guardian, Super-Soldier</span><span class="nt neg">removal, но условный (только по нанёсшему урон) + моно-W</span></div></div>
+<div class="dcard has-img" data-slug="borough-backup" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/b/b/bb753ac8-67e1-44b0-b404-37f04c2b7438.jpg?1780919492" alt="Borough Backup" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>59.4</span><div class="dcap"><span class="nm">Borough Backup</span></div></div>
+<div class="dcard has-img" data-slug="giant-sized-flying-ant" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/a/da529bb3-725b-41aa-ac34-b4117ff5d95b.jpg?1780919628" alt="Giant-Sized Flying Ant" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.8</span><div class="dcap"><span class="nm">Giant-Sized Flying Ant</span></div></div>
+<div class="dcard has-img" data-slug="bold-biochemist" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/0/10644127-3da0-484e-9afc-de26d9c34390.jpg?1780919602" alt="Bold Biochemist" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.5</span><div class="dcap"><span class="nm">Bold Biochemist</span></div></div>
+<div class="dcard has-img" data-slug="villainous-hideout" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/8/2/822b0249-e1df-453d-8b60-75a5196ed818.jpg?1780925824" alt="Villainous Hideout" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.3</span><div class="dcap"><span class="nm">Villainous Hideout</span></div></div>
+<div class="dcard has-img" data-slug="surveillance-room" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/8/f/8fb51fbb-ab7f-4484-a3c9-dc50cb6f2756.jpg?1780920317" alt="Surveillance Room" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.2</span><div class="dcap"><span class="nm">Surveillance Room</span></div></div>
+<div class="dcard has-img" data-slug="pym-technologies" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/d/1de583ce-e805-45f1-907f-198bc82fd3b5.jpg?1780920299" alt="Pym Technologies" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.2</span><div class="dcap"><span class="nm">Pym Technologies</span><span class="nt">дуал G/U</span></div></div>
+<div class="dcard has-img" data-slug="hydra-infiltration" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/2/c2e446e1-e384-4d5f-8099-544f78c08510.jpg?1780919729" alt="HYDRA Infiltration" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.0</span><div class="dcap"><span class="nm">HYDRA Infiltration</span></div></div>
+<div class="dcard has-img" data-slug="hydra-assault-robot" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/3/e3b23fff-7d3b-4341-b556-82136f8c113b.jpg?1780919868" alt="HYDRA Assault Robot" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.9</span><div class="dcap"><span class="nm">HYDRA Assault Robot</span></div></div>
+<div class="dcard has-img" data-slug="loki-laufeyson" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/5/3/53b795a7-11f8-423a-b021-f811007fc82f.jpg?1780919895" alt="Loki Laufeyson" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.8</span><div class="dcap"><span class="nm">Loki Laufeyson</span></div></div>
+<div class="dcard has-img" data-slug="restorative-technique" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/b/dbe9102d-b92b-4c32-93f6-5b6dc0fa08e6.jpg?1780920044" alt="Restorative Technique" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.6</span><div class="dcap"><span class="nm">Restorative Technique</span></div></div>
+<div class="dcard has-img" data-slug="madame-hydra" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/9/e94ccedb-1d27-4098-8823-d8d99b30387c.jpg?1780413811" alt="Madame Hydra" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>48.9</span><div class="dcap"><span class="nm">Madame Hydra</span><span class="nt warn">⚠trap · трайбал без плотности</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> Cosmic Cube</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>Цвета ещё нет. Какая карта <b>сильна И держит максимум дверей открытыми?</b> Spider-Woman {3}{W/U} кастуется за W или U — оставляет обе половины живыми и ложится в U-контроль под Cosmic Cube.</div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Пока рано считать дыры — берём силу + гибкость.</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Нет.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · Spider-Woman</span><span class="vwon">Победил: <b>GIH + гибкость</b>. При почти равном GIH (60.0 vs 59.8) гибрид не запирает в один цвет рано, а Red Guardian — условный убийца в моно-W.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p>Обычно <b>removal &gt; всё</b> — но когда убийца <b>условный и моно-цветный</b>, а рядом карта выше по GIH и на гибридной мане, ранние пики (1–3) могут выбрать гибкость. Гибрид W/U держит оба цвета открытыми до реального сигнала.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P3</span>
+    <div class="pick-title"><h2>Когда все стрелки сходятся → <b>Murdock's Crusade</b></h2>
+    <p class="pick-sub">Пул кренится в W/U. Топ-GIH оказывается removal в нашем цвете.</p></div></div>
+  
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>12 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard picked has-img" data-slug="murdock-s-crusade" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/9/8/98df64ca-39c3-47e6-8143-4106c8e9cf59.jpg?1780413443" alt="Murdock&#x27;s Crusade" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>61.3</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">Murdock&#x27;s Crusade</span><span class="nt pos">exile toughness ≥4 / ужимание · IWD +3.8</span></div></div>
+<div class="dcard has-img" data-slug="s-h-i-e-l-d-deployment-drone" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/3/c3d0f02f-dfaf-47b6-8053-514417f4dfe2.jpg?1780925755" alt="S.H.I.E.L.D. Deployment Drone" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>60.7</span><div class="dcap"><span class="nm">S.H.I.E.L.D. Deployment Drone</span><span class="nt">флаер + токен — тоже A, но не removal</span></div></div>
+<div class="dcard has-img" data-slug="we-say-thee-nay" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/3/13b70321-75bd-4d44-b9f6-5f062a5dda0f.jpg?1780919683" alt="We Say Thee Nay!" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>60.4</span><div class="dcap"><span class="nm">We Say Thee Nay!</span></div></div>
+<div class="dcard has-img" data-slug="red-guardian-super-soldier" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/0/c08f8163-319a-4a31-b15a-93974cacd5b7.jpg?1780919550" alt="Red Guardian, Super-Soldier" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>59.8</span><div class="dcap"><span class="nm">Red Guardian, Super-Soldier</span></div></div>
+<div class="dcard has-img" data-slug="falcon-s-wing-harness" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/2/0/20e93f86-9e20-4e08-9bf7-ae6ebebf6876.jpg?1780572359" alt="Falcon&#x27;s Wing Harness" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.7</span><div class="dcap"><span class="nm">Falcon&#x27;s Wing Harness</span><span class="nt">даёт полёт (эвейжн-эквип)</span></div></div>
+<div class="dcard has-img" data-slug="pym-technologies" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/d/1de583ce-e805-45f1-907f-198bc82fd3b5.jpg?1780920299" alt="Pym Technologies" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.2</span><div class="dcap"><span class="nm">Pym Technologies</span></div></div>
+<div class="dcard has-img" data-slug="guerrilla-gorilla" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/f/af6bc9d2-5783-489a-8963-af65f54f4f17.jpg?1780919979" alt="Guerrilla Gorilla" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.5</span><div class="dcap"><span class="nm">Guerrilla Gorilla</span></div></div>
+<div class="dcard has-img" data-slug="wakandan-royal-guard" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/9/b/9bf0b1e9-32b5-4591-8dd2-6b5f9768c72d.jpg?1780920138" alt="Wakandan Royal Guard" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.8</span><div class="dcap"><span class="nm">Wakandan Royal Guard</span></div></div>
+<div class="dcard has-img" data-slug="hulk-smash" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/3/7/374ffb3e-0753-4682-936a-ae6921ace475.jpg?1780413626" alt="HULK SMASH!" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.1</span><div class="dcap"><span class="nm">HULK SMASH!</span></div></div>
+<div class="dcard has-img" data-slug="ninja-of-the-hand" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/6/b/6b8116d8-2cc6-449b-a8b4-8a5166553497.jpg?1780919753" alt="Ninja of the Hand" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.0</span><div class="dcap"><span class="nm">Ninja of the Hand</span></div></div>
+<div class="dcard has-img" data-slug="dependable-quinjet" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/0/c035c625-4de5-4c3b-9d07-aa1df8fc7b78.jpg?1780920205" alt="Dependable Quinjet" loading="lazy"></div><span class="dbadge"><i class="tt C">C</i>53.6</span><div class="dcap"><span class="nm">Dependable Quinjet</span></div></div>
+<div class="dcard has-img" data-slug="wonder-man-hollywood-hero" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/e/1ee52395-9523-4da1-9108-8ab79229fc7a.jpg?1780919959" alt="Wonder Man, Hollywood Hero" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>51.3</span><div class="dcap"><span class="nm">Wonder Man, Hollywood Hero</span><span class="nt warn">⚠trap · IWD −0.8 · дорогой power-up</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> Cosmic Cube · Spider-Woman  →  W:1 U:1</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>Ещё нет бомбы-движка кроме Cosmic Cube — этот пак про силу + начало коммита. Murdock's белый, а Spider-Woman может быть белой → <b>W/U оформляется.</b></div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>У нас <b>ноль removal.</b> Murdock's закрывает главную повторяющуюся нужду — жёсткое удаление.</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Removal ещё нет — точно не 2+.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · Murdock's Crusade</span><span class="vwon">Победил: <b>дыра-removal + GIH</b>. Редкий лёгкий случай — топ-GIH карта ЕЩЁ И removal ЕЩЁ И в цвете. Три стрелки в одну точку.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>Removal ценнее, чем кажется.</b> А когда верхняя по GIH карта — ещё и убийца в твоём цвете, тут думать не о чем. Безусловное/инстант-удаление заканчивает партии за тебя; тяни его рано.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P4</span>
+    <div class="pick-title"><h2>GIH — не ответ → <b>Borough Backup</b></h2>
+    <p class="pick-sub">Верхняя карта пака по GIH — не та, что нужна колоде.</p></div></div>
+  
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>11 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard has-img" data-slug="s-h-i-e-l-d-spy-kit" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/9/4938e23f-b5da-493b-9904-af61a3733ba0.jpg?1780919556" alt="S.H.I.E.L.D. Spy Kit" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>60.0</span><div class="dcap"><span class="nm">S.H.I.E.L.D. Spy Kit</span><span class="nt">эквип +1/+1 · без существа — ничто</span></div></div>
+<div class="dcard picked has-img" data-slug="borough-backup" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/b/b/bb753ac8-67e1-44b0-b404-37f04c2b7438.jpg?1780919492" alt="Borough Backup" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>59.4</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">Borough Backup</span><span class="nt pos">2× 3/2 vig за карту · тела · позже кормят Mister Fantastic</span></div></div>
+<div class="dcard has-img" data-slug="pet-avengers" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/0/108a0b92-2134-4776-a2f7-da92050f1b21.jpg?1780925689" alt="Pet Avengers" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.7</span><div class="dcap"><span class="nm">Pet Avengers</span></div></div>
+<div class="dcard has-img" data-slug="i-am-iron-man" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/9/c/9c401abb-5978-41c0-962b-0432f9433929.jpg?1780919642" alt="I Am Iron Man" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.6</span><div class="dcap"><span class="nm">I Am Iron Man</span></div></div>
+<div class="dcard has-img" data-slug="serpent-specialist" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/7/2/72727c2a-08a9-47bc-a5eb-cda52e21684b.jpg?1780920082" alt="Serpent Specialist" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.1</span><div class="dcap"><span class="nm">Serpent Specialist</span></div></div>
+<div class="dcard has-img" data-slug="spider-man-to-the-rescue" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/5/e5db6968-1ca3-46bd-8cf9-e2c411ab29c1.jpg?1780920173" alt="Spider-Man, To the Rescue" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.9</span><div class="dcap"><span class="nm">Spider-Man, To the Rescue</span><span class="nt warn">⚠trap · IWD −1.0</span></div></div>
+<div class="dcard has-img" data-slug="hydra-troopers" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/0/40c202f1-6e0d-42f4-a41e-e0be3362d585.jpg?1780572397" alt="HYDRA Troopers" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.9</span><div class="dcap"><span class="nm">HYDRA Troopers</span></div></div>
+<div class="dcard has-img" data-slug="k-un-lun-warrior" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/6/e6e8359d-12be-49be-8cbe-6a3b8506a9e6.jpg?1780919875" alt="K&#x27;un-Lun Warrior" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>51.9</span><div class="dcap"><span class="nm">K&#x27;un-Lun Warrior</span><span class="nt warn">⚠trap · IWD −1.6</span></div></div>
+<div class="dcard has-img" data-slug="rewrite-history" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/9/1/91fdf444-3f41-4b8b-b9f5-f3ae3d903649.jpg?1780572713" alt="Rewrite History" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>48.3</span><div class="dcap"><span class="nm">Rewrite History</span><span class="nt warn">⚠trap · IWD −3.3</span></div></div>
+<div class="dcard has-img" data-slug="hex-magic" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/2/5/259bed47-1950-43ae-8efd-3009537529a8.jpg?1780919855" alt="Hex Magic" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>45.9</span><div class="dcap"><span class="nm">Hex Magic</span><span class="nt warn">⚠trap · IWD −4.3</span></div></div>
+<div class="dcard" tabindex="0"><div class="dcard-img nodata"><span>нет<br>данных</span></div><div class="dcap"><span class="nm">нет данных</span><span class="nt">карта, которую тул не смог сопоставить</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> Cosmic Cube · Spider-Woman · Murdock's  →  W:2 U:1</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>Шелл — W/U-контроль с Cosmic Cube. Borough Backup делает 2 токена, которые <b>позже кормят пайоффы</b> (Mister Fantastic добирает на токенах, teamwork/crew). Spy Kit — одинокий эквип, которому нужно существо, чтобы вообще что-то делать.</div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Есть removal и бомба, но почти <b>нет тел/борда.</b> Borough Backup даёт двух существ за карту. Spy Kit не добавляет ни одного тела.</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Тел ещё нет.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · Borough Backup</span><span class="vwon">Победил: <b>дыра + синергия &gt; GIH</b>. Ниже по GIH на 0.6 (шум), но закрывает дыру-борд и имеет апсайд (токены). Эквип без тел — пустышка.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>GIH — стартовая точка, не ответ.</b> При близком GIH побеждает карта, что закрывает ДЫРУ колоды и имеет синергию-апсайд. Эквипмент без существ — ничто; тела — фундамент. Считай, чего колоде не хватает, а не только верхнюю строку списка.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P5</span>
+    <div class="pick-title"><h2>Кастуемость > голый GIH → <b>Giant-Sized Flying Ant</b></h2>
+    <p class="pick-sub">Первый сигнал-баннер. Топ-GIH карта — вне нашего цвета.</p></div></div>
+  <div class="banner"><span class="fl">SOUP-AUDIT (пик 5):</span><span>фикс = 1 — мало. Держись 2 цветов; сплеш только при 3+ источниках (Rule of Three).</span></div>
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>10 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard has-img" data-slug="punishing-punch" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/3/a33a4cb4-1b57-47ca-8e5e-58ff46a6e0ce.jpg?1780657807" alt="Punishing Punch" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>60.0</span><div class="dcap"><span class="nm">Punishing Punch</span><span class="nt neg">премиум-removal, но зелёный — вне W/U, фикса нет</span></div></div>
+<div class="dcard picked has-img" data-slug="giant-sized-flying-ant" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/a/da529bb3-725b-41aa-ac34-b4117ff5d95b.jpg?1780919628" alt="Giant-Sized Flying Ant" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.8</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">Giant-Sized Flying Ant</span><span class="nt pos">flash-флаер + тап/untap-темпо — закрывает эвейжн-дыру</span></div></div>
+<div class="dcard has-img" data-slug="widow-s-bite" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/b/dbee18af-9ade-4251-81a1-f6e7ffbf480f.jpg?1780919813" alt="Widow&#x27;s Bite" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.1</span><div class="dcap"><span class="nm">Widow&#x27;s Bite</span></div></div>
+<div class="dcard has-img" data-slug="dependable-quinjet" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/0/c035c625-4de5-4c3b-9d07-aa1df8fc7b78.jpg?1780920205" alt="Dependable Quinjet" loading="lazy"></div><span class="dbadge"><i class="tt C">C</i>53.6</span><div class="dcap"><span class="nm">Dependable Quinjet</span></div></div>
+<div class="dcard has-img" data-slug="unliving-legionnaire" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/e/ce08f4bb-7da3-4199-8b90-fcdb29e84e98.jpg?1780919793" alt="Unliving Legionnaire" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>53.0</span><div class="dcap"><span class="nm">Unliving Legionnaire</span></div></div>
+<div class="dcard has-img" data-slug="knight-of-wundagore" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/3/f3003766-9383-44e0-8b51-35ccbed137ed.jpg?1780920020" alt="Knight of Wundagore" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.9</span><div class="dcap"><span class="nm">Knight of Wundagore</span><span class="nt warn">⚠trap · IWD −1.7</span></div></div>
+<div class="dcard has-img" data-slug="too-evil-to-stay-dead" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/4/f471e9ce-73bb-4090-98f2-f591c7cf4efe.jpg?1780919786" alt="Too Evil to Stay Dead" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>51.6</span><div class="dcap"><span class="nm">Too Evil to Stay Dead</span><span class="nt warn">⚠trap</span></div></div>
+<div class="dcard has-img" data-slug="hire-a-crew" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/5/0/50a6aa80-79a3-46f3-9cc1-5bf663b64976.jpg?1780919861" alt="Hire a Crew" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>45.2</span><div class="dcap"><span class="nm">Hire a Crew</span><span class="nt warn">⚠trap · IWD −3.5</span></div></div>
+<div class="dcard has-img" data-slug="worlds-within-worlds" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/4/7/4765e39c-cbf2-4605-9bf1-3baad7d92cfb.jpg?1780413838" alt="Worlds Within Worlds" loading="lazy"></div><div class="dcap"><span class="nm">Worlds Within Worlds</span><span class="nt">нет рейтинга 17L · симметричный ресет</span></div></div>
+<div class="dcard" tabindex="0"><div class="dcard-img nodata"><span>нет<br>данных</span></div><div class="dcap"><span class="nm">нет данных</span><span class="nt">карта, которую тул не смог сопоставить</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> …Borough Backup  →  W:3 U:1</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>W/U-контроль. Flying Ant — flash-флаер + темпо (тап/untap): эвейжн, способ закрывать партии.</div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Есть removal, бомба, тела — но <b>нет эвейжна.</b> Ant закрывает ось «как мы добиваем».</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Эвейжна ещё нет.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · Giant-Sized Flying Ant</span><span class="vwon">Победил: <b>кастуемость + дыра-эвейжн</b>. Punishing Punch выше по GIH (60.0) и это removal — но зелёный, а SOUP-AUDIT говорит фикс=1. Карта, которую не сыграть, не существует.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>Кастуемость &gt; голый GIH; читай SOUP-AUDIT.</b> Вне-цветная бомба без фикса (fix &lt; 3) — не берём (кроме раннего сигнала пивотить). Считай эвейжн отдельным требованием — это то, чем ты заканчиваешь партии.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P6</span>
+    <div class="pick-title"><h2>Взвесить пивот — и остаться → <b>We Say Thee Nay!</b></h2>
+    <p class="pick-sub">Баннер зовёт в другой цвет. Но лучшая карта пака — в нашем.</p></div></div>
+  <div class="banner piv"><span class="fl">⚑ ПИВОТ? (пик 6):</span><span>текут сильные вне цвета (B×1 G×1) — Go Nuts! 58.4, HYDRA Infiltration 57.0. Цвет открыт слева.  + SOUP-AUDIT: фикс = 1.</span></div>
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>9 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard picked has-img" data-slug="we-say-thee-nay" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/3/13b70321-75bd-4d44-b9f6-5f062a5dda0f.jpg?1780919683" alt="We Say Thee Nay!" loading="lazy"></div><span class="dbadge"><i class="tt A">A</i>60.4</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">We Say Thee Nay!</span><span class="nt pos">цвет-фильтр WU 62.7 ВЫШЕ общего GIH → в нашем архетипе ещё лучше</span></div></div>
+<div class="dcard has-img" data-slug="go-nuts" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/5/152a7b5b-2d95-45d3-8fd9-0ca1d5a79f8b.jpg?1780413688" alt="Go Nuts!" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.4</span><div class="dcap"><span class="nm">Go Nuts!</span><span class="nt neg">~splash · сигнал открытого зелёного слева</span></div></div>
+<div class="dcard has-img" data-slug="villainous-hideout" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/8/2/822b0249-e1df-453d-8b60-75a5196ed818.jpg?1780925824" alt="Villainous Hideout" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.3</span><div class="dcap"><span class="nm">Villainous Hideout</span></div></div>
+<div class="dcard has-img" data-slug="hydra-infiltration" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/2/c2e446e1-e384-4d5f-8099-544f78c08510.jpg?1780919729" alt="HYDRA Infiltration" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>57.0</span><div class="dcap"><span class="nm">HYDRA Infiltration</span><span class="nt neg">~splash · сигнал чёрного</span></div></div>
+<div class="dcard has-img" data-slug="giant-growth" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/d/fd1f95bf-48ea-455a-8a6c-0249b11c8900.jpg?1780919986" alt="Giant Growth" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.3</span><div class="dcap"><span class="nm">Giant Growth</span><span class="nt neg">~splash</span></div></div>
+<div class="dcard has-img" data-slug="stolen-stark-tech" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/d/b/db4557ad-4141-4dae-870e-a587506f4914.jpg?1780919774" alt="Stolen Stark Tech" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.0</span><div class="dcap"><span class="nm">Stolen Stark Tech</span><span class="nt neg">~splash</span></div></div>
+<div class="dcard has-img" data-slug="hell-s-kitchen" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/6/1/6137c34e-cc4c-4342-a8e4-cfa9c767c67b.jpg?1780920286" alt="Hell&#x27;s Kitchen" loading="lazy"></div><span class="dbadge"><i class="tt C">C</i>54.4</span><div class="dcap"><span class="nm">Hell&#x27;s Kitchen</span><span class="nt">дуал B/R</span></div></div>
+<div class="dcard has-img" data-slug="beast-erudite-aerialist" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/a/9/a92a95d2-9529-417a-b7d5-b4244d7fdca7.jpg?1780658575" alt="Beast, Erudite Aerialist" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>51.0</span><div class="dcap"><span class="nm">Beast, Erudite Aerialist</span><span class="nt warn">⚠trap · IWD −1.1</span></div></div>
+<div class="dcard has-img" data-slug="hex-magic" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/2/5/259bed47-1950-43ae-8efd-3009537529a8.jpg?1780919855" alt="Hex Magic" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>45.9</span><div class="dcap"><span class="nm">Hex Magic</span><span class="nt warn">⚠trap</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> …Flying Ant  →  W:3 U:2</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>W/U. Карта в цвете, и её <b>WU-фильтр (62.7) ВЫШЕ общего GIH (60.4)</b> — в нашей паре она даже сильнее, чем в среднем.</div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Интеракция/темпо — мягкий контр защищает Cosmic Cube и отвечает на бомбы.</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Не пересыщено.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · We Say Thee Nay!</span><span class="vwon">Победил: <b>топ-в-цвете + дисциплина</b>. Баннер реальный (B/G открыты), но мы уже 5 карт в сильный W/U, лучшая карта пака — в цвете, фикса под сплеш нет. Цена застревания < цена пивота.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>Адресуй ⚑-баннер, но не дёргайся рефлекторно.</b> Пивот оправдан при СЛАБОМ пуле или ОЧЕНЬ сильном раннем сигнале. При крепком коммите + топ-карте в цвете + без фикса — оставайся. Цвет-фильтр (WU 62.7 &gt; 60.4) подтверждает: карта в твоём архетипе даже лучше.</p></blockquote>
+</section>
+<section class="pick">
+  <div class="pick-head"><span class="pick-id">P1 · P7</span>
+    <div class="pick-title"><h2>Флаги-ловушки и своя линия → <b>I Am Iron Man</b></h2>
+    <p class="pick-sub">Вне-цвет всё ещё течёт — но мы читаем это как сигнал соседа, а не приказ.</p></div></div>
+  <div class="banner piv"><span class="fl">⚑ ПИВОТ? (пик 7):</span><span>G×1 — Go Nuts! 58.4 всё ещё идёт. Зелёный открыт слева.</span></div>
+  <div class="pack"><div class="pack-label"><span>Пак — все карты по GIH</span><span>8 карт</span></div>
+    <div class="pack-grid">
+<div class="dcard has-img" data-slug="go-nuts" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/5/152a7b5b-2d95-45d3-8fd9-0ca1d5a79f8b.jpg?1780413688" alt="Go Nuts!" loading="lazy"></div><span class="dbadge"><i class="tt B">B+</i>58.4</span><div class="dcap"><span class="nm">Go Nuts!</span><span class="nt neg">~splash · зелёный течёт → сосед слева в зелёном</span></div></div>
+<div class="dcard picked has-img" data-slug="i-am-iron-man" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/9/c/9c401abb-5978-41c0-962b-0432f9433929.jpg?1780919642" alt="I Am Iron Man" loading="lazy"></div><span class="dbadge"><i class="tt B">B</i>56.6</span><span class="dribbon">взяли</span><div class="dcap"><span class="nm">I Am Iron Man</span><span class="nt pos">инстант: 4/4-флаер + добор · защита, держать на ИХ ход</span></div></div>
+<div class="dcard has-img" data-slug="spider-man-to-the-rescue" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/5/e5db6968-1ca3-46bd-8cf9-e2c411ab29c1.jpg?1780920173" alt="Spider-Man, To the Rescue" loading="lazy"></div><span class="dbadge"><i class="tt C">C+</i>55.9</span><div class="dcap"><span class="nm">Spider-Man, To the Rescue</span><span class="nt warn">⚠trap · IWD −1.0 · GIH обманывает — пол низкий</span></div></div>
+<div class="dcard has-img" data-slug="crimson-operative" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/c/4/c4bc077c-f220-47a5-aaf4-5324ca23d0c5.jpg?1780919833" alt="Crimson Operative" loading="lazy"></div><span class="dbadge"><i class="tt C">C</i>54.4</span><div class="dcap"><span class="nm">Crimson Operative</span><span class="nt neg">~splash</span></div></div>
+<div class="dcard has-img" data-slug="visions-of-villainy" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/f/8/f8f1e4f9-7415-437f-b694-ecbdd76db114.jpg?1780919799" alt="Visions of Villainy" loading="lazy"></div><span class="dbadge"><i class="tt C">C</i>53.3</span><div class="dcap"><span class="nm">Visions of Villainy</span><span class="nt neg">~splash</span></div></div>
+<div class="dcard has-img" data-slug="atlantean-cavalry" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/1/3/1319bf54-8705-4cc4-8d08-40f05fd09837.jpg?1780919589" alt="Atlantean Cavalry" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>53.0</span><div class="dcap"><span class="nm">Atlantean Cavalry</span></div></div>
+<div class="dcard has-img" data-slug="hydra-assault-robot" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/e/3/e3b23fff-7d3b-4341-b556-82136f8c113b.jpg?1780919868" alt="HYDRA Assault Robot" loading="lazy"></div><span class="dbadge"><i class="tt D">D</i>52.9</span><div class="dcap"><span class="nm">HYDRA Assault Robot</span><span class="nt neg">~splash</span></div></div>
+<div class="dcard has-img" data-slug="iron-fist-living-weapon" tabindex="0"><div class="dcard-img"><img src="https://cards.scryfall.io/normal/front/5/c/5cc2d948-ac8b-4466-b604-3fabc0ab6bb9.jpg?1780413644" alt="Iron Fist, Living Weapon" loading="lazy"></div><span class="dbadge"><i class="tt F">F</i>48.8</span><div class="dcap"><span class="nm">Iron Fist, Living Weapon</span><span class="nt warn">⚠trap · IWD −3.4</span></div></div>
+    </div>
+    <div class="pool"><b>Пул:</b> …We Say Thee Nay!  →  W:3 U:3 — линия закрыта</div>
+  </div>
+  <div class="think"><div class="q"><span class="qn">1</span><div class="qbody"><span class="qlab">Якорь</span>W/U закреплён. I Am Iron Man — инстант, делает 4/4-флаера + добор: защитный инструмент + карта (инсайты: держи на их ход, не копи в руке).</div></div><div class="q"><span class="qn">2</span><div class="qbody"><span class="qlab">Дыра</span>Гибкая интеракция/защита + карт-преимущество.</div></div><div class="q"><span class="qn">3</span><div class="qbody"><span class="qlab">Дельта</span>Норм — не пересыщено.</div></div></div>
+  <div class="verdict"><span class="vp">Взяли · I Am Iron Man</span><span class="vwon">Победил: <b>своя линия + обход ловушки</b>. Go Nuts выше, но зелёный без фикса — пропускаем (и запоминаем: сосед слева в зелёном). Spider-Man выглядит ок (55.9), но IWD −1.0 = ⚠trap.</span></div>
+  <blockquote class="principle"><span class="pl">Принцип</span><p><b>Читай флаги-ловушки: IWD &lt; 0 = ⚠trap</b> — высокий GIH может прятать низкий пол. Когда линия закоммичена, проходящий вне-цвет — это сигнал о СОСЕДЕ, не приказ пивотить. Инстант-защиту держи на ИХ ход.</p></blockquote>
+</section>
+  <p class="sec-h">Чек-лист — прогонять в голове перед каждым пиком</p>
+  <div class="checklist">
+    <ol>
+      <li><b>Скан по GIH.</b><span class="sub">Отметь: лучшую карту в цвете, лучшую вне цвета, любой IWD-выброс (бомба или ⚠trap).</span></li>
+      <li><b>Якорь?</b><span class="sub">Что наш движок/финишёр и кормит ли это его. Нет якоря к P1P4 — бери карту с наибольшим потенциалом им стать.</span></li>
+      <li><b>Дыра?</b><span class="sub">Чего острее всего не хватает: эвейжн / жёсткий removal / слот кривой. Считай эвейжн и hard-removal ОТДЕЛЬНО, ≥2–3 каждого.</span></li>
+      <li><b>Дельта?</b><span class="sub">Уже 2+ карты этой роли? Тогда карты в паке как бы нет — смотри на остальное. Максимум 2 копии common/uncommon.</span></li>
+      <li><b>Кастуемость.</b><span class="sub">✗offcolor / ~splash без 3+ фикса = не берём. Исключение — ранний сигнал пивотить при 0 коммите.</span></li>
+      <li><b>Сигналы.</b><span class="sub">⚑ПИВОТ / ⚑КОЛЕСО / SOUP-AUDIT — адресуй в рассуждении, но взвесь цену пивота против цены застревания.</span></li>
+      <li><b>Пик по приоритету.</b><span class="sub">якорь › синергия › дыра › IWD-потолок › GIH › кривая. GIH — начало мысли, не её конец.</span></li>
+    </ol>
+  </div>
+
+  <p class="sec-h">Пять ловушек, которых эти 7 пиков избежали</p>
+  <div class="mistakes">
+    <div class="mis"><div class="mh">Взять топ-GIH вслепую</div><p>Spy Kit (60.0) выше Borough Backup (59.4) — но эквип без тел не строит колоду.</p><span class="fix">считай дыру, не верхнюю строку</span></div>
+    <div class="mis"><div class="mh">Погнаться за вне-цветной бомбой</div><p>Punishing Punch (60.0) — премиум-removal, но зелёный при фикс=1.</p><span class="fix">кастуемость &gt; GIH</span></div>
+    <div class="mis"><div class="mh">Рефлекторно пивотнуть на баннер</div><p>⚑ПИВОТ в B/G, но топ-карта в цвете + нет фикса + крепкий коммит.</p><span class="fix">взвесь цену пивота</span></div>
+    <div class="mis"><div class="mh">Купиться на ⚠trap-карту</div><p>Spider-Man To the Rescue: GIH 55.9 выглядит норм, но IWD −1.0 — пол низкий.</p><span class="fix">проверяй IWD, не только GIH</span></div>
+    <div class="mis"><div class="mh">Запереть цвет слишком рано</div><p>P1P2 гибрид W/U вместо моно-W убийцы — две двери открыты до сигнала.</p><span class="fix">гибкость в пиках 1–3</span></div>
+  </div>
+
+  <p class="foot">Draft Lab · разбор открытия MSH-драфта · Скан → Думай (якорь / дыра / дельта) → Пик по приоритету</p>
+
+</div></div>
+<img id="cardpeek" alt="" aria-hidden="true">
+<script>
+(function(){
+  var IMG = {"atlantean-cavalry": "https://cards.scryfall.io/normal/front/1/3/1319bf54-8705-4cc4-8d08-40f05fd09837.jpg?1780919589", "avengers-hangar": "https://cards.scryfall.io/normal/front/c/5/c5d03ebb-1ce9-4a6b-b13e-a72f0b075ae8.jpg?1780920267", "baxter-building": "https://cards.scryfall.io/normal/front/1/a/1abc652f-8e9d-4df7-bc4e-d8b515a40fec.jpg?1780544612", "beast-erudite-aerialist": "https://cards.scryfall.io/normal/front/a/9/a92a95d2-9529-417a-b7d5-b4244d7fdca7.jpg?1780658575", "bold-biochemist": "https://cards.scryfall.io/normal/front/1/0/10644127-3da0-484e-9afc-de26d9c34390.jpg?1780919602", "borough-backup": "https://cards.scryfall.io/normal/front/b/b/bb753ac8-67e1-44b0-b404-37f04c2b7438.jpg?1780919492", "construct-a-cosmic-cube": "https://cards.scryfall.io/normal/front/4/4/448de757-ac16-4529-b851-1a1331b821a5.jpg?1780457773", "cosmic-cube": "https://cards.scryfall.io/normal/front/d/1/d1cf1ead-fe91-4328-89ab-6d0bc9ff6cbe.jpg?1780658779", "crimson-operative": "https://cards.scryfall.io/normal/front/c/4/c4bc077c-f220-47a5-aaf4-5324ca23d0c5.jpg?1780919833", "dependable-quinjet": "https://cards.scryfall.io/normal/front/c/0/c035c625-4de5-4c3b-9d07-aa1df8fc7b78.jpg?1780920205", "falcon-s-wing-harness": "https://cards.scryfall.io/normal/front/2/0/20e93f86-9e20-4e08-9bf7-ae6ebebf6876.jpg?1780572359", "futurist-forge": "https://cards.scryfall.io/normal/front/a/5/a50feebf-c660-43f1-9fae-75294703b346.jpg?1780919622", "giant-growth": "https://cards.scryfall.io/normal/front/f/d/fd1f95bf-48ea-455a-8a6c-0249b11c8900.jpg?1780919986", "giant-sized-flying-ant": "https://cards.scryfall.io/normal/front/d/a/da529bb3-725b-41aa-ac34-b4117ff5d95b.jpg?1780919628", "go-nuts": "https://cards.scryfall.io/normal/front/1/5/152a7b5b-2d95-45d3-8fd9-0ca1d5a79f8b.jpg?1780413688", "guerrilla-gorilla": "https://cards.scryfall.io/normal/front/a/f/af6bc9d2-5783-489a-8963-af65f54f4f17.jpg?1780919979", "hulk-smash": "https://cards.scryfall.io/normal/front/3/7/374ffb3e-0753-4682-936a-ae6921ace475.jpg?1780413626", "hydra-assault-robot": "https://cards.scryfall.io/normal/front/e/3/e3b23fff-7d3b-4341-b556-82136f8c113b.jpg?1780919868", "hydra-infiltration": "https://cards.scryfall.io/normal/front/c/2/c2e446e1-e384-4d5f-8099-544f78c08510.jpg?1780919729", "hydra-troopers": "https://cards.scryfall.io/normal/front/4/0/40c202f1-6e0d-42f4-a41e-e0be3362d585.jpg?1780572397", "hell-s-kitchen": "https://cards.scryfall.io/normal/front/6/1/6137c34e-cc4c-4342-a8e4-cfa9c767c67b.jpg?1780920286", "hex-magic": "https://cards.scryfall.io/normal/front/2/5/259bed47-1950-43ae-8efd-3009537529a8.jpg?1780919855", "hire-a-crew": "https://cards.scryfall.io/normal/front/5/0/50a6aa80-79a3-46f3-9cc1-5bf663b64976.jpg?1780919861", "i-am-iron-man": "https://cards.scryfall.io/normal/front/9/c/9c401abb-5978-41c0-962b-0432f9433929.jpg?1780919642", "iron-fist-living-weapon": "https://cards.scryfall.io/normal/front/5/c/5cc2d948-ac8b-4466-b604-3fabc0ab6bb9.jpg?1780413644", "k-un-lun-warrior": "https://cards.scryfall.io/normal/front/e/6/e6e8359d-12be-49be-8cbe-6a3b8506a9e6.jpg?1780919875", "knight-of-wundagore": "https://cards.scryfall.io/normal/front/f/3/f3003766-9383-44e0-8b51-35ccbed137ed.jpg?1780920020", "loki-laufeyson": "https://cards.scryfall.io/normal/front/5/3/53b795a7-11f8-423a-b021-f811007fc82f.jpg?1780919895", "madame-hydra": "https://cards.scryfall.io/normal/front/e/9/e94ccedb-1d27-4098-8823-d8d99b30387c.jpg?1780413811", "murdock-s-crusade": "https://cards.scryfall.io/normal/front/9/8/98df64ca-39c3-47e6-8143-4106c8e9cf59.jpg?1780413443", "ninja-of-the-hand": "https://cards.scryfall.io/normal/front/6/b/6b8116d8-2cc6-449b-a8b4-8a5166553497.jpg?1780919753", "pet-avengers": "https://cards.scryfall.io/normal/front/1/0/108a0b92-2134-4776-a2f7-da92050f1b21.jpg?1780925689", "photon-blast-barrage": "https://cards.scryfall.io/normal/front/f/8/f85a77d2-e11e-44bc-a1e7-d783cd49d714.jpg?1780413661", "punishing-punch": "https://cards.scryfall.io/normal/front/a/3/a33a4cb4-1b57-47ca-8e5e-58ff46a6e0ce.jpg?1780657807", "pym-technologies": "https://cards.scryfall.io/normal/front/1/d/1de583ce-e805-45f1-907f-198bc82fd3b5.jpg?1780920299", "red-guardian-super-soldier": "https://cards.scryfall.io/normal/front/c/0/c08f8163-319a-4a31-b15a-93974cacd5b7.jpg?1780919550", "red-room-recruit": "https://cards.scryfall.io/normal/front/f/5/f52a5ba3-a618-4f52-9d33-ba85345eb627.jpg?1780919765", "repulsor-blast": "https://cards.scryfall.io/normal/front/8/3/837265b0-fc15-4d96-9d6b-fd1c78534262.jpg?1780919908", "restorative-technique": "https://cards.scryfall.io/normal/front/d/b/dbe9102d-b92b-4c32-93f6-5b6dc0fa08e6.jpg?1780920044", "rewrite-history": "https://cards.scryfall.io/normal/front/9/1/91fdf444-3f41-4b8b-b9f5-f3ae3d903649.jpg?1780572713", "s-h-i-e-l-d-deployment-drone": "https://cards.scryfall.io/normal/front/c/3/c3d0f02f-dfaf-47b6-8053-514417f4dfe2.jpg?1780925755", "s-h-i-e-l-d-spy-kit": "https://cards.scryfall.io/normal/front/4/9/4938e23f-b5da-493b-9904-af61a3733ba0.jpg?1780919556", "serpent-specialist": "https://cards.scryfall.io/normal/front/7/2/72727c2a-08a9-47bc-a5eb-cda52e21684b.jpg?1780920082", "spider-man-to-the-rescue": "https://cards.scryfall.io/normal/front/e/5/e5db6968-1ca3-46bd-8cf9-e2c411ab29c1.jpg?1780920173", "spider-woman-secret-agent": "https://cards.scryfall.io/normal/front/a/0/a0325cb5-4c43-418a-8f1b-cf5bf29e74d7.jpg?1780413818", "stolen-stark-tech": "https://cards.scryfall.io/normal/front/d/b/db4557ad-4141-4dae-870e-a587506f4914.jpg?1780919774", "surveillance-room": "https://cards.scryfall.io/normal/front/8/f/8fb51fbb-ab7f-4484-a3c9-dc50cb6f2756.jpg?1780920317", "too-evil-to-stay-dead": "https://cards.scryfall.io/normal/front/f/4/f471e9ce-73bb-4090-98f2-f591c7cf4efe.jpg?1780919786", "unliving-legionnaire": "https://cards.scryfall.io/normal/front/c/e/ce08f4bb-7da3-4199-8b90-fcdb29e84e98.jpg?1780919793", "villainous-hideout": "https://cards.scryfall.io/normal/front/8/2/822b0249-e1df-453d-8b60-75a5196ed818.jpg?1780925824", "visions-of-villainy": "https://cards.scryfall.io/normal/front/f/8/f8f1e4f9-7415-437f-b694-ecbdd76db114.jpg?1780919799", "volcanic-villain": "https://cards.scryfall.io/normal/front/4/f/4f48ba40-9934-40fd-a251-e15a68e772d2.jpg?1780919953", "wakandan-royal-guard": "https://cards.scryfall.io/normal/front/9/b/9bf0b1e9-32b5-4591-8dd2-6b5f9768c72d.jpg?1780920138", "we-say-thee-nay": "https://cards.scryfall.io/normal/front/1/3/13b70321-75bd-4d44-b9f6-5f062a5dda0f.jpg?1780919683", "wiccan-rising-magician": "https://cards.scryfall.io/normal/front/5/d/5d27ddec-716d-47e5-ac48-365e91b88ff1.jpg?1781065475", "widow-s-bite": "https://cards.scryfall.io/normal/front/d/b/dbee18af-9ade-4251-81a1-f6e7ffbf480f.jpg?1780919813", "wonder-man-hollywood-hero": "https://cards.scryfall.io/normal/front/1/e/1ee52395-9523-4da1-9108-8ab79229fc7a.jpg?1780919959", "worlds-within-worlds": "https://cards.scryfall.io/normal/front/4/7/4765e39c-cbf2-4605-9bf1-3baad7d92cfb.jpg?1780413838"};
+  var peek = document.getElementById('cardpeek');
+  var cur = null;
+  function show(sl){ if(!IMG[sl]) return; peek.src = IMG[sl]; peek.classList.add('on'); }
+  function hide(){ peek.classList.remove('on'); cur=null; }
+  function move(e){
+    var pad=18, w=peek.offsetWidth||300, h=peek.offsetHeight||418;
+    var x=e.clientX+pad, y=e.clientY+pad;
+    if(x+w>window.innerWidth-8) x=e.clientX-w-pad;
+    if(y+h>window.innerHeight-8) y=window.innerHeight-h-8;
+    if(y<8) y=8;
+    peek.style.left=x+'px'; peek.style.top=y+'px';
+  }
+  document.querySelectorAll('.dcard.has-img').forEach(function(el){
+    var sl=el.getAttribute('data-slug');
+    el.addEventListener('mouseenter',function(e){cur=sl;show(sl);move(e);});
+    el.addEventListener('mousemove',move);
+    el.addEventListener('mouseleave',hide);
+    el.addEventListener('focus',function(){
+      cur=sl; if(!IMG[sl])return; peek.src=IMG[sl]; peek.classList.add('on','pinned');
+      var r=el.getBoundingClientRect(); peek.style.left='';
+      peek.style.top='';
+    });
+    el.addEventListener('blur',function(){peek.classList.remove('pinned');hide();});
+    el.addEventListener('click',function(e){
+      if(cur===sl && peek.classList.contains('on')){hide();} else {cur=sl;show(sl);move(e);}
+    });
+  });
+})();
+</script>

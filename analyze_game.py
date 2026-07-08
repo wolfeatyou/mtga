@@ -219,13 +219,16 @@ def main():
             elif zt == 'ZoneType_Battlefield' and iid not in seen_bf:
                 seen_bf.add(iid)
                 if grp in ability: continue
-                if name and any(w in name for w in land_words): continue
+                # ЗЕМЛИ не печатаем (шум): базовые земли не в *_set.json и не имеют
+                # имени, поэтому фильтр по land_words их пропускал и они выпадали в
+                # «жетон». landgrp (по cardTypes из лога) ловит и базовые, и нестд.
+                if grp in landgrp or (name and any(w in name for w in land_words)): continue
                 add(t, f'  {side}: на стол → {dname(grp) or "жетон"}')
             elif zt == 'ZoneType_Graveyard' and iid not in seen_gy:
                 seen_gy.add(iid)
                 if grp in ability: continue
                 dn = dname(grp)
-                if dn and not any(w in dn for w in land_words):
+                if dn and grp not in landgrp and not any(w in dn for w in land_words):
                     add(t, f'  {side}: ✝ {dn}')
             elif zt == 'ZoneType_Exile' and iid not in seen_ex:
                 seen_ex.add(iid)

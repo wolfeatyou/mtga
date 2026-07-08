@@ -1,0 +1,26 @@
+Deck
+1 Jennifer Walters (MSH) 18
+1 Raft Security Officer (MSH) 33
+1 Red Room Recruit (MSH) 110
+1 A.I.M. Synthoids (MSH) 242
+1 Red Guardian, Super-Soldier (MSH) 34
+1 Kingpin's Enforcers (MSH) 102
+1 Ninja of the Hand (MSH) 108
+1 HYDRA Troopers (MSH) 101
+1 Black Widow, Double Agent (MSH) 208
+1 Dependable Quinjet (MSH) 246
+1 Crossbones, Malicious Mercenary (MSH) 91
+1 Wakandan Drone Flock (MSH) 40
+1 Unliving Legionnaire (MSH) 119
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Grim Reaper, Lethal Legionnaire (MSH) 98
+1 Political Triumph (MSH) 31
+1 HYDRA Infiltration (MSH) 100
+1 Cruel Alliance (MSH) 92
+1 Web Up (MSH) 41
+2 Hour of Defeat (MSH) 99
+10 Swamp
+6 Plains
+1 Surveillance Room (MSH) 260
+1 Villainous Hideout (MSH) 262

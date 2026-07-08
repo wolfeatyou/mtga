@@ -1,0 +1,27 @@
+Deck
+2 Serpent Specialist (MSH) 186
+1 Aerial Doombot (MSH) 43
+1 Hellcat, Undying Vigilante (MSH) 170
+1 Guerrilla Gorilla (MSH) 169
+1 Echo, Perceptive Prodigy (MSH) 51
+1 Iron Lad, Diverging Destiny (MSH) 59
+1 Crossbones, Malicious Mercenary (MSH) 91
+1 Titania, Rugged Rumbler (MSH) 235
+1 Killmonger, Scourge of Wakanda (MSH) 218
+1 She-Hulk, Jade Defender (MSH) 188
+1 Kang, Temporal Tyrant (MSH) 217
+1 The Vision (MSH) 255
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Giant-Sized Flying Ant (MSH) 56
+1 Ka-Zar of the Savage Land (MSH) 174
+1 Hour of Defeat (MSH) 99
+1 Frozen in Ice (MSH) 54
+1 We Say Thee Nay! (MSH) 82
+1 Go Nuts! (MSH) 168
+1 Widow's Bite (MSH) 122
+1 Dependable Quinjet (MSH) 246
+1 A.I.M. Labs (MSH) 257
+1 Subterranean Cavern (MSH) 273
+6 Forest (MSH) 295
+6 Island (MSH) 289
+4 Swamp (MSH) 291

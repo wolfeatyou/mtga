@@ -41,8 +41,18 @@ Arena **23.06.2026** / бумага **26.06.2026** — **полноценный 
 - **GW — Heroes go-wide / counters.** Сигнпост: Black Panther Vanguard, Spider-Man To the Rescue, Storm Windrider. Движок: Okoye, Borough Backup, SHIELD Helicarrier (токены), Political Triumph, Training Regimen. Топ: Storm, Captain Marvel, Squirrel Girl.
 - **UB — Connive / Villains / draw-контроль.** Сигнпост: Kang Temporal Tyrant, Taskmaster, Scientist Supreme, Ghost. Движок: connive-тела (Red Room Recruit, AIM Scientists, Madame Masque), Leader, Baron Strucker. Топ: Kang the Conqueror, Doctor Doom, Thanos.
 
-## DFC-мифики (спекулятивный P1, флипаются в финишер)
-Tony Stark // Iron Man · Bruce Banner // Hulk · Jennifer Walters // She-Hulk · Monica Rambeau // Photon · King T'Challa // Black Panther. Бери высоко, цвет не коммить.
+## DFC-мифики — ⚠ ОЦЕНИВАЙ ПО КАСТУЕМОЙ СТОРОНЕ (flip требует КОНКРЕТНЫХ цветов!)
+**Правило (не «бери высоко, цвет не коммить»!):** DFC — бомба-финишёр ТОЛЬКО если можешь скастовать ОБЕ стороны в своих цветах. Иначе играешь ЛИЦО (обычно скромный value-крип), а полный GIH **раздут** деками, которые флипают в off-color финишёр. Перед пиком DFC — сверь transform-кост по `msh_set.json`, не бери «на GIH».
+
+| DFC | Лицо | Flip-кост | Флипается (нужны цвета) |
+|---|---|---|---|
+| **King T'Challa // Black Panther** | {1}{W}{U} | {4}{W}{U} | **WU — в своих же цветах! реальная бомба в WU/UW** |
+| Tony Stark // Iron Man | {1}{U} | {4}{U}{R} | UR (нужен **R**); в UB — только лицо (value-крип) |
+| Bruce Banner // Hulk | {U} | {2}{R}{R}{G}{G} | RG (нужен **RRGG**); в UB — {U} draw-движок, **НЕ бомба** |
+| Jennifer Walters // She-Hulk | {1}{W} | {3}{G}{W}{W} | GW (нужен **G**); в WB/WU — 2-дроп-дисраптор, не финишёр |
+| Monica Rambeau // Photon | {2}{W} | {2}{R}{W}{W} | RW (нужен **R**); в WU/WB — только лицо |
+
+Мораль: лицо кастуется → карта играбельна; но **потолок-бомба доступен только при доступе к flip-цветам**. King T'Challa — единственный, кто флипается внутри своей пары.
 
 ## Дуальные земли (фикс под сплеш)
 - **Лайфгейн-тапленды (common, входят тапнутыми, +1 жизнь):** A.I.M. Labs (UB), Asgardian Citadel (RW), Avengers Hangar (WU), Birnin Zana Plaza (GW), Fisk Tower (WB), Hell's Kitchen (BR), Los Diablos Missile Base (RG), Pym Technologies (GU), Stark Industries (UR), Subterranean Cavern (BG).
