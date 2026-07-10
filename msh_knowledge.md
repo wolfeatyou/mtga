@@ -28,6 +28,36 @@
 
 ---
 
+## 🎚️ FLOOR-vs-CEILING / SOUP — когда менять полосу (добавлено 09.07.2026, разбор стримерского 5c-супа vs наш WU)
+Ceiling-vs-floor **НЕ фиксирован** — это реакция на среду и на то, что раздают. Два способа драфтить:
+- **FOCUS-first (наш дефолт):** якорь-цвет → **кастуемость > сила** → 2 цвета + дисциплинированный сплеш. Высокий ПОЛ/консистентность. Правильно при тонком фиксе (у нас был 1 дуал → мы верно остались WU+сплеш).
+- **FIXING-first / SOUP (стример):** драфтишь фикс агрессивно → **сила > цвет** → суп со ВСЕМИ бомбами. Высокий ПОТОЛОК, ниже пол (тапленды, color-screw, медленный старт → хуже vs агро).
+
+**Soup-блюпринт (что реально делает стример):**
+- **Даже суп бело-БАЗОВЫЙ** (якорь = глубочайший цвет сета, ~5 Plains + 9 белых карт), остальное — **бомбо-сплеши** через фикс. Не «ровно 5 цветов» — «якорь + сплеш каждой бомбы».
+- **Линчпин = Baxter Building ({4}: 4 маны любых)** — единственное, чем кастуется дабл-дабл-голд (Thanos {B}{B}{G}{G}) в одну активацию. Без Baxter-класса фикса такие бомбы = кирпичи.
+- Порядок: **bomb-first** (взял бомбу рано, весь драфт служит ей) ИЛИ **fixing-first** (набрал фикс → заработал право на бомбы). Оба валидны.
+
+**🔑 Кастуемость > РЕДКОСТЬ.** Off-color мифик-бомба (Thanos BG, Wolverine RG) БЕЗ фикса = **ловушка**, не пик. Для WU топ-мифик пака = **colorless (Cosmic Cube)**, а BG/RG-бомбы пропускаем не задумываясь. «Дабл-дабл-голд» ({B}{B}{G}{G}) проваливает castability-тест сильнее всего — нельзя сплешить, нужен heavy-BG ИЛИ Baxter-фикс.
+
+**Взятие ранней бомбы (напр. Thanos P1P3 без фикса) = НЕ фри-бомба, а ОБЯЗАТЕЛЬСТВО** «строю фикс/цвет под неё». Берёшь → весь драфт после = приоритет фиксу. Пасуешь → строишь на пол. Это момент ВЫБОРА полосы.
+
+**Когда пересматривать В ПОЛЬЗУ потолка (нужно ≥2 сигнала, «увидел бомбу» — мало):**
+1. **Ранг высокий (Plat+ — это мы):** у оппов бомбы, floor-only проигрывает их ceiling.
+2. **Пошёл ФИКС** (главный триггер): Baxter-класс/мульти-дуалы/any-color рано → soup-audit пик5 ≥3–4 фикса → потолок открыт; <3 → пол.
+3. **Бомбы ТЕКУТ к тебе / лейн открыт** (бомба колесит) → под недодрафчивает силу.
+4. **Тебя бьют over-the-top** (лайфгейн/снежок/бомбы) → ты слишком floor-heavy.
+5. **Твоя focus-дека вырождается в bomb-less пайл** → срочно хеймейкер (наш 0:3-урок).
+6. **Формат медленный/грайндовый** → инэвитабилити решает.
+
+**Когда ОСТАВАТЬСЯ на полу:** фикс сухой (бомбы=кирпичи) · много агро в мете · твоя дека УЖЕ имеет финишёр+чистую кривую (не ломай ради жадной бомбы) · низкий ранг.
+
+**Наша калибровка (Platinum, Bo1, MSH):** не чистый пол и не чистый суп, а **«ceiling ВНУТРИ коэрентной оболочки»** — бери бомбы/хеймейкеры КОГДА кастуемы (colorless/on-color/single-pip), держи пол (removal+эвейжн+кривая), **полный soup-пивот ТОЛЬКО когда фикс реально пошёл.**
+
+**⚠️ Самокритика (наш фокус-драфт 09.07):** развилка полос была на **P1P7 — я пасовал Baxter Building** (4-any) ради тела (Ultron), аргумент «{C}-тап вредит кривой». Для focus-пути верно, НО это **закрыло дверь в суп.** Урок: **премиум-фикс (Baxter/Trove/мульти-дуал) = опцион на весь потолок, а не просто земля** — бери его ВЫСОКО и РАНО, даже 2-цветным; он держит ОБЕ двери открытыми (пойдёт фикс → суп/бомбы; не пойдёт → откат в 2 цвета). Focus-first закрывает суп; fixing-first держит обе. [[mtg-learn-late-commit-soup]] [[mtg-pick5-soup-audit-signal]] [[mtg-dfc-rate-castable-side]]
+
+---
+
 ## Архетипы (Arena meta) — данные 17L обновлены 04.07.2026 (выборка ~7.7M появлений карт, +1.85M к 30.06; формат СТАБИЛЕН — все сдвиги GIH <2)
 <!-- Мелкие движения 04.07 vs 30.06 (≥800 игр): Thanos 56.5→55.6, Monica Rambeau 64.3→63.3, Agent Coulson 65.5→64.6, Earth's Mightiest 60.1→59.0 (топ-карты чуть просели, порядок тот же); поднялись Elektra 62.4→63.5, Iron Man Armor 58.1→59.1, Swordsman 53.9→55.0, Blazing Crescendo 51.5→52.5. Ничего не меняет пик-порядок. -->
 
@@ -128,3 +158,54 @@
 - **Дешёвые проактивные white-2-дропы (Brave Brawler-класс) недооценивал** под IWD — трофейки их гоняют (3/8). Для агро-кривой/анти-агро они лучше, чем «просто solid». Не пасуй их рефлекторно под чуть-выше-IWD карту, если нужна кривая.
 - **Atlantis Attacks — не «кланк», а deck-dependent** топ-энд: в медленной/контрольной синей деке норм (Kerber WU гоняет ×2; в первой выборке 5/8). «Сидела мёртвой» — про быстрые tempo-руки. Оценивать по роли деки.
 - **Дублируй лучшую интеракцию**, когда течёт (2× контр/tuck/removal > N-е midrange-тело).
+
+---
+## 📚 ВНЕШНИЙ ГАЙД — Draftsim MSH Draft Guide (записано 10.07.2026, источник: draftsim.com/mtg-msh-draft-guide/)
+Подтверждённая внешняя мета-инфа. Читать перед драфтом MSH.
+
+### Формат — какой он
+- **Creature-heavy, mid-paced, ГРАЙНДОВЫЙ.** «Very creature-dominated format.»
+- **Board stall + флаеры-добивают = HALLMARK формата** («fliers peck their way to victory through ground-based board stalls»). Игры идут долго, доска застывает, решает воздух + инэвитабилити. (Совпало с нашими партиями 16-28 ходов.)
+- **«Знать, когда гнать vs стабилизироваться» — ключевой скилл.** Racing важен, но внутри грайндового контекста.
+- Синерджи-деки (power-up/plans/connive/teamwork как архетип) **НЕ выигрывают сами по себе** — это вторичный слой поверх solid crip-базы. **«No real teamwork deck»** — строй на card quality + микро-синергии, не на архетип-payoff.
+
+### Цвета (17L-данные гайда)
+- **White + Blue доминируют**, Green — далёкий 3-й, **Red слабейший.**
+- **White:** лучшие common-крипы (Hero in Training, S.H.I.E.L.D. Deployment Drone), топ removal/tempo, эвейжн, card-adv (Political Triumph, Spy Kit), сильные uncommon.
+- **Blue:** removal/tempo/эвейжн/card-adv — с белым образуют tempo/control.
+- **Black:** сильный removal, но **слабые крипы.**
+- **Green:** отличный для **сплеша** (Undercover Skrull, Restorative Technique).
+- **Red слаб:** крипы «не атакуют, не блокируют, не дают card-adv»; лучший common Lightning Strike лишь **55.2% GIH**. Hero in Training (W common) ≈ винрейт лучшей красной карты.
+
+### Что ВЫИГРЫВАЕТ (4 пути)
+1. **Efficient removal + бомбы + гарантированные 2-for-1** — «best cards win games».
+2. **Эвейжн** — флаеры над board stall (hallmark).
+3. **Card-advantage/консистентность** — циклеры/добор «резко снижают шанс non-games» + находят ответы.
+4. **Tempo/racing** — «знать, когда гонишь».
+
+### Сборка (рекомендации гайда)
+- **Крипы: 15+ (format demands high creature counts, creature-dominated).** ← НЕ уходить в creature-light.
+- **Земли: 16-17 (17 стандарт).** До 16 — только при нескольких циклерах / Rapid Rescue / Undercover Skrull.
+- **Сплеш «highly lucrative»** (много бомб с single-pip): 3+ источника на 1-2 карты, 5-7 на 3-4. Транс-MDFC (Jennifer Walters, Monica Rambeau) «almost always worth splashing».
+
+### Топ-commons по цветам
+- **White:** Hero in Training, Web Up, S.H.I.E.L.D. Spy Kit, Murdock's Crusade
+- **Blue:** Trickster's Stratagem, S.H.I.E.L.D. Deployment Drone, We Say Thee Nay!, Frozen in Ice
+- **Black:** Cruel Alliance, Hour of Defeat, Widow's Bite, HYDRA Infiltration
+- **Red:** Lightning Strike, Crimson Operative, HULK SMASH!, Kree Sentinel
+- **Green:** Undercover Skrull, Go Nuts!, Pet Avengers, Ant-Man's Army
+
+### Топ removal по цветам
+- **White:** Web Up, Murdock's Crusade · **Blue:** Trickster's Stratagem, We Say Thee Nay!, Frozen in Ice · **Black:** Cruel Alliance, Hour of Defeat, Widow's Bite · **Green:** Go Nuts! · **Red:** Lightning Strike, HULK SMASH!
+
+### Топ бомбы/uncommon
+Jennifer Walters/She-Hulk, Monica Rambeau/Photon, King T'Challa/Black Panther, Jessica Jones Private Eye, Photon Blast Barrage, Loki Laufeyson, **Political Triumph (overpowered)**, Ka-Zar, Agent Maria Hill, Spider-Woman Secret Agent.
+
+### Механики
+- **Power-up** = модульный мана-синк (She-Hulk = и 4-дроп, и лейт-хеймейкер). Строить ВОКРУГ него не нужно.
+- **Teamwork** = почти бесплатен на 1, легко на 2; 3+ требует коммита. Не образует архетип.
+- **Plans:** Political Triumph overpowered; Rewrite History/Robot Domination требуют сетапа; **Death to Our Enemies слаба в creature-heavy** формате.
+- **Connive** = консистентность, но ограниченный импакт (мало GY-синергий).
+
+### Вывод для НАШЕЙ деки (UW)
+Гайд валидирует UW tempo/control: W+U топ, эвейжн+removal+card-adv = winning shell. **Держать 15+ крипов** (наш v3 при ~13 — слегка light → возвращать тело за счёт спелла, не за счёт финишёра). Инэвитабилити (2 Atlantis) ок для грайнда. Сплеш резать было верно (0 фикса), но при фиксе — lucrative.
