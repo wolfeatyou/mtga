@@ -1,0 +1,23 @@
+Deck
+1 Kid Loki (MSH) 63
+1 Aerial Doombot (MSH) 43
+1 Bold Biochemist (MSH) 48
+1 Echo, Perceptive Prodigy (MSH) 51
+1 Justice, Vance Astrovik (MSH) 61
+2 Atlantean Cavalry (MSH) 45
+1 S.H.I.E.L.D. Deployment Drone (MSH) 73
+2 Ninja of the Hand (MSH) 108
+1 Arnim Zola, Bio-Fanatic (MSH) 86
+2 Giant-Sized Flying Ant (MSH) 56
+1 Madame Masque (MSH) 104
+1 Falcon, Winged Wonder (MSH) 52
+1 S.H.I.E.L.D. Helicarrier (MSH) 249
+2 Frozen in Ice (MSH) 54
+2 Cruel Alliance (MSH) 92
+1 Hour of Defeat (MSH) 99
+1 Trickster's Stratagem (MSH) 81
+1 Depower (MSH) 50
+1 Surveillance Room (MSH) 274
+1 A.I.M. Labs (MSH) 257
+9 Island (MSH) 290
+6 Swamp (MSH) 292

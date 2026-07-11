@@ -1,23 +1,23 @@
 Deck
-1 Kid Loki
-2 Ms. Marvel, Kamala Khan
-1 Ghost, Spectral Saboteur
-1 Ultron Drone
-1 Spider-Woman, Secret Agent
+2 Justice, Vance Astrovik
 3 Giant-Sized Flying Ant
-2 Mister Fantastic, Reed Richards
-2 The Sentry, Golden Guardian
-2 Wakandan Drone Flock
-2 H.E.R.B.I.E. Scout Unit
-1 Attuma, Atlantean Warlord
-1 Cosmic Cube
-3 Helicarrier Strike
-2 Murdock's Crusade
-2 Web Up
-2 Frozen in Ice
-2 Secret Invasion
-2 Depower
+2 Kid Loki
+1 Aerial Doombot
+2 Madame Masque
+2 Falcon, Winged Wonder
+3 Ninja of the Hand
+2 Bold Biochemist
+2 S.H.I.E.L.D. Deployment Drone
+1 S.H.I.E.L.D. Helicarrier
+2 Atlantean Cavalry
+2 Echo, Perceptive Prodigy
+3 Cruel Alliance
+2 We Say Thee Nay!
+1 Futurist Forge
+2 Hour of Defeat
 2 Trickster's Stratagem
-1 Borough Backup
-15 Island
-10 Plains
+1 Frozen in Ice
+14 Island
+9 Swamp
+1 Surveillance Room
+1 A.I.M. Labs

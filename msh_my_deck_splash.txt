@@ -16,9 +16,10 @@ Deck
 1 Bold Biochemist (MSH) 48
 2 Frozen in Ice (MSH) 54
 1 S.H.I.E.L.D. Deployment Drone (MSH) 73
-1 S.H.I.E.L.D. Helicarrier (MSH) 249
 1 Depower (MSH) 50
+1 Killmonger, Scourge of Wakanda (MSH) 218
+1 Dependable Quinjet (MSH) 246
 1 A.I.M. Labs (MSH) 257
-9 Island (MSH) 290
+8 Island (MSH) 290
 6 Swamp (MSH) 292
-1 Atlantean Cavalry (MSH) 45
+1 Forest (MSH) 291
