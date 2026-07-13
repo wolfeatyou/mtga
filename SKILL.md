@@ -83,23 +83,28 @@ The snapshot prints cards **sorted by GIH WR**, each with `[tier|GIH xx.x|<PAIR>
   - **Why this exists:** the pack is sorted by *global GIH* then penalizes off-color — a "stay-the-course" optimizer with no cross-pick memory. These banners add the signal/wheel/power-gap reads the sort structurally can't. **When a banner fires, address it in your pick reasoning** — don't just take the top in-color card.
 
 ### How to give a pick
-**Output format — print exactly this short block per pick:**
+**Output format — print exactly this block per pick, groups separated by a BLANK LINE (readability — a wall of consecutive label lines was flagged as hard to read):**
 ```
 P{pack}/P{pick} — **{Card}** · {P/T} · {Color} · {mana}
-**якорь:** {anchor card + archetype}   ← from pick 3 onward; "рано" if not set
-**собираем:** {our colors + plan}
-**открыто:** {open colors}             ← ONLY if a СИГНАЛЫ banner fired
-**не хватает:** {gap: curve / evasion / removal}
-**пивот:** {pivot note}                ← ONLY if a СИГНАЛЫ banner fired
-**альтернатива:** {2nd card + why passed}  ← ONLY on a genuinely close 2-card decision
-**сосед:** {left/right neighbor read}  ← ONLY on a real negative-signal inference (a color that never shows up = neighbor is eating it), not on every pick
-**план:** {what to prioritize next booster}  ← ONLY on the LAST pick of a booster (P1P14/P2P14/etc.)
-**мысли:** {fork / hypothesis / forward-looking note}  ← ONLY when there's a genuine one worth flagging
+
+собираем: {colors} — {what this MEANS for the deck, one clause, not just a color code}
+как побеждаем: {win-condition in one clause}   ← ONLY when the pool's density actually supports it (see rule below); otherwise say so honestly
+
+не хватает: {gap: curve / evasion / removal}
+открыто: {open colors}                          ← ONLY if a СИГНАЛЫ banner fired
+пивот: {pivot note}                             ← ONLY if a СИГНАЛЫ banner fired
+якорь: {anchor card + archetype}                ← from pick 3 onward; omit if not set yet ("рано")
+сосед: {left/right neighbor read}               ← ONLY on a real negative-signal inference (a color that never shows up = neighbor is eating it), not on every pick
+план: {what to prioritize next booster}         ← ONLY on the LAST pick of a booster (P1P14/P2P14/etc.)
+мысли: {fork / hypothesis / forward-looking note}  ← ONLY when there's a genuine one worth flagging
+
+  альтернатива (N/10): {card} — {short reason}  ← 0+ lines, own paragraph, indented; N/10 where 10 = this pick's own strength (i.e. rate alternatives RELATIVE to the pick, not an absolute score)
 ```
 - Card name **bold**, ALWAYS in English. Colors as WORDS: White/Blue/Black/Red/Green (C=Colorless).
 - Drop `открыто` / `пивот` entirely when no signal fired. P1P1–P2: collapse to header + `собираем: рано — беру силу`.
-- All of `альтернатива` / `сосед` / `план` / `мысли` are OPTIONAL and ONE line each — print only on picks where there's a genuine, non-manufactured thing to say. Most picks print NONE of these; don't pad every pick to look thorough. Added once Sonnet 5 + effort medium proved fast enough to afford them (see `mtg-draft-use-sonnet-for-speed` memory) — don't let them erode the block's terseness or slow the pick below the live pace that justified adding them.
-- `альтернатива`: name + a short phrase why it lost (not a GIH number dump) — only when the call was genuinely close, not "here's what I didn't pick" on every pick.
+- **`как побеждаем` — DERIVE from actual pool density every time, never template it.** Don't default to "воздух добивает" (or any other stock phrase) unless evasion/removal/engine counts in the pool genuinely support that plan (§ Оценка карты: evasion ≥2–3, hard removal ≥2–3, or a real engine anchor). Early picks / thin pools with e.g. exactly one flyer → say the plan is undetermined ("план не определён — собираем тела+ответы, ищем финишёр"), don't dress up a hope as a plan. This was a caught mistake (13.07.2026): repeating "воздух добивает" every pick with only 1 flyer in the pool.
+- `якорь` / `сосед` / `план` / `мысли` are OPTIONAL and ONE line each — print only on picks where there's a genuine, non-manufactured thing to say. Most picks print none of these; don't pad every pick to look thorough. Added once Sonnet 5 + effort medium proved fast enough to afford them (see `mtg-draft-use-sonnet-for-speed` memory) — don't let them erode the block's terseness or slow the pick below the live pace that justified adding them.
+- `альтернатива`: name + a short phrase why it lost (not a GIH number dump), rated N/10 relative to the actual pick (which is implicitly 10/10) — can list more than one, each its own line, only when genuinely worth flagging (not "here's everything I passed" on every pick).
 - `сосед`: an inference from what's conspicuously ABSENT across packs (not from a СИГНАЛЫ banner — that's `открыто`/`пивот`'s job) — e.g. "красный вообще не идёт с P1P3 — сосед слева, видимо, в красном".
 - `план`: booster-boundary only — 1 line on what to prioritize (curve slot / removal / evasion) walking into the next booster, based on current pool gaps.
 - **No GIH numbers unless the user asks «почему».**
