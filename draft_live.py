@@ -573,6 +573,11 @@ def watch(mode="full"):
                         if s2 and s2 != sig:
                             sig, text = s2, t2
                             stable_since = time.time()
+                # Финальный ре-рид: пак мог смениться, пока крутился debounce/рендер (или юзер
+                # успел подать ещё next). Всегда печатаем АБСОЛЮТНО последний пак в логе, чтобы
+                # никогда не отставать на пик. Пересчитываем и sig из этого же свежего text.
+                text = read_log_text()
+                sig, _, _, _ = pack_sig(text)
                 draft_id = current_draft_id(text)
                 _, block = current_block(text, by_id, ratings, draft_id)
                 print(block)
