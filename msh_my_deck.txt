@@ -1,27 +1,24 @@
 Deck
-1 Serpent Specialist
-1 Reptil, Dinomorpher
-1 Undercover Skrull
-1 Yellowjacket, Heartless Marauder
-1 Guerrilla Gorilla
-1 Red Room Recruit
-1 A.I.M. Synthoids
-1 Ninja of the Hand
-1 HYDRA Troopers
-1 Kingpin's Enforcers
-1 Ant-Man's Army
-1 Klaw, Sonic Subjugator
-1 Killmonger, Scourge of Wakanda
-1 Crossbones, Malicious Mercenary
-1 The Vision
-2 H.E.R.B.I.E. Scout Unit
-1 Ka-Zar of the Savage Land
-1 Punishing Punch
-1 Go Nuts!
-1 Widow's Bite
-1 Trickster's Stratagem
-1 Rapid Rescue
-1 A.I.M. Labs
-1 Surveillance Room
-8 Swamp
-7 Forest
+1 Aerial Doombot (MSH) 43
+1 Agent Maria Hill (MSH) 2
+1 Jennifer Walters // The Sensational She-Hulk (MSH) 18
+1 Bold Biochemist (MSH) 48
+1 A.I.M. Synthoids (MSH) 242
+1 Agent Phil Coulson (MSH) 4
+1 Red Guardian, Super-Soldier (MSH) 34
+1 Hero in Training (MSH) 16
+1 The Mighty Thor, Jane Foster (MSH) 222
+1 Captain America, Living Legend (MSH) 210
+1 S.H.I.E.L.D. Deployment Drone (MSH) 73
+1 Wakandan Drone Flock (MSH) 40
+1 Giant-Sized Flying Ant (MSH) 56
+2 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Wiccan, Rising Magician (MSH) 83
+3 Frozen in Ice (MSH) 54
+1 Helicarrier Strike (MSH) 15
+1 We Say Thee Nay! (MSH) 82
+1 Depower (MSH) 50
+1 Futurist Forge (MSH) 55
+1 Avengers Tower (MSH) 260
+9 Island (MSH) 289
+7 Plains (MSH) 287

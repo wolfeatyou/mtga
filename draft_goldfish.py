@@ -60,8 +60,10 @@ def parse_cost(mana_cost, cmc_field):
 INTERACT = ("destroy target", "exile target creature", "exile target permanent",
             "damage to target", "damage to any target", "damage to up to",
             "target creature gets -", "fight", "counter target",
-            "tap target creature", "stun counter", "-1/-1",
-            "to its owner's hand", "on top or bottom", "owner puts it")
+            "tap target creature", "tap enchanted creature", "stun counter", "-1/-1",
+            "to its owner's hand", "on top or bottom", "owner puts it",
+            "loses all abilities", "puts it into their library",
+            "puts that card into its owner's library")
 
 def card_info(name, db):
     c = db.get(name) or db.get(name.split(" // ")[0])
