@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 def setcode():
     for a in sys.argv[1:]:
-        if a in ("sos", "mkm"): return a
+        if a in ("sos", "mkm", "msh"): return a
     return "sos"
 
 def card_index(sc):

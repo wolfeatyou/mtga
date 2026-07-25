@@ -1,24 +1,24 @@
 Deck
-2 Jennifer Walters // The Sensational She-Hulk (MSH) 18
-1 Red Guardian, Super-Soldier (MSH) 34
-1 Wakandan Drone Flock (MSH) 40
-1 Aerial Doombot (MSH) 43
-2 Hero in Training (MSH) 16
-1 Giant-Sized Flying Ant (MSH) 56
-1 A.I.M. Synthoids (MSH) 242
-2 Bold Biochemist (MSH) 48
-4 Frozen in Ice (MSH) 54
-2 Agent Maria Hill (MSH) 2
-1 S.H.I.E.L.D. Deployment Drone (MSH) 73
-2 We Say Thee Nay! (MSH) 82
-3 H.E.R.B.I.E. Scout Unit (MSH) 247
-2 The Mighty Thor, Jane Foster (MSH) 222
-2 Agent Phil Coulson (MSH) 4
+1 Crowd of True Believers (MSH) 14
+2 S.H.I.E.L.D. Spy Kit (MSH) 36
+3 Patriot, Shield Wielder (MSH) 30
+1 Raft Security Officer (MSH) 33
+1 Brave Brawler (MSH) 8
+1 Bold Biochemist (MSH) 48
+2 Murdock's Crusade (MSH) 24
+2 Super Villain Lockup (MSH) 37
+2 Captain America, Super-Soldier (MSH) 9
 2 Captain America, Living Legend (MSH) 210
-1 Futurist Forge (MSH) 55
-2 Helicarrier Strike (MSH) 15
-1 Wiccan, Rising Magician (MSH) 83
-2 Depower (MSH) 50
-1 Avengers Tower (MSH) 260
-10 Plains (MSH) 287
-14 Island (MSH) 289
+3 Hero in Training (MSH) 16
+1 Agents of S.H.I.E.L.D. (MSH) 5
+2 Justice, Vance Astrovik (MSH) 61
+2 Frozen in Ice (MSH) 54
+1 A.I.M. Scientists (MSH) 44
+2 Giant-Sized Flying Ant (MSH) 56
+2 Trickster's Stratagem (MSH) 81
+3 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 S.H.I.E.L.D. Helicarrier (MSH) 249
+1 Captain Mar-Vell, Space-Born (MSH) 12
+2 Surveillance Room (MSH) 274
+14 Plains (MSH) 287
+9 Island (MSH) 289

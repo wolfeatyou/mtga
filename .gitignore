@@ -1,6 +1,9 @@
 # transient runtime state (rewritten every draft)
 .draft_hist.json
 .draft_watch.json
+.draft_hist_p2.json
+.draft_watch_p2.json
+.match_live.json
 
 # python bytecode
 __pycache__/

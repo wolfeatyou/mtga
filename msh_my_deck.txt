@@ -1,24 +1,40 @@
 Deck
-1 Aerial Doombot (MSH) 43
-1 Agent Maria Hill (MSH) 2
-1 Jennifer Walters // The Sensational She-Hulk (MSH) 18
+2 Hero in Training (MSH) 16
+1 Brave Brawler (MSH) 8
+1 Murdock's Crusade (MSH) 24
+1 Trickster's Stratagem (MSH) 81
 1 Bold Biochemist (MSH) 48
-1 A.I.M. Synthoids (MSH) 242
-1 Agent Phil Coulson (MSH) 4
-1 Red Guardian, Super-Soldier (MSH) 34
-1 Hero in Training (MSH) 16
-1 The Mighty Thor, Jane Foster (MSH) 222
-1 Captain America, Living Legend (MSH) 210
-1 S.H.I.E.L.D. Deployment Drone (MSH) 73
-1 Wakandan Drone Flock (MSH) 40
+1 Frozen in Ice (MSH) 54
+2 Depower (MSH) 50
+1 A.I.M. Scientists (MSH) 44
+1 Justice, Vance Astrovik (MSH) 61
 1 Giant-Sized Flying Ant (MSH) 56
-2 H.E.R.B.I.E. Scout Unit (MSH) 247
-1 Wiccan, Rising Magician (MSH) 83
-3 Frozen in Ice (MSH) 54
-1 Helicarrier Strike (MSH) 15
-1 We Say Thee Nay! (MSH) 82
+1 Raft Security Officer (MSH) 33
+1 Patriot, Shield Wielder (MSH) 30
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Mockingbird, Ace Agent (MSH) 22
+1 Ghost, Spectral Saboteur (MSH) 214
+1 S.H.I.E.L.D. Spy Kit (MSH) 36
+1 I Am Iron Man (MSH) 58
+1 Crowd of True Believers (MSH) 14
+8 Plains (MSH) 288
+1 Captain America, Super-Soldier (MSH) 9
+1 Captain America, Living Legend (MSH) 210
+1 Surveillance Room (MSH) 274
+1 Super Villain Lockup (MSH) 37
+1 Agents of S.H.I.E.L.D. (MSH) 5
+1 Colleen Wing, Street Samurai (MSH) 13
+1 Captain Mar-Vell, Space-Born (MSH) 12
+8 Island (MSH) 290
+
+Sideboard
+1 Hydraulic Helper (MSH) 57
 1 Depower (MSH) 50
-1 Futurist Forge (MSH) 55
-1 Avengers Tower (MSH) 260
-9 Island (MSH) 289
-7 Plains (MSH) 287
+2 A.I.M. Scientists (MSH) 44
+1 Patriot, Shield Wielder (MSH) 30
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Panther Pounce (MSH) 29
+1 A.I.M. Synthoids (MSH) 242
+1 S.H.I.E.L.D. Helicarrier (MSH) 249
+2 Thirst for Knowledge (MSH) 79
+1 Call Damage Control (MSH) 162

@@ -1,0 +1,24 @@
+Deck
+1 Nick Fury, Agent of S.H.I.E.L.D. (MSH) 25
+2 Agent of Atlas (MSH) 3
+1 Winter Soldier, Icy Assassin (MSH) 239
+1 Red Room Recruit (MSH) 110
+2 Murdock's Crusade (MSH) 24
+2 Web Up (MSH) 41
+1 Cruel Alliance (MSH) 92
+1 Red Guardian, Super-Soldier (MSH) 34
+1 Klaw, Sonic Subjugator (MSH) 103
+1 Ninja of the Hand (MSH) 108
+1 Agents of S.H.I.E.L.D. (MSH) 5
+1 Kingpin's Enforcers (MSH) 102
+1 Dependable Quinjet (MSH) 246
+1 Hour of Defeat (MSH) 99
+1 Wakandan Drone Flock (MSH) 40
+1 Spider-Woman, Secret Agent (MSH) 229
+1 H.E.R.B.I.E. Scout Unit (MSH) 247
+2 Borough Backup (MSH) 7
+1 The Super Hero Civil War (MSH) 231
+1 Baxter Building (MSH) 261
+9 Plains (MSH) 287
+5 Swamp (MSH) 291
+2 Mountain (MSH) 293

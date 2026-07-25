@@ -1,26 +1,24 @@
 Deck
-1 The Ruinous Wrecking Crew
-1 HYDRA Infiltration
-2 Ghost, Spectral Saboteur
-1 Villainous Hideout
-1 Repulsor Blast
-2 HYDRA Assault Robot
-1 Hire a Crew
+2 Elektra, Daughter of the Hand
+1 Titania, Rugged Rumbler
+1 Falcon, Winged Wonder
+1 Bold Biochemist
+1 Giant-Sized Flying Ant
+1 A.I.M. Labs
+2 Agents of HYDRA
+1 Klaw, Sonic Subjugator
+1 Trickster's Stratagem
+2 Frozen in Ice
+1 Atlantean Cavalry
+1 Ghost, Spectral Saboteur
 1 Project Deathlok Soldier
-2 Stolen Stark Tech
-1 U.S.Agent, John Walker
-1 Cruel Alliance
+1 Scientist Supreme of A.I.M.
+1 The Vision
+1 Stolen Stark Tech
+1 Stature, Size Shifter
+1 Hour of Defeat
 1 Widow's Bite
-1 H.E.R.B.I.E. Scout Unit
-1 Ninja of the Hand
-1 Bullseye, Death Dealer
-1 Surveillance Room
-1 HYDRA Troopers
-1 Hawkeye, Master Marksman
-1 Red Room Recruit
-1 Hell's Kitchen
-1 Loki Laufeyson
-1 Stark Industries Executive
-1 The Masters of Evil
-6 Mountain
-8 Swamp
+1 Kingpin's Enforcers
+1 HYDRA Infiltration
+7 Island
+9 Swamp
