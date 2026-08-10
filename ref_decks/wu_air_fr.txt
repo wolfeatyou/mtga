@@ -1,0 +1,44 @@
+Deck
+7 Plains
+8 Island
+1 Castle Doom
+1 Take Up the Shield
+1 Agent 13, Sharon Carter
+1 Agent of Atlas
+1 Agents of S.H.I.E.L.D.
+1 Colleen Wing, Street Samurai
+1 Hero in Training
+1 Panther Pounce
+1 Raft Security Officer
+4 Aerial Doombot
+1 A.I.M. Scientists
+1 Echo, Perceptive Prodigy
+1 Frozen in Ice
+1 Justice, Vance Astrovik
+1 S.H.I.E.L.D. Deployment Drone
+1 Stature, Size Shifter
+1 Super Suit
+1 Trickster's Stratagem
+1 We Say Thee Nay!
+1 Spider-Man, To the Rescue
+1 Spider-Woman, Secret Agent
+1 U.S.Agent, John Walker
+
+Sideboard
+1 Giant Growth
+1 Crowd of True Believers
+1 Invisible Woman, Sue Storm
+1 Attuma, Atlantean Warlord
+1 Depower
+1 HYDRA Troopers
+1 Roxxon Brutes
+1 Unliving Legionnaire
+1 Machinesmith Automaton
+1 Guerrilla Gorilla
+1 Hellcat, Undying Vigilante
+1 Hercules, Prince of Power
+1 Rick Jones, Destined Sidekick
+1 The Kingpin of Crime
+1 Vision Quest
+1 Ultron Drone
+1 Los Diablos Missile Base

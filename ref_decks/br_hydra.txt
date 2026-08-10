@@ -1,0 +1,43 @@
+Deck
+3 Plains
+3 Swamp
+7 Mountain
+1 Asgardian Citadel
+1 Dark Fortress
+1 Lightning Strike
+1 Blazing Crescendo
+1 Borough Backup
+1 Captain Marvel, Earth's Protector
+1 Cruel Alliance
+1 HYDRA Infiltration
+1 Widow's Bite
+1 Death to Our Enemies
+1 Hawkeye's Bow
+2 HULK SMASH!
+1 Human Torch, Johnny Storm
+2 HYDRA Assault Robot
+1 K'un-Lun Warrior
+1 Photon Blast Barrage
+1 Stark Industries Executive
+1 Team Tactics
+1 Bullseye, Death Dealer
+1 Speedball, New Warrior
+1 War Machine, Legacy of Iron
+3 H.E.R.B.I.E. Scout Unit
+1 Viv Vision, Teen Synthezoid
+
+Sideboard
+1 Crossbones, Malicious Mercenary
+1 HYDRA Infiltration
+1 Roxxon Brutes
+1 Unliving Legionnaire
+1 Visions of Villainy
+1 Hire a Crew
+1 Vision of Love
+1 Ant-Man's Army
+1 Call Damage Control
+1 Rapid Rescue
+1 Beast, Erudite Aerialist
+1 Scientist Supreme of A.I.M.
+1 A.I.M. Synthoids
+1 Ultron Drone

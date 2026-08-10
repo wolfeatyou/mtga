@@ -1,0 +1,24 @@
+Deck
+1 Agent Maria Hill (MSH) 2
+1 Crowd of True Believers (MSH) 14
+1 Brave Brawler (MSH) 8
+1 Night Nurse, Healer of Heroes (MSH) 26
+1 Agent of Atlas (MSH) 3
+1 Tigra, Feline Fury (MSH) 191
+1 Hero in Training (MSH) 16
+1 Agents of S.H.I.E.L.D. (MSH) 5
+1 Ant-Man's Army (MSH) 161
+1 Titania, Rugged Rumbler (MSH) 235
+1 Dependable Quinjet (MSH) 246
+1 The Unbeatable Squirrel Girl (MSH) 193
+2 H.E.R.B.I.E. Scout Unit (MSH) 247
+1 Wakandan Drone Flock (MSH) 40
+1 Pet Avengers (MSH) 178
+2 S.H.I.E.L.D. Spy Kit (MSH) 36
+2 Murdock's Crusade (MSH) 24
+1 Take Up the Shield (MSH) 39
+1 Go Nuts! (MSH) 168
+1 Rapid Rescue (MSH) 181
+1 Avengers Tower (MSH) 260
+8 Plains (MSH) 287
+8 Forest (MSH) 295

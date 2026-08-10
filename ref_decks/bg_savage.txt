@@ -1,0 +1,42 @@
+Deck
+7 Forest
+1 Plains
+6 Swamp
+1 Baxter Building
+1 Birnin Zana Plaza
+1 Fisk Tower
+1 Web Up
+1 Cruel Alliance
+1 Dark Deed
+1 Elektra, Daughter of the Hand
+1 Roxxon Brutes
+1 Visions of Villainy
+1 Ant-Man's Army
+3 Go Nuts!
+2 Ka-Zar of the Savage Land
+1 Knight of Wundagore
+1 Pet Avengers
+1 Powerful Broker
+1 Punishing Punch
+1 Serpent Specialist
+1 Undercover Skrull
+1 White Tiger, Ava Ayala
+1 Cloak and Dagger, Entwined
+1 The Serpent Society
+1 H.E.R.B.I.E. Scout Unit
+1 The Vision
+
+Sideboard
+1 Giant Growth
+1 Raft Security Officer
+1 Wakandan Drone Flock
+1 We Say Thee Nay!
+1 HYDRA Troopers
+1 Unliving Legionnaire
+1 Hellcat, Undying Vigilante
+1 Powerful Broker
+2 Rapid Rescue
+1 Restorative Technique
+1 The Thing, Ben Grimm
+1 Absorbing Man
+1 A.I.M. Labs

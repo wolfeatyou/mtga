@@ -8,14 +8,13 @@ Deck
 2 Aerial Doombot (MSH) 43
 1 Stature, Size Shifter (MSH) 76
 1 Colleen Wing, Street Samurai (MSH) 13
-1 U.S.Agent, John Walker (MSH) 236
 1 Captain America, Living Legend (MSH) 210
+1 U.S.Agent, John Walker (MSH) 236
+1 Wakandan Drone Flock (MSH) 40
+1 Captain Mar-Vell, Space-Born (MSH) 12
 3 Murdock's Crusade (MSH) 24
 3 Borough Backup (MSH) 7
 2 Web Up (MSH) 41
 2 Trickster's Stratagem (MSH) 81
-2 Take Up the Shield (MSH) 39
-1 S.H.I.E.L.D. Spy Kit (MSH) 36
-1 Super-Soldier Serum (MSH) 38
-13 Plains (MSH) 287
+15 Plains (MSH) 287
 11 Island (MSH) 289

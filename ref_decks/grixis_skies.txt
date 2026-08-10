@@ -1,0 +1,41 @@
+Deck
+7 Island
+4 Swamp
+1 Mountain
+1 A.I.M. Labs
+1 Dark Fortress
+2 Hell's Kitchen
+1 Aerial Doombot
+2 A.I.M. Scientists
+1 Bold Biochemist
+1 Falcon, Winged Wonder
+2 Giant-Sized Flying Ant
+1 Kang the Conqueror
+1 Loki, God of Mischief
+1 Trickster's Stratagem
+1 The Wondrous Wasp
+1 Cruel Alliance
+2 HYDRA Infiltration
+1 Klaw, Sonic Subjugator
+2 Unliving Legionnaire
+1 Widow's Bite
+1 Yellowjacket, Heartless Marauder
+1 Avengers: Under Siege
+1 Bullseye, Death Dealer
+1 Ghost, Spectral Saboteur
+1 Madame Hydra
+1 The Ruinous Wrecking Crew
+
+Sideboard
+1 Atlantean Cavalry
+2 Atlantis Attacks
+1 Agents of HYDRA
+2 Project Deathlok Soldier
+1 Red Room Recruit
+1 Stolen Stark Tech
+1 Claim the Kingdom
+1 Iron Man, Master of Machines
+1 Ultron Drone
+1 Vibranium Energy Daggers
+1 Los Diablos Missile Base
+1 Subterranean Cavern

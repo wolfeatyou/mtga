@@ -1,0 +1,42 @@
+Deck
+8 Island
+8 Mountain
+2 Lightning Strike
+1 Aerial Doombot
+1 A.I.M. Scientists
+1 Frozen in Ice
+1 Futurist Forge
+1 I Am Iron Man
+1 Iron Lad, Diverging Destiny
+1 S.H.I.E.L.D. Deployment Drone
+1 Tony Stark
+1 Trickster's Stratagem
+1 Hawkeye, Young Avenger
+2 HULK SMASH!
+1 HYDRA Assault Robot
+1 Jessica Jones, Private Eye
+1 K'un-Lun Warrior
+1 Loki Laufeyson
+2 Machinesmith Automaton
+1 Photon Blast Barrage
+1 Stark Industries Executive
+1 Iron Man, Master of Machines
+1 Speedball, New Warrior
+
+Sideboard
+2 Blazing Crescendo
+1 Kree Commandos
+1 Agents of HYDRA
+1 Arnim Zola, Bio-Fanatic
+1 Grim Reaper, Lethal Legionnaire
+1 HYDRA Troopers
+1 The Masters of Evil
+1 Moonstone, Harsh Mistress
+1 Project Deathlok Soldier
+1 K'un-Lun Warrior
+1 Knight of Wundagore
+1 Captain America, Living Legend
+1 A.I.M. Synthoids
+1 Vibranium Energy Daggers
+1 Asgardian Citadel
+2 Avengers Hangar

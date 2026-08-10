@@ -1,0 +1,39 @@
+Deck
+7 Forest
+8 Plains
+1 Avengers Hangar
+1 Surveillance Room
+1 Take Up the Shield
+1 Web Up
+1 Agent Phil Coulson
+1 Avengers Assemble!
+1 Borough Backup
+3 Brave Brawler
+1 Helicarrier Strike
+1 Murdock's Crusade
+1 Raft Security Officer
+1 Red Guardian, Super-Soldier
+2 Ant-Man's Army
+1 Heroic Feast
+2 Pet Avengers
+1 Punishing Punch
+2 Black Panther, Vanguard
+1 Spider-Man, To the Rescue
+1 Spider-Woman, Secret Agent
+1 Don't Move
+
+Sideboard
+1 Take Up the Shield
+1 Agents of S.H.I.E.L.D.
+1 Crowd of True Believers
+1 Luke Cage, Power Man
+1 Rewrite History
+1 Hawkeye, Young Avenger
+1 Quicksilver, Brash Blur
+1 Red Hulk
+1 Volcanic Villain
+1 Ant-Man's Army
+1 Tigra, Feline Fury
+1 Wakandan Royal Guard
+2 Dependable Quinjet
+2 Vibranium Energy Daggers

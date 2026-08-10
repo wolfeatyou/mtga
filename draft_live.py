@@ -382,9 +382,71 @@ def _record_hist(draft_id, pnum, pick, ids):
     except Exception:
         pass
 
-def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
-    """Список баннеров-предупреждений (пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
+# ─── КРИВАЯ: счётчик дешёвых тел (операционализация порога 3) ─────────────────
+# Обоснование (msh_match_log, 10 завершённых прогонов): голдфиш-метрика «существо к T2» —
+# единственное, что разделило прогоны. ≥69% → 16W-8L (66.7%); ≤56% → 2W-9L (18.2%).
+# Метрика почти ступенчато определяется числом существ cmc≤2: 4 шт ≈ 55%, 5 шт ≈ 64-65%.
+# На сборке не чинится (взять неоткуда) → должна набираться НА ПИКЕ, значит счётчик
+# обязан печататься КАЖДЫЙ пик. Прошлая версия правила была текстом в SKILL.md и
+# не сработала ни разу — ничто не заставляло на неё посмотреть.
+PICKS_PER_PACK = 14
+CHEAP_TARGET = {1: 2, 2: 4, 3: 5}   # сколько существ cmc≤2 надо иметь к КОНЦУ пака n
+
+def _is_cheap_body(cid, by_id):
+    c = by_id.get(cid)
+    if not c:
+        return False
+    tl = face(c, "type_line") or ""
+    if "Creature" not in tl:
+        return False
+    # {X}-костные существа: Scryfall считает X=0, поэтому The Ruinous Wrecking Crew {X}{B}{R}
+    # приходит как cmc=2.0. Это НЕ двойка — за X=0 это 0/0. В квоту кривой не идёт.
+    # (поймано 10.08.2026 на diamond-листе Grixis Skies)
+    if "{X}" in (face(c, "mana_cost") or ""):
+        return False
+    cmc = c.get("cmc")
+    return cmc is not None and cmc <= 2
+
+def cheap_bodies(picks, by_id, ratings, main):
+    """Имена существ cmc≤2 в пуле, КАСТУЕМЫХ в текущих цветах (main=None → все)."""
     out = []
+    for cid in picks:
+        if not _is_cheap_body(cid, by_id):
+            continue
+        if main and (_colors_of(cid, by_id, ratings) - set(main)):
+            continue
+        out.append(_name_of(cid, by_id, ratings))
+    return out
+
+def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
+    """Всегда-печатаемая строка про кривую + кандидаты в ЭТОМ паке, если отстаём."""
+    have = cheap_bodies(picks, by_id, ratings, main)
+    n = len(have)
+    prev = CHEAP_TARGET.get((pnum or 1) - 1, 0)
+    tgt = CHEAP_TARGET.get(pnum or 1, 5)
+    need_now = int(prev + (tgt - prev) * min(pick or 1, PICKS_PER_PACK) / PICKS_PER_PACK)
+    fin = CHEAP_TARGET[3]
+    if n >= need_now:
+        mark = "✓" if n >= fin else "в графике"
+        return [f"⚑ КРИВАЯ: существ cmc≤2 — {n} · чекпойнт {need_now} · финал ≥{fin} — {mark}"]
+    cand = [(c, _gih_of(c, ratings)) for c in ids
+            if _is_cheap_body(c, by_id) and not (main and (_colors_of(c, by_id, ratings) - set(main)))]
+    cand = [x for x in cand if x[1] is not None]
+    cand.sort(key=lambda x: -x[1])
+    out = [f"⚑ КРИВАЯ — НЕДОБОР: существ cmc≤2 — {n}, к этому пику надо {need_now} "
+           f"(финал ≥{fin}). Не хватает {need_now - n}."]
+    if cand:
+        s = " · ".join(f"{_name_of(c, by_id, ratings)} GIH {g}" for c, g in cand[:3])
+        out.append(f"   дешёвые тела в цвете ЗДЕСЬ: {s}")
+        out.append("   ПРАВИЛО: берём дешёвое тело. Обходится ТОЛЬКО бомбой (GIH ≥63) или "
+                   "безусловным removal — не «картой повыше GIH».")
+    else:
+        out.append("   дешёвых тел в цвете в этом паке НЕТ — добираем в следующем, приоритет держим.")
+    return out
+
+def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
+    """Список баннеров-предупреждений (кривая/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
+    out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     main = set(main or [])
     def offcolor(cid):
         cols = _colors_of(cid, by_id, ratings)

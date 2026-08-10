@@ -1,0 +1,40 @@
+Deck
+2 Forest
+5 Plains
+3 Island
+2 Swamp
+1 A.I.M. Labs
+1 Subterranean Cavern
+2 Surveillance Room
+1 Villainous Hideout
+2 Agent Maria Hill
+2 Borough Backup
+1 Panther Pounce
+1 S.H.I.E.L.D. Spy Kit
+1 A.I.M. Scientists
+1 Bold Biochemist
+1 Echo, Perceptive Prodigy
+3 Cruel Alliance
+1 Decoy Ploy
+1 Madame Masque
+1 Unliving Legionnaire
+1 Pet Avengers
+1 Punishing Punch
+1 She-Hulk, Jade Defender
+1 Killmonger, Scourge of Wakanda
+2 The Mighty Thor, Jane Foster
+1 U.S.Agent, John Walker
+1 A.I.M. Synthoids
+1 Dependable Quinjet
+
+Sideboard
+1 Thirst for Knowledge
+1 Brave Brawler
+1 Rewrite History
+1 Agents of HYDRA
+1 Arnim Zola, Bio-Fanatic
+3 Project Deathlok Soldier
+1 Hire a Crew
+1 HULK SMASH!
+1 The Scarlet Witch
+1 Ant-Man's Army

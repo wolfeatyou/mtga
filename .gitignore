@@ -23,3 +23,6 @@ sim/sim_state.json
 replay_report.html
 replay_moments.html
 game4_review.html
+
+# quickdraft transient state
+.qd_last_*.json

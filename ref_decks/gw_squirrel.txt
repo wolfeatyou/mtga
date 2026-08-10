@@ -1,0 +1,41 @@
+Deck
+7 Forest
+8 Plains
+1 Island
+1 Pym Technologies
+1 Giant Growth
+1 Take Up the Shield
+1 Web Up
+1 Brave Brawler
+1 Helicarrier Strike
+1 Jennifer Walters
+2 Murdock's Crusade
+2 Raft Security Officer
+1 Go Nuts!
+1 Guerrilla Gorilla
+1 Mister Hyde, Monster Within
+1 Mole Man, Moloid Master
+2 Restorative Technique
+1 Serpent Specialist
+1 She-Hulk, Jade Defender
+1 The Unbeatable Squirrel Girl
+1 White Tiger, Ava Ayala
+1 Abomination, Terrifying Titan
+1 The Mighty Thor, Jane Foster
+1 Dependable Quinjet
+
+Sideboard
+1 Giant Growth
+1 Captain Mar-Vell, Space-Born
+1 Ninja of the Hand
+1 Human Torch, Johnny Storm
+1 Kree Sentinel
+1 Machinesmith Automaton
+1 Repulsor Blast
+1 Call Damage Control
+2 Claim the Kingdom
+1 Knight of Wundagore
+1 Super Strength
+1 Wakandan Royal Guard
+1 A.I.M. Synthoids
+1 Los Diablos Missile Base
