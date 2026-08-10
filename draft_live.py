@@ -787,6 +787,17 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
             lines.append(f"        {ot}")
     lines.append("POOL:")
     lines.append(pool_summary(picks, by_id, ratings))
+    # Карты, которых нет в <set>_set.json, МОЛЧА выпадали из всех счётчиков (кривая,
+    # существа, цвета, ПЛАН, ПРОФИЛЬ) — то есть баннеры врали на их число, не сообщая
+    # об этом. Поймано 11.08.2026 живым драфтом: id105262 (артефакт с симметричным
+    # добором) и id105178 в пуле. Сами данные добрать нельзя, но врать молча нельзя тем более.
+    unk_pool = [c for c in picks if c not in by_id]
+    unk_pack = [c for c in ids if c not in by_id]
+    if unk_pool or unk_pack:
+        lines.append(f"  ⚠ НЕ РАСПОЗНАНО: в пуле {len(unk_pool)}, в паке {len(unk_pack)} "
+                     f"(id: {', '.join(str(c) for c in (unk_pool + unk_pack)[:6])}) — "
+                     f"их НЕТ в {setcode()}_set.json, поэтому они не учтены ни в одном "
+                     f"счётчике выше. Спроси у игрока текст и оцени вручную.")
     saved = save_pool(picks, by_id, ratings, draft_id)
     if saved:
         lines.append(f"  💾 пул сохранён: pools/{os.path.basename(saved)} ({len(picks)} карт)")

@@ -5,8 +5,10 @@ Sideboard
 1 Aerial Doombot
 1 Arnim Zola, Bio-Fanatic
 1 Bold Biochemist
+1 Crossbones, Malicious Mercenary
 1 Decoy Ploy
 1 Dependable Quinjet
+1 Depower
 1 Doc Samson, Super Psychiatrist
 1 Evil's Thrall
 1 Falcon's Wing Harness
@@ -20,6 +22,7 @@ Sideboard
 1 Stolen Stark Tech
 1 Super Strength
 1 Super-Skrull
+1 U.S.Agent, John Walker
 2 Unliving Legionnaire
 1 Visions of Villainy
 1 We Say Thee Nay!
