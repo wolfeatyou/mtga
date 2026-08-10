@@ -50,6 +50,39 @@ def tier(w):
     if w >= 0.515: return "D "
     return "F "
 
+def _norm_name(s):
+    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+
+def load_pick_tiers():
+    """name -> тир пика по untapped.gg (DIAMOND_TO_MYTHIC). Это ДРУГАЯ ось, чем GIH:
+    как сильные драфтеры карту РЕАЛЬНО берут, а не какой у неё винрейт.
+    Измерено на 196 картах (10.08.2026): ρ(тир,GIH)=+0.79, но при РАВНОМ GIH решает IWD —
+    ρ(тир,IWD) внутри полосы 59-61 = +0.58, внутри 61-64 = +0.66. Поэтому тир печатается
+    рядом с GIH: расхождение между ними и есть содержательная часть пика."""
+    f = os.path.join(HERE, f"{setcode()}_pick_tiers.json")
+    if not os.path.exists(f):
+        return {}
+    out = {}
+    for tier, names in json.load(open(f)).items():
+        if tier.startswith("_"):
+            continue
+        for n in names:
+            out[_norm_name(n)] = tier
+            out[_norm_name(n.split(",")[0])] = tier
+    return out
+
+
+PICK_TIERS = None
+
+
+def pick_tier(name):
+    global PICK_TIERS
+    if PICK_TIERS is None:
+        PICK_TIERS = load_pick_tiers()
+    return PICK_TIERS.get(_norm_name(name)) or PICK_TIERS.get(_norm_name((name or "").split(",")[0]))
+
+
 def stat_tag(r, cgih=None, pair=None):
     """Расширенный ярлык пика: тир + GIH + (GIH·пара) + IWD + OH-WR + ALSA.
       GIH  — ever_drawn_win_rate (винрейт игр, где карта в руке).
@@ -70,6 +103,9 @@ def stat_tag(r, cgih=None, pair=None):
     alsa_val = r.get('avg_seen', 0)
     if alsa_val is not None:
         parts.append(f"ALSA {alsa_val:.1f}")
+    pt = pick_tier(r.get("name"))
+    if pt:
+        parts.append(f"пик {pt}")     # как берут в Diamond→Mythic (untapped), ось ≠ GIH
     flag = " ⚠trap" if (iwd is not None and iwd < 0) else ""
     return "[" + "|".join(parts) + "]" + flag
 
