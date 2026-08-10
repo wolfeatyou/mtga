@@ -224,6 +224,41 @@ def find_my_picks(text, draft_id=None):
             seq.append(gid)
     return [by_coord[k] for k in sorted(by_coord)] + seq
 
+POOL_DIR = os.path.join(HERE, "pools")
+
+
+def save_pool(picks, by_id, ratings, draft_id):
+    """Автосохранение ПОЛНОГО пула в MTGA-формат при каждом пике.
+
+    Зачем автоматически, а не руками: пул физически живёт только в Player.log, а он
+    **ротируется быстро** (задокументировано в § Mode 2) — после ротации остаток пула
+    восстановить неоткуда, и тест «мейн ≠ жадный топ-23» (§ КАЛИБРОВКА) провести уже
+    нельзя. Файл переписывается каждый пик, так что обрыв в любой момент не теряет ничего.
+
+    Все карты кладём в Sideboard: на момент драфта мейд ещё не выбран. На сборке
+    build_audit.py --pool сам вычтет мейн из пула.
+    """
+    if not picks:
+        return None
+    try:
+        os.makedirs(POOL_DIR, exist_ok=True)
+        tag = (draft_id or "nodraftid")[:8]
+        path = os.path.join(POOL_DIR, f"{setcode()}_{tag}.txt")
+        from collections import Counter
+        cnt = Counter()
+        for cid in picks:
+            c = by_id.get(cid)
+            nm = (c or {}).get("name") or (ratings.get(cid) or {}).get("name")
+            if nm:
+                cnt[nm.split(" //")[0]] += 1
+        lines = ["Deck", "", "Sideboard"] + [f"{n} {nm}" for nm, n in sorted(cnt.items())]
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+        return path
+    except Exception:
+        return None       # автосохранение никогда не должно ронять живой драфт
+
+
 def pool_summary(picks, by_id, ratings):
     """Текст: список пула, баланс цветов, кривая."""
     if not picks:
@@ -696,6 +731,9 @@ def current_block(text, by_id, ratings, draft_id):
             lines.append(f"        {ot}")
     lines.append("POOL:")
     lines.append(pool_summary(picks, by_id, ratings))
+    saved = save_pool(picks, by_id, ratings, draft_id)
+    if saved:
+        lines.append(f"  💾 пул сохранён: pools/{os.path.basename(saved)} ({len(picks)} карт)")
     return sig, "\n".join(lines)
 
 def watch(mode="full"):
@@ -879,6 +917,10 @@ def main():
     if draft_id:
         print(f"  (draftId {draft_id[:8]}…)")
     print(pool_summary(picks, by_id, ratings))
+    saved = save_pool(picks, by_id, ratings, draft_id)
+    if saved:
+        print(f"  💾 пул сохранён: {saved}")
+        print(f"     на сборке: python3 build_audit.py <мой_лист.txt> --pool {os.path.basename(saved)}")
 
 if __name__ == "__main__":
     main()

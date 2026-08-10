@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """
-АУДИТ СБОРКИ ПРОТИВ РЕФЕРЕНС-ПОПУЛЯЦИИ (14 листов 7-1/7-2 в ref_decks/).
+АУДИТ СБОРКИ ПРОТИВ РЕФЕРЕНС-ПОПУЛЯЦИИ (23 листа 7-1/7-2 в ref_decks/).
 
 Заменяет выдуманные пороги на вопрос «где моя колода в распределении победителей».
-Порог, выведенный из трёх наших трофеек, отбраковывал 10 из 14 реально выигрывающих
+Порог, выведенный из трёх наших трофеек, отбраковывал 16 из 23 реально выигрывающих
 колод (проверено 10.08.2026) — поэтому калибровка берётся из популяции, а не из головы.
 
 Плюс ГЛАВНЫЙ тест процесса:
-    Ни одна из 14 победивших колод не равна «жадному» топ-23 по GIH — все отдают
-    в среднем 0.53 GIH на карту, все 14 из 14 в одну сторону. Если МОЙ мейн совпал
+    Ни одна из 23 победивших колод не равна «жадному» топ-23 по GIH — все отдают
+    в среднем 0.49 GIH на карту, все 23 из 23 в одну сторону. Если МОЙ мейн совпал
     с жадным списком, это признак, что план не выбран, а пул просто отсортирован.
     Этот тест — про мой процесс, поэтому он не страдает от survivorship-bias выборки.
 
-Usage:  python3 build_audit.py <мой_лист.txt>
+Usage:  python3 build_audit.py <мой_лист.txt> [--pool pools/msh_XXXX.txt]
         Лист в формате MTGA: `Deck` … `Sideboard` … — сайдборд ОБЯЗАТЕЛЕН
         (это остаток пула, без него нельзя проверить срез).
 """
@@ -57,9 +57,36 @@ def split_deck(path):
     return main, side
 
 
-def greedy_check(path, db, rat):
+def load_pool_file(p):
+    """Пул, автосохранённый draft_live.py (pools/<set>_<draft8>.txt). Принимает
+    и голое имя файла, и путь."""
+    for cand in (p, os.path.join(HERE, "pools", p), os.path.join(HERE, p)):
+        if os.path.exists(cand):
+            md, sb = split_deck(cand)
+            return md + sb          # там всё в Sideboard, но берём обе секции
+    raise SystemExit(f"пул не найден: {p} (ищу в ./ и в pools/)")
+
+
+def merge_pool(md, pool):
+    """Сайдборд = пул МИНУС мейн (по количеству копий)."""
+    from collections import Counter
+    have = Counter()
+    for n, name in md:
+        have[name] += n
+    out = []
+    for n, name in pool:
+        left = n - have.get(name, 0)
+        have[name] = max(0, have.get(name, 0) - n)
+        if left > 0:
+            out.append((left, name))
+    return out
+
+
+def greedy_check(path, db, rat, pool_path=None):
     """Сравнить мейн с топ-N по GIH из пула (мейн + сайд НА ЦВЕТЕ)."""
     md, sb = split_deck(path)
+    if pool_path:
+        sb = merge_pool(md, load_pool_file(pool_path))
     pips = Counter()
     for n, name in md:
         c = db.get(norm(name)) or db.get(norm(name.split(",")[0]))
@@ -101,7 +128,13 @@ def main():
     if len(sys.argv) < 2:
         print(__doc__)
         sys.exit(1)
-    path = sys.argv[1]
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    pool_path = None
+    if "--pool" in sys.argv:
+        i = sys.argv.index("--pool")
+        pool_path = sys.argv[i + 1] if len(sys.argv) > i + 1 else None
+        args = [a for a in args if a != pool_path]
+    path = args[0]
     db, rat = load_db(), load_ratings("msh")
 
     refs = []
@@ -130,23 +163,24 @@ def main():
             verdict = "в диапазоне"
         print(f"{label:22} {v:>7}   {lo:>6} – {med:^6} – {hi:<6}       {verdict}")
 
-    g = greedy_check(path, db, rat)
+    g = greedy_check(path, db, rat, pool_path)
     print("\n" + "=" * 82)
     print("ТЕСТ ПРОЦЕССА: мой мейн vs «жадный» топ-N по GIH из моего же пула")
     print("=" * 82)
     if g is None:
-        print("  ⚠ Сайдборд пуст или не указан — тест невозможен.")
-        print("    Сохраняй ВЕСЬ пул (мейн + сайд), иначе решение о срезе не проверяется.")
+        print("  ⚠ Сайдборд пуст и --pool не указан — тест невозможен.")
+        print("    draft_live.py сохраняет пул сам: pools/<set>_<draft8>.txt")
+        print("    Запусти: python3 build_audit.py <лист.txt> --pool <файл_пула>")
     else:
         d, swapped, a, b = g
         print(f"  мой мейн {a:.2f} · жадный {b:.2f} · ОТДАНО {d:+.2f} GIH на карту")
-        print(f"  (у 14 победителей: отдано +0.53 в среднем, все 14 положительные)")
+        print(f"  (у 23 победителей: отдано +0.49 в среднем, все 23 положительные)")
         if d <= 0.02:
-            print("\n  🔴 МОЙ МЕЙН = ЖАДНЫЙ СПИСОК. Ни одна из 14 победивших колод так не собрана.")
+            print("\n  🔴 МОЙ МЕЙН = ЖАДНЫЙ СПИСОК. Ни одна из 23 победивших колод так не собрана.")
             print("     Это не «я взял лучшие карты» — это «я не выбрал план, а отсортировал пул».")
             print("     Вернись и ответь: какая карта здесь пейофф, и что я играю РАДИ неё?")
         elif d < 0.2:
-            print("\n  🟡 Отклонение от жадного есть, но слабее нормы победителей (0.53).")
+            print("\n  🟡 Отклонение от жадного есть, но слабее нормы победителей (0.49).")
             print("     Проверь, не срезаны ли пейоффы сборки ради «ровных» карт.")
         else:
             print("\n  ✅ Отклонение в норме популяции — план в колоде читается.")
