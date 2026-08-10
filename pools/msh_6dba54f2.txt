@@ -2,28 +2,35 @@ Deck
 
 Sideboard
 1 A.I.M. Scientists
-1 Aerial Doombot
+2 Aerial Doombot
+1 Agents of HYDRA
 1 Arnim Zola, Bio-Fanatic
+1 Atlantean Cavalry
 1 Bold Biochemist
 1 Crossbones, Malicious Mercenary
 1 Decoy Ploy
 1 Dependable Quinjet
-1 Depower
+2 Depower
 1 Doc Samson, Super Psychiatrist
 1 Evil's Thrall
 1 Falcon's Wing Harness
 1 Fisk Tower
+1 Frozen in Ice
 1 Futurist Forge
 1 Giant-Sized Flying Ant
 1 Grim Reaper, Lethal Legionnaire
 2 HYDRA Infiltration
+1 Kang, Temporal Tyrant
 1 Ninja of the Hand
+1 Restorative Technique
 1 Secret Invasion
-1 Stolen Stark Tech
+2 Stolen Stark Tech
 1 Super Strength
+1 Super Suit
 1 Super-Skrull
 1 U.S.Agent, John Walker
 2 Unliving Legionnaire
+1 Villainous Hideout
 1 Visions of Villainy
 1 We Say Thee Nay!
 1 Whiplash, Vengeful Engineer

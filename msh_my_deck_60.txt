@@ -1,21 +1,40 @@
 Deck
-4 Hero in Training (MSH) 16
-3 Brave Brawler (MSH) 8
-3 Okoye, Dora Milaje Leader (MSH) 27
-2 Justice, Vance Astrovik (MSH) 61
-2 S.H.I.E.L.D. Deployment Drone (MSH) 73
-2 Raft Security Officer (MSH) 33
-2 Aerial Doombot (MSH) 43
-1 Stature, Size Shifter (MSH) 76
-1 Colleen Wing, Street Samurai (MSH) 13
-1 U.S.Agent, John Walker (MSH) 236
-1 Captain America, Living Legend (MSH) 210
-3 Murdock's Crusade (MSH) 24
-3 Borough Backup (MSH) 7
-2 Web Up (MSH) 41
-2 Trickster's Stratagem (MSH) 81
-2 Take Up the Shield (MSH) 39
-1 S.H.I.E.L.D. Spy Kit (MSH) 36
-1 Super-Soldier Serum (MSH) 38
-13 Plains (MSH) 287
-11 Island (MSH) 289
+13 Swamp
+10 Island
+1 Villainous Hideout
+1 Fisk Tower
+2 Aerial Doombot
+1 Whiplash, Vengeful Engineer
+1 Bold Biochemist
+1 Yellowjacket, Heartless Marauder
+1 Agents of HYDRA
+2 Stolen Stark Tech
+1 Falcon's Wing Harness
+1 Super Suit
+1 Widow's Bite
+1 Decoy Ploy
+1 Futurist Forge
+1 We Say Thee Nay!
+1 Arnim Zola, Bio-Fanatic
+1 Atlantean Cavalry
+1 Ninja of the Hand
+2 Depower
+1 Frozen in Ice
+1 Secret Invasion
+1 Visions of Villainy
+1 Dependable Quinjet
+1 A.I.M. Scientists
+1 Giant-Sized Flying Ant
+1 U.S.Agent, John Walker
+2 Unliving Legionnaire
+3 HYDRA Infiltration
+1 Crossbones, Malicious Mercenary
+1 Grim Reaper, Lethal Legionnaire
+1 Super-Skrull
+1 Kang, Temporal Tyrant
+
+Sideboard
+1 Doc Samson, Super Psychiatrist
+1 Restorative Technique
+1 Evil's Thrall
+1 Super Strength

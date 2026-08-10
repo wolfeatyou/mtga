@@ -100,7 +100,7 @@ def greedy_check(path, db, rat, pool_path=None):
 
     def G(nm):
         r = rat.get(norm(nm)) or rat.get(norm(nm.split(",")[0]))
-        return round(r["ever_drawn_win_rate"] * 100, 1) if r else None
+        return round(r["ever_drawn_win_rate"] * 100, 1) if r and r.get("ever_drawn_win_rate") else None
 
     real, pool = [], []
     for lst, is_md in ((md, True), (sb, False)):
@@ -182,6 +182,10 @@ def main():
         elif d < 0.2:
             print("\n  🟡 Отклонение от жадного есть, но слабее нормы победителей (0.49).")
             print("     Проверь, не срезаны ли пейоффы сборки ради «ровных» карт.")
+        elif d > 1.0:
+            print("\n  🔴 ОТКЛОНЕНИЕ ВЫШЕ МАКСИМУМА ПОПУЛЯЦИИ (у 23 победителей макс +0.96).")
+            print("     Это зеркальная ошибка: не «нет плана», а «план дороже качества карт».")
+            print("     Проверь список ниже — если там есть карты ТВОЕЙ оси, они срезаны зря.")
         else:
             print("\n  ✅ Отклонение в норме популяции — план в колоде читается.")
         if swapped:

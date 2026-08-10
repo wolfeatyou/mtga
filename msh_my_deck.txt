@@ -1,24 +1,42 @@
 Deck
-1 Crowd of True Believers (MSH) 14
-2 Bold Biochemist (MSH) 48
-1 Agent of Atlas (MSH) 3
-1 Shuri, Wakandan Inventor (MSH) 75
-1 Captain America, Wings of Freedom (MSH) 10
-1 Captain America, Living Legend (MSH) 210
-2 S.H.I.E.L.D. Deployment Drone (MSH) 73
-1 We Say Thee Nay! (MSH) 82
-1 Spider-Woman, Secret Agent (MSH) 229
-1 Wakandan Drone Flock (MSH) 40
-1 Giant-Sized Flying Ant (MSH) 56
-1 U.S.Agent, John Walker (MSH) 236
-1 A.I.M. Scientists (MSH) 44
-1 Falcon, Winged Wonder (MSH) 52
-1 S.H.I.E.L.D. Spy Kit (MSH) 36
-1 Murdock's Crusade (MSH) 24
-1 Take Up the Shield (MSH) 39
-1 Web Up (MSH) 41
-1 Frozen in Ice (MSH) 54
-2 Trickster's Stratagem (MSH) 81
-8 Plains (MSH) 287
-8 Island (MSH) 289
-1 Surveillance Room (MSH) 274
+9 Swamp
+7 Island
+1 Villainous Hideout
+1 Giant-Sized Flying Ant
+1 Super-Skrull
+1 A.I.M. Scientists
+1 Bold Biochemist
+1 Yellowjacket, Heartless Marauder
+2 Unliving Legionnaire
+2 Stolen Stark Tech
+1 Arnim Zola, Bio-Fanatic
+1 Secret Invasion
+1 Aerial Doombot
+1 Ninja of the Hand
+1 Futurist Forge
+1 Whiplash, Vengeful Engineer
+1 Widow's Bite
+1 U.S.Agent, John Walker
+1 Crossbones, Malicious Mercenary
+1 Depower
+1 Frozen in Ice
+1 Kang, Temporal Tyrant
+1 Agents of HYDRA
+1 Atlantean Cavalry
+
+Sideboard
+3 HYDRA Infiltration
+1 Falcon's Wing Harness
+1 Aerial Doombot
+1 We Say Thee Nay!
+1 Visions of Villainy
+1 Fisk Tower
+1 Dependable Quinjet
+1 Grim Reaper, Lethal Legionnaire
+1 Depower
+1 Super Suit
+1 Doc Samson, Super Psychiatrist
+1 Super Strength
+1 Evil's Thrall
+1 Restorative Technique
+1 Decoy Ploy
