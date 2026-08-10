@@ -444,9 +444,114 @@ def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
         out.append("   дешёвых тел в цвете в этом паке НЕТ — добираем в следующем, приоритет держим.")
     return out
 
+# ─── ПЛАН: кластер воздух/земля (константы из ref_decks, n=23) ────────────────
+# Флаеры бимодальны: 12 колод с ≤3, 9 с ≥6, всего 2 в середине.
+# REACH — почти идеальный разделитель: из 9 воздушных reach≥2 нет НИ У ОДНОЙ;
+# из 12 наземных 8 держат reach≥3. Это камень-ножницы, а не разница в силе карт.
+# Константы зашиты намеренно: читать ref_decks/ в пик-цикле = лишняя латентность.
+AIR_FLY, AIR_REACH_MAX = 6, 1        # воздух: флай 6–10, reach 0–1
+GND_FLY_MAX, GND_REACH = 3, 3        # земля:  флай 0–3, reach медиана 3
+TOTAL_PICKS = 42
+REF = dict(creatures=(13, 15, 18), cheap=(1, 5, 8), hard=(0, 1, 5),
+           c5=(0, 3, 5), fixers=(0, 4, 10))   # (min, медиана, max) по 23 листам
+
+_FLY_RE = re.compile(r"\bflying\b", re.I)
+_REACH_RE = re.compile(r"\breach\b", re.I)
+
+
+def _pool_roles(picks, by_id, ratings, main):
+    """Счётчики ролей по КАСТУЕМОЙ части пула."""
+    r = {"fly": 0, "reach": 0, "creatures": 0, "cheap": 0, "c5": 0, "fixers": 0, "n": 0}
+    for cid in picks:
+        c = by_id.get(cid)
+        if not c:
+            continue
+        tl = face(c, "type_line") or ""
+        if "Land" in tl:
+            if "Basic" not in tl:
+                r["fixers"] += 1
+            continue
+        if main and (_colors_of(cid, by_id, ratings) - set(main)):
+            continue
+        r["n"] += 1
+        txt = full_oracle(c) + " " + tl
+        if _FLY_RE.search(txt):
+            r["fly"] += 1
+        if _REACH_RE.search(txt):
+            r["reach"] += 1
+        cmc = c.get("cmc") or 0
+        if "Creature" in tl:
+            r["creatures"] += 1
+            if cmc <= 2 and "{X}" not in (face(c, "mana_cost") or ""):
+                r["cheap"] += 1
+        if cmc >= 5:
+            r["c5"] += 1
+    return r
+
+
+def plan_banner(picks, by_id, ratings, main, pnum, pick):
+    """Кластер (воздух/земля) + конфликт плана. Печатается каждый пик."""
+    done = (pnum - 1) * 14 + pick if pnum else pick
+    r = _pool_roles(picks, by_id, ratings, main)
+    if done < 10:
+        return [f"⚑ ПЛАН: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}"]
+    scale = TOTAL_PICKS / max(done, 1)
+    pf, pr = r["fly"] * scale, r["reach"] * scale      # проекция на конец драфта
+    # одна десятая, а не целое: округление 5.8→«6» рядом с вердиктом «не определился»
+    # (порог воздуха ровно 6) читается как противоречие
+    head = f"⚑ ПЛАН: флай {r['fly']} · reach {r['reach']} (пик {done}/{TOTAL_PICKS} → к финалу ~{pf:.1f}/{pr:.1f})"
+    out = []
+    if pf >= AIR_FLY:
+        out.append(head + " = 🟦 ВОЗДУХ")
+        if r["reach"] >= 2:
+            out.append(f"   ⚠ КОНФЛИКТ: reach {r['reach']} при воздушном плане — из 9 воздушных "
+                       f"победителей reach≥2 НЕ ДЕРЖИТ НИ ОДНА. Рич больше не брать.")
+        else:
+            out.append("   норма кластера (n=9): флай 6–10, reach 0–1. Рич не брать вообще, добирать флаеров.")
+    elif pf <= GND_FLY_MAX:
+        out.append(head + " = 🟫 ЗЕМЛЯ")
+        if pr < 2:
+            out.append(f"   ⚠ REACH МАЛО: у 8 из 12 наземных победителей reach≥3 — иначе воздушный "
+                       f"кластер (9 из 23 колод) обыгрывает автоматически. Рич сейчас = приоритетная роль.")
+        else:
+            out.append("   норма кластера (n=12): флай 0–3, reach медиана 3. Держим рич, флаеров не ищем.")
+    else:
+        out.append(head + " = ⬜ НЕ ОПРЕДЕЛИЛСЯ")
+        out.append("   в зоне 4–5 флаеров всего 2 победителя из 23 (там же наша трофейка — это не "
+                   "брак, но и не план). Решай: добирать флаеров до 6 ИЛИ рич до 3.")
+    return out
+
+
+def profile_banner(picks, by_id, ratings, main, pnum, pick):
+    """Профиль пула против диапазонов 23 победителей. Только на границе бустера.
+
+    ВАЖНО: диапазоны REF — это ФИНАЛЬНЫЕ колоды (23 карты). Пул на середине драфта
+    меньше по определению, поэтому сравнивать в лоб нельзя — иначе на P2P1 всегда
+    «существ мало». Сравниваем ТЕМП: сколько должно быть к этому пику.
+    """
+    done = (pnum - 1) * 14 + pick
+    frac = min(done / TOTAL_PICKS, 1.0)
+    r = _pool_roles(picks, by_id, ratings, main)
+    parts = []
+    for key, lab in (("creatures", "существ"), ("cheap", "cmc≤2"),
+                     ("c5", "cmc≥5"), ("fixers", "фикс")):
+        lo, med, hi = REF[key]
+        elo, ehi = lo * frac, hi * frac
+        v = r[key]
+        mark = "↑" if v > ehi else ("!" if v < elo else "")
+        parts.append(f"{lab} {v}{mark}/{med * frac:.0f}")
+    return [f"⚑ ПРОФИЛЬ (пик {done}/{TOTAL_PICKS}, темп к медиане 23 победителей): "
+            + " · ".join(parts),
+            "   формат «моё/ожидаемо-к-этому-пику». ! = ниже темпа минимума, ↑ = выше максимума. "
+            "Это диапазоны, а не пороги."]
+
+
 def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
-    """Список баннеров-предупреждений (кривая/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
+    """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
+    out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
+    if (pnum or 1) > 1 and (pick or 1) == 1:
+        out += profile_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     main = set(main or [])
     def offcolor(cid):
         cols = _colors_of(cid, by_id, ratings)
