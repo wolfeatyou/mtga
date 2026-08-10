@@ -560,17 +560,94 @@ def _pool_roles(picks, by_id, ratings, main):
     return r
 
 
+# ─── ОСЬ / АРХЕТИП: лейн называется механикой сета, а не статистикой ──────────
+# Внесено 11.08.2026. До этого ⚑ПЛАН делил колоды на воздух/землю — это ось
+# «чем ломаю стойку», выведенная из 23 победителей, и она измеряет НЕ архетип.
+# Архетипов в MSH десять (msh_cheat.md), плюс сквозные механики. Лейн обязан
+# называться ими: «UB connive/Villains», а не «воздух».
+ARCH = None
+
+
+def load_arch():
+    global ARCH
+    if ARCH is None:
+        f = os.path.join(HERE, f"{setcode()}_archetypes.json")
+        ARCH = json.load(open(f)) if os.path.exists(f) else {"axes": {}, "pairs": {}}
+    return ARCH
+
+
+def _axes_of(cid, by_id):
+    """Какие оси сета трогает карта."""
+    c = by_id.get(cid)
+    if not c:
+        return []
+    tl = face(c, "type_line") or ""
+    ot = full_oracle(c) or ""
+    out = []
+    for name, spec in load_arch().get("axes", {}).items():
+        if "type" in spec and spec["type"] in tl:
+            out.append(name)
+        elif "re" in spec and re.search(spec["re"], ot, re.I):
+            out.append(name)
+    return out
+
+
+def axis_banner(ids, by_id, ratings, main, picks):
+    """Ось пула + что её кормит в ЭТОМ паке. Заменяет «архетип» в баннере ПЛАН."""
+    from collections import Counter
+    cnt = Counter()
+    for cid in picks:
+        for a in _axes_of(cid, by_id):
+            cnt[a] += 1
+    if not cnt:
+        return []
+    pair = pair_str(main) if main else None
+    # ключ пары ищем в ЛЮБОМ порядке букв: pair_str даёт WUBRG-порядок, а в JSON
+    # пары могли быть записаны иначе. Зависеть от написания нельзя.
+    pairs = load_arch().get("pairs", {})
+    arch = None
+    if pair:
+        for k, v in pairs.items():
+            if sorted(k) == sorted(pair):
+                arch, pair = v, k if False else pair
+                break
+    out = []
+    top = " · ".join(f"{a} {n}" for a, n in cnt.most_common(5))
+    if arch:
+        want = arch["axes"]
+        have = {a: cnt.get(a, 0) for a in want}
+        thin = [a for a, n in have.items() if n <= 1]
+        out.append(f"⚑ ОСЬ: {pair} = {arch['name']} · нужно [{', '.join(want)}] → "
+                   + " · ".join(f"{a} {n}" for a, n in have.items()))
+        if thin:
+            out.append(f"   ⚠ ТОНКО: {', '.join(thin)} — либо добирать детали оси, "
+                       f"либо честно признать goodstuff и не притворяться архетипом")
+        # что в паке кормит ось
+        feed = []
+        for cid in ids:
+            if main and (_colors_of(cid, by_id, ratings) - set(main)):
+                continue
+            hit = [a for a in _axes_of(cid, by_id) if a in want]
+            if hit:
+                feed.append(f"{_name_of(cid, by_id, ratings)} ({'+'.join(hit)})")
+        if feed:
+            out.append("   кормят ось ЗДЕСЬ: " + " · ".join(feed[:4]))
+    else:
+        out.append(f"⚑ ОСЬ: пара не закоммичена · оси пула: {top}")
+    return out
+
+
 def plan_banner(picks, by_id, ratings, main, pnum, pick):
-    """Кластер (воздух/земля) + конфликт плана. Печатается каждый пик."""
+    """ЧЕМ ЛОМАЮ СТОЙКУ (воздух/земля) — это НЕ архетип, архетип печатает axis_banner."""
     done = (pnum - 1) * 14 + pick if pnum else pick
     r = _pool_roles(picks, by_id, ratings, main)
     if done < 10:
-        return [f"⚑ ПЛАН: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}"]
+        return [f"⚑ СТОЙКА: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}"]
     scale = TOTAL_PICKS / max(done, 1)
     pf, pr = r["fly"] * scale, r["reach"] * scale      # проекция на конец драфта
     # одна десятая, а не целое: округление 5.8→«6» рядом с вердиктом «не определился»
     # (порог воздуха ровно 6) читается как противоречие
-    head = f"⚑ ПЛАН: флай {r['fly']} · reach {r['reach']} (пик {done}/{TOTAL_PICKS} → к финалу ~{pf:.1f}/{pr:.1f})"
+    head = f"⚑ СТОЙКА: флай {r['fly']} · reach {r['reach']} (пик {done}/{TOTAL_PICKS} → к финалу ~{pf:.1f}/{pr:.1f})"
     out = []
     if pf >= AIR_FLY:
         out.append(head + " = 🟦 ВОЗДУХ")
@@ -678,6 +755,7 @@ def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
+    out += axis_banner(ids, by_id, ratings, main, picks)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
         out += profile_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)

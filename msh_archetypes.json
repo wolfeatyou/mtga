@@ -1,0 +1,31 @@
+{
+  "_note": "Оси и архетипы MSH. Источник — msh_cheat.md (10 пар + сквозные механики). Правится руками без кода: draft_live.axis_banner() читает этот файл. Внесено 11.08.2026 после замечания игрока, что ⚑ПЛАН делил колоды только на воздух/землю, а архетипов в сете десять.",
+  "axes": {
+    "Villain":        {"type": "Villain"},
+    "Hero":           {"type": "Hero"},
+    "connive":        {"re": "connive"},
+    "counters":       {"re": "\\+1/\\+1 counter"},
+    "power-up":       {"re": "Power-up"},
+    "teamwork":       {"re": "Teamwork"},
+    "артефакты":      {"type": "Artifact"},
+    "эквип":          {"type": "Equipment"},
+    "solo-attack":    {"re": "attacks alone|attacking alone"},
+    "2-я карта":      {"re": "second card each turn"},
+    "plan-счётчики":  {"re": "plan counter"},
+    "landfall":       {"re": "Landfall|land you control enters"},
+    "токены":         {"re": "create (a|two|three|X|that many|one)[^.]{0,40}token"},
+    "добор":          {"re": "draw a card|draw two|draw three"}
+  },
+  "pairs": {
+    "BR": {"name": "Villains-агро",              "axes": ["Villain", "токены"]},
+    "UG": {"name": "счётчики + «вторая карта»",   "axes": ["counters", "2-я карта"]},
+    "GR": {"name": "power-up / большие тела",     "axes": ["power-up", "counters"]},
+    "RW": {"name": "Hero-агро",                   "axes": ["Hero", "solo-attack"]},
+    "BG": {"name": "sacrifice / грайнд",          "axes": ["Villain", "токены"]},
+    "RU": {"name": "артефакты / спеллы",          "axes": ["артефакты", "добор"]},
+    "UW": {"name": "tap / темпо-контроль",        "axes": ["solo-attack", "добор"]},
+    "BW": {"name": "equipment / вольтрон",        "axes": ["эквип", "solo-attack"]},
+    "GW": {"name": "Heroes go-wide / counters",   "axes": ["Hero", "токены", "counters"]},
+    "BU": {"name": "connive / Villains / draw",   "axes": ["connive", "Villain", "добор"]}
+  }
+}
