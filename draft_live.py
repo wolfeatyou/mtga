@@ -617,9 +617,67 @@ def profile_banner(picks, by_id, ratings, main, pnum, pick):
             "Это диапазоны, а не пороги."]
 
 
+# ─── ТАЙБРЕЙК: когда GIH-сортировка ставит наверх НЕ ту карту ─────────────────
+# Док. случай (Quick MSH, 10.08.2026, P1P2): Take Up the Shield GIH 59.9 / IWD +3.0 /
+# пик C+ против Super-Skrull GIH 59.9 / IWD +8.6 / пик B, 4/5 flying. GIH совпал до
+# десятой, советчик взял верхнюю строку списка. Измерено (n=196): при GIH в пределах
+# ~1 тир пика определяется IWD — ро=+0.58 в полосе 59-61, +0.66 в 61-64.
+# Правило текстом в SKILL.md уже стояло («floor vs ceiling») и не сработало ни разу:
+# сортировка по GIH сильнее любой прозы. Поэтому — баннером.
+GIH_TIE = 1.5        # в пределах этого GIH считаем «равным»
+IWD_GAP = 2.0        # разница IWD, с которой она решает
+TIER_GAP = 2         # ступеней пик-тира, с которых он решает
+_TIER_ORDER = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D"]
+
+
+def _tier_idx(name):
+    t = pick_tier(name)
+    return _TIER_ORDER.index(t) if t in _TIER_ORDER else None
+
+
+def tiebreak_banner(ids, by_id, ratings, main):
+    """Молчит, пока верх по GIH и верх по тайбрейку — одна карта. Говорит, когда разошлись."""
+    cand = []
+    for cid in ids:
+        r = ratings.get(cid)
+        if not r or r.get("ever_drawn_win_rate") is None:
+            continue
+        if main and (_colors_of(cid, by_id, ratings) - set(main)):
+            continue                       # некастуемые в тайбрейке не участвуют
+        nm = _name_of(cid, by_id, ratings)
+        cand.append(dict(name=nm, gih=round(r["ever_drawn_win_rate"] * 100, 1),
+                         iwd=round((r.get("drawn_improvement_win_rate") or 0) * 100, 1),
+                         tier=pick_tier(nm), ti=_tier_idx(nm)))
+    if len(cand) < 2:
+        return []
+    top = max(cand, key=lambda x: x["gih"])
+    near = [c for c in cand if top["gih"] - c["gih"] <= GIH_TIE]
+    if len(near) < 2:
+        return []
+    by_iwd = max(near, key=lambda x: x["iwd"])
+    tiered = [c for c in near if c["ti"] is not None]
+    by_tier = min(tiered, key=lambda x: x["ti"]) if tiered else None
+
+    reasons = []
+    if by_iwd["name"] != top["name"] and by_iwd["iwd"] - top["iwd"] >= IWD_GAP:
+        reasons.append(f"IWD {top['iwd']:+.1f} → {by_iwd['iwd']:+.1f}")
+    if (by_tier and by_tier["name"] != top["name"] and top["ti"] is not None
+            and top["ti"] - by_tier["ti"] >= TIER_GAP):
+        reasons.append(f"пик-тир {top['tier']} → {by_tier['tier']}")
+    if not reasons:
+        return []
+    win = by_iwd if by_iwd["name"] != top["name"] else by_tier
+    return [f"⚑ ТАЙБРЕЙК: сверху по GIH {top['name']} ({top['gih']}), но в пределах "
+            f"{GIH_TIE} GIH есть {win['name']} ({win['gih']}) — и он лучше по: "
+            + " · ".join(reasons),
+            "   GIH тут не решает (разница в шуме). Берёшь верхнюю строку — назови ПОЧЕМУ "
+            "именно её, а не «она выше по GIH»."]
+
+
 def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
+    out += tiebreak_banner(ids, by_id, ratings, main)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
         out += profile_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
