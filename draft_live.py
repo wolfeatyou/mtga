@@ -684,21 +684,19 @@ def pack_sig(text):
     pnum, pick, ids, _ = packs[-1]
     return f"{pnum}-{pick}-{len(ids)}-{sum(ids)}", pnum, pick, len(ids)
 
-def current_block(text, by_id, ratings, draft_id):
-    """Возвращает (sig, текст-блок) текущего пака: подпись для детекта изменений +
-    кандидаты по убыванию GIH WR с тиром, и сводку пула. sig=None если пака нет."""
-    packs = find_packs(text)
-    if not packs:
-        return None, "NOPACK"
-    pnum, pick, ids, _ = packs[-1]
-    sig = f"{pnum}-{pick}-{len(ids)}-{sum(ids)}"
+def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
+    """ЕДИНЫЙ рендер пака+пула для ВСЕХ режимов драфта.
 
+    Парсеры лога у Premier и Quick разные (PackCards vs BotDraftDraftStatus) — а вот
+    анализ обязан быть один. Пока рендеры были раздельные, они разъехались молча:
+    у Quick были СВОИ пороги тира (S≥60 против A≥60), не было пар-GIH, флагов
+    ~splash/✗offcolor/★synergy, ⚠trap и баннеров. Одна и та же карта показывалась
+    разными буквами в двух режимах. Дублировать этот код нельзя — только вызывать.
+    """
     def gw(cid):
         r = ratings.get(cid)
         return r["ever_drawn_win_rate"] if r else -1
     order = sorted(ids, key=gw, reverse=True)
-    # контекст пула: цвета (кастуемость), плотность спеллов (синергия), color-filtered GIH
-    picks = find_my_picks(text, draft_id)
     main = pool_main_colors(picks, by_id)
     pair = pair_str(main)
     cratings = color_ratings(pair) if pair else {}
@@ -710,7 +708,7 @@ def current_block(text, by_id, ratings, draft_id):
         lines.append("─── СИГНАЛЫ ───")
         lines += sigs
         lines.append("───────────────")
-    lines.append(f"PACK {pnum}/{pick} — {len(ids)} карт")
+    lines.append(header or f"PACK {pnum}/{pick} — {len(ids)} карт")
     for cid in order:
         c = by_id.get(cid)
         r = ratings.get(cid)
@@ -734,7 +732,19 @@ def current_block(text, by_id, ratings, draft_id):
     saved = save_pool(picks, by_id, ratings, draft_id)
     if saved:
         lines.append(f"  💾 пул сохранён: pools/{os.path.basename(saved)} ({len(picks)} карт)")
-    return sig, "\n".join(lines)
+    return "\n".join(lines)
+
+
+def current_block(text, by_id, ratings, draft_id):
+    """Premier: разбирает лог и отдаёт (sig, блок). Весь рендер — в render_block."""
+    packs = find_packs(text)
+    if not packs:
+        return None, "NOPACK"
+    pnum, pick, ids, _ = packs[-1]
+    sig = f"{pnum}-{pick}-{len(ids)}-{sum(ids)}"
+    picks = find_my_picks(text, draft_id)
+    return sig, render_block(pnum, pick, ids, picks, by_id, ratings, draft_id)
+
 
 def watch(mode="full"):
     """Блокируется, поллит лог раз в 0.2с. Как только появляется НОВЫЙ пак (другая
@@ -872,55 +882,14 @@ def main():
                   open(os.path.join(HERE, ".draft_watch.json"), "w"))
     except Exception:
         pass
-    label = ""
-    if pnum is not None:
-        label = f"  (Бустер {pnum}, пик {pick})"
-    print(f"\n===== ТЕКУЩИЙ ПАК [{setcode().upper()}]{label} — {len(ids)} карт =====\n")
-    # сортируем по GIH WR, чтобы лучший пик был сверху
-    def gw(cid):
-        r = ratings.get(cid)
-        return r["ever_drawn_win_rate"] if r else -1
-    order = sorted(ids, key=gw, reverse=True)
-    # контекст пула: цвета / спелл-плотность / color-filtered GIH
+    label = f"  (Бустер {pnum}, пик {pick})" if pnum is not None else ""
     picks = find_my_picks(text, draft_id)
-    main = pool_main_colors(picks, by_id)
-    pair = pair_str(main)
-    cratings = color_ratings(pair) if pair else {}
-    spell_n = pool_spell_count(picks, by_id)
-    _record_hist(draft_id, pnum, pick, ids)
-    for s in draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
-        print("  " + s)
-    if main:
-        print()
-    unknown = []
-    for cid in order:
-        c = by_id.get(cid)
-        r = ratings.get(cid)
-        tag = ""
-        if r:
-            tag = stat_tag(r, cratings.get(cid), pair if cid in cratings else None) + " "
-        else:
-            tag = "[нет данных] "
-        flags = (cast_flag(c, main) + synergy_flag(c, spell_n)).strip()
-        flags = (" " + flags) if flags else ""
-        if c:
-            print(f"  {tag}{short(c)}{flags}")
-        elif r:
-            # карты нет в Scryfall-мапе, но 17Lands знает имя/тип — показываем хоть это
-            print(f"  {tag}{r.get('name','?')} — {r.get('types','?')} ({r.get('color') or 'C'}/{r.get('rarity','?')[0].upper()})")
-        else:
-            unknown.append(cid)
-            print(f"  {tag}<id {cid} — нет ни в {setcode()}_set.json, ни в рейтингах>")
-    if unknown:
-        print(f"\n  ⚠ неизвестных id: {len(unknown)} — возможно, не тот сет или мап неполный")
-    print("\n----- ПУЛ -----")
+    # ЕДИНЫЙ рендер — тот же, что в watch и в quickdraft.py. Своей копии тут больше нет.
+    print(render_block(pnum, pick, ids, picks, by_id, ratings, draft_id,
+                       header=f"===== ТЕКУЩИЙ ПАК [{setcode().upper()}]{label} — {len(ids)} карт ====="))
     if draft_id:
         print(f"  (draftId {draft_id[:8]}…)")
-    print(pool_summary(picks, by_id, ratings))
-    saved = save_pool(picks, by_id, ratings, draft_id)
-    if saved:
-        print(f"  💾 пул сохранён: {saved}")
-        print(f"     на сборке: python3 build_audit.py <мой_лист.txt> --pool {os.path.basename(saved)}")
+
 
 if __name__ == "__main__":
     main()

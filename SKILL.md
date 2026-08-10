@@ -45,9 +45,28 @@ for the next pick. Repeat for the whole draft.
 > - Mental check before every send during a live draft: *"is there a `watch` call attached to this
 >   message?"* If no → you just broke the loop.
 
+> ### 🔴 СНАЧАЛА ОПРЕДЕЛИ РЕЖИМ — у Premier и Quick РАЗНЫЕ СКРИПТЫ (иначе не увидишь ни одного пака)
+> Arena пишет их разными событиями: Premier — `PackCards`/`DraftPack`, Quick (боты) — `BotDraftDraftStatus`.
+> **Premier-парсер физически не видит Quick-драфт и наоборот.** Не знаешь режим — спроси одним словом.
+>
+> | режим | команда (блокирующая, `timeout: 600000`) |
+> |---|---|
+> | **Premier / Traditional** | `MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch [fresh]` |
+> | **Quick Draft (боты)** | `MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/quickdraft_watch.py <set> [fresh]` |
+>
+> **Вывод у них ИДЕНТИЧЕН** — оба идут через общий `draft_live.render_block`: те же тиры, GIH,
+> пар-GIH, IWD, ALSA, тир пика, флаги `~splash`/`✗offcolor`/`★synergy`/`⚠trap`, те же баннеры
+> (КРИВАЯ/ПЛАН/ПРОФИЛЬ/пивот/колесо/soup-audit) и то же автосохранение пула. Различается ТОЛЬКО
+> парсер лога. Паритет закреплён тестом `test_parser_parity.py` (гоняет один пак через оба пути
+> и сверяет построчно) — **если правишь рендер, правь в `render_block`, а не в копии**, иначе тест
+> покраснеет. До 10.08.2026 копии жили раздельно и молча разъехались: у Quick стояли свои пороги
+> тира (S≥60 против A≥60), не было пар-GIH, `⚠trap`, флагов кастуемости и вообще ни одного баннера.
+
 ```bash
-MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch fresh   # first call of a NEW draft
-MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch         # every call after
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch fresh   # Premier, первый вызов
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/draft_live.py <set> watch         # Premier, дальше
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/quickdraft_watch.py msh fresh     # Quick, первый вызов
+MTGA_SETTLE=1 python3 ~/.claude/skills/mtg-draft-helper/quickdraft_watch.py msh           # Quick, дальше
 ```
 - `fresh` only on the very first call of a draft (clears last-seen state + pick history).
 - **`MTGA_SETTLE=<seconds>`** (default 1.0) debounces rapid picks: if the user picks faster than
