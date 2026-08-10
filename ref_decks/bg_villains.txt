@@ -1,0 +1,44 @@
+Deck
+6 Forest
+1 Island
+4 Swamp
+1 A.I.M. Labs
+1 Hidden Lair
+2 Subterranean Cavern
+1 Surveillance Room
+1 Villainous Hideout
+1 A.I.M. Scientists
+1 Trickster's Stratagem
+1 Agents of HYDRA
+1 Baron Strucker, HYDRA Overlord
+1 Cruel Alliance
+1 Elektra, Daughter of the Hand
+1 Hour of Defeat
+1 Kingpin's Enforcers
+1 Klaw, Sonic Subjugator
+1 Red Room Recruit
+1 Stolen Stark Tech
+1 Unliving Legionnaire
+2 Visions of Villainy
+1 Ant-Man's Army
+1 Go Nuts!
+1 Ka-Zar of the Savage Land
+2 Mister Hyde, Monster Within
+1 Savage Land Dinosaur
+1 She-Hulk, Jade Defender
+1 White Tiger, Ava Ayala
+1 Bullseye, Death Dealer
+
+Sideboard
+1 Privileged Position
+2 Project Deathlok Soldier
+1 Ronin, Shadow Stalker
+1 Visions of Villainy
+1 Death to Our Enemies
+1 Call Damage Control
+1 Rapid Rescue
+1 Madame Hydra
+1 Arc Reactor
+1 Vibranium Energy Daggers
+1 Birnin Zana Plaza
+1 Hell's Kitchen

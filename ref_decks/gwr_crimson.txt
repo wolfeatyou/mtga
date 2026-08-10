@@ -1,0 +1,41 @@
+Deck
+7 Forest
+3 Plains
+3 Mountain
+2 Asgardian Citadel
+1 Los Diablos Missile Base
+1 Surveillance Room
+1 Giant Growth
+1 Web Up
+1 Helicarrier Strike
+1 Hero in Training
+1 Super Villain Lockup
+3 Crimson Operative
+1 Hawkeye, Master Marksman
+1 Ant-Man's Army
+1 Earth's Mightiest Heroes
+2 Go Nuts!
+1 Guerrilla Gorilla
+1 Hercules, Prince of Power
+1 Knight of Wundagore
+2 Mister Hyde, Monster Within
+1 Pet Avengers
+1 Reptil, Dinomorpher
+1 White Tiger, Ava Ayala
+1 Daredevil, Man Without Fear
+1 Hulk, Gamma Goliath
+
+Sideboard
+1 Giant Growth
+1 Agent of Atlas
+1 Crowd of True Believers
+1 Nick Fury, Agent of S.H.I.E.L.D.
+1 HYDRA Infiltration
+1 Wonder Man, Hollywood Hero
+2 Call Damage Control
+1 Rapid Rescue
+1 Armor Wars
+1 Ultron Drone
+1 Avengers Hangar
+1 Fisk Tower
+1 Stark Industries

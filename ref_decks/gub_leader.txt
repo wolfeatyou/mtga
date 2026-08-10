@@ -1,0 +1,47 @@
+Deck
+6 Forest
+4 Island
+2 Swamp
+2 Mountain
+1 A.I.M. Labs
+1 Hell's Kitchen
+1 Subterranean Cavern
+1 Aerial Doombot
+1 Bold Biochemist
+1 Kang the Conqueror
+1 Leader, Super-Genius
+1 S.H.I.E.L.D. Deployment Drone
+1 Tony Stark
+1 We Say Thee Nay!
+1 Cruel Alliance
+1 Hour of Defeat
+1 Stolen Stark Tech
+1 Widow's Bite
+1 Kree Sentinel
+1 Thor, God of Thunder
+1 Go Nuts!
+1 Restorative Technique
+1 Savage Land Dinosaur
+2 Undercover Skrull
+1 Abomination, Terrifying Titan
+1 Killmonger, Scourge of Wakanda
+1 Spider-Man, To the Rescue
+2 Titania, Rugged Rumbler
+
+Sideboard
+1 Blazing Crescendo
+1 Patriot, Shield Wielder
+1 I Am Iron Man
+1 Mister Fantastic, Reed Richards
+1 Super Suit
+1 Kingpin's Enforcers
+1 Ninja of the Hand
+1 Project Deathlok Soldier
+1 Widow's Bite
+1 HYDRA Assault Robot
+1 Misty Knight, Hero for Hire
+1 Repulsor Blast
+1 Hellcat, Undying Vigilante
+1 Knight of Wundagore
+1 Pet Avengers
+1 A.I.M. Synthoids

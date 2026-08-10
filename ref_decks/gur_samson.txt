@@ -1,0 +1,45 @@
+Deck
+5 Forest
+1 Plains
+4 Island
+4 Mountain
+1 Birnin Zana Plaza
+1 Los Diablos Missile Base
+1 Pym Technologies
+1 Frozen in Ice
+1 Leader, Super-Genius
+1 S.H.I.E.L.D. Deployment Drone
+1 Trickster's Stratagem
+1 Kree Sentinel
+1 Loki Laufeyson
+1 Stark Industries Executive
+1 Ant-Man's Army
+1 Call Damage Control
+1 Doc Samson, Super Psychiatrist
+2 Go Nuts!
+1 Guerrilla Gorilla
+1 Pet Avengers
+1 Punishing Punch
+1 Rapid Rescue
+1 Restorative Technique
+1 Savage Land Dinosaur
+1 Serpent Specialist
+1 White Tiger, Ava Ayala
+1 Abomination, Terrifying Titan
+1 Alien Invasion
+1 The Super Hero Civil War
+
+Sideboard
+2 Blazing Crescendo
+1 Anthem of Champions
+1 Futurist Forge
+1 Mister Fantastic, Reed Richards
+1 Super Suit
+1 Ninja of the Hand
+1 Loki Laufeyson
+1 Super Speed
+1 Wonder Man, Hollywood Hero
+1 Training Regimen
+1 Moon Girl and Devil Dinosaur
+1 Speedball, New Warrior
+1 S.H.I.E.L.D. Helicarrier

@@ -1,0 +1,36 @@
+Deck
+8 Forest
+9 Plains
+1 Take Up the Shield
+1 Web Up
+2 Agents of S.H.I.E.L.D.
+1 Captain Marvel, Earth's Protector
+1 Crowd of True Believers
+2 Hero in Training
+1 Jennifer Walters
+1 Okoye, Dora Milaje Leader
+1 Raft Security Officer
+3 S.H.I.E.L.D. Spy Kit
+2 Wakandan Drone Flock
+1 Call Damage Control
+2 Pet Avengers
+1 Serpent Specialist
+1 White Tiger, Ava Ayala
+1 Titania, Rugged Rumbler
+1 Black Panther, Wakandan King
+
+Sideboard
+1 Nick Fury, Agent of S.H.I.E.L.D.
+2 Panther Pounce
+1 Echo, Perceptive Prodigy
+1 Hydraulic Helper
+1 Grim Reaper, Lethal Legionnaire
+1 HYDRA Infiltration
+2 Stolen Stark Tech
+1 Crimson Operative
+1 Human Torch, Johnny Storm
+1 Misty Knight, Hero for Hire
+1 Wakandan Royal Guard
+1 Thor Odinson
+1 Ultron Drone
+1 Training Compound

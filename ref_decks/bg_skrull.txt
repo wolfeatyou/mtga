@@ -1,0 +1,40 @@
+Deck
+5 Forest
+5 Swamp
+1 A.I.M. Labs
+1 Dark Fortress
+1 Hell's Kitchen
+1 Los Diablos Missile Base
+1 Subterranean Cavern
+1 Surveillance Room
+1 Training Compound
+2 Cruel Alliance
+1 Decoy Ploy
+2 Klaw, Sonic Subjugator
+1 Roxxon Brutes
+2 Super-Skrull
+1 Widow's Bite
+2 Ant-Man's Army
+1 Epic Fight
+2 Go Nuts!
+2 She-Hulk, Jade Defender
+1 Undercover Skrull
+1 Wakandan Royal Guard
+1 Ares, God of War
+1 Hulk, Gamma Goliath
+1 Spider-Man, To the Rescue
+1 Captain America's Shield
+1 H.E.R.B.I.E. Scout Unit
+
+Sideboard
+1 Okoye, Dora Milaje Leader
+1 Atlantean Cavalry
+1 Ninja of the Hand
+1 Hire a Crew
+2 Call Damage Control
+1 Hulkling, Burgeoning Bruiser
+1 Training Regimen
+1 Captain America, Living Legend
+1 A.I.M. Synthoids
+1 Ultron, Artificial Malevolence
+1 Stark Industries

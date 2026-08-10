@@ -1,0 +1,38 @@
+Deck
+5 Plains
+1 Island
+1 Swamp
+6 Mountain
+1 Asgardian Citadel
+1 Avengers Hangar
+1 Avengers Tower
+1 Fisk Tower
+1 Lightning Strike
+3 Web Up
+1 Borough Backup
+1 Brave Brawler
+2 Hero in Training
+2 Murdock's Crusade
+1 Political Triumph
+2 Raft Security Officer
+1 A.I.M. Scientists
+1 Falcon, Winged Wonder
+1 Giant-Sized Flying Ant
+1 S.H.I.E.L.D. Deployment Drone
+1 Hawkeye, Master Marksman
+2 Human Torch, Johnny Storm
+1 Wonder Man, Hollywood Hero
+1 Cloak and Dagger, Entwined
+1 The Super Hero Civil War
+
+Sideboard
+1 Wiccan, Rising Magician
+2 Decoy Ploy
+1 Moonstone, Harsh Mistress
+1 Red Hulk
+2 Stark Industries Executive
+1 Ant-Man's Army
+1 Black Panther, Vanguard
+2 Hulk, Gamma Goliath
+1 Ultron Drone
+2 Birnin Zana Plaza
