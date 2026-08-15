@@ -15,13 +15,15 @@ import json, re, os, sys, time, glob
 LOG_ENV = os.environ.get("MTGA_LOG")
 LOGDIR = os.path.expanduser("~/Library/Logs/Wizards Of The Coast/MTGA")
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 
 POLL_SEC = 1.0       # как часто проверять рост лога в watch
 WATCH_TIMEOUT = 180  # макс. ожидание (сек): по таймауту выходим, чтобы перезапуститься
 
 def setcode():
     for a in sys.argv[1:]:
-        if a.lower() in ("mkm", "sos", "msh"):
+        if _reg.is_set(a):
             return a.lower()
     return "sos"
 

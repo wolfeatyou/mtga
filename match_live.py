@@ -14,12 +14,14 @@ import re, os, sys, time, json
 import match_watch as mw
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 SETCODE = "msh"
 
 
 def load_set_cards():
     for a in sys.argv[1:]:
-        if a.lower() in ("mkm", "sos", "msh"):
+        if _reg.is_set(a):
             global SETCODE
             SETCODE = a.lower()
     path = os.path.join(HERE, f"{SETCODE}_set.json")

@@ -10,10 +10,12 @@ import json, re, sys, os
 import match_watch as mw
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 
 def setcode():
     for a in sys.argv[1:]:
-        if a in ("sos", "mkm", "msh"): return a
+        if _reg.is_set(a): return a
     return "msh"
 
 def card_index(sc):

@@ -24,6 +24,8 @@ LOG_ENV = os.environ.get("MTGA_LOG")
 LOGDIR = os.path.expanduser("~/Library/Logs/Wizards Of The Coast/MTGA")
 LOG = LOG_ENV or os.path.join(LOGDIR, "Player.log")
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 
 # ─── PICK-TWO CHANGES: константы формата ──────────────────────────────────────
 POD = 4              # под из 4 игроков → колесо через 4 пик-события (в Premier было 8)
@@ -47,14 +49,14 @@ def current_draft_id(text):
 
 def setcode():
     for a in sys.argv[1:]:
-        if a.lower() in ("mkm", "sos", "msh"):
+        if _reg.is_set(a):
             return a.lower()
     return "msh"  # дефолт: текущий сет
 
 def set_file():
     return os.path.join(HERE, f"{setcode()}_set.json")
 
-RATING_FILE = {"mkm": "17l_mkm_premierdraft.json", "sos": "17l_sos_premierdraft.json", "msh": "17l_msh_premierdraft.json"}
+RATING_FILE = _reg.RATING_FILE
 
 def tier(w):
     if w >= 0.620: return "A+"

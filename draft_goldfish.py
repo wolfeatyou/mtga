@@ -18,10 +18,12 @@ Usage:
         N               number of games (default 20000)
 """
 import json, os, re, sys, random
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import sets_registry as _reg  # единый список сетов
 from collections import Counter
 
 SKILL = os.path.dirname(os.path.abspath(__file__))
-SETS = ["sos_set.json", "mkm_set.json", "msh_set.json"]
+SETS = _reg.SET_FILES
 WUBRG = set("WUBRG")
 
 # ---------- card database ----------

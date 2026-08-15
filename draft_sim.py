@@ -29,6 +29,8 @@
 import json, re, os, sys, glob, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 SIMDIR = os.path.join(HERE, "sim")
 SIMLOG = os.path.join(SIMDIR, "sim_player.log")
 STATE = os.path.join(SIMDIR, "sim_state.json")
@@ -56,7 +58,7 @@ def pack_meta(l):
 # ─── обнаружение драфтов в логах ──────────────────────────────────────────────
 def _set_ids():
     out = {}
-    for s in ("msh", "sos", "mkm"):
+    for s in _reg.SETS:
         p = os.path.join(HERE, f"{s}_set.json")
         if not os.path.exists(p): continue
         ids = set()

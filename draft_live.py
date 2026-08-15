@@ -12,6 +12,8 @@ LOG_ENV = os.environ.get("MTGA_LOG")
 LOGDIR = os.path.expanduser("~/Library/Logs/Wizards Of The Coast/MTGA")
 LOG = LOG_ENV or os.path.join(LOGDIR, "Player.log")
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
 
 def read_log_text():
     """Склеивает Player-prev.log + Player.log в хронологии (или один MTGA_LOG для тестов),
@@ -31,14 +33,14 @@ def current_draft_id(text):
 
 def setcode():
     for a in sys.argv[1:]:
-        if a.lower() in ("mkm", "sos", "msh"):
+        if _reg.is_set(a):
             return a.lower()
     return "sos"  # дефолт
 
 def set_file():
     return os.path.join(HERE, f"{setcode()}_set.json")
 
-RATING_FILE = {"mkm": "17l_mkm_premierdraft.json", "sos": "17l_sos_premierdraft.json", "msh": "17l_msh_premierdraft.json"}
+RATING_FILE = _reg.RATING_FILE
 
 def tier(w):
     if w >= 0.620: return "A+"
@@ -81,6 +83,79 @@ def pick_tier(name):
     if PICK_TIERS is None:
         PICK_TIERS = load_pick_tiers()
     return PICK_TIERS.get(_norm_name(name)) or PICK_TIERS.get(_norm_name((name or "").split(",")[0]))
+
+
+# Веса осей в ПОРЯДКЕ ПЕЧАТИ пака: score = 2·GIH + 1·IWD, обе в процентных пунктах.
+#
+# Обоснование — измерение из SKILL.md (n=196, 10.08.2026): ρ(пик-тир, GIH) = +0.79
+# глобально, но внутри узкой полосы GIH решает IWD — ρ(пик-тир, IWD) = +0.42 (полоса
+# 57-59), +0.58 (59-61), +0.66 (61-64). GIH сильнее как одиночный предиктор, IWD —
+# настоящий тайбрейк. Вес 2:1 даёт ровно это: пункт GIH весит вдвое, но при равном GIH
+# (вклад одинаков и сокращается) весь выбор ложится на IWD.
+#
+# Шкала АБСОЛЮТНАЯ, а не нормированная внутри пака. Две отвергнутые попытки — обе
+# поймал регресс-тест test_pack_order на док. случае P1P2 (GIH 59.9 против 59.9,
+# IWD +3.0 против +8.6), и обе ломались одинаково: превращали ничью по GIH в разрыв
+# на всю ширину оси, из-за чего GIH голосовал полным весом там, где не различает карты.
+#   · ранги — ничья становилась «первая/вторая»;
+#   · min-max внутри пака — при двух картах всегда 0 и 1, то же самое.
+# Пункт GIH имеет фиксированный смысл сам по себе, нормировать его составом пака не надо.
+#
+# ⚠️ ЧИСЛО 2:1 НАЗНАЧЕНО ПО ЭТИМ ρ, А НЕ ИЗМЕРЕНО НАПРЯМУЮ. Статус — гипотеза
+# (§ КАЛИБРОВКА закон 4). Проверять на ref_decks/; противоречит — менять, а не оставлять.
+W_GIH, W_IWD = 2.0, 1.0
+
+
+def pack_order(ids, by_id, ratings, cratings, main):
+    """Порядок печати пака: сначала ГРУППА по кастуемости, внутри — score = 2·GIH + 1·IWD.
+
+    Зачем это не «sorted по GIH» (внесено 16.08.2026): вывод, отсортированный по одному
+    числу, создаёт якорь — рассуждение начинается с верхней строки и дальше её
+    рационализирует. SKILL.md документирует два промаха подряд в одном драфте по этой
+    причине и сам ставит диагноз: «сортировка сильнее любой прозы». Лечить это ещё одним
+    запретом в тексте уже пробовали — не сработало, поэтому чинится здесь, в порядке печати.
+
+    Что меняется:
+      1. Кастуемость — ГРУППА, а не флаг в конце строки. Некастуемая карта с высоким GIH
+         больше не стоит первой (её всё равно видно: группы печатаются целиком, а
+         ⚑ СИЛЬНЕЕ ВНЕ ЦВЕТА продолжает ловить настоящий повод для пивота).
+      2. Внутри группы порядок — по 2·GIH + 1·IWD, а не по одному GIH. При равном GIH
+         вклад первого слагаемого одинаков и сокращается — весь выбор ложится на IWD.
+         Док. случай, который это ловит (MSH, 10.08.2026, P1P2): Take Up the Shield
+         GIH 59.9 / IWD +3.0 и Super-Skrull GIH 59.9 / IWD +8.6 — GIH совпал до десятой,
+         старая сортировка ставила первой Take Up the Shield, и совет пошёл за ней.
+
+    Возвращает [(заголовок_группы | None, [cid, ...]), ...] в порядке печати.
+    """
+    def gih(cid):
+        if cid in cratings:            # парный GIH точнее глобального, когда цвета известны
+            return cratings[cid]
+        r = ratings.get(cid)
+        return r.get("ever_drawn_win_rate") if r else None
+
+    def iwd(cid):
+        r = ratings.get(cid)
+        return r.get("drawn_improvement_win_rate") if r else None
+
+    groups = {"": [], "~splash": [], "✗offcolor": []}
+    for cid in ids:
+        groups[cast_flag(by_id.get(cid), main).strip()].append(cid)
+
+    out = []
+    for key, label in (("", None), ("~splash", "~ СПЛЕШ (один off-color пип)"),
+                       ("✗offcolor", "✗ ВНЕ ЦВЕТА (два+ off-color пипа)")):
+        g = groups[key]
+        if not g:
+            continue
+        def score(cid):
+            gv = gih(cid)
+            if gv is None:
+                return None                      # нет данных — в конец группы
+            return W_GIH * gv * 100 + W_IWD * (iwd(cid) or 0) * 100
+        g.sort(key=lambda c: (score(c) is None, -(score(c) or 0), -(gih(c) or 0)))
+        out.append((label, g))
+    # пул ещё не закоммичен (main=None) → cast_flag молчит, всё падает в одну группу
+    return out
 
 
 def stat_tag(r, cgih=None, pair=None):
@@ -515,16 +590,36 @@ def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
         out.append("   дешёвых тел в цвете в этом паке НЕТ — добираем в следующем, приоритет держим.")
     return out
 
-# ─── ПЛАН: кластер воздух/земля (константы из ref_decks, n=23) ────────────────
-# Флаеры бимодальны: 12 колод с ≤3, 9 с ≥6, всего 2 в середине.
-# REACH — почти идеальный разделитель: из 9 воздушных reach≥2 нет НИ У ОДНОЙ;
-# из 12 наземных 8 держат reach≥3. Это камень-ножницы, а не разница в силе карт.
-# Константы зашиты намеренно: читать ref_decks/ в пик-цикле = лишняя латентность.
-AIR_FLY, AIR_REACH_MAX = 6, 1        # воздух: флай 6–10, reach 0–1
-GND_FLY_MAX, GND_REACH = 3, 3        # земля:  флай 0–3, reach медиана 3
+# ─── ПЛАН/ПРОФИЛЬ: калибровка ПО СЕТУ, а не общая ────────────────────────────
+# Эти числа — не свойство Limited вообще, а замер конкретной популяции победителей
+# конкретного сета. Переносить их на новый сет нельзя: § КАЛИБРОВКА в SKILL.md прямо
+# запрещает применять правило к популяции, на которой оно не мерялось.
+# Поэтому калибровка живёт в словаре по коду сета. Сета нет в словаре → баннеры
+# печатают СЧЁТЧИКИ без вердиктов и честно говорят, что выборки нет.
+# (Заведено 11.08.2026 при добавлении HOB: до этого MSH-числа печатались бы для
+#  любого сета, утверждая «из 9 воздушных победителей…» там, где победителей ноль.)
+CALIB = {
+    "msh": dict(
+        n=23,
+        air_fly=6, air_reach_max=1,      # воздух: флай 6–10, reach 0–1
+        gnd_fly_max=3, gnd_reach=3,      # земля:  флай 0–3, reach медиана 3
+        ref=dict(creatures=(13, 15, 18), cheap=(1, 5, 8), hard=(0, 1, 5),
+                 c5=(0, 3, 5), fixers=(0, 4, 10)),   # (min, медиана, max) по 23 листам
+    ),
+}
 TOTAL_PICKS = 42
-REF = dict(creatures=(13, 15, 18), cheap=(1, 5, 8), hard=(0, 1, 5),
-           c5=(0, 3, 5), fixers=(0, 4, 10))   # (min, медиана, max) по 23 листам
+
+
+def calib():
+    """Калибровка текущего сета или None, если референс-выборки нет."""
+    return CALIB.get(setcode())
+
+
+# Совместимость с прежними импортами/тестами (MSH-значения).
+_M = CALIB["msh"]
+AIR_FLY, AIR_REACH_MAX = _M["air_fly"], _M["air_reach_max"]
+GND_FLY_MAX, GND_REACH = _M["gnd_fly_max"], _M["gnd_reach"]
+REF = _M["ref"]
 
 _FLY_RE = re.compile(r"\bflying\b", re.I)
 _REACH_RE = re.compile(r"\breach\b", re.I)
@@ -587,6 +682,20 @@ def _axes_of(cid, by_id):
     for name, spec in load_arch().get("axes", {}).items():
         if "type" in spec and spec["type"] in tl:
             out.append(name)
+        # type_re — регулярка по ТИПУ (не по тексту). Нужна осям, которые охватывают
+        # несколько типов сразу: в HOB Storied питается Legendary|Artifact|Saga,
+        # и одной подстрокой это не выражается.
+        elif "type_re" in spec and re.search(spec["type_re"], tl, re.I):
+            out.append(name)
+        # power_min — ось по СИЛЕ тела. Нужна там, где ресурс архетипа это не текст,
+        # а размер: в HOB Ferocious требует существо силой 4+, и ни одна Ferocious-карта
+        # сама порог не проходит — источники 4-силы приходится считать отдельной ролью.
+        elif "power_min" in spec:
+            try:
+                if int(str(c.get("power", "")).replace("*", "") or 0) >= spec["power_min"]:
+                    out.append(name)
+            except ValueError:
+                pass
         elif "re" in spec and re.search(spec["re"], ot, re.I):
             out.append(name)
     return out
@@ -643,6 +752,15 @@ def plan_banner(picks, by_id, ratings, main, pnum, pick):
     r = _pool_roles(picks, by_id, ratings, main)
     if done < 10:
         return [f"⚑ СТОЙКА: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}"]
+    cal = calib()
+    if not cal:
+        # Сет без референс-выборки: считаем, но НЕ выносим вердикт кластера —
+        # пороги воздух/земля мерялись на другом сете и здесь ничего не значат.
+        return [f"⚑ СТОЙКА: флай {r['fly']} · reach {r['reach']} · эвейжн-тел {r['fly'] + r['reach']} "
+                f"(пик {done}/{TOTAL_PICKS})",
+                f"   по сету {setcode().upper()} референс-выборки нет — это счётчики, а не вердикт. "
+                f"Чем ломаешь стойку, решай по своей оси (⚑ОСЬ), а не по чужим порогам."]
+    AIR_FLY, GND_FLY_MAX = cal["air_fly"], cal["gnd_fly_max"]
     scale = TOTAL_PICKS / max(done, 1)
     pf, pr = r["fly"] * scale, r["reach"] * scale      # проекция на конец драфта
     # одна десятая, а не целое: округление 5.8→«6» рядом с вердиктом «не определился»
@@ -680,10 +798,16 @@ def profile_banner(picks, by_id, ratings, main, pnum, pick):
     done = (pnum - 1) * 14 + pick
     frac = min(done / TOTAL_PICKS, 1.0)
     r = _pool_roles(picks, by_id, ratings, main)
+    cal = calib()
+    if not cal:
+        return [f"⚑ ПРОФИЛЬ (пик {done}/{TOTAL_PICKS}): существ {r['creatures']} · "
+                f"cmc≤2 {r['cheap']} · cmc≥5 {r['c5']} · фикс {r['fixers']}",
+                f"   по сету {setcode().upper()} референс-выборки нет — сравнивать не с чем. "
+                f"Числа даны как есть; накопится {setcode()}_ref_decks — появятся диапазоны."]
     parts = []
     for key, lab in (("creatures", "существ"), ("cheap", "cmc≤2"),
                      ("c5", "cmc≥5"), ("fixers", "фикс")):
-        lo, med, hi = REF[key]
+        lo, med, hi = cal["ref"][key]
         elo, ehi = lo * frac, hi * frac
         v = r[key]
         mark = "↑" if v > ehi else ("!" if v < elo else "")
@@ -829,13 +953,10 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
     ~splash/✗offcolor/★synergy, ⚠trap и баннеров. Одна и та же карта показывалась
     разными буквами в двух режимах. Дублировать этот код нельзя — только вызывать.
     """
-    def gw(cid):
-        r = ratings.get(cid)
-        return r["ever_drawn_win_rate"] if r else -1
-    order = sorted(ids, key=gw, reverse=True)
     main = pool_main_colors(picks, by_id)
     pair = pair_str(main)
     cratings = color_ratings(pair) if pair else {}
+    grouped = pack_order(ids, by_id, ratings, cratings, main)
     spell_n = pool_spell_count(picks, by_id)
     _record_hist(draft_id, pnum, pick, ids)
     lines = []
@@ -845,24 +966,30 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
         lines += sigs
         lines.append("───────────────")
     lines.append(header or f"PACK {pnum}/{pick} — {len(ids)} карт")
-    for cid in order:
-        c = by_id.get(cid)
-        r = ratings.get(cid)
-        if r:
-            tag = stat_tag(r, cratings.get(cid), pair if cid in cratings else None)
-        else:
-            tag = "[нет данных]"
-        flags = cast_flag(c, main) + synergy_flag(c, spell_n)
-        nm = (c or {}).get("name") or (r or {}).get("name") or f"id{cid}"
-        cost = face(c, "mana_cost") if c else ""
-        tl = face(c, "type_line") if c else (r or {}).get("types", "")
-        pt = f" {c['power']}/{c['toughness']}" if c and c.get("power") is not None else ""
-        lines.append(f"  {tag}{flags} {nm} {cost}{pt} — {tl}")
-        ot = full_oracle(c)
-        if ot:
-            if len(ot) > 280:
-                ot = ot[:279] + "…"
-            lines.append(f"        {ot}")
+    lines.append("  ⓘ порядок = кастуемость, затем ранг GIH+IWD. ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
+                 "порядок пика — верхняя строка не является ответом. Решают роль, план полосы, "
+                 "дыра и квадранты; числа сверяются ПОСЛЕДНИМИ.")
+    for glabel, gids in grouped:
+        if glabel:
+            lines.append(f"  ── {glabel} ──")
+        for cid in gids:
+            c = by_id.get(cid)
+            r = ratings.get(cid)
+            if r:
+                tag = stat_tag(r, cratings.get(cid), pair if cid in cratings else None)
+            else:
+                tag = "[нет данных]"
+            flags = cast_flag(c, main) + synergy_flag(c, spell_n)
+            nm = (c or {}).get("name") or (r or {}).get("name") or f"id{cid}"
+            cost = face(c, "mana_cost") if c else ""
+            tl = face(c, "type_line") if c else (r or {}).get("types", "")
+            pt = f" {c['power']}/{c['toughness']}" if c and c.get("power") is not None else ""
+            lines.append(f"  {tag}{flags} {nm} {cost}{pt} — {tl}")
+            ot = full_oracle(c)
+            if ot:
+                if len(ot) > 280:
+                    ot = ot[:279] + "…"
+                lines.append(f"        {ot}")
     lines.append("POOL:")
     lines.append(pool_summary(picks, by_id, ratings))
     # Карты, которых нет в <set>_set.json, МОЛЧА выпадали из всех счётчиков (кривая,

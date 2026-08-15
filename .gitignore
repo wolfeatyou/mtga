@@ -9,8 +9,10 @@
 __pycache__/
 *.pyc
 
-# backups
+# backups (рейтинги воспроизводятся fetch_17l.py; ручные копии в git не нужны)
 *.bak
+*.bak.json
+*_backup_*.json
 
 # 17Lands color-pair caches — regenerated on demand from 17lands.com
 cache_17l_*.json
@@ -23,6 +25,11 @@ sim/sim_state.json
 replay_report.html
 replay_moments.html
 game4_review.html
+
+# генерируемые визуальные читшиты и тренажёры — их делают build_*_cheatsheet.py /
+# build_hob_images.py, весят сотни КБ (hob — 3.5 МБ), в git им делать нечего
+*_cheatsheet.html
+draft_training*.html
 
 # quickdraft transient state
 .qd_last_*.json

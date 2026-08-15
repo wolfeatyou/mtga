@@ -19,9 +19,11 @@ import json, os, re, sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SETS = ["msh_set.json", "sos_set.json", "mkm_set.json"]
+sys.path.insert(0, HERE)
+import sets_registry as _reg  # единый список сетов
+SETS = _reg.SET_FILES
 RATINGS = {"msh": "17l_msh_premierdraft.json", "sos": "17l_sos_premierdraft.json",
-           "mkm": "17l_mkm_premierdraft.json"}
+           "mkm": "17l_mkm_premierdraft.json", "hob": "17l_hob_premierdraft.json"}
 
 
 def norm(s):
