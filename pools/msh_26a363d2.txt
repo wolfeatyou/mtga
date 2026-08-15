@@ -1,15 +1,31 @@
 Deck
 
 Sideboard
+2 A.I.M. Scientists
+1 Aerial Doombot
+1 Baron Strucker, HYDRA Overlord
 2 Bold Biochemist
-1 Cruel Alliance
+2 Cruel Alliance
 1 Dependable Quinjet
-1 Depower
+2 Depower
+1 Futurist Forge
+1 Giant Growth
 1 H.E.R.B.I.E. Scout Unit
+2 HYDRA Infiltration
 1 Hawkeye's Bow
 1 Hour of Defeat
+1 Hydraulic Helper
 1 Kang, Temporal Tyrant
-1 Kingpin's Enforcers
-1 Ultron Drone
+2 Kingpin's Enforcers
+1 Loki, God of Mischief
+1 Ninja of the Hand
+1 Red Room Recruit
+1 Spider-Woman, Secret Agent
+1 Stolen Stark Tech
+1 Super Suit
+1 Titania, Rugged Rumbler
+2 Ultron Drone
+2 Unliving Legionnaire
+1 Vision of Love
 1 Wakandan Drone Flock
 1 Widow's Bite

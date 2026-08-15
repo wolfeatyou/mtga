@@ -1,40 +1,30 @@
 Deck
 13 Swamp
-10 Island
-1 Villainous Hideout
-1 Fisk Tower
-2 Aerial Doombot
-1 Whiplash, Vengeful Engineer
-1 Bold Biochemist
-1 Yellowjacket, Heartless Marauder
-1 Agents of HYDRA
-2 Stolen Stark Tech
-1 Falcon's Wing Harness
-1 Super Suit
+12 Island
+1 Aerial Doombot
+2 Bold Biochemist
+1 Loki, God of Mischief
+1 Red Room Recruit
+1 Hydraulic Helper
 1 Widow's Bite
-1 Decoy Ploy
 1 Futurist Forge
-1 We Say Thee Nay!
-1 Arnim Zola, Bio-Fanatic
-1 Atlantean Cavalry
+1 Super Suit
+1 Stolen Stark Tech
+1 Baron Strucker, HYDRA Overlord
 1 Ninja of the Hand
-2 Depower
-1 Frozen in Ice
-1 Secret Invasion
-1 Visions of Villainy
+2 Kingpin's Enforcers
+1 Titania, Rugged Rumbler
+1 Atlantean Cavalry
+1 A.I.M. Synthoids
+2 Ultron Drone
 1 Dependable Quinjet
-1 A.I.M. Scientists
-1 Giant-Sized Flying Ant
-1 U.S.Agent, John Walker
+2 Cruel Alliance
+2 Depower
+1 Rewrite History
+2 A.I.M. Scientists
 2 Unliving Legionnaire
-3 HYDRA Infiltration
-1 Crossbones, Malicious Mercenary
-1 Grim Reaper, Lethal Legionnaire
-1 Super-Skrull
 1 Kang, Temporal Tyrant
-
-Sideboard
-1 Doc Samson, Super Psychiatrist
-1 Restorative Technique
-1 Evil's Thrall
-1 Super Strength
+1 H.E.R.B.I.E. Scout Unit
+1 Spider-Woman, Secret Agent
+1 Hour of Defeat
+2 HYDRA Infiltration
