@@ -1,0 +1,21 @@
+Deck
+1 Lake-town Lookout (HOB) 18
+2 Iron Hills Blacksmith (HOB) 16
+3 Old Thrush (HOB) 2
+2 Bilbo, Thief in the Night (HOB) 33
+2 Stone by Sunlight (HOB) 27
+2 Plunder the Trollshaws (HOB) 51
+2 Great Gilded Boat (HOB) 42
+4 Patient Instructor (HOB) 162
+3 Bilbo Baggins, Burglar (HOB) 34
+3 Velvetwing Butterflies (HOB) 30
+2 Ori, Keeper of Songs (HOB) 23
+2 The Mountain-king's Return (HOB) 22
+1 Esgaroth Garrison (HOB) 13
+1 Confusticate and Bebother (HOB) 35
+3 Eagle's Rescue (HOB) 155
+1 Uneasy Partings (HOB) 58
+1 Bard, King of Dale (HOB) 144
+2 Lake-town (HOB) 186
+12 Plains (HOB) 189
+11 Island (HOB) 190

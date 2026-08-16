@@ -1,0 +1,417 @@
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Hobbit Draft Atlas</h1>
+      <p class="sub">Десять цветовых пар The Hobbit с эталонными листами, откалиброванными
+        по трофейным колодам — плюс история наших драфтов и партий в сете.</p>
+    </div>
+    <div class="stamp">
+      <div><b>146</b><span>карт с 17Lands</span></div>
+      <div><b>193</b><span>карты в сете</span></div>
+      <div><b>5</b><span>трофейных колод</span></div>
+      <div><b>16.08</b><span>снимок данных</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#arch" class="on">Архетипы</a>
+    <a href="#decks">Эталонные листы</a>
+    <a href="#trophy">Трофейные колоды</a>
+    <a href="#drafts">История драфтов</a>
+    <a href="#games">История партий</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ АРХЕТИПЫ ============ -->
+<section id="arch">
+  <div class="sechead"><h2>Десять пар</h2><div class="rule"></div><span class="count">5 с архетипом · 5 без</span></div>
+  <p class="lede">Дизайн сета построен на <strong>цикле из пяти пар</strong>, а не из десяти:
+    W→U→G→B→R→W. У этих пяти есть трайб, механика и двухцветные сигнпосты. У остальных пяти
+    (WB, WG, UB, UR, RG) — <strong>ровно ноль двухцветных карт</strong>: их нельзя «открыть по
+    сигнпосту», но играть можно, просто планом от ролей. Дефицитная ось — то, чего не хватит
+    само собой; именно её считает баннер <code>⚑ОСЬ</code> в живом драфте.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>Пара</th><th>Дефицитная ось</th><th>Существо к&nbsp;T2</th><th>Removal к&nbsp;T3</th>
+        <th>Ср.&nbsp;GIH</th><th>Существ</th><th>Эквип</th><th>Чем ломает стойку</th>
+      </tr></thead>
+      <tbody id="cmp"></tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Эвейжн в HOB структурно дефицитен</strong> — на весь сет 12 карт с полётом и 8 с досягаемостью,
+    против насыщенного воздухом MSH. Поэтому «воздух доберёт сам» здесь не работает: у трёх пар
+    из пяти ломатель стойки — вообще не полёт, а трампл, эквип или менейс. Считать эвейжн
+    отдельной ролью с первого пика.
+  </div>
+</section>
+
+<!-- ============ ЛИСТЫ ============ -->
+<section id="decks">
+  <div class="sechead"><h2>Эталонные листы</h2><div class="rule"></div><span class="count">40 карт · надрафтуемо</span></div>
+  <p class="lede">Листы пересобраны 16.08 после разбора пяти трофейных колод — и первая версия
+    этот разбор не пережила. Карты отсортированы по кривой; <span class="axmark"></span> отмечает
+    карту, кормящую ось. Наведите на имя — покажется принт.</p>
+
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div class="deck" id="deck"></div>
+
+  <div class="note warn">
+    <strong>Это карта местности, а не маршрут.</strong> Листы отвечают на вопрос «что здесь вообще
+    можно построить и чего в этой паре структурно не будет», а не «бери эту карту». Собирать их
+    целиком не нужно и чаще всего невозможно: реальный драфт даёт другие карты, и половина
+    решений принимается по сигналам, а не по плану.
+  </div>
+</section>
+
+
+<!-- ============ ТРОФЕЙНЫЕ ============ -->
+<section id="trophy">
+  <div class="sechead"><h2>Трофейные колоды</h2><div class="rule"></div><span class="count">5 листов 7-1 / 7-2</span></div>
+  <p class="lede">Пять реальных листов с untapped.gg — единственная внешняя популяция по HOB,
+    которая у нас есть. По ним пересобраны все листы выше, и первая версия этот разбор не пережила.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Колода</th><th>Счёт</th><th>Ранг</th><th>RARE+</th><th>Земель</th>
+        <th>Существ</th><th>Карт&nbsp;&lt;55&nbsp;GIH</th><th>Артефактов</th><th>Ср.&nbsp;GIH</th></tr></thead>
+      <tbody>
+        <tr><td class="arch-name"><span class="pair"><i class="pip B">B</i><i class="pip R">R</i></span> Rakdos</td>
+          <td><span class="pill w">7–1</span></td><td>Gold</td><td class="num">1</td><td class="num">16</td>
+          <td class="num">15</td><td class="num">5</td><td class="num">6</td><td class="num">57.30</td></tr>
+        <tr><td class="arch-name"><span class="pair"><i class="pip W">W</i><i class="pip U">U</i></span> Azorius</td>
+          <td><span class="pill w">7–1</span></td><td>Platinum</td><td class="num">4</td><td class="num">17</td>
+          <td class="num">13</td><td class="num">2</td><td class="num">0</td><td class="num">57.82</td></tr>
+        <tr><td class="arch-name"><span class="pair"><i class="pip W">W</i><i class="pip U">U</i></span> Azorius</td>
+          <td><span class="pill w">7–1</span></td><td>Platinum</td><td class="num" style="color:var(--brass)"><b>0</b></td><td class="num">16</td>
+          <td class="num">14</td><td class="num">9</td><td class="num">0</td><td class="num">56.27</td></tr>
+        <tr><td class="arch-name"><span class="pair"><i class="pip R">R</i><i class="pip W">W</i></span> Boros</td>
+          <td><span class="pill w">7–2</span></td><td>Bronze</td><td class="num">5</td><td class="num">17</td>
+          <td class="num">11</td><td class="num" style="color:var(--brass)"><b>12</b></td><td class="num" style="color:var(--brass)"><b>8</b></td><td class="num">54.98</td></tr>
+        <tr><td class="arch-name"><span class="pair"><i class="pip B">B</i><i class="pip G">G</i></span> Golgari</td>
+          <td><span class="pill w">7–2</span></td><td>Gold</td><td class="num">2</td><td class="num">17</td>
+          <td class="num">18</td><td class="num">5</td><td class="num">3</td><td class="num">56.56</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note warn">
+    <strong>Что эти пять листов опровергли в первой версии моих колод.</strong>
+    Пересечение по картам оказалось всего <b>30–50%</b>, и расхождение было не случайным,
+    а системным — в одну сторону.
+    <ul style="margin:10px 0 0; padding-left:20px">
+      <li><b>Я вычищал всё ниже 55 GIH — победители это держат.</b> В моих первых листах таких
+        карт было 0–5, у победителей 2–12. Средний GIH у меня был выше <em>у всех пяти</em>.
+        Это дословно диагноз из собственного файла: «драфт по GIH строит колоду, которая нигде
+        не плоха — то есть мягкую середину».</li>
+      <li><b>Редкости не решают.</b> RARE+ у победителей: 1 · 4 · 5 · 2 · <b>0</b>. Колода с нулём
+        редкостей взяла 7–1 на Платине, с пятью — 7–2 на Бронзе. Мой «бюджет 3 редкости»
+        описывал везение раздачи, а не силу колоды.</li>
+      <li><b>Эквип недооценён.</b> Boros 7–2 играет 8 артефактов и 7 эквипов при среднем GIH
+        54.98 — самом низком из пяти. Эквип это одновременно пробитие стойки и артефакт для
+        Storied; GIH усредняет его по колодам без обеих ролей.</li>
+      <li><b>Правило «максимум 2 копии» победители нарушают:</b> Rakdos играет
+        Gollum,&nbsp;Silent&nbsp;Slinker ×3.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ДРАФТЫ ============ -->
+<section id="drafts">
+  <div class="sechead"><h2>История драфтов</h2><div class="rule"></div><span class="count">HOB · 2 прогона</span></div>
+  <p class="lede">Что собрали, чем это кончилось и какой урок остался в инструкциях.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>Дата</th><th>Формат</th><th>Колода</th><th>Итог</th><th>Что пошло не так</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">16.08</td>
+          <td>Sealed</td>
+          <td class="arch-name"><span class="pair"><i class="pip R">R</i><i class="pip G">G</i></span>
+            Медведи / Ferocious<small>17 земель · 17 существ · 1 флаер</small></td>
+          <td><span class="pill w">2</span> <span class="pill l">2</span></td>
+          <td>Кривая на 3+ при 17 землях: 13 тел из 17 стоят три и дороже. Оба поражения —
+            мана (кип 2 земли; отставание на две к 5-му ходу). Добавлена 18-я земля.</td>
+        </tr>
+        <tr>
+          <td class="num">16.08</td>
+          <td>Premier</td>
+          <td class="arch-name"><span class="pair"><i class="pip W">W</i><i class="pip U">U</i></span>
+            Люди / recruit<small>42 пика · средний GIH пула 54.5</small></td>
+          <td><span class="tag">не сыграна</span></td>
+          <td>Инструмент 13 раз показал «сильнее вне цвета» (4 из них — ⚑ПИВОТ), все проигнорированы.
+            Чёрный тёк весь драфт, 5 из 6 пропущенных бомб стоили <em>один</em> пип — их можно было сплешить.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Что из этого починено в инструменте.</strong> Появился накопительный баннер
+    <code>⚑ ПАСУЕМ &lt;цвет&gt;</code>: он копит через все пройденные паки и загорается на третьей
+    отданной карте одного цвета, отдельной строкой называя сплешабельные в один пип. Пер-пак
+    сигналы этого не видели — каждый по отдельности защитим, тринадцать подряд нет.
+    На разобранном драфте он загорелся бы на P2P2 и показал бы 8 к началу третьего бустера.
+  </div>
+</section>
+
+<!-- ============ ПАРТИИ ============ -->
+<section id="games">
+  <div class="sechead"><h2>История партий</h2><div class="rule"></div><span class="count">HOB · 4 партии</span></div>
+  <p class="lede">Только то, что подтверждено разбором лога — не по памяти.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th>#</th><th>Итог</th><th>Ходов</th><th>Жизни к&nbsp;10-му</th><th>Оппонент</th><th>Причина</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td><span class="pill w">W</span></td><td class="num">17</td>
+          <td class="num" style="color:var(--win)">22</td><td>гоблины / эквип</td>
+          <td><span class="tag">MVP-карта</span> Old&nbsp;Thrush прошёл <b>7 атак подряд</b> без
+            единого блока, опп 20→8, финальный борд 3–0.</td></tr>
+        <tr><td class="num">2</td><td><span class="pill l">L</span></td><td class="num">22</td>
+          <td class="num" style="color:var(--loss)">6</td><td>гоблины / эквип</td>
+          <td><span class="tag hot">MANA</span><span class="tag hot">OUT-ENGINED</span>
+            Кип 2 земли / 7 спеллов. Опп развернул Roads Go Ever ×5, Crude Bent Blade ×5,
+            Goblin Plate Mail ×4.</td></tr>
+        <tr><td class="num">3</td><td><span class="pill l">L</span></td><td class="num">19</td>
+          <td class="num" style="color:var(--loss)">4</td><td>гоблины / агро</td>
+          <td><span class="tag hot">MANA</span><span class="tag hot">STRUCTURAL-AGGRO</span>
+            К 5-му ходу ≤3 земли при 4-мановом теле в руке с самого начала.</td></tr>
+        <tr><td class="num">4</td><td><span class="pill w">W</span></td><td class="num">14</td>
+          <td class="num" style="color:var(--win)">20</td><td>гоблины / волки</td>
+          <td><span class="tag">РАМПА</span> Till and Tend на T2 → Wood Elves на T4 →
+            Large&nbsp;Bear на <b>T5</b>, прошёл дважды. Нас не тронули: 20 из 20.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <strong>Разделитель побед и поражений оказался бинарным.</strong> Жизни к десятому ходу:
+    победы — 22 и 20, поражения — 6 и 4. Пересечений нет вообще. Решает не размер тел и не эвейжн
+    сам по себе, а <em>успели ли развернуться</em>: обе победы закрыты разными линиями (флаер на
+    семь атак / рампа в 5/5 на ход раньше), а оба поражения — из рук, где первое действие пришлось
+    на третий ход. Оппоненты: гоблины 4 раза из 4.
+  </div>
+
+  <div class="sechead" style="margin-top:44px">
+    <h2 style="font-size:19px">Предыдущий сет — Marvel Super Heroes</h2><div class="rule"></div>
+    <span class="count">15 партий в логе</span>
+  </div>
+  <p class="lede">Сводка причин поражений за MSH — она объясняет, почему инструкции устроены именно так.
+    Категория <code>OUT-ENGINED</code> лидирует с большим отрывом и восемь раз подряд порождала
+    вывод «добрать ещё один ответ», который не сработал ни разу: размен 1-в-N нельзя выиграть
+    плотностью спот-removal. Отсюда правило — против движка есть ровно два легальных ответа,
+    <em>под</em> (клок быстрее сборки) или <em>над</em> (свой движок), а «темпо + четыре ответа»
+    проигрывает обоим.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Категория</th><th>Упоминаний</th><th>Что это значит</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag hot">OUT-ENGINED</span></td><td class="num">42</td>
+          <td>Оппонент делал N угроз с одной карты, мы отвечали по одной</td></tr>
+        <tr><td><span class="tag">PILOT</span></td><td class="num">22</td>
+          <td>Окно было — разыграли неверно; лечится <code>&lt;set&gt;_pilot.md</code>, не сборкой</td></tr>
+        <tr><td><span class="tag">BUILD</span></td><td class="num">12</td>
+          <td>Ошибка на сборке: мягкая середина, нет закрывашки</td></tr>
+        <tr><td><span class="tag">VARIANCE</span></td><td class="num">10</td>
+          <td>Честный проигрыш без окна</td></tr>
+        <tr><td><span class="tag">MANA</span></td><td class="num">8</td>
+          <td>Скрю, флуд, некастуемый сплеш</td></tr>
+        <tr><td><span class="tag">STRUCTURAL-AGGRO</span></td><td class="num">6</td>
+          <td>Переехали до того, как мы развернулись</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Данные: 17Lands PremierDraft HOB, снимок 16.08.2026 — 146 карт с выборкой &gt;200 игр.
+      Пар-фильтрованный GIH для HOB недоступен: API отдаёт на фильтр цветов те же глобальные числа.</div>
+    <div><code>~/.claude/skills/mtg-draft-helper</code></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- сравнительная таблица ---------- */
+const BREAK = {
+  RW:"Эквип и анфем Storied — полёта почти нет", BR:"Менейс, неблокируемое и растущая Армия",
+  WU:"Полёт и токены-люди вширь", GU:"Счётчики от landfall + неблокируемый финишёр",
+  BG:"Менейс, трампл и тела силой 4+", WB:"Removal расчищает дорогу менейсу и полёту",
+  WG:"Просто самые крупные тела в паре", UB:"Неблокируемое и менейс под добор",
+  UR:"Полёт сверху, ожоги снизу", RG:"Трампл и 4-сила — пробитие массой"
+};
+const DEFICIT = {
+  RW:"Пейоффы Storied — их 9 на сет; топливо есть всегда",
+  BR:"Сакрифайс-топливо; Армия всего одна",
+  WU:"Пейоффы «вторая карта» — всего 4 на сет",
+  GU:"Дополнительные земельные дропы — их 2",
+  BG:"Источники силы 4+ — минимум два, иначе Ferocious мёртв",
+  WB:"Архетипа нет — держится на removal (лучший доступ в сете) и эквипе",
+  WG:"Архетипа нет — Ferocious без своей пары, тянет на размере тел",
+  UB:"Архетипа нет — добор синего плюс эвейжн и removal чёрного",
+  UR:"Архетипа нет — Storied через красный, добор через синий",
+  RG:"Архетипа нет, но 18 источников силы 4+ — больше, чем у самой BG"
+};
+const PLAN = {
+  RW:"Дешёвые Гномы под анфем Fíli, эквип для пробития, Storied как бесплатный апгрейд доски. Kíli добирает карту на каждый вход Гнома или эквипа.",
+  BR:"Amass копит одну большую Армию, гоблины и эквип работают топливом, а Down, Down to Goblin-town и Crude Bent Blade разбирают доску.",
+  WU:"Recruit фильтрует руку и делает токены-людей, пейоффы «вторая карта» превращают фильтрацию в счётчики и триггеры.",
+  GU:"Landfall превращает каждую землю в счётчики, а Bilbo и Old Fat Spider проносят урон мимо блокеров.",
+  BG:"Тела силой 4+ включают Ferocious, волки бьют менейсом, removal убирает то, что мешает.",
+  WB:"Пары нет — план строится ролями. У WB лучший в сете доступ к removal (Bilbo\'s Deadly Slice, Crude Bent Blade, Magnificent End, Stone by Sunlight) плюс эвейжн чёрного. Эквип бесцветный, поэтому Storied белого включается и здесь.",
+  WG:"Пары нет. Зелёный даёт самые крупные тела, белый — removal и Storied. Ferocious работает наполовину: источников силы 4+ хватает, пейоффов мало.",
+  UB:"Пары нет. Синий добирает (8 карт добора на C/U — больше всех цветов), чёрный убивает и бьёт менейсом. Ближе всего к контролю из десяти.",
+  UR:"Пары нет. Синий добирает, красный убирает и ставит крупные тела. Storied включается через красных Гномов и артефакты.",
+  RG:"Пары нет, но именно здесь больше всего источников силы 4+ во всём сете — 18. Ferocious зелёного включается надёжнее, чем в собственной паре BG."
+};
+const WEAK = {
+  RW:"Полёта почти нет: против воздуха придётся гоняться. Storied включается сам, но выхлоп ограничен девятью картами.",
+  BR:"Счётчики копятся на ОДНОЙ Армии — один спот-removal забирает всё вложение разом.",
+  WU:"Самый тонкий старт цикла и мало removal: всё зависит от того, дала ли рука раннее действие.",
+  GU:"Безусловного removal нет вообще — только Quarrel как файт. Landfall без дополнительных земельных дропов срабатывает раз в ход.",
+  BG:"Removal к T3 — худший показатель из десяти (15%). Ferocious требует, чтобы тело силой 4+ уже стояло.",
+  WB:"Нет сигнпоста — по паку не понять, свободна ли пара. Об открытости узнаёшь только по тому, что хорошие карты обоих цветов идут поздно.",
+  WG:"Самая бедная синергиями пара: ни одной двухцветной карты, Ferocious-пейоффов почти нет. Выигрывает только размером тел.",
+  UB:"Мало дешёвых тел и ни одного анфема — выигрывает медленно, проигрывает быстрым стартам.",
+  UR:"Худшее из двух миров: у синего нет removal, у красного нет добора. Держится на отдельных сильных картах.",
+  RG:"Ferocious-пейоффов в паре всего несколько, поэтому 4-сила часто работает просто большим телом без бонуса."
+};
+const ORDER = ["RW","BR","WU","GU","BG","WB","WG","UB","UR","RG"];
+const pips = p => `<span class="pair">${[...p].map(c=>`<i class="pip ${c}">${c}</i>`).join("")}</span>`;
+
+document.getElementById("cmp").innerHTML = ORDER.map(k=>{
+  const d = DECKS[k], g = d.gold;
+  const bar = (v,cls) => `<div class="bar ${cls}"><i style="--v:${v}%"></i><b>${v.toFixed(1)}%</b></div>`;
+  return `<tr${d.official ? "" : ' style="opacity:.92"'}>
+    <td class="arch-name">${pips(k)} ${d.official ? "" : '<span class="tag" style="margin-left:4px">без архетипа</span>'}
+      <small>${d.name}</small></td>
+    <td style="max-width:26ch">${DEFICIT[k]}</td>
+    <td>${bar(g.t2, g.t2>=65?"good":g.t2<58?"bad":"")}</td>
+    <td>${bar(g.rem3, g.rem3>=45?"good":g.rem3<30?"bad":"")}</td>
+    <td class="num">${d.gih.toFixed(2)}</td>
+    <td class="num">${d.creatures}</td>
+    <td class="num">${d.eq || "—"}</td>
+    <td style="max-width:24ch">${BREAK[k]}</td>
+  </tr>`;
+}).join("");
+
+/* ---------- табы и лист ---------- */
+const tabsEl = document.getElementById("tabs"), deckEl = document.getElementById("deck");
+tabsEl.innerHTML = ORDER.map((k,i)=>
+  `<button class="tab" role="tab" data-k="${k}" aria-selected="${i===0}"
+      title="${DECKS[k].official ? "архетип сета" : "пара без архетипа"}">
+     ${pips(k)}<span>${k}</span>${DECKS[k].official ? "" : '<span style="opacity:.5">·</span>'}</button>`).join("");
+
+function card(s){
+  const ax = s.ax.length ? `<span class="axmark" title="кормит ось: ${s.ax.join(", ")}"></span>` : "";
+  const gih = s.gih ? `<span class="gih${s.gih<55?" low":""}">${s.gih.toFixed(1)}</span>`
+                    : `<span class="gih low">—</span>`;
+  const has = typeof IMGS !== "undefined" && IMGS[s.name];
+  const nm = `<button class="cn${has?"":" noimg"}" type="button" data-c="${s.name}"
+      ${has?'aria-label="Показать принт: '+s.name+'"':""}>${s.name}</button>`;
+  return `<li>
+    <span class="qty">${s.n}×</span>
+    <span class="cname"><span>${nm}${ax}</span>
+      <span class="mc">${s.cost || "—"}${s.pt?" · "+s.pt:""}</span>
+      <span class="rar ${s.r}">${s.r}</span></span>
+    ${gih}</li>`;
+}
+
+/* ---------- превью принта ----------
+   Один общий узел вместо картинки в каждой строке: 100+ data-URI в DOM разом — это
+   десятки мегабайт декодированных пикселей. Здесь в любой момент живёт ровно одна. */
+const peek = document.createElement("figure");
+peek.id = "peek"; peek.innerHTML = '<img alt="">';
+document.body.appendChild(peek);
+const peekImg = peek.querySelector("img");
+let peekFor = null;
+
+function showPeek(btn){
+  const name = btn.dataset.c, src = (typeof IMGS !== "undefined") && IMGS[name];
+  if(!src) return;
+  if(peekFor !== name){ peekImg.src = src; peekImg.alt = name; peekFor = name; }
+  const r = btn.getBoundingClientRect(), W = 300, H = 419, GAP = 14;
+  // справа от имени, если влезает; иначе слева. По вертикали — прижимаем к окну.
+  let x = r.right + GAP;
+  if(x + W > innerWidth - 8) x = Math.max(8, r.left - W - GAP);
+  let y = r.top + r.height/2 - H/2;
+  y = Math.min(Math.max(8, y), innerHeight - H - 8);
+  peek.style.left = x + "px"; peek.style.top = y + "px";
+  peek.classList.add("on");
+}
+const hidePeek = () => peek.classList.remove("on");
+
+for(const ev of ["mouseover","focusin"])
+  document.addEventListener(ev, e => {
+    const b = e.target.closest?.("button.cn");
+    if(b) showPeek(b); else if(ev === "focusin") hidePeek();
+  });
+for(const ev of ["mouseout","focusout"])
+  document.addEventListener(ev, e => { if(e.target.closest?.("button.cn")) hidePeek(); });
+addEventListener("scroll", hidePeek, {passive:true});
+addEventListener("keydown", e => { if(e.key === "Escape") hidePeek(); });
+
+function render(k){
+  const d = DECKS[k], g = d.gold;
+  const cre = d.spells.filter(s=>s.type.includes("Creature"));
+  const oth = d.spells.filter(s=>!s.type.includes("Creature"));
+  const nCre = cre.reduce((a,s)=>a+s.n,0), nOth = oth.reduce((a,s)=>a+s.n,0);
+  const lands = d.lands.map(l=>`${l.n} ${l.name}`).join(" · ");
+  deckEl.innerHTML = `
+    <div class="deck-top">
+      <div class="deck-id">
+        <h3>${pips(k)} ${d.name}</h3>
+        ${d.official ? "" : '<p style="margin:6px 0 0;font-size:13px;color:var(--muted);max-width:56ch">Двухцветных карт у этой пары в сете <b>ноль</b> — сигнпоста нет, открытость видна только по опозданиям.</p>'}
+        <div class="axes">${d.axes.map(a=>`<span class="axe">${a}</span>`).join("")}
+          <span class="axe">R/M ${d.rar.R} · U ${d.rar.U} · C ${d.rar.C}</span></div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><b>${g.t2.toFixed(1)}%</b><span>существо к T2</span></div>
+        <div class="metric"><b>${g.blk.toFixed(1)}%</b><span>блокер к T3</span></div>
+        <div class="metric"><b>${g.rem3.toFixed(1)}%</b><span>removal к T3</span></div>
+        <div class="metric"><b>${d.gih.toFixed(2)}</b><span>средний GIH</span></div>
+      </div>
+    </div>
+    <div class="deck-body">
+      <div class="col"><h4>Существа — ${nCre}</h4><ul class="cards">${cre.map(card).join("")}</ul></div>
+      <div class="col"><h4>Заклинания — ${nOth} · земли 17</h4><ul class="cards">${oth.map(card).join("")}</ul>
+        <p style="font-family:var(--mono); font-size:12px; color:var(--muted); margin:14px 0 0">${lands}</p></div>
+    </div>
+    <div class="deck-foot">
+      <div><h5>Как выигрывает</h5><p>${PLAN[k]}</p></div>
+      <div class="weak"><h5>Слабость</h5><p>${WEAK[k]}</p></div>
+    </div>`;
+}
+
+tabsEl.addEventListener("click", e=>{
+  const b = e.target.closest(".tab"); if(!b) return;
+  [...tabsEl.children].forEach(t=>t.setAttribute("aria-selected", t===b));
+  render(b.dataset.k);
+});
+render("RW");
+
+/* ---------- подсветка активного раздела ---------- */
+const links = [...document.querySelectorAll("nav.jump a")];
+const secs = links.map(a=>document.querySelector(a.getAttribute("href")));
+const io = new IntersectionObserver(es=>{
+  es.forEach(en=>{
+    if(!en.isIntersecting) return;
+    links.forEach(l=>l.classList.toggle("on", l.getAttribute("href")==="#"+en.target.id));
+  });
+},{rootMargin:"-20% 0px -70% 0px"});
+secs.forEach(s=>s && io.observe(s));
+</script>
