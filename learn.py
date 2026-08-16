@@ -85,8 +85,16 @@ def colors_of(deck, cards):
                 cnt[a] += 0.5 * q; cnt[b] += 0.5 * q
             else:
                 cnt[a] += q
-    top = [x for x, _ in cnt.most_common(2)]
-    return "".join(x for x in "WUBRG" if x in top)
+    if not cnt:
+        return "C"
+    top = cnt.most_common(2)
+    # Моноцвет не должен превращаться в пару из-за одного гибридного пипа: моночёрная 7-2
+    # (b_mono_72_tktaa) содержит Goblin Plate Mail {1}{B/R} и Large Bear {3}{B/G}{B/G}, и
+    # без этой проверки классифицировалась как BR/BG — то есть чужой архетип получал бы
+    # её карты в своё «ядро». Второй цвет считается настоящим от четверти пипов первого.
+    if len(top) < 2 or top[1][1] < top[0][1] * 0.25:
+        return top[0][0]
+    return "".join(x for x in "WUBRG" if x in (top[0][0], top[1][0]))
 
 
 def roles(deck, cards):

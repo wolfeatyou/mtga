@@ -8,7 +8,7 @@
     <div class="stamp">
       <div><b>146</b><span>карт с 17Lands</span></div>
       <div><b>193</b><span>карты в сете</span></div>
-      <div><b>5</b><span>трофейных колод</span></div>
+      <div><b>31</b><span>трофейная колода</span></div>
       <div><b>16.08</b><span>снимок данных</span></div>
     </div>
   </div>
@@ -375,7 +375,7 @@ function render(k){
     <div class="deck-top">
       <div class="deck-id">
         <h3>${pips(k)} ${d.name}</h3>
-        ${d.official ? "" : '<p style="margin:6px 0 0;font-size:13px;color:var(--muted);max-width:56ch">Двухцветных карт у этой пары в сете <b>ноль</b> — сигнпоста нет, открытость видна только по опозданиям.</p>'}
+        ${d.official ? "" : '<p style="margin:6px 0 0;font-size:13px;color:var(--win);max-width:64ch">Двухцветных карт у пары <b>ноль</b> — сигнпоста нет, а трофеи есть: ' + ({UB:"четыре листа, включая 7–0",RG:"два листа 7–2",WB:"два листа, один 7–0",WG:"два листа 7–2",UR:"два листа, один 7–0"}[k]) + '.</p>'}
         <div class="axes">${d.axes.map(a=>`<span class="axe">${a}</span>`).join("")}
           <span class="axe">R/M ${d.rar.R} · U ${d.rar.U} · C ${d.rar.C}</span></div>
       </div>
