@@ -1,6 +1,6 @@
 # HOB — извлечённые заметки (автогенерация)
 
-**Сгенерировано `learn.py` из 31 колод в `ref_decks/hob/`. Файл перезаписывается целиком — не править руками.**
+**Сгенерировано `learn.py` из 298 колод в `ref_decks/hob/`. Файл перезаписывается целиком — не править руками.**
 
 > Заметки строятся на том, что РЕАЛЬНО играется: частота карты, число копий, роли,
 > кривая, земли. **GIH здесь не используется** — он нужен только для сортировки пака
@@ -12,160 +12,417 @@
 
 | ось | мин | медиана | макс |
 |---|---|---|---|
-| существ | 9 | 14 | 18 |
-| тел cmc≤2 | 2 | 6 | 11 |
-| removal | 0 | 2 | 8 |
-| ломателей стойки | 0 | 6 | 8 |
+| существ | 9 | 14 | 21 |
+| тел cmc≤2 | 1 | 6 | 11 |
+| removal | 0 | 3 | 12 |
+| ломателей стойки | 0 | 5 | 12 |
 | эквипа | 0 | 1 | 7 |
 | артефактов | 0 | 0 | 3 |
-| добора | 0 | 6 | 16 |
+| добора | 0 | 4 | 16 |
 | карт cmc≥5 | 0 | 3 | 9 |
 | земель | 15 | 17 | 18 |
 
-**Максимум копий одной карты:** 4 — Bilbo Baggins, Burglar ×3, Bilbo, Luckwearer ×3, Crude Bent Blade ×3, Down, Down to Goblin-town ×3, Dwarven Mauler ×3, Dwarven Provisioner ×3, Enchanted River's Grasp ×3, Goblin-town Flunkies ×4, Gollum, Silent Slinker ×3, Lakeshore Apothecary ×3, Mirkwood Pathmaker ×3, Patient Instructor ×4, Pinecone Strike ×3, Quarrel ×4, Ravening Warg ×3, Smaug, the Great Calamity ×3, Stir Up Trouble ×3, Stony-Voiced Goblins ×3, Troll Negotiations ×3, Wood Elves ×4, Woodland Weavemaster ×3
+**Максимум копий одной карты:** 8 — Attercop ×4, Beorn, Reluctant Host ×3, Bilbo Baggins, Burglar ×4, Bilbo's Deadly Slice ×4, Bilbo, Luckwearer ×3, Bothersome Noisemaker ×3, Boughside Wanderers ×4, Celebrate the Mountain-king ×3, Confusticate and Bebother ×3, Crude Bent Blade ×4, Desolation Prowler ×4, Dori, Bearer of Friends ×3, Down, Down to Goblin-town ×3, Dreaded Bat-Cloud ×3, Duskwatch Hunter ×3, Dwarven Mauler ×3, Dwarven Provisioner ×3, Dwarven Shortsword ×3, Elvenking's Harper ×3, Enchanted River's Grasp ×4, Esgaroth Garrison ×3, Fearsome Goblin Pair ×3, Front Porch Sentries ×4, Goblin Plate Mail ×4, Goblin-town Flunkies ×6, Gollum the Abandoned ×3, Gollum, Silent Slinker ×3, Great Gilded Boat ×3, Guardian of the Halls ×3, Gundabad Opportunist ×4, Iron Hills Blacksmith ×4, Lake-town Lookout ×4, Lakeshore Apothecary ×8, Little Bear ×3, Long Lake Nuisance ×4, Magnificent End ×4, Master's Councillors ×3, Mirkwood Nurturer ×5, Mirkwood Pathmaker ×3, Misty Mountains Raider ×3, Nasty Little Rabbit ×4, Nighthowl Pursuer ×3, Nori, Teller of Tales ×3, Old Fat Spider Can't See Me ×3, Ordinary Bear ×3, Ori, Keeper of Songs ×3, Patient Instructor ×4, Pinecone Strike ×3, Plunder the Trollshaws ×4, Quarrel ×4, Rage into the Valley ×3, Ravening Warg ×5, Silvan Reveler ×4, Smaug, the Great Calamity ×3, Stir Up Trouble ×3, Stony-Voiced Goblins ×3, The Mountain-king's Return ×3, Thorin Oakenshield ×3, Thranduil, Sindarin Liege ×4, Tidings of War ×3, Troll Negotiations ×3, Uneasy Partings ×4, Warg Tactics ×3, Wargling ×4, Wood Elves ×4, Woodland Weavemaster ×4
 
 **Играются в разных парах** (универсальные, брать можно до коммита в цвет):
-  Mirkwood Nurturer (7 пары) · The Mountain-king's Return (6 пары) · Patient Instructor (6 пары) · Goblin Plate Mail (6 пары) · Crude Bent Blade (6 пары) · Thrór's Map (5 пары) · Stony-Voiced Goblins (5 пары) · Stone by Sunlight (5 пары) · Smaug, the Great Calamity (5 пары) · Ravening Warg (5 пары) · Ragged Short Spear (5 пары) · Rage into the Valley (5 пары)
+  Mirkwood Nurturer (12 пары) · Thrór's Map (11 пары) · Magnificent End (11 пары) · An Unexpected Party (11 пары) · The Mountain-king's Return (10 пары) · Pinecone Strike (10 пары) · Old Thrush (10 пары) · Large Bear (10 пары) · Celebrate the Mountain-king (10 пары) · Burn, Burn, Tree and Fern (10 пары) · The Eagles Are Coming! (9 пары) · Smaug, the Great Calamity (9 пары)
 
 ---
 
 ## По парам
 
 
-### UG — 4 колод
+### UG — 44 колод
+- `gu_simic_70_korhigan.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:6 · 4:4 · 5:1 · 6:1 · спеллов 2:4 · 3:3 · 4:1
+- `gu_simic_70_nomad.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:5 · 5:2 · спеллов 2:1 · 3:3 · 4:2
+- `gu_simic_71_abrxxe.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:3 · 5:2 · 7:1 · спеллов 2:3 · 3:3 · 4:2
+- `gu_simic_71_alden.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:4 · 4:4 · 5:1 · 6:1 · спеллов 2:4 · 3:3 · 4:3
+- `gu_simic_71_ansem.txt` — 23 нонлендов + 18 земель · кривая существ 2:6 · 3:3 · 4:6 · 5:1 · 6:2 · спеллов 2:3 · 3:2
+- `gu_simic_71_corote.txt` — 24 нонлендов + 17 земель · кривая существ 2:2 · 3:8 · 4:4 · 5:1 · 7:1 · спеллов 2:4 · 3:4
+- `gu_simic_71_cyberdevil.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:4 · 5:1 · 6:1 · спеллов 2:3 · 3:3 · 4:2
+- `gu_simic_71_ltdangle.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:3 · 3:4 · 4:3 · 5:3 · 6:2 · спеллов 2:2 · 3:4 · 5:1
+- `gu_simic_71_rminator.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:8 · 3:8 · 4:2 · 6:1 · спеллов 2:2 · 3:1 · 4:1
+- `gu_simic_71_varuz.txt` — 24 нонлендов + 17 земель · кривая существ 1:2 · 2:3 · 3:3 · 4:4 · 6:1 · 7:1 · спеллов 2:3 · 3:4 · 4:1 · 5:1 · 6:1
+- `gu_simic_71_wakinglupus.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:3 · 4:4 · 5:2 · 6:3 · спеллов 2:3 · 3:2 · 4:1 · 6:1
+- `gu_simic_72_2face.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:3 · 5:2 · 7:1 · спеллов 2:4 · 3:1 · 4:1 · 6:1
+- `gu_simic_72_babbosking.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:2 · 4:3 · 5:2 · 6:2 · спеллов 2:2 · 3:3 · 4:3
+- `gu_simic_72_brainsickhater.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:4 · 5:2 · 6:4 · спеллов 2:4 · 3:1
+- `gu_simic_72_chippa42.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:2 · 5:1 · 6:3 · спеллов 2:4 · 3:4 · 4:1
 - `gu_simic_72_cyrino.txt` — 24 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:4 · 5:1 · 6:2 · спеллов 2:4 · 3:1 · 4:2 · 5:1
+- `gu_simic_72_doom.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:5 · 4:3 · 5:4 · 6:1 · спеллов 2:1 · 3:3 · 4:1
+- `gu_simic_72_elite.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:5 · 4:3 · 6:3 · спеллов 2:3 · 3:2
+- `gu_simic_72_glennschwifty.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:7 · 6:1 · спеллов 2:2 · 3:1 · 4:2
+- `gu_simic_72_idunoto.txt` — 25 нонлендов + 16 земель · кривая существ 2:6 · 3:3 · 4:3 · 5:3 · 6:3 · спеллов 2:4 · 3:3
+- `gu_simic_72_kevin.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:5 · 5:4 · 6:3 · спеллов 2:1 · 4:1
+- `gu_simic_72_kibby.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:2 · 3:9 · 4:3 · 5:3 · 6:2 · спеллов 2:1 · 4:1
+- `gu_simic_72_lquadel.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:2 · 4:4 · 6:2 · спеллов 2:2 · 3:5 · 4:2
+- `gu_simic_72_pedrottomtg.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:3 · 4:3 · 5:4 · 6:1 · спеллов 2:2 · 3:2 · 4:1
 - `gu_simic_72_phantomshadow89.txt` — 24 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:4 · спеллов 2:6 · 3:3 · 5:1
+- `gu_simic_72_seb59150.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:5 · 4:4 · 5:3 · 6:4 · спеллов 1:1 · 2:1 · 4:2
+- `gu_simic_72_siggy.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:5 · 6:1 · спеллов 2:5 · 3:4
 - `gu_simic_72_silkysmooth.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:4 · 5:1 · 6:1 · 9:1 · спеллов 2:2 · 3:4 · 4:1
+- `gu_simic_72_theguy.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:3 · 4:3 · 5:2 · 6:2 · спеллов 1:1 · 2:4 · 3:2 · 4:2
+- `gu_simic_72_thelocosan.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:4 · 4:6 · 6:2 · спеллов 2:3 · 3:3 · 4:1
+- `gu_simic_72_therealfunkyy.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:2 · 5:1 · 6:1 · 9:1 · спеллов 2:4 · 3:2 · 4:2 · 6:1
 - `u_mono_72_kevinitiative.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:4 · 3:4 · 4:5 · спеллов 2:2 · 3:6 · 5:1
+- `ubg_sultai_72_jacktorrance.txt` — 22 нонлендов + 18 земель · кривая существ 2:1 · 3:2 · 5:4 · 6:2 · спеллов 2:3 · 3:6 · 4:1 · 5:2 · 8:1
+- `ubg_sultai_72_shadorra.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:2 · 4:4 · 5:2 · 6:1 · спеллов 2:2 · 3:4 · 4:2
+- `urg_temur_72_irsphinx.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:7 · 4:3 · 5:1 · 6:1 · 7:1 · спеллов 2:3 · 3:1 · 4:1
+- `wug_bant_70_minotaurmarty.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:2 · 3:5 · 4:3 · 5:3 · спеллов 2:4 · 4:2 · 5:2
+- `wug_bant_71_genzei.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:5 · 4:4 · спеллов 2:5 · 3:1 · 4:1 · 6:1
+- `wug_bant_72_adman.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:8 · 4:5 · спеллов 3:1 · 4:3 · 6:1
+- `wug_bant_72_carpenstein.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:5 · 4:5 · 5:2 · спеллов 2:3 · 3:3 · 4:1 · 5:1
+- `wug_bant_72_elitehaker.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:4 · 5:2 · 6:1 · спеллов 1:1 · 2:1 · 3:1 · 4:2
+- `wug_bant_72_failbot.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:3 · 5:1 · спеллов 2:2 · 3:5 · 4:3 · 5:1
+- `wug_bant_72_federmc.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:6 · 4:3 · спеллов 2:5 · 3:4 · 4:1
+- `wug_bant_72_qwerty97.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:3 · 4:4 · 5:3 · спеллов 2:2 · 3:3 · 4:1
+- `wug_bant_72_r4ndo.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:4 · 3:5 · 4:3 · 5:2 · спеллов 2:3 · 3:6
 
-  **Роли** (сумма по колодам пары): существ 61 · тел cmc≤2 22 · removal 1 · ломателей стойки 16 · артефактов 2 · добора 33 · карт cmc≥5 9
+  **Роли** (сумма по колодам пары): существ 705 · тел cmc≤2 219 · removal 27 · ломателей стойки 196 · эквипа 6 · артефактов 20 · добора 274 · карт cmc≥5 147
 
-  **Ядро пары** (есть во всех 4 колодах): Enchanted River's Grasp ×3 · Bilbo Baggins, Burglar ×3 · Thranduil's Company
+  **Остальное:** Enchanted River's Grasp ×56 · Quarrel ×47 · Wood Elves ×44 · Thranduil, Sindarin Liege ×43 · Bilbo Baggins, Burglar ×42 · Silvan Reveler ×42 · Plunder the Trollshaws ×36 · Attercop ×34 · Mirkwood Pathmaker ×29 · Woodland Weavemaster ×27 · Boughside Wanderers ×27 · Elvenking's Harper ×26 · Guardian of the Halls ×26 · Uneasy Partings ×25 · Lakeshore Apothecary ×23 · Long Lake Nuisance ×23 · Mirkwood Nurturer ×21 · Bilbo, Luckwearer ×20
 
-  **Остальное:** Quarrel ×8 · Lakeshore Apothecary ×6 · Silvan Reveler ×5 · Plunder the Trollshaws ×4 · Thranduil, Sindarin Liege ×4 · Attercop ×3 · Bilbo, Luckwearer ×3 · Mirkwood Pathmaker ×3 · Old Fat Spider ×3 · Bejeweled Warg ×2 · Troop of Ponies ×2 · Wood Elves ×2 · Ordinary Bear ×2 · Troll Negotiations ×2 · Most Decrepit Old Bird ×2 · Confusticate and Bebother ×2 · Patient Instructor ×2 · Old Thrush
+### BR — 43 колод
+- `br_rakdos_70_improbableend.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:2 · 6:1 · 7:1 · спеллов 1:1 · 2:2 · 3:6 · 4:2
+- `br_rakdos_70_radstache.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:2 · 5:2 · 6:2 · 7:1 · спеллов 1:1 · 2:2 · 3:4
+- `br_rakdos_70_thergud.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:2 · 4:3 · 6:1 · 7:2 · спеллов 1:1 · 2:1 · 3:5 · 4:2
+- `br_rakdos_71_azalon.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:3 · 4:4 · 5:1 · 6:2 · спеллов 2:5 · 3:4
+- `br_rakdos_71_legendaryparker.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:7 · 4:3 · 5:2 · 6:1 · спеллов 2:1 · 3:4
+- `br_rakdos_71_mmken.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:1 · 4:2 · 5:3 · 6:1 · 7:1 · спеллов 1:2 · 2:1 · 3:7 · 4:1
+- `br_rakdos_71_qooverpowerd.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:2 · 5:3 · 6:1 · 7:2 · спеллов 2:2 · 3:5
+- `br_rakdos_71_resistant.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:6 · 3:1 · 4:4 · 5:2 · 6:1 · 7:1 · спеллов 1:3 · 2:1 · 3:3
+- `br_rakdos_72_10mmjhp.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:6 · 3:1 · 4:2 · 6:1 · спеллов 1:3 · 2:1 · 3:4 · 4:2
+- `br_rakdos_72_altruisticcockroach.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:5 · 4:1 · 5:2 · 7:1 · спеллов 1:3 · 2:1 · 3:4
+- `br_rakdos_72_asidbath.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:3 · 5:1 · 6:1 · 7:1 · спеллов 1:1 · 2:2 · 3:4
+- `br_rakdos_72_blackrosephoenix.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:2 · 4:4 · 5:3 · спеллов 1:3 · 2:3 · 3:2 · 4:1 · 5:1
+- `br_rakdos_72_chabababa.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:1 · 5:1 · 7:1 · спеллов 1:1 · 2:3 · 3:6 · 4:1
+- `br_rakdos_72_dality.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:7 · 3:2 · 5:4 · спеллов 1:4 · 2:3 · 3:2
+- `br_rakdos_72_edgens.txt` — 24 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:1 · 5:1 · 6:1 · 7:3 · спеллов 2:2 · 3:6
+- `br_rakdos_72_enkikmn.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:4 · 4:2 · 5:2 · 6:2 · спеллов 1:2 · 2:2 · 3:4
+- `br_rakdos_72_fallenarchlord.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 5:2 · 6:1 · спеллов 1:1 · 2:4 · 3:7 · 4:1
+- `br_rakdos_72_farwater.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:7 · 3:5 · 4:5 · 5:1 · спеллов 1:2 · 2:1 · 3:2
+- `br_rakdos_72_jandj320.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:3 · 5:1 · 7:1 · спеллов 1:2 · 2:2 · 3:5
+- `br_rakdos_72_lesophiste.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:3 · 4:4 · 5:1 · 6:2 · 7:1 · спеллов 2:3 · 3:5 · 4:1
+- `br_rakdos_72_melon.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:5 · 4:2 · 5:1 · 6:1 · спеллов 1:1 · 2:2 · 3:4
+- `br_rakdos_72_moneydraftekans.txt` — 24 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 4:3 · 5:2 · 6:1 · 7:2 · спеллов 1:1 · 2:2 · 3:5 · 4:1
+- `br_rakdos_72_puddlesrn.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:8 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 1:1 · 2:4 · 3:3
+- `br_rakdos_72_segiuwon.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:1 · 4:3 · 5:3 · 6:1 · спеллов 1:3 · 2:2 · 3:3 · 4:2
+- `br_rakdos_72_symphon.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:3 · 4:5 · 5:1 · 6:1 · спеллов 1:2 · 2:1 · 3:4
+- `br_rakdos_72_tjraiderfan.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:6 · 3:1 · 4:1 · 5:1 · спеллов 1:3 · 2:2 · 3:6 · 4:2
+- `br_rakdos_72_tony.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:3 · 3:3 · 4:3 · 5:2 · спеллов 1:2 · 2:3 · 3:4
+- `br_rakdos_72_ulamoguy.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:1 · 4:4 · 5:3 · спеллов 1:5 · 2:2 · 3:1 · 4:3
+- `brg_jund_70_yelo.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:4 · 4:1 · 5:4 · спеллов 1:3 · 2:4 · 3:2 · 4:1
+- `brg_jund_71_cr4zy.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:5 · 5:5 · 7:1 · спеллов 1:1 · 2:1 · 5:1
+- `brg_jund_72_demez.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:4 · 4:1 · 5:1 · 6:1 · спеллов 1:2 · 2:3 · 3:5 · 4:1
+- `brg_jund_72_hiddenkoala.txt` — 24 нонлендов + 17 земель · кривая существ 2:4 · 3:1 · 4:3 · 5:4 · 6:2 · 7:1 · спеллов 1:1 · 2:5 · 3:3
+- `brg_jund_72_simplelife.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:3 · 5:2 · спеллов 1:3 · 2:2 · 3:3
+- `brg_jund_72_zor.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:1 · 4:5 · 6:1 · спеллов 1:1 · 2:2 · 3:6
+- `wbr_mardu_71_bluepeter.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:4 · 4:1 · 5:2 · 6:1 · спеллов 1:1 · 2:4 · 3:3 · 4:2
+- `wbr_mardu_71_fazeniko.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:5 · 3:3 · 4:2 · 7:1 · спеллов 1:3 · 2:2 · 3:4 · 4:3
+- `wbr_mardu_71_fnord.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:3 · 4:2 · спеллов 1:2 · 2:3 · 3:5 · 4:1 · 5:1
+- `wbr_mardu_71_priceless.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:7 · 3:2 · 4:3 · спеллов 1:2 · 2:3 · 3:3 · 5:1
+- `wbr_mardu_72_bluepeter.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:1 · 5:2 · 6:1 · 7:1 · спеллов 1:2 · 2:3 · 3:2 · 4:1
+- `wbr_mardu_72_dcvon.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:9 · 3:5 · 4:1 · 5:1 · 6:1 · спеллов 1:1 · 2:3 · 3:1
+- `wbr_mardu_72_kurchatovio.txt` — 23 нонлендов + 17 земель · кривая существ 2:2 · 3:2 · 4:4 · 5:2 · 7:1 · спеллов 1:2 · 2:3 · 3:3 · 4:2 · 5:2
+- `wbr_mardu_72_sometimesmull.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 4:2 · 5:4 · 6:1 · спеллов 1:1 · 2:1 · 3:6 · 4:4
+- `wbr_mardu_72_thebeard.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:3 · 4:2 · 5:2 · спеллов 1:3 · 2:5 · 3:1 · 4:1
 
-### UB — 4 колод
+  **Роли** (сумма по колодам пары): существ 614 · тел cmc≤2 254 · removal 193 · ломателей стойки 250 · эквипа 113 · артефактов 9 · добора 101 · карт cmc≥5 135
+
+  **Остальное:** Crude Bent Blade ×44 · Stir Up Trouble ×42 · Goblin Plate Mail ×41 · Gollum, Silent Slinker ×37 · Stony-Voiced Goblins ×36 · Rage into the Valley ×35 · Goblin-town Flunkies ×34 · Dori, Bearer of Friends ×34 · Pinecone Strike ×31 · Bilbo's Deadly Slice ×30 · Bothersome Noisemaker ×30 · Ravening Warg ×30 · Gundabad Opportunist ×28 · Tidings of War ×27 · Misty Mountains Raider ×25 · Smaug, the Great Calamity ×20 · Fearsome Goblin Pair ×19 · Duskwatch Hunter ×19
+
+### WR — 39 колод
+- `rw_boros_70_eltano.txt` — 24 нонлендов + 16 земель · кривая существ 1:3 · 2:8 · 3:2 · 4:2 · 5:1 · 6:2 · спеллов 2:3 · 3:1 · 4:2
+- `rw_boros_70_ethno1337.txt` — 23 нонлендов + 17 земель · кривая существ 2:8 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 2:4 · 3:1 · 4:2 · 5:2
+- `rw_boros_71_afrogafrog.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:4 · 4:1 · 5:1 · 6:1 · 7:1 · спеллов 1:1 · 2:6 · 4:2 · 5:1
+- `rw_boros_71_bjornl7.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:10 · 4:1 · 5:3 · спеллов 2:1 · 3:2 · 4:2 · 5:1
+- `rw_boros_71_buny4n.txt` — 26 нонлендов + 16 земель · кривая существ 1:2 · 2:8 · 3:1 · 4:2 · 5:1 · спеллов 1:2 · 2:8 · 4:2
+- `rw_boros_71_elsbest.txt` — 24 нонлендов + 16 земель · кривая существ 2:4 · 3:5 · 4:1 · 5:2 · спеллов 1:1 · 2:6 · 3:1 · 4:3 · 5:1
+- `rw_boros_71_jaceventura.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:9 · 3:4 · 4:1 · спеллов 2:3 · 4:5
+- `rw_boros_71_madras.txt` — 23 нонлендов + 17 земель · кривая существ 2:8 · 3:2 · 4:1 · 5:1 · спеллов 2:2 · 3:1 · 4:6 · 5:2
+- `rw_boros_71_man.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 5:1 · 6:1 · 7:1 · спеллов 2:5 · 3:1 · 4:1 · 5:1
+- `rw_boros_71_nevets90.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:8 · 3:1 · 4:2 · 6:2 · 7:1 · спеллов 2:5 · 4:1 · 5:2
+- `rw_boros_71_wrenzilly.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:4 · 4:2 · 6:1 · 7:1 · спеллов 2:5 · 4:2 · 5:1
+- `rw_boros_71_xyas.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:2 · 4:2 · 5:1 · 6:2 · 7:2 · спеллов 2:5 · 3:2 · 4:2 · 5:1
+- `rw_boros_72_alan91.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:4 · 4:3 · 5:1 · 7:2 · спеллов 2:4 · 3:1 · 4:2 · 5:2
+- `rw_boros_72_anon.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:9 · 3:3 · 4:1 · 5:1 · 7:1 · спеллов 1:1 · 2:2 · 3:1 · 4:2 · 5:1
+- `rw_boros_72_bigk.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:3 · 5:1 · 6:1 · 7:1 · спеллов 1:1 · 2:4 · 4:2 · 5:1
+- `rw_boros_72_cheeseconqueso.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:6 · 3:1 · 4:3 · 5:2 · 6:1 · спеллов 2:1 · 3:2 · 4:3 · 5:1
+- `rw_boros_72_gimbernard.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:1 · 6:1 · 7:1 · спеллов 2:3 · 3:1 · 4:3 · 5:2
+- `rw_boros_72_iwatch.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:4 · 3:6 · 6:2 · 7:1 · спеллов 1:2 · 2:1 · 3:1 · 4:3 · 5:1
+- `rw_boros_72_jlbcredit.txt` — 24 нонлендов + 16 земель · кривая существ 2:9 · 3:4 · спеллов 2:4 · 3:2 · 4:5
+- `rw_boros_72_krocki.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:1 · 5:1 · 6:2 · 7:1 · спеллов 2:7 · 3:2 · 4:2 · 5:1
+- `rw_boros_72_legaleagle.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:8 · 3:5 · 4:1 · 6:1 · спеллов 1:1 · 2:2 · 4:3 · 5:1
+- `rw_boros_72_monmodrtor.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:4 · 4:1 · 5:1 · 6:1 · спеллов 1:1 · 2:6 · 4:2 · 5:1
+- `rw_boros_72_nobrawn.txt` — 24 нонлендов + 16 земель · кривая существ 1:3 · 2:4 · 3:4 · 4:1 · 5:2 · спеллов 1:1 · 2:5 · 4:3 · 5:1
+- `rw_boros_72_rabzcukz.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:2 · 5:2 · 7:1 · спеллов 1:1 · 2:3 · 3:2 · 4:1 · 5:2
+- `rw_boros_72_rez.txt` — 23 нонлендов + 17 земель · кривая существ 2:9 · 3:4 · 4:1 · спеллов 3:1 · 4:6 · 5:2
+- `rw_boros_72_sworldzen.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:5 · 4:2 · 6:1 · 7:1 · спеллов 1:2 · 2:4 · 3:2 · 4:2
+- `rw_boros_72_thedude.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:1 · 5:1 · спеллов 2:4 · 4:5 · 5:1
+- `rw_boros_72_zinovi.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:5 · 4:1 · 5:1 · 6:1 · 7:1 · спеллов 2:6 · 3:1 · 4:1
+- `wbr_mardu_71_eldreth3.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:2 · 5:1 · 6:1 · 7:1 · спеллов 1:2 · 2:2 · 3:2 · 4:2
+- `wbr_mardu_71_luisemeyran.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:4 · 3:7 · 4:1 · 5:1 · спеллов 1:1 · 2:5 · 3:3 · 4:1
+- `wbr_mardu_71_rajjix.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:4 · 4:3 · 5:2 · 6:1 · 7:1 · спеллов 2:3 · 3:2 · 5:1
+- `wbr_mardu_72_beli3ver.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 3:1 · 4:1 · 5:1 · спеллов 2:5 · 3:3 · 4:3 · 5:1
+- `wbr_mardu_72_rahonite.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 4:5 · 5:3 · спеллов 1:2 · 2:5 · 4:1
+- `wur_jeskai_70_thegreatwizard.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:5 · 3:5 · 4:2 · 5:1 · спеллов 2:5 · 3:1 · 4:2 · 5:1
+- `wur_jeskai_71_babydumpster.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:4 · 5:2 · 6:1 · 7:1 · спеллов 1:1 · 2:4 · 3:2
+- `wur_jeskai_72_arnistro.txt` — 24 нонлендов + 17 земель · кривая существ 2:8 · 3:2 · 5:1 · 6:1 · 7:2 · спеллов 2:3 · 3:3 · 4:2 · 5:2
+- `wur_jeskai_72_darkestmage.txt` — 22 нонлендов + 18 земель · кривая существ 2:6 · 3:2 · 4:3 · 5:2 · 7:1 · спеллов 2:7 · 4:1
+- `wur_jeskai_72_leastbean.txt` — 23 нонлендов + 17 земель · кривая существ 2:2 · 3:4 · 4:1 · 6:1 · 7:1 · спеллов 2:3 · 3:3 · 4:7 · 5:1
+- `wur_jeskai_72_sotruedre.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:2 · 4:3 · 5:1 · 7:1 · спеллов 1:2 · 2:3 · 3:1 · 4:2 · 5:4
+
+  **Роли** (сумма по колодам пары): существ 556 · тел cmc≤2 262 · removal 141 · ломателей стойки 172 · эквипа 124 · артефактов 11 · добора 160 · карт cmc≥5 129
+
+  **Остальное:** Dwarven Shortsword ×39 · Magnificent End ×38 · Dori, Bearer of Friends ×36 · Thorin Oakenshield ×35 · Óin the Brave ×33 · Goblin Plate Mail ×33 · Ori, Keeper of Songs ×32 · Pinecone Strike ×31 · Dwarven Provisioner ×30 · Nori, Teller of Tales ×27 · Iron Hills Blacksmith ×24 · Stone by Sunlight ×23 · The Mountain-king's Return ×21 · Smaug, the Great Calamity ×20 · Dwarven Mattock ×19 · Burn, Burn, Tree and Fern ×18 · Bombur, Gentle Dreamer ×17 · Gundabad Opportunist ×17
+
+### BG — 35 колод
+- `bg_golgari_70_ansem.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:1 · 4:2 · 5:1 · 6:1 · спеллов 1:2 · 2:9 · 3:2
+- `bg_golgari_70_shleeepyhead.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 5:1 · 6:1 · спеллов 2:2 · 3:7
+- `bg_golgari_70_vanninetor.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:7 · 4:1 · 5:2 · 6:1 · спеллов 1:2 · 2:1 · 3:7 · 4:1
+- `bg_golgari_70_yamademon.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 3:5 · 4:2 · 5:1 · 6:1 · 7:1 · спеллов 3:3 · 4:2
+- `bg_golgari_71_ennomd.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:5 · 4:4 · 5:3 · спеллов 1:1 · 3:2 · 5:1
+- `bg_golgari_71_gimmepizzaslow.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:7 · 3:3 · 4:5 · 5:1 · спеллов 1:3 · 2:1 · 3:2 · 4:1
+- `bg_golgari_71_skeebum.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:3 · 3:3 · 4:1 · 5:4 · 6:1 · спеллов 1:2 · 2:2 · 3:4 · 5:1
+- `bg_golgari_71_vhalgarv.txt` — 24 нонлендов + 16 земель · кривая существ 1:3 · 2:3 · 3:3 · 4:3 · 5:2 · спеллов 2:2 · 3:6 · 4:1 · 5:1
+- `bg_golgari_72_bailey.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:5 · 3:1 · 4:3 · 5:4 · спеллов 2:4 · 3:1 · 4:2
+- `bg_golgari_72_fay.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:2 · 3:2 · 4:5 · 5:2 · 6:1 · спеллов 2:4 · 3:3 · 4:2 · 5:1
+- `bg_golgari_72_gonzu.txt` — 24 нонлендов + 16 земель · кривая существ 2:3 · 3:6 · 4:2 · 6:2 · спеллов 1:3 · 2:2 · 3:5 · 4:1
+- `bg_golgari_72_joechurro.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 2:3 · 3:5 · 4:1
+- `bg_golgari_72_kizaminori.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:4 · 3:2 · 4:3 · 5:3 · 6:1 · спеллов 2:2 · 3:3 · 5:2
+- `bg_golgari_72_konoha4869.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:5 · 6:2 · спеллов 2:1 · 3:5
+- `bg_golgari_72_lazydogg.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 1:2 · 2:4 · 3:4 · 5:1
+- `bg_golgari_72_littlefreemonkey2.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:5 · 4:3 · 5:2 · спеллов 2:2 · 3:4
+- `bg_golgari_72_loxley.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:4 · 4:3 · 5:3 · 6:2 · спеллов 2:2 · 3:1 · 4:1
+- `bg_golgari_72_metallis.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:8 · 3:5 · 4:1 · 5:1 · спеллов 2:2 · 3:3
+- `bg_golgari_72_nanaki.txt` — 24 нонлендов + 16 земель · кривая существ 1:3 · 2:8 · 3:3 · 4:3 · 5:2 · спеллов 1:1 · 2:1 · 3:3
+- `bg_golgari_72_renegadeshep.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 1:3 · 2:2 · 3:2 · 4:2 · 5:1
+- `bg_golgari_72_rsv.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:1 · 5:5 · спеллов 2:2 · 3:5 · 4:1
+- `bg_golgari_72_sweatyneckbeard.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:3 · 3:2 · 4:2 · 5:2 · 6:1 · спеллов 1:1 · 2:4 · 3:3 · 4:1 · 5:1
+- `bg_golgari_72_taneok.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:2 · 5:2 · спеллов 2:4 · 3:2 · 4:2
+- `brg_jund_70_veeonix.txt` — 24 нонлендов + 17 земель · кривая существ 2:4 · 3:8 · 4:2 · 5:1 · 7:1 · спеллов 1:1 · 3:5 · 4:2
+- `brg_jund_72_gizaubbq.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:3 · 3:5 · 4:1 · 5:2 · спеллов 1:1 · 2:4 · 3:2 · 4:3
+- `brg_jund_72_obzen.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:3 · 5:3 · 6:2 · спеллов 1:2 · 2:1 · 3:3
+- `brg_jund_72_simogru.txt` — 24 нонлендов + 17 земель · кривая существ 2:3 · 3:5 · 4:2 · 5:5 · 7:1 · спеллов 2:3 · 3:5
+- `ubg_sultai_70_memnarch.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:7 · 4:4 · 5:2 · 6:1 · 9:2 · спеллов 2:1 · 3:1
+- `ubg_sultai_71_ceegee.txt` — 23 нонлендов + 17 земель · кривая существ 2:2 · 3:6 · 4:2 · 5:1 · спеллов 1:2 · 2:3 · 3:6 · 4:1
+- `ubg_sultai_71_influenza.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:4 · 4:4 · спеллов 2:3 · 3:5
+- `ubg_sultai_72_bendawizard.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:1 · 4:4 · 5:5 · 6:2 · спеллов 2:1 · 3:5
+- `ubg_sultai_72_gabs.txt` — 24 нонлендов + 16 земель · кривая существ 2:4 · 3:3 · 4:2 · 5:2 · спеллов 1:1 · 2:4 · 3:8
+- `ubg_sultai_72_lordplaneswalkerdecker.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:1 · 4:3 · 5:3 · 6:1 · спеллов 2:2 · 3:6
+- `ubg_sultai_72_mantoxd.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:7 · 3:3 · 4:3 · 5:1 · 6:1 · спеллов 2:2 · 3:4
+- `ubrg_4c_71_rrrn22.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:1 · 5:1 · 6:2 · 7:1 · спеллов 1:1 · 3:6 · 4:2
+
+  **Роли** (сумма по колодам пары): существ 533 · тел cmc≤2 219 · removal 109 · ломателей стойки 229 · эквипа 66 · артефактов 12 · добора 93 · карт cmc≥5 111
+
+  **Остальное:** Attercop ×41 · Crude Bent Blade ×38 · Quarrel ×35 · Nasty Little Rabbit ×30 · Bilbo's Deadly Slice ×30 · Ravening Warg ×29 · Mirkwood Nurturer ×27 · Duskwatch Hunter ×26 · Stir Up Trouble ×23 · The Chief Warg ×23 · Wargling ×23 · Goblin Plate Mail ×22 · Mirkwood Pathmaker ×19 · Down, Down to Goblin-town ×18 · Stony-Voiced Goblins ×18 · Wilderland Scrounger ×18 · Rage into the Valley ×16 · Desolation Prowler ×15
+
+### WU — 25 колод
+- `wu_azorius_70_popicas25.txt` — 25 нонлендов + 16 земель · кривая существ 1:2 · 2:5 · 3:4 · 4:6 · спеллов 3:4 · 4:2 · 5:2
+- `wu_azorius_71_apestosita.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:6 · 5:2 · спеллов 2:1 · 3:4 · 4:3 · 5:2
+- `wu_azorius_71_biggoose.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:2 · 4:4 · спеллов 2:5 · 3:3 · 4:2 · 5:2
+- `wu_azorius_71_efjoy.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 9:1 · спеллов 2:3 · 3:4 · 4:2 · 5:1
+- `wu_azorius_71_readinthinkin.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:3 · спеллов 2:4 · 3:2 · 4:4 · 5:2
+- `wu_azorius_71_sandchicken.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:3 · спеллов 2:4 · 3:3 · 4:2 · 5:1
+- `wu_azorius_72_angwar.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:3 · 4:4 · 9:1 · спеллов 1:2 · 2:3 · 3:3 · 4:3 · 5:1
+- `wu_azorius_72_badbh.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 4:2 · 5:2 · 9:1 · спеллов 2:3 · 3:5 · 4:2
+- `wu_azorius_72_blackm29.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:5 · 4:2 · спеллов 2:4 · 3:2 · 4:4 · 5:1
+- `wu_azorius_72_bloodcurdlingstories.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:5 · 5:1 · 6:2 · спеллов 2:1 · 3:2 · 4:1 · 5:1
+- `wu_azorius_72_cwenct.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:8 · 3:4 · 5:2 · 6:1 · спеллов 2:2 · 3:1 · 4:4 · 5:1
+- `wu_azorius_72_direfleetdooder.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:7 · 4:2 · спеллов 2:2 · 3:3 · 4:2 · 5:1
+- `wu_azorius_72_eloquentelephant.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:4 · 4:5 · 5:1 · спеллов 2:1 · 3:3 · 4:2 · 5:1
+- `wu_azorius_72_fenton.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:5 · 4:3 · 5:1 · спеллов 2:2 · 3:4 · 4:2
+- `wu_azorius_72_jabronisauce.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:5 · 4:3 · 5:1 · 6:2 · спеллов 2:1 · 4:4
+- `wu_azorius_72_mordeka1.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:3 · 4:1 · 5:2 · 6:1 · спеллов 2:1 · 3:4 · 4:6 · 5:1
+- `wu_azorius_72_rokired.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:3 · 5:1 · спеллов 2:3 · 3:3 · 4:3
+- `wu_azorius_72_sehia.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:4 · 5:1 · спеллов 2:5 · 4:2 · 5:1
+- `wu_azorius_72_thelittleone.txt` — 24 нонлендов + 16 земель · кривая существ 2:3 · 3:8 · 4:4 · спеллов 2:4 · 3:4 · 5:1
+- `wug_bant_71_1971tuki.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:3 · 5:2 · спеллов 2:3 · 3:1 · 4:2 · 5:2 · 6:1
+- `wug_bant_71_harrysach.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:2 · 3:8 · 4:3 · спеллов 2:4 · 3:3 · 4:1 · 5:2
+- `wur_jeskai_71_elitehaker.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:3 · 4:3 · 5:1 · 7:1 · спеллов 2:4 · 3:2 · 4:2 · 5:2
+- `wur_jeskai_72_crjo.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:5 · 3:2 · 4:2 · спеллов 1:1 · 2:6 · 4:3 · 5:1
+- `wur_jeskai_72_quc.txt` — 23 нонлендов + 17 земель · кривая существ 2:1 · 3:9 · 4:1 · 5:2 · 6:1 · спеллов 2:2 · 3:2 · 4:4 · 5:1
+- `wur_jeskai_72_venser.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:3 · 4:1 · 5:1 · спеллов 2:4 · 3:3 · 4:4 · 5:1
+
+  **Роли** (сумма по колодам пары): существ 350 · тел cmc≤2 140 · removal 52 · ломателей стойки 117 · эквипа 11 · артефактов 9 · добора 254 · карт cmc≥5 60
+
+  **Остальное:** Patient Instructor ×35 · Long Lake Nuisance ×33 · Lakeshore Apothecary ×31 · Bilbo Baggins, Burglar ×31 · Plunder the Trollshaws ×30 · Magnificent End ×28 · Enchanted River's Grasp ×25 · Bilbo, Luckwearer ×23 · Master's Councillors ×21 · Bard the Bowman ×19 · Celebrate the Mountain-king ×17 · The Mountain-king's Return ×16 · Stone by Sunlight ×16 · Uneasy Partings ×15 · Eagle's Rescue ×12 · Dwarven Provisioner ×10 · Settle the Wreckage ×9 · Fíli the Pathfinder ×8
+
+### UB — 23 колод
 - `ub_dimir_70_albertofgymrealm.txt` — 23 нонлендов + 17 земель · кривая существ 2:8 · 3:3 · 4:1 · спеллов 2:3 · 3:6 · 4:2
+- `ub_dimir_70_rmg.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:3 · 4:3 · 6:1 · спеллов 2:2 · 3:9 · 4:2
+- `ub_dimir_70_spawnofmuldrotha.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:2 · спеллов 1:1 · 2:2 · 3:7 · 4:2
+- `ub_dimir_71_lighdar.txt` — 25 нонлендов + 16 земель · кривая существ 2:4 · 3:3 · 4:3 · 5:2 · спеллов 2:4 · 3:9
+- `ub_dimir_71_mjm.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:4 · 4:1 · 5:2 · 6:2 · спеллов 1:1 · 2:2 · 3:8
+- `ub_dimir_71_olavo.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:4 · 4:2 · спеллов 1:1 · 2:1 · 3:5 · 4:5
+- `ub_dimir_71_pixelcannon.txt` — 25 нонлендов + 15 земель · кривая существ 2:8 · 3:2 · 4:4 · 5:1 · спеллов 2:2 · 3:8
+- `ub_dimir_71_puddlesrn.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:2 · 6:1 · спеллов 2:2 · 3:5 · 4:3
+- `ub_dimir_72_chozbe.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:3 · 4:6 · спеллов 1:2 · 2:3 · 3:3
+- `ub_dimir_72_drewidhermit.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:3 · 4:2 · спеллов 2:4 · 3:6 · 4:2
+- `ub_dimir_72_forg.txt` — 23 нонлендов + 17 земель · кривая существ 2:8 · 3:4 · 4:2 · спеллов 2:1 · 3:6 · 4:2
+- `ub_dimir_72_gilda.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:1 · спеллов 2:3 · 3:6 · 4:2 · 5:1
+- `ub_dimir_72_nergal.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:5 · 4:3 · 6:2 · спеллов 2:1 · 3:6 · 4:1
 - `ub_dimir_72_rmg.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:2 · 4:1 · спеллов 1:2 · 2:4 · 3:5 · 4:3
 - `ub_dimir_72_snowrain.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:3 · 4:3 · 5:1 · спеллов 1:1 · 3:6 · 4:1 · 6:1
+- `ub_dimir_72_sockmonkey.txt` — 23 нонлендов + 17 земель · кривая существ 2:8 · 3:3 · 4:1 · 5:2 · спеллов 1:1 · 2:4 · 3:4
+- `ub_dimir_72_sygmad.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:3 · 4:3 · спеллов 1:1 · 2:2 · 3:8
 - `ub_dimir_72_thelomen.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 4:2 · 5:1 · 7:1 · спеллов 1:1 · 2:1 · 3:8 · 4:1 · 6:1
+- `ubg_sultai_72_depflow.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:5 · 4:5 · спеллов 2:3 · 3:3 · 4:1
+- `ubr_grixis_72_pariah20.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:1 · 5:1 · спеллов 1:1 · 2:5 · 3:6 · 4:1
+- `wub_esper_72_carachota.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:4 · 4:1 · 6:1 · спеллов 1:1 · 2:2 · 3:5 · 4:2
+- `wub_esper_72_homelander.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:8 · 3:1 · 4:4 · спеллов 1:1 · 2:1 · 3:6 · 4:2
+- `wub_esper_72_titan.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:2 · 5:1 · спеллов 1:1 · 2:5 · 3:3 · 4:1
 
-  **Роли** (сумма по колодам пары): существ 46 · тел cmc≤2 26 · removal 13 · ломателей стойки 19 · эквипа 6 · артефактов 7 · добора 32 · карт cmc≥5 5
+  **Роли** (сумма по колодам пары): существ 291 · тел cmc≤2 138 · removal 73 · ломателей стойки 96 · эквипа 36 · артефактов 19 · добора 215 · карт cmc≥5 22
 
-  **Ядро пары** (есть во всех 4 колодах): Bilbo Baggins, Burglar ×3 · Lakeshore Apothecary ×2 · Bilbo, Luckwearer ×2 · Ravening Warg ×2
+  **Остальное:** Lakeshore Apothecary ×37 · Plunder the Trollshaws ×36 · Bilbo Baggins, Burglar ×32 · Long Lake Nuisance ×28 · Crude Bent Blade ×27 · Rage into the Valley ×26 · Bilbo's Deadly Slice ×25 · Patient Instructor ×24 · Uneasy Partings ×18 · Bilbo, Luckwearer ×17 · Gollum, Silent Slinker ×16 · Desolation Prowler ×15 · Enchanted River's Grasp ×15 · Stony-Voiced Goblins ×15 · Ravening Warg ×14 · Stir Up Trouble ×12 · Master's Councillors ×11 · Confusticate and Bebother ×10
 
-  **Остальное:** Enchanted River's Grasp ×5 · Crude Bent Blade ×4 · Rage into the Valley ×4 · Bilbo's Deadly Slice ×4 · Gollum, Silent Slinker ×4 · Plunder the Trollshaws ×3 · Great Gilded Boat ×3 · Uneasy Partings ×3 · Stir Up Trouble ×3 · Thrór's Map ×3 · Gollum the Abandoned ×3 · Desolation Prowler ×2 · Goblin Plate Mail ×2 · Patient Instructor ×2 · Confusticate and Bebother ×2 · Thranduil's Decree ×2 · Master's Councillors · Long Lake Nuisance
-
-### WU — 4 колод
-- `wu_azorius_71_apestosita.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:6 · 5:2 · спеллов 2:1 · 3:4 · 4:3 · 5:2
-- `wu_azorius_71_sandchicken.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:3 · спеллов 2:4 · 3:3 · 4:2 · 5:1
-- `wu_azorius_72_badbh.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 4:2 · 5:2 · 9:1 · спеллов 2:3 · 3:5 · 4:2
-- `wu_azorius_72_direfleetdooder.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:7 · 4:2 · спеллов 2:2 · 3:3 · 4:2 · 5:1
-
-  **Роли** (сумма по колодам пары): существ 55 · тел cmc≤2 25 · removal 6 · ломателей стойки 25 · эквипа 1 · артефактов 1 · добора 47 · карт cmc≥5 9
-
-  **Ядро пары** (есть во всех 4 колодах): Bilbo, Luckwearer ×3 · Plunder the Trollshaws ×2 · Eagle's Rescue
-
-  **Остальное:** Patient Instructor ×7 · Long Lake Nuisance ×6 · Enchanted River's Grasp ×5 · Lakeshore Apothecary ×4 · Bard the Bowman ×4 · Magnificent End ×4 · Master's Councillors ×4 · Bilbo Baggins, Burglar ×4 · The Mountain-king's Return ×3 · Uneasy Partings ×3 · Dwarven Provisioner ×2 · Mirkwood Nurturer ×2 · Eagle of the Great Shelf ×2 · Stone by Sunlight ×2 · The Queen of Dale ×2 · Belladonna Took ×2 · Old Fat Spider Can't See Me ×2 · Old Thrush
-
-### WR — 3 колод
-- `rw_boros_71_man.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 5:1 · 6:1 · 7:1 · спеллов 2:5 · 3:1 · 4:1 · 5:1
-- `rw_boros_72_krocki.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:1 · 5:1 · 6:2 · 7:1 · спеллов 2:7 · 3:2 · 4:2 · 5:1
-- `wbr_mardu_72_rahonite.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 4:5 · 5:3 · спеллов 1:2 · 2:5 · 4:1
-
-  **Роли** (сумма по колодам пары): существ 41 · тел cmc≤2 18 · removal 8 · ломателей стойки 16 · эквипа 14 · артефактов 1 · добора 9 · карт cmc≥5 12
-
-  **Ядро пары** (есть во всех 3 колодах): Dori, Bearer of Friends · Iron Hills Stalwart · Dwarven Mattock · Nori, Teller of Tales
-
-  **Остальное:** Goblin Plate Mail ×3 · Óin the Brave ×3 · Pinecone Strike ×3 · Thorin Oakenshield ×3 · Dwarven Shortsword ×3 · Dáin's Company ×2 · The Mountain-king's Return ×2 · Thorin, Mountain-king ×2 · Magnificent End ×2 · Stone-Giant of High Pass ×2 · Ragged Short Spear ×2 · Gundabad Opportunist ×2 · Bofur, Reliable Guardian · Dwarven Mauler · Dwarven Provisioner · Bombur, Gentle Dreamer · Ori, Keeper of Songs · Burn, Burn, Tree and Fern
-
-### BG — 2 колод
-- `bg_golgari_72_joechurro.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 3:3 · 4:1 · 5:1 · 6:1 · спеллов 2:3 · 3:5 · 4:1
-- `bg_golgari_72_metallis.txt` — 23 нонлендов + 17 земель · кривая существ 1:3 · 2:8 · 3:5 · 4:1 · 5:1 · спеллов 2:2 · 3:3
-
-  **Роли** (сумма по колодам пары): существ 32 · тел cmc≤2 19 · removal 5 · ломателей стойки 14 · эквипа 6 · добора 2 · карт cmc≥5 3
-
-  **Ядро пары** (есть во всех 2 колодах): Quarrel ×3 · Crude Bent Blade ×3 · Wargling ×2 · Attercop ×2 · Mirkwood Nurturer · Nighthowl Pursuer
-
-  **Остальное:** Front Porch Sentries ×2 · Rage into the Valley ×2 · Nasty Little Rabbit ×2 · Duskwatch Hunter ×2 · Great Fierce Bee ×2 · Guardian of the Halls · Chief Warg's Company · Mirkwood Pathmaker · Gathering of Darkness · Ordinary Bear · Beorn, Reluctant Host · Boughside Wanderers · Desolation Prowler · Gollum the Abandoned · Ravening Warg · Sting, Bilbo's Sword · Stony-Voiced Goblins · Gnashing of Teeth
-
-### BR — 2 колод
-- `br_rakdos_71_azalon.txt` — 24 нонлендов + 16 земель · кривая существ 2:5 · 3:3 · 4:4 · 5:1 · 6:2 · спеллов 2:5 · 3:4
-- `br_rakdos_71_resistant.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:6 · 3:1 · 4:4 · 5:2 · 6:1 · 7:1 · спеллов 1:3 · 2:1 · 3:3
-
-  **Роли** (сумма по колодам пары): существ 32 · тел cmc≤2 13 · removal 6 · ломателей стойки 13 · эквипа 9 · добора 4 · карт cmc≥5 7
-
-  **Ядро пары** (есть во всех 2 колодах): Gollum, Silent Slinker ×3 · Crude Bent Blade ×2 · Goblin Plate Mail ×2 · Goblin-town Flunkies ×2 · Stony-Voiced Goblins · Gandalf, Spark Starter · Dori, Bearer of Friends · Gundabad Opportunist · Rage into the Valley
-
-  **Остальное:** Front Porch Sentries ×2 · Ragged Short Spear ×2 · Dwarven Mauler ×2 · Bothersome Noisemaker ×2 · Pinecone Strike · Ravening Warg · Down, Down to Goblin-town · Fearsome Goblin Pair · The Great Goblin · Bolg of the North · Great Ugly-Looking Goblin · Stir Up Trouble · Tidings of War · Well-Worn Spatula · Dwalin, Weaponmaster · Gnashing of Teeth · Head of the Hunt · Dreaded Bat-Cloud
-
-### RG — 2 колод
-- `rg_gruul_72_tairin.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:1 · 3:3 · 5:5 · 7:3 · спеллов 1:2 · 2:4 · 3:2 · 4:2 · 5:1
-- `rg_gruul_72_zerokun.txt` — 24 нонлендов + 17 земель · кривая существ 1:4 · 2:2 · 3:4 · 4:3 · 5:3 · спеллов 1:1 · 2:6 · 4:1
-
-  **Роли** (сумма по колодам пары): существ 29 · тел cmc≤2 8 · removal 12 · ломателей стойки 14 · эквипа 3 · добора 1 · карт cmc≥5 12
-
-  **Ядро пары** (есть во всех 2 колодах): Burn, Burn, Tree and Fern ×2 · Pinecone Strike ×2 · Tidings of War ×2 · Nasty Little Rabbit · Iron Hills Stalwart · Wilderland Scrounger
-
-  **Остальное:** Smaug, the Great Calamity ×3 · Dwarven Mauler ×3 · Beorn's Hospitality ×2 · Wood Elves ×2 · Beorn, Reluctant Host ×2 · Duskwatch Hunter ×2 · Mirkwood Nurturer ×2 · Gundabad Opportunist ×2 · Bothersome Noisemaker · Crude Bent Blade · Gandalf, Goblins' Bane · The Misty Mountains Cold · Large Bear · Part in Friendship · Attercop · Goblin Plate Mail · Quarrel · Ragged Short Spear
-
-### UR — 2 колод
-- `ur_izzet_70_icecreamsun.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:4 · 6:1 · 7:1 · 9:1 · спеллов 2:2 · 3:3 · 4:3
-- `ur_izzet_71_streek.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:5 · 4:2 · 6:1 · 7:2 · спеллов 2:3 · 4:3
-
-  **Роли** (сумма по колодам пары): существ 32 · тел cmc≤2 12 · removal 3 · ломателей стойки 10 · эквипа 2 · артефактов 2 · добора 15 · карт cmc≥5 6
-
-  **Ядро пары** (есть во всех 2 колодах): Master's Councillors ×2 · Lakeshore Apothecary ×2 · Uneasy Partings ×2 · Stone-Giant of High Pass · Gandalf, Spark Starter · Óin the Brave · Ragged Short Spear · Dori, Bearer of Friends
-
-  **Остальное:** Enchanted River's Grasp ×2 · Long Lake Nuisance ×2 · Bard the Bowman ×2 · Plunder the Trollshaws · Bilbo Baggins, Burglar · Great Gilded Boat · Patient Instructor · An Unexpected Party · Bard's Company · Smaug the Magnificent · The Lord of the Eagles · Bilbo, Luckwearer · Elvenking's Harper · Goblin-town Flunkies · Pinecone Strike · Thrór's Map · Elrond, Moon-Reader · Long-Bodied Grey Dog
-
-### WB — 2 колод
+### WB — 18 колод
+- `wb_orzhov_70_influenza.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:6 · 3:2 · 4:3 · 6:1 · спеллов 1:2 · 2:1 · 3:5 · 4:2
 - `wb_orzhov_70_virsa.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:2 · 4:2 · 5:1 · спеллов 2:2 · 3:6 · 4:2 · 5:2
+- `wb_orzhov_70_yurlungur.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:3 · спеллов 2:1 · 3:6 · 4:1 · 5:1
+- `wb_orzhov_71_fynest.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:6 · 4:2 · 5:1 · 6:2 · спеллов 2:1 · 3:3 · 4:1
+- `wb_orzhov_71_jackball.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:2 · 4:1 · 5:3 · спеллов 2:3 · 3:5 · 4:2 · 5:2
+- `wb_orzhov_71_kevin.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:9 · 3:1 · спеллов 1:3 · 2:1 · 3:4 · 4:3 · 5:1
+- `wb_orzhov_71_knktt.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 5:1 · 6:1 · спеллов 2:3 · 3:7 · 4:3
+- `wb_orzhov_72_alfajorgito.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:2 · 4:2 · 5:2 · 6:2 · спеллов 1:1 · 2:1 · 3:6 · 4:1
+- `wb_orzhov_72_alfitin.txt` — 24 нонлендов + 16 земель · кривая существ 2:8 · 3:3 · 5:1 · спеллов 1:1 · 2:1 · 3:6 · 4:4
+- `wb_orzhov_72_anchorgiant.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:3 · 3:5 · 4:3 · спеллов 1:1 · 2:3 · 3:5 · 4:3
+- `wb_orzhov_72_dzukes.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:2 · 4:1 · 5:3 · спеллов 1:2 · 2:2 · 3:5 · 4:2
+- `wb_orzhov_72_jelly.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:5 · 4:1 · 5:1 · 6:1 · спеллов 1:1 · 2:2 · 3:2 · 4:2 · 5:1
+- `wb_orzhov_72_roastedpheasant.txt` — 25 нонлендов + 15 земель · кривая существ 1:5 · 2:1 · 3:2 · 4:4 · 5:3 · спеллов 1:2 · 2:1 · 3:2 · 4:3 · 5:2
+- `wb_orzhov_72_scrappyb.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:6 · 3:2 · 4:2 · 5:1 · 6:2 · спеллов 2:2 · 3:3 · 4:2 · 5:1
+- `wb_orzhov_72_sygmad.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:3 · 4:5 · 5:1 · спеллов 1:1 · 3:6 · 4:2
 - `wb_orzhov_72_virs.txt` — 23 нонлендов + 17 земель · кривая существ 2:10 · 4:1 · 5:1 · 6:1 · спеллов 2:1 · 3:6 · 4:3
+- `wbg_abzan_72_deluxunko.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:7 · 4:1 · спеллов 1:3 · 2:2 · 3:3 · 4:1 · 5:2
+- `wub_esper_72_samp.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:4 · 3:3 · 4:2 · 5:1 · спеллов 1:1 · 2:5 · 3:5 · 4:1
 
-  **Роли** (сумма по колодам пары): существ 24 · тел cmc≤2 16 · removal 7 · ломателей стойки 8 · эквипа 6 · добора 4 · карт cmc≥5 5
+  **Роли** (сумма по колодам пары): существ 237 · тел cmc≤2 119 · removal 77 · ломателей стойки 84 · эквипа 46 · артефактов 3 · добора 70 · карт cmc≥5 42
 
-  **Ядро пары** (есть во всех 2 колодах): Ravening Warg ×3 · Bilbo's Deadly Slice ×2 · Dwarven Shortsword ×2 · Gollum, Silent Slinker
+  **Остальное:** Gollum, Silent Slinker ×22 · Crude Bent Blade ×21 · Bilbo's Deadly Slice ×18 · Stir Up Trouble ×16 · Stony-Voiced Goblins ×15 · Ravening Warg ×15 · Patient Instructor ×15 · Down, Down to Goblin-town ×13 · Iron Hills Blacksmith ×12 · Dwarven Provisioner ×12 · Goblin Plate Mail ×12 · Ori, Keeper of Songs ×12 · Magnificent End ×12 · The Mountain-king's Return ×12 · Rage into the Valley ×11 · Front Porch Sentries ×10 · Dwarven Shortsword ×10 · Stone by Sunlight ×10
 
-  **Остальное:** Down, Down to Goblin-town ×3 · Stony-Voiced Goblins ×3 · Crude Bent Blade ×2 · Magnificent End ×2 · Front Porch Sentries ×2 · Rage into the Valley ×2 · Dáin, Lord of the Iron Hills · Dwarven Provisioner · Goblin Plate Mail · Iron Hills Blacksmith · Nori, Teller of Tales · The Eagles Are Coming! · Duskwatch Hunter · Ori, Keeper of Songs · Fíli the Pathfinder · Eagle of the Great Shelf · Belladonna Took · Inside Information
+### UR — 16 колод
+- `ubr_grixis_72_aetherstorm.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 7:2 · спеллов 1:2 · 2:3 · 3:5 · 4:1
+- `ur_izzet_70_icecreamsun.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:3 · 4:4 · 6:1 · 7:1 · 9:1 · спеллов 2:2 · 3:3 · 4:3
+- `ur_izzet_70_thomasvdp.txt` — 23 нонлендов + 17 земель · кривая существ 2:9 · 3:1 · 4:2 · 7:1 · спеллов 1:1 · 2:4 · 3:4 · 4:1
+- `ur_izzet_71_histaeus.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:6 · 4:4 · 6:2 · спеллов 2:4 · 3:2 · 4:2
+- `ur_izzet_71_streek.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:5 · 4:2 · 6:1 · 7:2 · спеллов 2:3 · 4:3
+- `ur_izzet_72_aliew1739.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:3 · 6:1 · 7:1 · спеллов 2:3 · 3:4 · 4:3
+- `ur_izzet_72_bekahturtle.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:1 · 4:2 · 5:1 · 6:1 · 7:1 · спеллов 2:6 · 3:4
+- `ur_izzet_72_chozbe.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:4 · 4:3 · 5:1 · 6:1 · 7:1 · спеллов 2:4 · 3:1 · 4:2
+- `ur_izzet_72_clefspeare.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:6 · 4:3 · 5:1 · 7:1 · спеллов 2:4 · 3:2 · 4:1 · 5:1
+- `ur_izzet_72_foxymagic.txt` — 24 нонлендов + 17 земель · кривая существ 2:3 · 3:3 · 4:2 · 5:3 · 7:2 · спеллов 1:1 · 2:4 · 3:4 · 4:2
+- `ur_izzet_72_goldor.txt` — 24 нонлендов + 16 земель · кривая существ 2:8 · 3:4 · 4:1 · 5:1 · 7:2 · спеллов 2:3 · 3:3 · 4:2
+- `ur_izzet_72_mediocremtg.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:6 · 4:1 · 5:1 · 6:1 · 7:1 · спеллов 2:3 · 3:3 · 4:1
+- `ur_izzet_72_mtglimburg.txt` — 24 нонлендов + 16 земель · кривая существ 2:4 · 3:5 · 4:5 · 5:1 · 6:2 · спеллов 2:6 · 3:1
+- `ur_izzet_72_nikotine87.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:4 · 6:1 · 7:1 · спеллов 1:1 · 2:4 · 3:3 · 4:1
+- `ur_izzet_72_pieguy396.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:3 · 4:5 · 5:1 · 6:1 · спеллов 2:5 · 3:3 · 4:1
+- `wur_jeskai_71_venomz.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:4 · 4:4 · 6:1 · спеллов 1:3 · 2:5 · 3:1 · 4:1
 
-### WG — 2 колод
-- `wg_selesnya_72_hotsauce.txt` — 25 нонлендов + 18 земель · кривая существ 2:5 · 3:6 · 4:1 · 6:2 · спеллов 2:4 · 3:2 · 4:3 · 5:2
-- `wg_selesnya_72_lukash.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 6:1 · спеллов 2:2 · 3:2 · 4:4 · 5:2
+  **Роли** (сумма по колодам пары): существ 232 · тел cmc≤2 84 · removal 51 · ломателей стойки 72 · эквипа 20 · артефактов 9 · добора 143 · карт cmc≥5 41
 
-  **Роли** (сумма по колодам пары): существ 27 · тел cmc≤2 12 · removal 5 · ломателей стойки 3 · эквипа 2 · артефактов 1 · добора 10 · карт cmc≥5 7
+  **Остальное:** Lakeshore Apothecary ×30 · Bilbo Baggins, Burglar ×27 · Pinecone Strike ×26 · Long Lake Nuisance ×19 · Plunder the Trollshaws ×17 · Master's Councillors ×17 · Patient Instructor ×14 · Enchanted River's Grasp ×13 · Smaug, the Great Calamity ×13 · Uneasy Partings ×13 · Óin the Brave ×11 · Ragged Short Spear ×11 · Gandalf, Spark Starter ×10 · Bilbo, Luckwearer ×8 · Dori, Bearer of Friends ×8 · Gundabad Opportunist ×8 · Misty Mountains Raider ×8 · Bothersome Noisemaker ×7
 
-  **Ядро пары** (есть во всех 2 колодах): Magnificent End ×2 · The Mountain-king's Return ×2 · Dwarven Provisioner ×2 · Stone by Sunlight · Troll Negotiations
+### RG — 14 колод
+- `rg_gruul_70_django.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:3 · 5:3 · 6:2 · 7:1 · спеллов 2:6 · 3:2 · 4:2
+- `rg_gruul_70_sisubug.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:6 · 3:2 · 4:3 · 5:3 · спеллов 1:1 · 2:5 · 3:1 · 4:1
+- `rg_gruul_70_synachriss.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:3 · 7:2 · спеллов 2:4 · 3:2 · 4:3
+- `rg_gruul_71_ichigomamire.txt` — 23 нонлендов + 17 земель · кривая существ 2:3 · 3:6 · 4:1 · 5:1 · 6:4 · 7:2 · спеллов 1:1 · 2:5
+- `rg_gruul_71_regalto.txt` — 24 нонлендов + 16 земель · кривая существ 2:4 · 3:5 · 4:4 · 5:3 · 6:3 · 7:1 · спеллов 2:3 · 4:1
+- `rg_gruul_72_bigboss.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:2 · 5:2 · 6:4 · 7:1 · спеллов 2:5
+- `rg_gruul_72_goomy.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:6 · 7:2 · спеллов 1:1 · 2:5
+- `rg_gruul_72_jodok.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:2 · 3:8 · 4:2 · 5:2 · 6:3 · спеллов 2:4 · 3:1
+- `rg_gruul_72_mcknugg.txt` — 23 нонлендов + 17 земель · кривая существ 2:2 · 3:3 · 4:2 · 5:3 · 6:2 · спеллов 1:1 · 2:7 · 4:2 · 5:1
+- `rg_gruul_72_nicolasbolas.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:5 · 4:2 · 5:2 · 6:2 · 7:1 · спеллов 2:6
+- `rg_gruul_72_tairin.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:1 · 3:3 · 5:5 · 7:3 · спеллов 1:2 · 2:4 · 3:2 · 4:2 · 5:1
+- `rg_gruul_72_willygooberson.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:3 · 4:2 · 5:2 · 6:2 · 7:2 · спеллов 2:5 · 4:1
+- `rg_gruul_72_zerokun.txt` — 24 нонлендов + 17 земель · кривая существ 1:4 · 2:2 · 3:4 · 4:3 · 5:3 · спеллов 1:1 · 2:6 · 4:1
+- `urg_temur_72_doumo6.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:4 · 5:1 · 6:2 · 7:1 · спеллов 2:3 · 4:2
 
-  **Остальное:** Wood Elves ×4 · Attercop ×2 · Settle the Wreckage ×2 · Nasty Little Rabbit ×2 · Iron Hills Blacksmith ×2 · Ori, Keeper of Songs ×2 · Dwarven Shortsword ×2 · Beorn's Hospitality · Dáin, Lord of the Iron Hills · Guardian of the Halls · Quarrel · The Eagles Are Coming! · Mirkwood Nurturer · Patient Instructor · Radagast of Rhosgobel · Part in Friendship · Boughside Wanderers · Old Fat Spider
+  **Роли** (сумма по колодам пары): существ 225 · тел cmc≤2 63 · removal 53 · ломателей стойки 97 · эквипа 16 · артефактов 1 · добора 19 · карт cmc≥5 72
 
-### B — 1 колод  ⚠️ одна колода: это наблюдение, а не статистика
+  **Остальное:** Pinecone Strike ×22 · Gundabad Opportunist ×19 · Quarrel ×17 · Smaug, the Great Calamity ×13 · Wood Elves ×11 · Wargling ×11 · Dori, Bearer of Friends ×11 · Attercop ×11 · Burn, Burn, Tree and Fern ×10 · Beorn, Reluctant Host ×10 · Beorn's Hospitality ×9 · Goblin Plate Mail ×9 · Mirkwood Nurturer ×9 · Misty Mountains Raider ×8 · Óin the Brave ×7 · Gandalf, Spark Starter ×6 · Boughside Wanderers ×6 · Warg Tactics ×6
+
+### B — 13 колод
+- `b_mono_70_xerosis.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:2 · 4:1 · 5:2 · 6:1 · спеллов 1:1 · 2:1 · 3:8 · 4:1
+- `b_mono_71_ouzoutou.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:4 · 3:4 · 4:2 · 5:2 · 6:2 · спеллов 1:1 · 2:1 · 3:3 · 4:2 · 5:1
+- `b_mono_71_schugelm.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:8 · 3:4 · 4:1 · 5:2 · спеллов 2:3 · 3:5
+- `b_mono_71_thetragedyofmiracle.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:7 · 3:2 · 4:3 · спеллов 1:2 · 2:2 · 3:2 · 4:2 · 5:1
+- `b_mono_71_xtaticx.txt` — 24 нонлендов + 16 земель · кривая существ 2:4 · 3:3 · 4:2 · 5:1 · 6:1 · спеллов 1:2 · 2:2 · 3:8 · 4:1
+- `b_mono_72_bobbysalami.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:2 · 4:4 · 5:1 · спеллов 1:1 · 2:2 · 3:8
+- `b_mono_72_gilgamesh.txt` — 24 нонлендов + 16 земель · кривая существ 1:2 · 2:7 · 3:3 · 4:2 · 6:1 · спеллов 1:1 · 2:2 · 3:6
+- `b_mono_72_hydra.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:2 · 4:2 · 5:4 · 6:1 · спеллов 1:3 · 2:2 · 3:4
+- `b_mono_72_jikoriya.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:7 · 3:3 · спеллов 2:1 · 3:9 · 4:1
+- `b_mono_72_joexer.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:2 · 4:3 · 5:1 · 6:1 · спеллов 1:1 · 3:8 · 4:1
+- `b_mono_72_kareraisu.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:1 · 4:2 · спеллов 1:2 · 2:2 · 3:8 · 4:1 · 5:2
+- `b_mono_72_star.txt` — 25 нонлендов + 15 земель · кривая существ 2:6 · 3:2 · 4:2 · 5:3 · спеллов 1:2 · 2:2 · 3:7 · 4:1
 - `b_mono_72_tktaa.txt` — 24 нонлендов + 16 земель · кривая существ 2:7 · 3:4 · 5:2 · 6:1 · спеллов 1:3 · 2:1 · 3:6
 
-  **Роли** (сумма по колодам пары): существ 14 · тел cmc≤2 7 · removal 5 · ломателей стойки 5 · эквипа 2 · добора 6 · карт cmc≥5 3
+  **Роли** (сумма по колодам пары): существ 172 · тел cmc≤2 88 · removal 60 · ломателей стойки 91 · эквипа 40 · артефактов 1 · добора 39 · карт cmc≥5 30
 
-  **Ядро пары** (есть во всех 1 колодах): Stir Up Trouble ×3 · The Sackville-Bagginses ×2 · Front Porch Sentries ×2 · Reverent Howl ×2 · Rage into the Valley ×2 · Stony-Voiced Goblins · Crude Bent Blade · Goblin Plate Mail · Gollum the Abandoned · Dreaded Bat-Cloud · Duskwatch Hunter · Great Ugly-Looking Goblin · The Master of Lake-town · Bilbo's Deadly Slice
+  **Остальное:** Ravening Warg ×26 · Crude Bent Blade ×22 · Stir Up Trouble ×18 · Gollum, Silent Slinker ×17 · Goblin Plate Mail ×17 · Bilbo's Deadly Slice ×16 · Rage into the Valley ×16 · Stony-Voiced Goblins ×14 · Front Porch Sentries ×13 · Dreaded Bat-Cloud ×11 · Duskwatch Hunter ×11 · Down, Down to Goblin-town ×9 · Gollum the Abandoned ×8 · Great Ugly-Looking Goblin ×8 · Reverent Howl ×8 · Desolation Prowler ×8 · Nighthowl Pursuer ×7 · Gathering of Darkness ×6
 
-### G — 1 колод  ⚠️ одна колода: это наблюдение, а не статистика
+### G — 12 колод
+- `g_mono_70_daino90.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:2 · 4:3 · 5:2 · 6:2 · спеллов 2:6 · 5:1
+- `g_mono_70_ekop.txt` — 22 нонлендов + 18 земель · кривая существ 2:4 · 3:4 · 4:3 · 5:2 · 6:2 · спеллов 2:2 · 3:2 · 4:2 · 5:1
+- `g_mono_71_boatloadofjoe.txt` — 23 нонлендов + 17 земель · кривая существ 2:5 · 3:5 · 4:5 · 5:2 · 6:1 · 7:1 · спеллов 2:2 · 3:2
+- `g_mono_71_boldo.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:7 · 3:3 · 4:1 · 5:2 · 6:2 · спеллов 2:5 · 4:1 · 8:1
+- `g_mono_71_fromclouds.txt` — 25 нонлендов + 17 земель · кривая существ 1:2 · 2:4 · 3:7 · 4:2 · 6:1 · 7:1 · спеллов 1:2 · 2:3 · 4:3
+- `g_mono_72_electricdice.txt` — 26 нонлендов + 17 земель · кривая существ 1:4 · 2:1 · 3:4 · 4:1 · 5:3 · 6:1 · 7:1 · спеллов 2:5 · 3:3 · 4:1 · 5:2
+- `g_mono_72_fonlon.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:3 · 4:3 · 5:3 · 6:2 · спеллов 2:5 · 3:1 · 4:2
+- `g_mono_72_merlinranger.txt` — 24 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:4 · 4:3 · 6:3 · спеллов 2:6 · 3:2
+- `g_mono_72_rp2knight.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:2 · 3:4 · 4:4 · 5:3 · 6:2 · 7:1 · спеллов 2:3 · 3:2 · 5:1
+- `g_mono_72_tlaloc.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:5 · 4:4 · 5:1 · 6:1 · 7:1 · спеллов 2:4 · 3:1 · 4:2
 - `g_mono_72_uss0.txt` — 23 нонлендов + 17 земель · кривая существ 2:6 · 3:7 · 4:3 · 5:1 · 6:1 · спеллов 2:2 · 4:3
+- `g_mono_72_venko.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:5 · 3:5 · 4:3 · 5:3 · 6:3 · спеллов 2:2 · 3:1
 
-  **Роли** (сумма по колодам пары): существ 18 · тел cmc≤2 6 · ломателей стойки 4 · добора 1 · карт cmc≥5 2
+  **Роли** (сумма по колодам пары): существ 200 · тел cmc≤2 64 · removal 12 · ломателей стойки 75 · эквипа 3 · артефактов 4 · добора 23 · карт cmc≥5 54
 
-  **Ядро пары** (есть во всех 1 колодах): Woodland Weavemaster ×3 · Mirkwood Pathmaker ×3 · Troll Negotiations ×3 · Quarrel ×2 · Wood Elves ×2 · Wargling ×2 · Mirkwood Nurturer ×2 · Radagast of Rhosgobel · Boughside Wanderers · Guardian of the Halls · Beorn the Fierce · Thranduil, Sindarin Liege · Galion, Elvenking's Butler
+  **Остальное:** Quarrel ×26 · Wood Elves ×21 · Mirkwood Pathmaker ×18 · Attercop ×14 · Wargling ×14 · Guardian of the Halls ×13 · Beorn, Reluctant Host ×11 · Boughside Wanderers ×10 · Troll Negotiations ×10 · Nasty Little Rabbit ×10 · Galion, Elvenking's Butler ×9 · Warg Tactics ×8 · Beorn's Hospitality ×8 · Thranduil's Company ×7 · Woodland Weavemaster ×7 · Old Fat Spider ×6 · Thranduil, Sindarin Liege ×6 · Ordinary Bear ×5
+
+### WG — 7 колод
+- `wg_selesnya_71_raguzzoni.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:4 · 4:1 · 5:4 · 7:1 · спеллов 2:4 · 3:1 · 4:1 · 5:3
+- `wg_selesnya_71_silee.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:6 · 3:6 · 4:2 · 6:2 · спеллов 2:1 · 4:3 · 5:3
+- `wg_selesnya_72_abigscarybear00.txt` — 23 нонлендов + 17 земель · кривая существ 1:1 · 2:3 · 3:6 · 4:1 · 5:2 · 6:1 · спеллов 2:4 · 3:1 · 4:3 · 5:1
+- `wg_selesnya_72_alexfisher80.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:4 · 5:2 · спеллов 2:4 · 3:1 · 4:2 · 5:2
+- `wg_selesnya_72_hotsauce.txt` — 25 нонлендов + 18 земель · кривая существ 2:5 · 3:6 · 4:1 · 6:2 · спеллов 2:4 · 3:2 · 4:3 · 5:2
+- `wg_selesnya_72_lukash.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:3 · 4:2 · 6:1 · спеллов 2:2 · 3:2 · 4:4 · 5:2
+- `wug_bant_70_mistersmiths.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:2 · 5:1 · 6:1 · спеллов 2:2 · 3:4 · 4:3 · 5:2
+
+  **Роли** (сумма по колодам пары): существ 98 · тел cmc≤2 35 · removal 21 · ломателей стойки 24 · эквипа 4 · артефактов 3 · добора 29 · карт cmc≥5 32
+
+  **Остальное:** Magnificent End ×12 · Wood Elves ×11 · The Mountain-king's Return ×8 · Stone by Sunlight ×7 · Quarrel ×6 · Guardian of the Halls ×6 · Mirkwood Pathmaker ×6 · Mirkwood Nurturer ×5 · Troll Negotiations ×5 · Dwarven Provisioner ×5 · Settle the Wreckage ×4 · Attercop ×4 · Celebrate the Mountain-king ×4 · Dwarven Shortsword ×4 · Ori, Keeper of Songs ×4 · Beorn's Hospitality ×3 · Large Bear ×3 · Thranduil, Sindarin Liege ×3
+
+### U — 5 колод
+- `u_mono_70_mcfesteban.txt` — 23 нонлендов + 17 земель · кривая существ 2:4 · 3:4 · 4:5 · спеллов 3:8 · 4:2
+- `u_mono_71_planck.txt` — 23 нонлендов + 17 земель · кривая существ 2:11 · 3:3 · 4:1 · спеллов 2:3 · 3:1 · 4:3 · 5:1
+- `u_mono_72_alfonso.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:4 · 4:3 · спеллов 2:4 · 3:3 · 4:2
+- `u_mono_72_kibby.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:6 · 3:6 · 4:5 · 5:1 · спеллов 2:2 · 3:2 · 4:1
+- `u_mono_72_pewpewpowpow.txt` — 23 нонлендов + 17 земель · кривая существ 1:2 · 2:5 · 3:4 · 4:3 · 5:1 · спеллов 2:3 · 3:3 · 4:1 · 5:1
+
+  **Роли** (сумма по колодам пары): существ 76 · тел cmc≤2 36 · removal 2 · ломателей стойки 29 · артефактов 4 · добора 64 · карт cmc≥5 4
+
+  **Ядро пары** (есть во всех 5 колодах): Lakeshore Apothecary ×8 · Long Lake Nuisance ×4 · Uneasy Partings ×3 · Bilbo, Luckwearer ×3 · Bilbo Baggins, Burglar ×2
+
+  **Остальное:** Plunder the Trollshaws ×11 · Patient Instructor ×8 · Enchanted River's Grasp ×4 · Great Gilded Boat ×4 · Master's Councillors ×4 · Old Fat Spider Can't See Me ×3 · Confusticate and Bebother ×3 · Ravenhill Flock ×3 · Bard the Bowman ×3 · Most Decrepit Old Bird ×3 · The Mountain-king's Return ×2 · Magnificent End ×2 · Desolation Prowler ×2 · Bard's Company · Mirkwood Nurturer · The Eagles Are Coming! · Head of the Hunt · Dreaded Bat-Cloud
+
+### W — 3 колод
+- `w_mono_71_yagami.txt` — 23 нонлендов + 17 земель · кривая существ 2:7 · 3:3 · 4:1 · 6:2 · спеллов 2:4 · 3:1 · 4:5
+- `w_mono_72_2hededlizrd.txt` — 24 нонлендов + 16 земель · кривая существ 1:1 · 2:6 · 3:4 · 4:1 · 5:2 · спеллов 1:1 · 2:6 · 4:1 · 5:2
+- `w_mono_72_noahhhhh1.txt` — 25 нонлендов + 15 земель · кривая существ 1:2 · 2:5 · 3:5 · 5:2 · спеллов 1:1 · 2:4 · 3:1 · 4:4 · 5:1
+
+  **Роли** (сумма по колодам пары): существ 41 · тел cmc≤2 21 · removal 8 · ломателей стойки 11 · эквипа 5 · артефактов 1 · добора 14 · карт cmc≥5 9
+
+  **Ядро пары** (есть во всех 3 колодах): Dwarven Provisioner ×3 · Patient Instructor ×3 · Stone by Sunlight ×2 · Ori, Keeper of Songs ×2 · Dwarven Mattock
+
+  **Остальное:** Celebrate the Mountain-king ×3 · The Eagles Are Coming! ×3 · Magnificent End ×3 · Nori, Teller of Tales ×3 · Bifur, Melodic Rider ×2 · Dáin, Lord of the Iron Hills ×2 · An Unexpected Party ×2 · Eagle's Rescue ×2 · Esgaroth Garrison ×2 · Bofur, Reliable Guardian ×2 · Dwarven Shortsword ×2 · Moment of Glory ×2 · Roads Go Ever, Ever On ×2 · Velvetwing Butterflies ×2 · Eagle of the Great Shelf ×2 · Iron Hills Blacksmith · Lake-town Toymaker · Great Gilded Boat
 
 ### R — 1 колод  ⚠️ одна колода: это наблюдение, а не статистика
 - `r_mono_71_antipop.txt` — 24 нонлендов + 16 земель · кривая существ 2:6 · 3:2 · 4:2 · 5:1 · 6:2 · 7:2 · спеллов 1:2 · 2:5 · 3:1 · 4:1
 
   **Роли** (сумма по колодам пары): существ 15 · тел cmc≤2 6 · removal 6 · ломателей стойки 4 · эквипа 1 · добора 1 · карт cmc≥5 5
 
-  **Ядро пары** (есть во всех 1 колодах): Goblin-town Flunkies ×4 · Pinecone Strike ×3 · Smaug, the Great Calamity ×2 · Tidings of War ×2 · Fearsome Goblin Pair · Gundabad Opportunist · Nori, Teller of Tales · Bothersome Noisemaker · Glóin the Mighty · Misty Mountains Raider · Gandalf, Spark Starter · Burn, Burn, Tree and Fern · Ragged Short Spear · Desert Were-Worm
-
-### W — 1 колод  ⚠️ одна колода: это наблюдение, а не статистика
-- `w_mono_72_noahhhhh1.txt` — 25 нонлендов + 15 земель · кривая существ 1:2 · 2:5 · 3:5 · 5:2 · спеллов 1:1 · 2:4 · 3:1 · 4:4 · 5:1
-
-  **Роли** (сумма по колодам пары): существ 14 · тел cmc≤2 7 · removal 3 · ломателей стойки 4 · эквипа 2 · добора 5 · карт cmc≥5 3
-
-  **Ядро пары** (есть во всех 1 колодах): Dwarven Provisioner ×3 · Patient Instructor ×3 · Nori, Teller of Tales ×2 · Stone by Sunlight ×2 · Eagle of the Great Shelf ×2 · Lake-town Lookout · Bofur, Reliable Guardian · Magnificent End · Dwarven Shortsword · Velvetwing Butterflies · Thorin's Last Stand · The Mountain-king's Return · Moment of Glory · Ori, Keeper of Songs
+  **Ядро пары** (есть во всех 1 колодах): Goblin-town Flunkies ×4 · Pinecone Strike ×3 · Smaug, the Great Calamity ×2 · Tidings of War ×2 · Gandalf, Spark Starter · Ragged Short Spear · Nori, Teller of Tales · Burn, Burn, Tree and Fern · Smaug's Fury · Fearsome Goblin Pair · The Misty Mountains Cold · Dori, Bearer of Friends · Gundabad Opportunist · Bothersome Noisemaker
 
 ---
 

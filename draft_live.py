@@ -646,11 +646,13 @@ CALIB = {
     # осмысленного разделения не видно — баннер ⚑СТОЙКА печатает счётчики (см. n<15... 
     # порог поднят до 40, чтобы кластерная риторика MSH сюда не протекла).
     "hob": dict(
-        n=31,
-        air_fly=4, air_reach_max=1,
-        gnd_fly_max=1, gnd_reach=1,
-        ref=dict(creatures=(9, 14, 18), cheap=(2, 6, 11), hard=(0, 2, 7),
-                 c5=(0, 3, 9), fixers=(0, 1, 4)),
+        n=298, clusters=False,
+        # 298 трофейных листов (7-0…7-2, gold+platinum), скачаны fetch_trophy_decks.py
+        # из API untapped 16.08.2026. Кластеры «воздух/земля» не размечены: флаеров в сете
+        # мало, разделения не видно — ⚑СТОЙКА печатает счётчики без вердикта.
+        air_fly=4, air_reach_max=1, gnd_fly_max=1, gnd_reach=1,
+        ref=dict(creatures=(9, 14, 21), cheap=(1, 6, 11), hard=(0, 2, 12),
+                 c5=(0, 3, 9), fixers=(0, 2, 6)),
     ),
     "msh": dict(
         n=23, clusters=True,   # два кластера размечены вручную, см. msh_knowledge.md
@@ -942,6 +944,92 @@ def tiebreak_banner(ids, by_id, ratings, main):
             "именно её, а не «она выше по GIH»."]
 
 
+_COMBOS = None
+
+
+def load_combos():
+    """Подтверждённые связки/движки сета из <set>_combos.json. {} если файла нет.
+
+    Файл собирается мультиагентным разбором трофейных колод (см. <set>_patterns.md):
+    агенты читают листы победителей И оракл-тексты, находят механические взаимодействия,
+    затем отдельные скептики пытаются каждое ОПРОВЕРГНУТЬ по тексту карт. В json попадает
+    только то, что пережило опровержение.
+
+    Зачем это в живом драфте (внесено 16.08.2026, прямое требование пользователя):
+    31 трофейный лист лежал мёртвым грузом — он использовался на СБОРКЕ (build_audit) и
+    в подготовке (learn.py), но в момент пика не участвовал никак. А главное, чего нет ни
+    в GIH, ни в частотной статистике, — это ЗАЧЕМ карта в колоде: с чем она работает.
+    Частота говорит «эту карту играют 4 из 4», связка говорит «она достраивает то, что у
+    тебя уже есть», и второе — операционно.
+    """
+    global _COMBOS
+    if _COMBOS is None:
+        f = os.path.join(HERE, f"{setcode()}_combos.json")
+        try:
+            _COMBOS = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            _COMBOS = {}
+    return _COMBOS
+
+
+def _norm_card(n):
+    return (n or "").split(" //")[0].strip().lower()
+
+
+def combo_banner(ids, by_id, ratings, picks, max_lines=3):
+    """⚑ СВЯЗКА: карта В ЭТОМ ПАКЕ достраивает то, что уже лежит в пуле.
+
+    Печатается только когда обе стороны реальны: часть связки УЖЕ в пуле, недостающая часть
+    ЛЕЖИТ В ПАКЕ. Это не «синергия вообще», а конкретный повод взять конкретную карту сейчас.
+    Связки ранжируются по числу трофейных колод, в которых они встретились вместе.
+    """
+    data = load_combos()
+    combos = data.get("combos") or []
+    if not combos or not ids:
+        return []
+    pool = {_norm_card((by_id.get(c) or {}).get("name")) for c in picks}
+    pool |= {_norm_card((ratings.get(c) or {}).get("name")) for c in picks}
+    pool.discard("")
+    in_pack = {}
+    for cid in ids:
+        nm = _norm_card((by_id.get(cid) or {}).get("name") or (ratings.get(cid) or {}).get("name"))
+        if nm:
+            in_pack.setdefault(nm, cid)
+    hits = []
+    for c in combos:
+        names = [_norm_card(x) for x in c.get("cards", [])]
+        if len(names) < 2:
+            continue
+        have = [n for n in names if n in pool]
+        missing = [n for n in names if n not in pool]
+        # ровно одна недостающая деталь, и она в паке
+        avail = [n for n in missing if n in in_pack]
+        if not have or not avail:
+            continue
+        hits.append((c.get("decks", 0), c, have, avail))
+    if not hits:
+        return []
+    hits.sort(key=lambda x: -x[0])
+    out, shown = [], set()
+    for decks, c, have, avail in hits:
+        if len(out) >= max_lines:
+            break
+        pick_now = ", ".join(_name_of(in_pack[n], by_id, ratings) for n in avail)
+        already = ", ".join(x for x in c["cards"] if _norm_card(x) in have)
+        # одна и та же видимая рекомендация может прийти из разных записей (одна связка
+        # найдена в двух парах, или тройка с уже собранной третьей картой) — не дублируем
+        key = (pick_now, already)
+        if key in shown:
+            continue
+        shown.add(key)
+        why = (c.get("why") or "").strip()
+        if len(why) > 110:                       # в пике читают одну строку, не абзац
+            why = why[:109].rsplit(" ", 1)[0] + "…"
+        src = f" · {decks} троф." if decks else ""
+        out.append(f"⚑ СВЯЗКА: {pick_now} достраивает {already}{src} — {why}")
+    return out
+
+
 def passed_color_banner(by_id, ratings, main, picks, draft_id, pnum=None, pick=None,
                         min_gih=0.58, thresh=3):
     """⚑ ПАСУЕМ <цвет>: НАКОПИТЕЛЬНЫЙ счётчик сильных карт цвета, которые мы отдали.
@@ -1021,6 +1109,7 @@ def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
+    out += combo_banner(ids, by_id, ratings, picks)
     out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
