@@ -118,9 +118,17 @@ def metrics(path, db, rat, prat=None):
                 fixers += n          # нонбейзик = источник фикса (дуал/утилити)
             continue
         for sym in re.findall(r"\{([^}]+)\}", face(c, "mana_cost")):
-            for ch in sym.upper().split("/"):
-                if ch in "WUBRG":
-                    pips[ch] += n
+            # Гибрид {W/U} — ОДИН пип, а не два: он даёт по половине каждому цвету.
+            # Было `for ch in sym.split("/"): pips[ch] += n` — полная единица обоим, из-за чего
+            # WB-колода с пятью {W/U}-картами (Patient Instructor ×3, Eagle's Rescue ×2)
+            # набирала U=7 и считалась WUB. Последствие не косметическое: «жадный топ-N»
+            # строился из ТРЁХцветного пула, и тест процесса показывал «отдано +0.72 ✅ в норме»
+            # там, где на самом деле +0.36 — то есть слабее популяции. Поймано переигровкой
+            # драфта 31a78cee 17.08.2026: единственная ось, где колода выглядела лучше всех,
+            # оказалась артефактом измерения.
+            parts = [ch for ch in sym.upper().split("/") if ch in "WUBRG"]
+            for ch in parts:
+                pips[ch] += n / len(parts)
         if ANYCOLOR.search(oracle(c)):
             fixers += n
         nonlands += n
