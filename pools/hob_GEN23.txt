@@ -4,14 +4,13 @@ Sideboard
 1 Attercop
 1 Bejeweled Warg
 3 Bilbo Baggins, Burglar
+1 Bilbo, Thief in the Night
 3 Boughside Wanderers
 1 Confusticate and Bebother
-1 Dancing from Dark to Dawn
-1 Elven Raft-Steerer
 2 Elvenking's Halls
 1 Elvenking's Harper
-1 Enchanted River's Grasp
 1 Galion, Elvenking's Butler
+1 Gandalf, Wandering Wizard
 1 Lakeshore Apothecary
 2 Little Bear
 1 Long Lake Nuisance
@@ -19,14 +18,14 @@ Sideboard
 2 Mirkwood Nurturer
 2 Mirkwood Pathmaker
 1 Old Fat Spider
+1 Patient Instructor
 1 Pinecone Strike
 1 Quarrel
 1 Rage into the Valley
-1 Ravenhill Flock
+2 Ravenhill Flock
 1 Ravening Warg
 1 Thranduil's Company
 1 Thranduil, Sindarin Liege
-1 Troll Negotiations
-1 Uneasy Partings
+2 Uneasy Partings
 2 Warg Tactics
-1 Wargling
+2 Wargling

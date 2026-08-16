@@ -72,7 +72,21 @@ print("\n".join("   " + x for x in out))
 check(len(out) <= 3, f"не больше трёх строк (получено {len(out)})")
 check(out and "частая" in out[0], "самая частая связка — первой")
 
-print("\nE. файла связок нет")
+print("\nE. слабый lift не советуется")
+D._COMBOS = {"combos": [
+    {"cards": [A, B], "why": "совместность объясняется частотой", "decks": 40, "lift": 1.2},
+    {"cards": [A, C], "why": "настоящая связка", "decks": 9, "lift": 2.6},
+]}
+out = D.combo_banner([cid(B), cid(C)], by, rat, [cid(A)])
+print("\n".join("   " + x for x in out) or "   (молчит)")
+check(out and all(B not in x for x in out), "связка с lift 1.2 не показана (порог 1.5)")
+check(any(C in x for x in out), "связка с lift 2.6 показана")
+
+print("\nF. связка без поля lift — показывается (нет данных ≠ слабая)")
+D._COMBOS = {"combos": [{"cards": [A, B], "why": "не мерили", "decks": 5}]}
+check(D.combo_banner([cid(B)], by, rat, [cid(A)]), "показана")
+
+print("\nG. файла связок нет")
 D._COMBOS = {}
 check(D.combo_banner([cid(B)], by, rat, [cid(A)]) == [], "молчит без данных, не падает")
 

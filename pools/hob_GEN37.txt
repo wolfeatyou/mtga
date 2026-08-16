@@ -1,32 +1,30 @@
 Deck
 
 Sideboard
-1 Azog, Moria's Ruin
-1 Bilbo's Deadly Slice
+2 Bard the Bowman
 1 Crude Bent Blade
-1 Down, Down to Goblin-town
-2 Duskwatch Hunter
-1 Dwarven Mattock
-1 Elvenking's Halls
-1 Goblin Plate Mail
-2 Goblin-town
-1 Great Ugly-Looking Goblin
-1 Guardian of the Halls
-1 Gundabad Opportunist
-1 Key to the Side-Door
-1 Large Bear
-1 Little Bear
+2 Eagle of the Great Shelf
+1 Elrond, Moon-Reader
+1 Enchanted River's Grasp
+2 Gandalf, Wandering Wizard
+1 Lake-town
+1 Lake-town Lookout
+3 Lakeshore Apothecary
+2 Little Bear
 2 Long-Bodied Grey Dog
-1 Nighthowl Pursuer
-1 Nori, Teller of Tales
-1 Pinecone Strike
-4 Ravening Warg
-1 Reverent Howl
-1 Silvan Reveler
-1 Smaug the Magnificent
-1 Smaug, the Great Calamity
-1 Snowslope Hunter
-1 Stir Up Trouble
-2 Stony-Voiced Goblins
-1 Thorin's Last Stand
-1 Tom, Bert, and William
+1 Magnificent End
+1 Mirkwood Meditator
+1 Mirkwood Nurturer
+1 Moment of Glory
+2 Nori, Teller of Tales
+1 Old Thrush
+4 Patient Instructor
+1 Plunder the Trollshaws
+2 Ravenhill Flock
+1 Stone by Sunlight
+1 The Mountain-king's Return
+3 Thorin's Last Stand
+1 Thranduil, Sindarin Liege
+1 Uneasy Partings
+1 Velvetwing Butterflies
+1 Vow to Erebor

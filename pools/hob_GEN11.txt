@@ -1,30 +1,17 @@
 Deck
 
 Sideboard
-2 Attercop
+1 Attercop
 1 Beorn, Reluctant Host
-1 Bilbo's Deadly Slice
-3 Boughside Wanderers
-1 Chief Warg's Company
-1 Duskwatch Hunter
-1 Gnashing of Teeth
-2 Gollum, Silent Slinker
-2 Great Fierce Bee
-2 Large Bear
-1 Little Bear
-2 Long-Bodied Grey Dog
-1 Mirkwood
+1 Boughside Wanderers
+1 Gandalf, Spark Starter
+1 Lakeshore Apothecary
+1 Long Lake Nuisance
 1 Mirkwood Nurturer
 2 Mirkwood Pathmaker
-1 Nasty Little Rabbit
-1 Nighthowl Pursuer
 1 Old Thrush
-1 Ordinary Bear
-2 Quarrel
-1 Stir Up Trouble
-1 Thranduil, the Elvenking
-2 Troll Negotiations
-2 Warg Tactics
-2 Wargling
+1 Plunder the Trollshaws
+1 Warg Tactics
+1 Wargling
 1 Wilderland Scrounger
 2 Wood Elves

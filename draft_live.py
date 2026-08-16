@@ -947,6 +947,55 @@ def tiebreak_banner(ids, by_id, ratings, main):
 _COMBOS = None
 
 
+
+_HARD_RE = re.compile(r"destroy target creature|exile target creature|"
+                      r"deals \d+ damage to target creature", re.I)
+
+
+def role_gaps(picks, by_id, ratings, main, pnum=None, pick=None):
+    """Роли, которых в пуле МЕНЬШЕ, чем у победителей к этому моменту драфта.
+
+    Зачем (внесено 17.08.2026 по итогам A/B на 8 драфтах): группа со знанием собрала
+    в 1.5 раза больше документированных связок — и получила три колоды «ниже всей
+    популяции победителей» против нуля у контроля. Показательный сид 77, где обе группы
+    попали в одну пару: связок 8 против 5, но «ломателей стойки 1» при медиане 5.
+    То есть баннеры уводили от РОЛЕЙ к синергиям, а колода без пробития не выигрывает,
+    сколько бы связок в ней ни стояло.
+
+    Считаем темпом: к пику k у победителя ожидается примерно (медиана × доля драфта).
+    Дефицит — если своё меньше ожидаемого более чем на единицу.
+    """
+    cal = calib()
+    if not cal:
+        return []
+    r = _pool_roles(picks, by_id, ratings, main)
+    hard = 0
+    for cid in picks:
+        c = by_id.get(cid)
+        if not c or (main and (_colors_of(cid, by_id, ratings) - set(main))):
+            continue
+        if _HARD_RE.search(full_oracle(c) or ""):
+            hard += 1
+    done = ((pnum or 1) - 1) * 14 + (pick or 1)
+    frac = min(done / TOTAL_PICKS, 1.0)
+    ref = cal["ref"]
+    out = []
+    checks = [
+        ("ломатели стойки", r["fly"] + r["reach"], 5),          # медиана по 298 листам
+        ("безусл. removal", hard, ref.get("hard", (0, 2, 0))[1]),
+        ("тела cmc≤2", r["cheap"], ref.get("cheap", (0, 6, 0))[1]),
+    ]
+    for name, have, med in checks:
+        want = med * frac
+        # Порог мягкий по времени, но не по величине: пока ожидание меньше 1.5 карт, роль
+        # ещё рано считать (первые пики), дальше сравниваем в лоб. Первая редакция была
+        # `have + 1 < want` — она молчала всю середину драфта и просыпалась только к финалу,
+        # то есть ровно тогда, когда чинить уже нечем.
+        if want >= 1.5 and have < want:
+            out.append((name, have, round(want, 1), med))
+    return out
+
+
 def load_combos():
     """Подтверждённые связки/движки сета из <set>_combos.json. {} если файла нет.
 
@@ -1018,7 +1067,10 @@ def hub_banner(ids, by_id, ratings, picks, max_lines=2):
     return out
 
 
-def combo_banner(ids, by_id, ratings, picks, max_lines=3):
+MIN_LIFT = 1.5      # ниже — совместность объясняется частотой, а не связью (см. combo_banner)
+
+
+def combo_banner(ids, by_id, ratings, picks, max_lines=3, main=None, pnum=None, pick=None):
     """⚑ СВЯЗКА: карта В ЭТОМ ПАКЕ достраивает то, что уже лежит в пуле.
 
     Печатается только когда обе стороны реальны: часть связки УЖЕ в пуле, недостающая часть
@@ -1037,10 +1089,19 @@ def combo_banner(ids, by_id, ratings, picks, max_lines=3):
         nm = _norm_card((by_id.get(cid) or {}).get("name") or (ratings.get(cid) or {}).get("name"))
         if nm:
             in_pack.setdefault(nm, cid)
+    gaps = role_gaps(picks, by_id, ratings, main, pnum, pick) if picks else []
     hits = []
     for c in combos:
         names = [_norm_card(x) for x in c.get("cards", [])]
         if len(names) < 2:
+            continue
+        # Слабый lift = карты просто часто встречаются по отдельности, а не работают вместе.
+        # Док. случай (A/B 17.08.2026, сид 42): агент взял Goblin Plate Mail вместо более
+        # высокой по GIH карты ради связки с lift 1.29 — САМОЙ слабой из 65 в файле, где обе
+        # карты массовые стейплы (34% и 27% колод). Та колода получила флаг «removal 0».
+        # Отсекаем ТОЛЬКО явно слабые: отсутствие lift означает «не мерили», а не «слабая»
+        # (поймано тестом при внесении — связки без поля исчезали из вывода целиком).
+        if c.get("lift") is not None and c["lift"] < MIN_LIFT:
             continue
         have = [n for n in names if n in pool]
         missing = [n for n in names if n not in pool]
@@ -1053,6 +1114,15 @@ def combo_banner(ids, by_id, ratings, picks, max_lines=3):
         return []
     hits.sort(key=lambda x: -x[0])
     out, shown = [], set()
+    # РОЛЬ ВЫШЕ СВЯЗКИ. Баннер не запрещает пик — он ставит очередь: пока роль ниже темпа
+    # победителей, связка это второй приоритет, а не первый. Так сформулировано потому, что
+    # запрет ловил бы и правильные пики (связка-в-роли), а очередь оставляет решение за
+    # советчиком, но лишает связку статуса «повод взять что угодно».
+    if gaps and hits:
+        g = ", ".join(f"{n} {have}/{want:g}" for n, have, want, _ in gaps[:2])
+        out.append(f"⚠ РОЛЬ ВПЕРЁД: в пуле не хватает — {g} (своё/темп победителей). "
+                   f"Связка ниже НЕ повод пропускать роль: на A/B-тесте колоды со связками, "
+                   f"но с ролью ниже популяции, проиграли контролю по всем осям аудита.")
     for decks, c, have, avail in hits:
         if len(out) >= max_lines:
             break
@@ -1151,7 +1221,7 @@ def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
-    out += combo_banner(ids, by_id, ratings, picks)
+    out += combo_banner(ids, by_id, ratings, picks, main=main, pnum=pnum, pick=pick)
     out += hub_banner(ids, by_id, ratings, picks)
     out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
