@@ -98,6 +98,24 @@ def detect_set(deck_path, pool_path=None, explicit=None):
     raise SystemExit("не удалось определить сет — укажи явно: --set hob")
 
 
+def deck_colors(path, db):
+    """Цвета колоды по пипам мейна (гибрид — половина каждому, порог четверть от ведущего)."""
+    md, _ = split_deck(path)
+    pips = Counter()
+    for n, name in md:
+        c = db.get(norm(name)) or db.get(norm(name.split(",")[0]))
+        if not c or "Land" in face(c, "type_line"):
+            continue
+        for sym in re.findall(r"\{([^}]+)\}", face(c, "mana_cost")):
+            parts = [ch for ch in sym.upper().split("/") if ch in "WUBRG"]
+            for ch in parts:
+                pips[ch] += n / len(parts)
+    if not pips:
+        return ""
+    top = max(pips.values())
+    return "".join(x for x in "WUBRG" if pips.get(x, 0) >= max(3, top * 0.25))
+
+
 def load_refs(setcode, db, rat):
     """Референс-листы ИМЕННО этого сета. Пусто -> часть (а) не печатается."""
     files = []
@@ -107,7 +125,24 @@ def load_refs(setcode, db, rat):
     elif setcode == LEGACY_REF_SET and os.path.isdir(REF_DIR):
         files = [os.path.join(REF_DIR, f) for f in sorted(os.listdir(REF_DIR))
                  if f.endswith(".txt")]
-    return [metrics(f, db, rat) for f in files]
+    # Цвета референса считаем ТОЙ ЖЕ функцией, что и для своей колоды. Поле colors из
+    # metrics() построено по другому правилу (real/splash с иным порогом), и фильтр по паре
+    # молча не совпадал: листов WB находилось 4 вместо 18, WU — 2 вместо 25, то есть
+    # сравнение снова уезжало на весь сет. Поймано сразу после внесения фильтра, 17.08.2026.
+    out = []
+    for f in files:
+        m = metrics(f, db, rat)
+        m["pair"] = deck_colors(f, db)
+        out.append(m)
+    return out
+
+
+
+def pct(vals, v):
+    """Перцентиль значения в популяции: доля листов не выше моего."""
+    if not vals:
+        return None
+    return round(100 * sum(1 for x in vals if x <= v) / len(vals))
 
 
 def colors_of(c):
@@ -252,24 +287,42 @@ def main():
         print(f"    другой пул removal, другая скорость, другая доля эвейжна — это шум.")
         print(f"    Чтобы включить: класть листы 7-1/7-2 в ref_decks/{setcode}/*.txt")
     else:
-        print(f"    (против {len(refs)} листов 7-1/7-2)\n")
-        print(f"{'ось':22} {'моё':>7}   {'победители (мин–медиана–макс)':<28} вердикт")
-        print("-" * 82)
+        # Сравнение идёт со СВОЕЙ ПАРОЙ, а не со всем сетом (правка 17.08.2026).
+        # На 298 листах диапазоны по сету настолько широки (существ 9–21, removal 0–12),
+        # что «в диапазоне» получали ВСЕ колоды сразу — включая ту, которую разбор назвал
+        # провальной. Прибор, который не отличает подсудимого от свидетеля, не прибор.
+        # Вдобавок печатается ПЕРЦЕНТИЛЬ: «в диапазоне» на 5-м процентиле и на 50-м —
+        # разные вещи, а min–max их не различает.
+        my_colors = deck_colors(path, db)
+        same = [r for r in refs if r.get("pair") == my_colors] if my_colors else []
+        use, scope = (same, f"пара {my_colors}") if len(same) >= 6 else (refs, "весь сет")
+        if len(same) < 6 and my_colors:
+            print(f"    ⚠ листов пары {my_colors} всего {len(same)} — сравниваю со всем сетом,\n"
+                  f"      это грубее: диапазоны сета шире, чем у любой отдельной пары.")
+        print(f"    (против {len(use)} листов 7-1/7-2 · {scope})\n")
+        print(f"{'ось':22} {'моё':>7}   {'победители (мин–медиана–макс)':<28} {'проц.':>6}  вердикт")
+        print("-" * 92)
         for key, label in AXES:
-            vals = sorted(r[key] for r in refs if r[key] is not None)
+            vals = sorted(r[key] for r in use if r[key] is not None)
             if not vals or mine[key] is None:
                 continue
             lo, hi = vals[0], vals[-1]
             med = vals[len(vals) // 2]
             v = mine[key]
+            q = pct(vals, v)
             if v < lo:
                 verdict = f"⚠ НИЖЕ всех {len(vals)}"
-                flags.append(f"{label}: {v} — ниже минимума победителей ({lo})")
+                flags.append(f"{label}: {v} — ниже минимума ({lo}) у листов {scope}")
+            elif q is not None and q <= 10:
+                verdict = "🟡 нижние 10% популяции"
+                flags.append(f"{label}: {v} — нижние 10% ({scope}), медиана {med}")
             elif v > hi:
                 verdict = "↑ выше всех (не порок, но проверь зачем)"
+            elif q is not None and q >= 90:
+                verdict = "↑ верхние 10%"
             else:
                 verdict = "в диапазоне"
-            print(f"{label:22} {v:>7}   {lo:>6} – {med:^6} – {hi:<6}       {verdict}")
+            print(f"{label:22} {v:>7}   {lo:>6} – {med:^6} – {hi:<6}  {str(q) + '%':>6}  {verdict}")
 
     g = greedy_check(path, db, rat, pool_path)
     print("\n" + "=" * 82)
