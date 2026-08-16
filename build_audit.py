@@ -12,23 +12,102 @@
     с жадным списком, это признак, что план не выбран, а пул просто отсортирован.
     Этот тест — про мой процесс, поэтому он не страдает от survivorship-bias выборки.
 
-Usage:  python3 build_audit.py <мой_лист.txt> [--pool pools/msh_XXXX.txt]
+Usage:  python3 build_audit.py <мой_лист.txt> [--pool pools/<set>_XXXX.txt] [--set hob]
         Лист в формате MTGA: `Deck` … `Sideboard` … — сайдборд ОБЯЗАТЕЛЕН
         (это остаток пула, без него нельзя проверить срез).
+
+СЕТ ОПРЕДЕЛЯЕТСЯ САМ (16.08.2026). До этого рейтинги грузились как load_ratings("msh")
+жёстко, и на любом другом сете скрипт молча резолвил 0 карт: часть (а) печаталась
+пустой таблицей, а часть (б) отваливалась в «сайдборд пуст». Ошибка выглядела как
+отсутствие данных, а не как поломка. Порядок детекта: --set → теги `(HOB)` в листе →
+префикс файла пула → по числу совпавших имён карт в <set>_set.json.
+
+РЕФЕРЕНС-ПОПУЛЯЦИЯ ТОЖЕ ПО СЕТАМ: ref_decks/<set>/*.txt; плоские ref_decks/*.txt
+считаются MSH (как исторически). Нет листов по нужному сету → часть (а) НЕ печатается
+вовсе. Сравнивать колоду с популяцией ЧУЖОГО сета запрещено § КАЛИБРОВКА (закон 1):
+другой пул removal, другая скорость, другая доля эвейжна. Часть (б) валидна всегда —
+она про мой процесс, а не про сходство с чужой популяцией.
 """
 import os, re, sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import sets_registry as _reg  # noqa: E402
 from deck_profile import (norm, load_db, load_ratings, face, oracle,  # noqa: E402
                           parse_deck, metrics)
 
 REF_DIR = os.path.join(HERE, "ref_decks")
+LEGACY_REF_SET = "msh"   # плоские файлы в ref_decks/ — исторически листы MSH
+# ⚠️ «средний GIH» УБРАН из осей аудита 16.08.2026 (указание пользователя).
+# GIH нужен ТОЛЬКО для сортировки пака в живом драфте. Сравнивать по нему КОЛОДЫ — значит
+# мерить сборку той самой осью, оптимизация по которой и даёт мягкую середину: разбор пяти
+# трофейных листов HOB показал, что у победителей средний GIH НИЖЕ нашего во всех пяти парах,
+# а карт «ниже 55» — до двенадцати на колоду. Ось показывала расхождение, но подталкивала
+# к неверному выводу («подгони среднее»), тогда как чинить надо роли и кривую.
+# Тест процесса ниже (мейн против жадного топ-N) GIH использует — но не как мерило качества,
+# а как модель «что выбрала бы сортировка», от которой сборка обязана отклоняться.
 AXES = [("cheap", "существ cmc≤2"), ("evasion", "ломателей стойки"),
         ("hard", "безусл. removal"), ("c5", "карт cmc≥5"),
         ("creatures", "существ"), ("fixers", "фикс-источников"),
-        ("ncolors", "цветов"), ("gih", "средний GIH")]
+        ("ncolors", "цветов")]
+
+
+def detect_set(deck_path, pool_path=None, explicit=None):
+    """Код сета для рейтингов. Возвращает (code, как_определили)."""
+    if explicit:
+        if not _reg.is_set(explicit):
+            raise SystemExit(f"неизвестный сет: {explicit} (знаю: {', '.join(_reg.SETS)})")
+        return explicit.lower(), "--set"
+
+    # 1) теги вида `1 Old Thrush (HOB) 2` — самый надёжный источник
+    tags = Counter()
+    for p in (deck_path, pool_path):
+        if not p or not os.path.exists(p):
+            continue
+        for line in open(p, encoding="utf-8"):
+            m = re.search(r"\(([A-Za-z0-9]{3,5})\)\s+\S+\s*$", line.strip())
+            if m and _reg.is_set(m.group(1)):
+                tags[m.group(1).lower()] += 1
+    if tags:
+        return tags.most_common(1)[0][0], "теги (SET) в листе"
+
+    # 2) префикс файла пула: pools/hob_31a78cee.txt
+    if pool_path:
+        pref = os.path.basename(pool_path).split("_")[0].lower()
+        if _reg.is_set(pref):
+            return pref, "имя файла пула"
+
+    # 3) по числу совпавших имён карт в каждом <set>_set.json
+    import json
+    names = {norm(n) for _, n in sum(split_deck(deck_path), [])}
+    best, hits = None, 0
+    for code in _reg.SETS:
+        p = os.path.join(HERE, f"{code}_set.json")
+        if not os.path.exists(p):
+            continue
+        pool_names = set()
+        for c in json.load(open(p)):
+            pool_names.add(norm(c.get("name", "")))
+            pool_names.add(norm(c.get("name", "").split(" //")[0]))
+        k = len(names & pool_names)
+        if k > hits:
+            best, hits = code, k
+    if best:
+        return best, f"совпадение имён карт ({hits})"
+    raise SystemExit("не удалось определить сет — укажи явно: --set hob")
+
+
+def load_refs(setcode, db, rat):
+    """Референс-листы ИМЕННО этого сета. Пусто -> часть (а) не печатается."""
+    files = []
+    sub = os.path.join(REF_DIR, setcode)
+    if os.path.isdir(sub):
+        files = [os.path.join(sub, f) for f in sorted(os.listdir(sub)) if f.endswith(".txt")]
+    elif setcode == LEGACY_REF_SET and os.path.isdir(REF_DIR):
+        files = [os.path.join(REF_DIR, f) for f in sorted(os.listdir(REF_DIR))
+                 if f.endswith(".txt")]
+    return [metrics(f, db, rat) for f in files]
 
 
 def colors_of(c):
@@ -129,39 +208,54 @@ def main():
         print(__doc__)
         sys.exit(1)
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    pool_path = None
-    if "--pool" in sys.argv:
-        i = sys.argv.index("--pool")
-        pool_path = sys.argv[i + 1] if len(sys.argv) > i + 1 else None
-        args = [a for a in args if a != pool_path]
+    pool_path = setcode = None
+    for flag in ("--pool", "--set"):
+        if flag in sys.argv:
+            i = sys.argv.index(flag)
+            val = sys.argv[i + 1] if len(sys.argv) > i + 1 else None
+            if flag == "--pool":
+                pool_path = val
+            else:
+                setcode = val
+            args = [a for a in args if a != val]
     path = args[0]
-    db, rat = load_db(), load_ratings("msh")
 
-    refs = []
-    for fn in sorted(os.listdir(REF_DIR)):
-        if fn.endswith(".txt"):
-            refs.append(metrics(os.path.join(REF_DIR, fn), db, rat))
+    setcode, how = detect_set(path, pool_path, setcode)
+    db, rat = load_db(), load_ratings(setcode)
+    if not rat:
+        print(f"  ⚠ нет файла рейтингов 17Lands для {setcode.upper()} "
+              f"({_reg.RATING_FILE.get(setcode)}) — GIH-оси и тест процесса молчат.\n"
+              f"    Скачать: python3 fetch_17l.py {setcode}")
+
+    refs = load_refs(setcode, db, rat)
     mine = metrics(path, db, rat)
 
-    print(f"\n=== АУДИТ: {mine['name']} против {len(refs)} листов 7-1/7-2 ===\n")
-    print(f"{'ось':22} {'моё':>7}   {'победители (мин–медиана–макс)':<28} вердикт")
-    print("-" * 82)
+    print(f"\n=== АУДИТ: {mine['name']} · сет {setcode.upper()} ({how}) ===")
     flags = []
-    for key, label in AXES:
-        vals = sorted(r[key] for r in refs if r[key] is not None)
-        if not vals or mine[key] is None:
-            continue
-        lo, hi = vals[0], vals[-1]
-        med = vals[len(vals) // 2]
-        v = mine[key]
-        if v < lo:
-            verdict = f"⚠ НИЖЕ всех {len(vals)}"
-            flags.append(f"{label}: {v} — ниже минимума победителей ({lo})")
-        elif v > hi:
-            verdict = "↑ выше всех (не порок, но проверь зачем)"
-        else:
-            verdict = "в диапазоне"
-        print(f"{label:22} {v:>7}   {lo:>6} – {med:^6} – {hi:<6}       {verdict}")
+    if not refs:
+        print(f"\n  ⚠ ЧАСТЬ (а) ПРОПУЩЕНА: нет референс-листов 7-1/7-2 по {setcode.upper()}.")
+        print(f"    Сравнивать с популяцией другого сета запрещено (§ КАЛИБРОВКА, закон 1):")
+        print(f"    другой пул removal, другая скорость, другая доля эвейжна — это шум.")
+        print(f"    Чтобы включить: класть листы 7-1/7-2 в ref_decks/{setcode}/*.txt")
+    else:
+        print(f"    (против {len(refs)} листов 7-1/7-2)\n")
+        print(f"{'ось':22} {'моё':>7}   {'победители (мин–медиана–макс)':<28} вердикт")
+        print("-" * 82)
+        for key, label in AXES:
+            vals = sorted(r[key] for r in refs if r[key] is not None)
+            if not vals or mine[key] is None:
+                continue
+            lo, hi = vals[0], vals[-1]
+            med = vals[len(vals) // 2]
+            v = mine[key]
+            if v < lo:
+                verdict = f"⚠ НИЖЕ всех {len(vals)}"
+                flags.append(f"{label}: {v} — ниже минимума победителей ({lo})")
+            elif v > hi:
+                verdict = "↑ выше всех (не порок, но проверь зачем)"
+            else:
+                verdict = "в диапазоне"
+            print(f"{label:22} {v:>7}   {lo:>6} – {med:^6} – {hi:<6}       {verdict}")
 
     g = greedy_check(path, db, rat, pool_path)
     print("\n" + "=" * 82)
@@ -197,7 +291,7 @@ def main():
         print("НИЖЕ ВСЕЙ ПОПУЛЯЦИИ ПОБЕДИТЕЛЕЙ (единственное, что стоит чинить):")
         for f in flags:
             print("  · " + f)
-    else:
+    elif refs:
         print("\n  Ни по одной оси не ниже минимума победителей.")
 
 

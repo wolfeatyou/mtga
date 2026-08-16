@@ -472,7 +472,45 @@ def color_ratings(pair):
         mid = x.get("mtga_id"); g = x.get("ever_drawn_win_rate")
         if mid is not None and g and x.get("ever_drawn_game_count", 0) > 20:
             out[int(mid)] = g
-    return out
+    return out if _pair_data_is_real(out) else {}
+
+
+_PAIR_FAKE_WARNED = set()
+
+
+def _pair_data_is_real(pair_gih):
+    """False, если «парные» числа — копия глобальных. Тогда пар-GIH не показывается.
+
+    Зачем (поймано 16.08.2026 на HOB): 17Lands принимает параметр `colors=WU`, но на молодом
+    сете ИГНОРИРУЕТ его и отдаёт глобальные числа — с тем же n. Проверено запросом напрямую:
+    HOB без фильтра и HOB colors=WU дали Fíli 66.8 / n=1088 оба раза, а на MSH тот же запрос
+    честно разделяет (Web Up: GIH 60.8 против WU 62.8).
+
+    Без этой проверки инструмент печатает `WU 66.8` рядом с `GIH 66.8` — выглядит как
+    подтверждение из второго источника, а это одно и то же число дважды. Хуже на сборке:
+    § Шаг 0 требует ранжировать пул по ПАРНОМУ GIH, и правило молча выродилось бы в
+    «ранжируй по глобальному», сохранив вид проделанной работы. Молчать честнее.
+    """
+    if not pair_gih:
+        return False
+    glob = load_ratings()
+    same = tot = 0
+    for mid, g in pair_gih.items():
+        r = glob.get(mid)
+        if r and r.get("ever_drawn_win_rate"):
+            tot += 1
+            same += abs(r["ever_drawn_win_rate"] - g) < 1e-9
+    if tot < 20:
+        return True                      # мало пересечений — не нам судить
+    if same / tot < 0.95:
+        return True                      # реально другие числа = фильтр работает
+    key = setcode()
+    if key not in _PAIR_FAKE_WARNED:
+        _PAIR_FAKE_WARNED.add(key)
+        print(f"  ⚠ пар-GIH для {key.upper()} недоступен: 17Lands отдаёт на фильтр цветов те же "
+              f"глобальные числа ({same}/{tot} совпали точно). Колонка пары скрыта — "
+              f"это отсутствие данных, а не их совпадение.", file=sys.stderr)
+    return False
 
 # ─── детектор сигналов: пивот / разрыв мощности / колесо / soup-audit ─────────
 def _colors_of(cid, by_id, ratings):
@@ -599,6 +637,18 @@ def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
 # (Заведено 11.08.2026 при добавлении HOB: до этого MSH-числа печатались бы для
 #  любого сета, утверждая «из 9 воздушных победителей…» там, где победителей ноль.)
 CALIB = {
+    # HOB — 5 трофейных листов с untapped (7-1 ×3, 7-2 ×2), снято 16.08.2026.
+    # ⚠️ n=5 против n=23 у MSH: диапазоны широкие и по одной колоде на пару, так что это
+    # «где я в распределении», а не порог. Особенно осторожно с воздухом — флай 0–3 при
+    # медиане 2 означает, что кластера «воздух» в HOB может не быть вовсе (в MSH он был
+    # у 9 колод из 23). Пополнять папку после каждого нового трофейного листа.
+    "hob": dict(
+        n=5,
+        air_fly=4, air_reach_max=1,      # порог воздуха поднят: 3 флаера — это максимум выборки
+        gnd_fly_max=1, gnd_reach=1,
+        ref=dict(creatures=(11, 14, 18), cheap=(5, 6, 11), hard=(0, 1, 2),
+                 c5=(1, 3, 5), fixers=(0, 1, 2)),
+    ),
     "msh": dict(
         n=23,
         air_fly=6, air_reach_max=1,      # воздух: флай 6–10, reach 0–1
@@ -766,7 +816,16 @@ def plan_banner(picks, by_id, ratings, main, pnum, pick):
     # одна десятая, а не целое: округление 5.8→«6» рядом с вердиктом «не определился»
     # (порог воздуха ровно 6) читается как противоречие
     head = f"⚑ СТОЙКА: флай {r['fly']} · reach {r['reach']} (пик {done}/{TOTAL_PICKS} → к финалу ~{pf:.1f}/{pr:.1f})"
+    n = cal.get("n", 0)
     out = []
+    # Риторика про КЛАСТЕРЫ («воздушные победители держат столько-то рича») выведена на MSH
+    # при n=23. На маленькой выборке кластеров просто не видно, и переносить формулировки
+    # нельзя — § КАЛИБРОВКА закон 1. Поэтому при n<15 печатаем диапазоны и молчим о кластерах.
+    if n < 15:
+        out.append(head)
+        out.append(f"   выборка по {setcode().upper()} — всего {n} листов: вердикта о кластере нет, "
+                   f"пороги воздух/земля здесь не мерялись. Сравнивай с диапазоном и решай по своей оси (⚑ОСЬ).")
+        return out
     if pf >= AIR_FLY:
         out.append(head + " = 🟦 ВОЗДУХ")
         if r["reach"] >= 2:
@@ -778,18 +837,18 @@ def plan_banner(picks, by_id, ratings, main, pnum, pick):
         out.append(head + " = 🟫 ЗЕМЛЯ")
         if pr < 2:
             out.append(f"   ⚠ REACH МАЛО: у 8 из 12 наземных победителей reach≥3 — иначе воздушный "
-                       f"кластер (9 из 23 колод) обыгрывает автоматически. Рич сейчас = приоритетная роль.")
+                       f"кластер обыгрывает автоматически. Рич сейчас = приоритетная роль.")
         else:
             out.append("   норма кластера (n=12): флай 0–3, reach медиана 3. Держим рич, флаеров не ищем.")
     else:
         out.append(head + " = ⬜ НЕ ОПРЕДЕЛИЛСЯ")
-        out.append("   в зоне 4–5 флаеров всего 2 победителя из 23 (там же наша трофейка — это не "
-                   "брак, но и не план). Решай: добирать флаеров до 6 ИЛИ рич до 3.")
+        out.append(f"   в промежуточной зоне победителей почти нет (выборка {n} листов) — это не "
+                   "брак, но и не план. Решай: добирать флаеров до 6 ИЛИ рич до 3.")
     return out
 
 
 def profile_banner(picks, by_id, ratings, main, pnum, pick):
-    """Профиль пула против диапазонов 23 победителей. Только на границе бустера.
+    """Профиль пула против диапазонов победителей своего сета. Только на границе бустера.
 
     ВАЖНО: диапазоны REF — это ФИНАЛЬНЫЕ колоды (23 карты). Пул на середине драфта
     меньше по определению, поэтому сравнивать в лоб нельзя — иначе на P2P1 всегда
@@ -812,7 +871,7 @@ def profile_banner(picks, by_id, ratings, main, pnum, pick):
         v = r[key]
         mark = "↑" if v > ehi else ("!" if v < elo else "")
         parts.append(f"{lab} {v}{mark}/{med * frac:.0f}")
-    return [f"⚑ ПРОФИЛЬ (пик {done}/{TOTAL_PICKS}, темп к медиане 23 победителей): "
+    return [f"⚑ ПРОФИЛЬ (пик {done}/{TOTAL_PICKS}, темп к медиане {cal.get('n', '?')} победителей): "
             + " · ".join(parts),
             "   формат «моё/ожидаемо-к-этому-пику». ! = ниже темпа минимума, ↑ = выше максимума. "
             "Это диапазоны, а не пороги."]
@@ -875,11 +934,86 @@ def tiebreak_banner(ids, by_id, ratings, main):
             "именно её, а не «она выше по GIH»."]
 
 
+def passed_color_banner(by_id, ratings, main, picks, draft_id, pnum=None, pick=None,
+                        min_gih=0.58, thresh=3):
+    """⚑ ПАСУЕМ <цвет>: НАКОПИТЕЛЬНЫЙ счётчик сильных карт цвета, которые мы отдали.
+
+    Зачем (внесено 16.08.2026 после разбора драфта 31a78cee, n=1 — гипотеза, не порог):
+    ⚑ПИВОТ и ⚑СИЛЬНЕЕ ВНЕ ЦВЕТА смотрят ТОЛЬКО на текущий пак. Каждое отдельное срабатывание
+    выглядит как «ну да, одна карта мимо» и по отдельности защитимо — а тринадцать таких
+    подряд означают «цвет открыт весь драфт», чего ни один из них не видит.
+    В том драфте инструмент 13 раз сказал «сильнее вне цвета» (из них 4 раза ⚑ПИВОТ),
+    и все 13 были проигнорированы поодиночке. Чёрный при этом дал 6 карт GIH≥58,
+    доступных на пиках 5+, при среднем 55.4 — лучший показатель из пяти цветов,
+    и тёк во ВТОРОМ и в ТРЕТЬЕМ бустере, то есть был не додрафтен всем столом.
+
+    Память о пропусках держит ИНСТРУМЕНТ, а не советчик: § rules_graveyard §8 —
+    то, что зависит от «помнит ли модель прошлые пики», не работает.
+    """
+    if not main or len(main) < 2 or not draft_id:
+        return []
+    h = _load_hist().get(draft_id, {})
+    if not h:
+        return []
+    taken = set(picks or [])
+    passed = {}          # цвет -> [(GIH, имя, off-пипов)]
+    for key, pack in h.items():
+        # только УЖЕ ПРОЙДЕННЫЕ паки. История на диске переживает драфт целиком, и без этого
+        # фильтра баннер считал бы будущие паки — на P1P6 печаталось «12-й раз» (поймано
+        # реплеем при внесении). Считать можно только то, что советчик реально видел.
+        if pnum:
+            try:
+                kp, kk = (int(x) for x in key.split("-"))
+            except ValueError:
+                continue
+            if (kp, kk) > (pnum, pick or 1):
+                continue
+        for cid in pack:
+            if cid in taken:
+                continue
+            r = ratings.get(cid)
+            g = (r or {}).get("ever_drawn_win_rate")
+            if not g or g < min_gih:
+                continue
+            cols = _colors_of(cid, by_id, ratings) or set()
+            off = cols - set(main)
+            if not off or len(cols) > 2:
+                continue
+            pips = mana_pips(face(by_id.get(cid), "mana_cost") or "")
+            noff = sum(1 for opt in pips if not any(x in main for x in opt))
+            for c in off:
+                passed.setdefault(c, []).append((g, _name_of(cid, by_id, ratings), noff))
+    out = []
+    # ТОЛЬКО самый пасуемый цвет. Три баннера разом (было при внесении: B, R, G) — это шум,
+    # который обесценивает сам сигнал: «открыто всё» читается как «не открыто ничего».
+    for col, lst in sorted(passed.items(), key=lambda kv: -len(kv[1]))[:1]:
+        if len(lst) < thresh:
+            continue
+        lst.sort(reverse=True)
+        seen_n, top_l = set(), []
+        for g, n, _ in lst:
+            if n in seen_n: continue
+            seen_n.add(n); top_l.append(f"{n} {g*100:.1f}")
+            if len(top_l) == 3: break
+        top = ", ".join(top_l)
+        splashable = list(dict.fromkeys(n for g, n, no in lst if no <= 1))
+        line = (f"⚑ ПАСУЕМ {col}: уже {len(lst)}-й раз отдаём карту GIH≥{min_gih*100:.0f} "
+                f"({top}). Это не разовый пак — цвет открыт весь драфт.")
+        out.append(line)
+        if splashable:
+            out.append(f"   └ из них СПЛЕШАБЕЛЬНЫ в один пип ({len(splashable)}): "
+                       f"{', '.join(splashable[:3])} — считай фикс (Rule of Three), "
+                       f"это дешевле пивота.")
+        out.append("   └ ОБЯЗАН ответить в строке ПИВОТ: пивот / сплеш / осознанный отказ + цена.")
+    return out
+
+
 def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
+    out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
         out += profile_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
@@ -966,7 +1100,7 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
         lines += sigs
         lines.append("───────────────")
     lines.append(header or f"PACK {pnum}/{pick} — {len(ids)} карт")
-    lines.append("  ⓘ порядок = кастуемость, затем ранг GIH+IWD. ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
+    lines.append("  ⓘ порядок = кастуемость, затем 2·GIH+1·IWD. ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
                  "порядок пика — верхняя строка не является ответом. Решают роль, план полосы, "
                  "дыра и квадранты; числа сверяются ПОСЛЕДНИМИ.")
     for glabel, gids in grouped:
