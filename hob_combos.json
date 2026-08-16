@@ -1,6 +1,7 @@
 {
- "_note": "Связки HOB. Двойной фильтр: (1) мультиагентный разбор 31 трофейной колоды нашёл МЕХАНИЗМ по оракл-текстам, независимые скептики отбраковали 52 из 161 заявленных; (2) по 298 трофейным колодам посчитаны частота и lift — во сколько раз чаще карты встречаются вместе, чем при независимости. Оставлены связки с decks>=6 и lift>=1.4. GIH не участвует. Печатает draft_live.combo_banner в момент пика.",
+ "_note": "Связки HOB. ТРОЙНОЙ фильтр, GIH не участвует ни на одном шаге:\n1) МЕХАНИЗМ — мультиагентный разбор трофейных колод по оракл-текстам; независимые\n   скептики отбраковали 52 из 161 заявленной связки;\n2) ЧАСТОТА — по 298 трофейным листам посчитан lift (во сколько раз чаще карты вместе,\n   чем при независимости);\n3) ЗНАЧИМОСТЬ — гипергеометрический тест + поправка Benjamini-Hochberg (FDR 5%).\n   Это отсеивает красивые числа на малых выборках: из 52 связок прошло 47, а из\n   140 найденных ТРОЕК не прошла НИ ОДНА (лучшая p=2e-4 при пороге Бонферрони 2e-7).\n   Тройки в файл не включены сознательно — при n=14..46 на пару они статистически\n   неотличимы от совпадения. Вернуться к ним, когда выборка вырастет в разы.\nПечатает draft_live.combo_banner в момент пика.",
  "_n_decks": 298,
+ "_method": "mechanism + lift + FDR(BH) 5%",
  "combos": [
   {
    "cards": [
@@ -10,7 +11,8 @@
    "why": "ETB Бильбо добирает карту — на своём ходу это ровно вторая карта за ход (первая — из дро-степа), Apothecary получает ПОСТОЯННЫЙ +1/+1 счётчик. Шесть копий Бильб",
    "decks": 57,
    "lift": 2.87,
-   "pair": "UG (Simic) — HOB"
+   "pair": "UG (Simic) — HOB",
+   "p": 8.07e-28
   },
   {
    "cards": [
@@ -20,7 +22,8 @@
    "why": "Инстант за {1}{U} — сам выбираешь ход, в который добираешь вторую карту, и играет дважды: flashback из кладбища добирает СРАЗУ ДВЕ, то есть гарантированно перес",
    "decks": 55,
    "lift": 2.87,
-   "pair": "UG (Simic) — HOB"
+   "pair": "UG (Simic) — HOB",
+   "p": 3.76e-26
   },
   {
    "cards": [
@@ -30,7 +33,8 @@
    "why": "Quarrel наносит урон СИЛОЙ твоего существа. С дэстачем сила не важна: Attercop за 2 маны убивает любую тварь, и в отличие от файта не получает урон в ответ. Име",
    "decks": 52,
    "lift": 2.69,
-   "pair": "BG"
+   "pair": "BG",
+   "p": 1.25e-21
   },
   {
    "cards": [
@@ -40,107 +44,8 @@
    "why": "Бильбо непроходим для блока, значит его боевой урон и лут-триггер проходят КАЖДЫЙ ход. Лут = вторая карта за ход → Апотекари каждый ход получает +1/+1 счётчик и",
    "decks": 41,
    "lift": 2.9,
-   "pair": "UB (Dimir)"
-  },
-  {
-   "cards": [
-    "Gollum, Silent Slinker",
-    "Ravening Warg"
-   ],
-   "why": "Голлум — 4/3 с менейсом за 4 маны на коммоне: постоянный (не временный, как пампы) включатель ферошеса и одновременно основной клок пары. Адвенчер-половина за {",
-   "decks": 38,
-   "lift": 2.25,
-   "pair": "UB (Dimir)"
-  },
-  {
-   "cards": [
-    "Mirkwood Pathmaker",
-    "Quarrel"
-   ],
-   "why": "Pathmaker — не тело, а батарея для Quarrel: его сила равна числу земель, то есть на 6–8 ходу это выстрел на 6–8 урона за {1}{G}. Лишний ленд-дроп от Thranduil's",
-   "decks": 37,
-   "lift": 2.23,
-   "pair": "UG (Simic) — HOB"
-  },
-  {
-   "cards": [
-    "The Mountain-king's Return",
-    "Patient Instructor"
-   ],
-   "why": "Recruit заставляет сбросить карту; глава II Саги возвращает существо MV≤3 с кладбища на поле. То есть сброс на главе I — не потеря, а заряд для главы II. Patien",
-   "decks": 30,
-   "lift": 1.97,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
-  },
-  {
-   "cards": [
-    "Plunder the Trollshaws",
-    "Master's Councillors"
-   ],
-   "why": "Plunder триггерит «второй добор» дважды за игру — с руки и с флэшбэка (и с флэшбэка добирает 2, то есть вторую И третью карту). Каждый триггер милит 3 в свой GY",
-   "decks": 29,
-   "lift": 2.71,
-   "pair": "WU (Azorius)"
-  },
-  {
-   "cards": [
-    "Desolation Prowler",
-    "Ravening Warg"
-   ],
-   "why": "Прулер за 2 жизни сам становится 4/4 в любой момент — это самый дешёвый (2 маны, без экипировки) включатель ферошеса в паре, и он же отбивает потерю жизни через",
-   "decks": 29,
-   "lift": 2.36,
-   "pair": "UB (Dimir)"
-  },
-  {
-   "cards": [
-    "Long Lake Nuisance",
-    "Master's Councillors"
-   ],
-   "why": "Тот же движок, но Councillors сам себя разгоняет: второй добор → милл 3, цель можно взять СЕБЯ, и свой же GY переваливает за 7 карт, включая +2/+0. При двух зап",
-   "decks": 28,
-   "lift": 3.18,
-   "pair": "WU (Azorius)"
-  },
-  {
-   "cards": [
-    "Misty Mountains Raider",
-    "Goblin Plate Mail"
-   ],
-   "why": "Plate Mail сам цепляется к созданной Армии и даёт ей menace. Raider добавляет 2 счётчика КАЖДУЮ атаку на ту же Армию — получается растущий на +2/+2 за ход непро",
-   "decks": 28,
-   "lift": 1.72,
-   "pair": "BR (Rakdos)"
-  },
-  {
-   "cards": [
-    "Stone by Sunlight",
-    "Ori, Keeper of Songs"
-   ],
-   "why": "Неочевидное правило: Storied включается НАВСЕГДА («for the rest of the game»), а второй режим Stone by Sunlight временно делает существо АРТЕФАКТОМ. То есть инс",
-   "decks": 26,
-   "lift": 2.92,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
-  },
-  {
-   "cards": [
-    "Great Gilded Boat",
-    "Lakeshore Apothecary"
-   ],
-   "why": "Триггер Лодки — «whenever YOU attack», а не «whenever this creature attacks»: он срабатывает от любой вашей атаки, даже если Лодку не экипировали (crew). Значит",
-   "decks": 25,
-   "lift": 2.96,
-   "pair": "UB (Dimir)"
-  },
-  {
-   "cards": [
-    "Crude Bent Blade",
-    "Dreaded Bat-Cloud"
-   ],
-   "why": "Blade заставляет оппонента пожертвовать существо — значит существо УМЕРЛО в этот ход, и Bat-Cloud стоит {1}{B} вместо {4}{B}. 5 маны 4/2 flying deathtouch за дв",
-   "decks": 25,
-   "lift": 1.92,
-   "pair": "BR (Rakdos)"
+   "pair": "UB (Dimir)",
+   "p": 2.54e-17
   },
   {
    "cards": [
@@ -150,57 +55,74 @@
    "why": "Tidings кастуется дважды (из руки и с кладбища), причём с кладбища даёт amass 3 вместо 1. С Noisemaker это 1+1, затем 3+1 = +6/+6 Армии с одной карты за {R} и {",
    "decks": 24,
    "lift": 4.09,
-   "pair": "BR (Rakdos)"
+   "pair": "BR (Rakdos)",
+   "p": 1.61e-13
   },
   {
    "cards": [
-    "Great Ugly-Looking Goblin",
-    "Gollum, Silent Slinker"
+    "Long Lake Nuisance",
+    "Master's Councillors"
    ],
-   "why": "Meager Meal (сторона-приключение Голлума за {B}) вешает +1/+1 счётчик на ЛЮБОЕ своё существо — под Great Ugly-Looking Goblin этот счётчик = menace. Один {B}-спе",
-   "decks": 23,
-   "lift": 2.47,
-   "pair": "BR (Rakdos)"
+   "why": "Тот же движок, но Councillors сам себя разгоняет: второй добор → милл 3, цель можно взять СЕБЯ, и свой же GY переваливает за 7 карт, включая +2/+0. При двух зап",
+   "decks": 28,
+   "lift": 3.18,
+   "pair": "WU (Azorius)",
+   "p": 9.42e-13
   },
   {
    "cards": [
-    "Confusticate and Bebother",
+    "Plunder the Trollshaws",
+    "Master's Councillors"
+   ],
+   "why": "Plunder триггерит «второй добор» дважды за игру — с руки и с флэшбэка (и с флэшбэка добирает 2, то есть вторую И третью карту). Каждый триггер милит 3 в свой GY",
+   "decks": 29,
+   "lift": 2.71,
+   "pair": "WU (Azorius)",
+   "p": 4.12e-11
+  },
+  {
+   "cards": [
+    "Gollum, Silent Slinker",
+    "Ravening Warg"
+   ],
+   "why": "Голлум — 4/3 с менейсом за 4 маны на коммоне: постоянный (не временный, как пампы) включатель ферошеса и одновременно основной клок пары. Адвенчер-половина за {",
+   "decks": 38,
+   "lift": 2.25,
+   "pair": "UB (Dimir)",
+   "p": 1.88e-10
+  },
+  {
+   "cards": [
+    "Great Gilded Boat",
     "Lakeshore Apothecary"
    ],
-   "why": "Режим «draw two cards» бьёт по триггеру второй карты в чужой ход (инстант) — можно вырастить Апотекари и держать контрзаклинание на одной и той же карте.",
-   "decks": 21,
-   "lift": 2.71,
-   "pair": "UB (Dimir)"
+   "why": "Триггер Лодки — «whenever YOU attack», а не «whenever this creature attacks»: он срабатывает от любой вашей атаки, даже если Лодку не экипировали (crew). Значит",
+   "decks": 25,
+   "lift": 2.96,
+   "pair": "UB (Dimir)",
+   "p": 4e-10
   },
   {
    "cards": [
-    "Patient Instructor",
-    "Bard the Bowman"
+    "Mirkwood Pathmaker",
+    "Quarrel"
    ],
-   "why": "Recruit — это добор карты. На своём ходу он идёт вторым после шага взятия, поэтому любой recruit включает Bard: счётчик +1/+1 и лайфлинк. Patient Instructor за ",
-   "decks": 21,
-   "lift": 2.41,
-   "pair": "WU (Azorius)"
+   "why": "Pathmaker — не тело, а батарея для Quarrel: его сила равна числу земель, то есть на 6–8 ходу это выстрел на 6–8 урона за {1}{G}. Лишний ленд-дроп от Thranduil's",
+   "decks": 37,
+   "lift": 2.23,
+   "pair": "UG (Simic) — HOB",
+   "p": 4.18e-10
   },
   {
    "cards": [
-    "Duskwatch Hunter",
-    "Wargling"
+    "Stone by Sunlight",
+    "Ori, Keeper of Songs"
    ],
-   "why": "Duskwatch кладёт счётчик и может выбрать САМ СЕБЯ: выходит 4/2, то есть постоянный включатель ферочеса за {2}{B/G} без экипировки. Плюс «не может быть заблокиро",
-   "decks": 21,
-   "lift": 2.38,
-   "pair": "BG"
-  },
-  {
-   "cards": [
-    "Thranduil's Company",
-    "Attercop"
-   ],
-   "why": "Company разрешает вторую землю за ход — значит ландфолл срабатывает ДВАЖДЫ за ход: Attercop получает +2/+2 до конца хода (и это уже 4/3 deathtouch под Quarrel),",
-   "decks": 20,
-   "lift": 2.54,
-   "pair": "UG (Simic) — HOB"
+   "why": "Неочевидное правило: Storied включается НАВСЕГДА («for the rest of the game»), а второй режим Stone by Sunlight временно делает существо АРТЕФАКТОМ. То есть инс",
+   "decks": 26,
+   "lift": 2.92,
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 4.89e-10
   },
   {
    "cards": [
@@ -210,7 +132,8 @@
    "why": "Mattock крепится БЕСПЛАТНО, но только к Гному. Shortsword сам создаёт Гнома 2/2 — значит порядок «сначала Shortsword, потом Mattock» экономит Equip {3} и даёт т",
    "decks": 16,
    "lift": 4.52,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 1.13e-09
   },
   {
    "cards": [
@@ -220,58 +143,8 @@
    "why": "ETB Reveler'а кладёт сброшенную землю ИЗ КЛАДБИЩА НА СТОЛ — это отдельный ландфолл поверх обычного ленд-дропа, то есть ещё два счётчика от Company. А ландфолл-с",
    "decks": 16,
    "lift": 4.38,
-   "pair": "UG (Simic) — HOB"
-  },
-  {
-   "cards": [
-    "Plunder the Trollshaws",
-    "Great Gilded Boat",
-    "Bilbo, Luckwearer"
-   ],
-   "why": "Сброс от recruit/лута — не издержка, а способ ЗАРЯДИТЬ Plunder: скинутый в кладбище Plunder возвращается через flashback и берёт ДВЕ карты вместо одной. То есть",
-   "decks": 15,
-   "lift": 6.91,
-   "pair": "UB (Dimir)"
-  },
-  {
-   "cards": [
-    "Thranduil, Sindarin Liege",
-    "Thranduil's Company"
-   ],
-   "why": "Замкнутый круг: Liege за каждую землю делает 1/1 Эльфа-токена, токен постоянно выполняет условие «another Elf» у Company → лишний ленд-дроп → ещё один токен и е",
-   "decks": 15,
-   "lift": 2.71,
-   "pair": "UG (Simic) — HOB"
-  },
-  {
-   "cards": [
-    "Eagle's Rescue",
-    "Patient Instructor"
-   ],
-   "why": "Двусторонняя связка. Recruit сбрасывает — Eagle's Rescue идеальный сброс (нонленд → токен создаётся, аура не теряется, она возвращается из GY). А 1/1 Human Sold",
-   "decks": 15,
-   "lift": 2.63,
-   "pair": "WU (Azorius)"
-  },
-  {
-   "cards": [
-    "Dwarven Mauler",
-    "Goblin Plate Mail"
-   ],
-   "why": "Equip {4} — заградительная цена на коммоне. Под Mauler'ом она {2}, и 2/1 становится 3/1 с menace. Плюс сам Plate Mail бесплатно создаёт Army-токен при выходе.",
-   "decks": 15,
-   "lift": 2.01,
-   "pair": "RG (Gruul)"
-  },
-  {
-   "cards": [
-    "The Mountain-king's Return",
-    "Óin the Brave"
-   ],
-   "why": "Óin — повторяемый сброс-аутлет: скидываешь дешёвого легендарного гнома, а II глава Саги его поднимает с кладбища. Оба листа держат кривую в MV<=3, чтобы у II гл",
-   "decks": 15,
-   "lift": 1.4,
-   "pair": "WR (Boros)"
+   "pair": "UG (Simic) — HOB",
+   "p": 4e-09
   },
   {
    "cards": [
@@ -282,60 +155,74 @@
    "why": "Weavemaster тапается за X = своей силе, но мана ТОЛЬКО на эльфов — в g_mono 14 эльфов из 18 существ, ограничение мнимое. Thranduil делает его перманентно 2/3 (=",
    "decks": 14,
    "lift": 17.56,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 1.53e-08
   },
   {
    "cards": [
-    "Goblin Plate Mail",
-    "Rage into the Valley",
-    "Great Ugly-Looking Goblin"
+    "Desolation Prowler",
+    "Ravening Warg"
    ],
-   "why": "Amass всегда кладёт счётчики на ОДНУ и ту же Армию. Plate Mail надевается на неё бесплатно при выходе — и больше никогда не снимается, поэтому Equip {4} платить",
-   "decks": 13,
-   "lift": 3.76,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
+   "why": "Прулер за 2 жизни сам становится 4/4 в любой момент — это самый дешёвый (2 маны, без экипировки) включатель ферошеса в паре, и он же отбивает потерю жизни через",
+   "decks": 29,
+   "lift": 2.36,
+   "pair": "UB (Dimir)",
+   "p": 2.42e-08
   },
   {
    "cards": [
-    "Velvetwing Butterflies",
-    "Magnificent End"
-   ],
-   "why": "Классическая связка «одна тапает — другая бьёт по тапнутому». Adventure Butterflies тапает одно-два существа за {1}{W}, после чего Magnificent End стоит {1}{W} ",
-   "decks": 12,
-   "lift": 2.8,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
-  },
-  {
-   "cards": [
-    "Great Gilded Boat",
-    "Master's Councillors"
-   ],
-   "why": "Лодка рекрутит на КАЖДОЙ атаке — то есть каждый ход выдаёт второй добор (включая Councillors) плюс токен. Экипаж 2 оплачивается двумя 1/1-токенами, которые она ",
-   "decks": 12,
-   "lift": 2.54,
-   "pair": "WU (Azorius)"
-  },
-  {
-   "cards": [
-    "Thrór's Map",
+    "Confusticate and Bebother",
     "Lakeshore Apothecary"
    ],
-   "why": "Карта Трора — единственный в паре источник второго добора, который не требует ни атаки, ни выживания существа: {2} в любой момент = гарантированный счётчик на А",
-   "decks": 12,
-   "lift": 1.5,
-   "pair": "UB (Dimir)"
+   "why": "Режим «draw two cards» бьёт по триггеру второй карты в чужой ход (инстант) — можно вырастить Апотекари и держать контрзаклинание на одной и той же карте.",
+   "decks": 21,
+   "lift": 2.71,
+   "pair": "UB (Dimir)",
+   "p": 1.93e-07
+  },
+  {
+   "cards": [
+    "Great Ugly-Looking Goblin",
+    "Gollum, Silent Slinker"
+   ],
+   "why": "Meager Meal (сторона-приключение Голлума за {B}) вешает +1/+1 счётчик на ЛЮБОЕ своё существо — под Great Ugly-Looking Goblin этот счётчик = menace. Один {B}-спе",
+   "decks": 23,
+   "lift": 2.47,
+   "pair": "BR (Rakdos)",
+   "p": 3.55e-07
+  },
+  {
+   "cards": [
+    "Patient Instructor",
+    "Bard the Bowman"
+   ],
+   "why": "Recruit — это добор карты. На своём ходу он идёт вторым после шага взятия, поэтому любой recruit включает Bard: счётчик +1/+1 и лайфлинк. Patient Instructor за ",
+   "decks": 21,
+   "lift": 2.41,
+   "pair": "WU (Azorius)",
+   "p": 1.53e-06
   },
   {
    "cards": [
     "Thranduil's Company",
-    "Mirkwood Pathmaker",
-    "Hobbit Hole",
-    "Elvenking's Halls"
+    "Attercop"
    ],
-   "why": "Thranduil's Company при наличии ДРУГОГО эльфа даёт вторую землю за ход = два landfall-триггера по 2 счётчика. Mirkwood Pathmaker — эльф, и его P/T равны числу з",
-   "decks": 11,
-   "lift": 24.91,
-   "pair": "WG (Selesnya)"
+   "why": "Company разрешает вторую землю за ход — значит ландфолл срабатывает ДВАЖДЫ за ход: Attercop получает +2/+2 до конца хода (и это уже 4/3 deathtouch под Quarrel),",
+   "decks": 20,
+   "lift": 2.54,
+   "pair": "UG (Simic) — HOB",
+   "p": 1.55e-06
+  },
+  {
+   "cards": [
+    "The Mountain-king's Return",
+    "Patient Instructor"
+   ],
+   "why": "Recruit заставляет сбросить карту; глава II Саги возвращает существо MV≤3 с кладбища на поле. То есть сброс на главе I — не потеря, а заряд для главы II. Patien",
+   "decks": 30,
+   "lift": 1.97,
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 2.6e-06
   },
   {
    "cards": [
@@ -346,27 +233,64 @@
    "why": "Приключение Till and Tend за {1}{G} даёт лишнюю игру земли — это ДВА триггера лэндфолла за ход: Attercop бьёт как 4/3, Boughside как 8/8, а Beorn потом кастуетс",
    "decks": 11,
    "lift": 8.82,
-   "pair": "BG"
+   "pair": "BG",
+   "p": 3.51e-06
+  },
+  {
+   "cards": [
+    "Plunder the Trollshaws",
+    "Great Gilded Boat",
+    "Bilbo, Luckwearer"
+   ],
+   "why": "Сброс от recruit/лута — не издержка, а способ ЗАРЯДИТЬ Plunder: скинутый в кладбище Plunder возвращается через flashback и берёт ДВЕ карты вместо одной. То есть",
+   "decks": 15,
+   "lift": 6.91,
+   "pair": "UB (Dimir)",
+   "p": 3.76e-06
+  },
+  {
+   "cards": [
+    "Duskwatch Hunter",
+    "Wargling"
+   ],
+   "why": "Duskwatch кладёт счётчик и может выбрать САМ СЕБЯ: выходит 4/2, то есть постоянный включатель ферочеса за {2}{B/G} без экипировки. Плюс «не может быть заблокиро",
+   "decks": 21,
+   "lift": 2.38,
+   "pair": "BG",
+   "p": 4.66e-06
   },
   {
    "cards": [
     "Eagle's Rescue",
-    "Bilbo, Luckwearer"
+    "Patient Instructor"
    ],
-   "why": "Возврат Eagle's Rescue из кладбища требует цель с силой 1 или меньше — Бильбо Luckwearer (1/1) и Lakeshore Apothecary (1/2) ровно такие. Бильбо становится 3/3 л",
-   "decks": 11,
-   "lift": 2.52,
-   "pair": "UB (Dimir)"
+   "why": "Двусторонняя связка. Recruit сбрасывает — Eagle's Rescue идеальный сброс (нонленд → токен создаётся, аура не теряется, она возвращается из GY). А 1/1 Human Sold",
+   "decks": 15,
+   "lift": 2.63,
+   "pair": "WU (Azorius)",
+   "p": 1.44e-05
   },
   {
    "cards": [
-    "Troll Negotiations",
-    "Attercop"
+    "Crude Bent Blade",
+    "Dreaded Bat-Cloud"
    ],
-   "why": "Счётчики кладутся ДО файта: Attercop становится 4/3 и убивает через deathtouch кого угодно, при этом сам переживает ответный урон до 3. Обычный файт-эффект в па",
-   "decks": 11,
-   "lift": 1.49,
-   "pair": "UG (Simic) — HOB"
+   "why": "Blade заставляет оппонента пожертвовать существо — значит существо УМЕРЛО в этот ход, и Bat-Cloud стоит {1}{B} вместо {4}{B}. 5 маны 4/2 flying deathtouch за дв",
+   "decks": 25,
+   "lift": 1.92,
+   "pair": "BR (Rakdos)",
+   "p": 2.12e-05
+  },
+  {
+   "cards": [
+    "Thranduil, Sindarin Liege",
+    "Thranduil's Company"
+   ],
+   "why": "Замкнутый круг: Liege за каждую землю делает 1/1 Эльфа-токена, токен постоянно выполняет условие «another Elf» у Company → лишний ленд-дроп → ещё один токен и е",
+   "decks": 15,
+   "lift": 2.71,
+   "pair": "UG (Simic) — HOB",
+   "p": 3.46e-05
   },
   {
    "cards": [
@@ -377,61 +301,19 @@
    "why": "Double strike удваивает ЛЮБОЙ пампинг: Provisioner за {3}{W} превращает 1/1 Blacksmith в 2/2 double strike = 4 урона, Shortsword (+1/+2) — в 2/3 double strike. ",
    "decks": 10,
    "lift": 10.78,
-   "pair": "WG (Selesnya)"
+   "pair": "WG (Selesnya)",
+   "p": 6.26e-05
   },
   {
    "cards": [
-    "Great Gilded Boat",
-    "Lakeshore Apothecary",
-    "Master's Councillors"
+    "Velvetwing Butterflies",
+    "Magnificent End"
    ],
-   "why": "Лодка триггерит recruit на КАЖДУЮ атаку и для этого её не надо экипировать — а recruit это добор, то есть вторая карта хода. Аптекарь и Советники (оба с вигилан",
-   "decks": 10,
-   "lift": 9.29,
-   "pair": "UR"
-  },
-  {
-   "cards": [
-    "Attercop",
-    "Quarrel",
-    "Troll Negotiations"
-   ],
-   "why": "Deathtouch работает на ЛЮБОМ уроне, не только боевом. Attercop 2/1 с deathtouch через Quarrel за {1}{G} убивает что угодно, вообще не получая ответа (Quarrel — ",
-   "decks": 10,
-   "lift": 4.98,
-   "pair": "WG (Selesnya)"
-  },
-  {
-   "cards": [
-    "Bilbo, Luckwearer",
-    "Thranduil's Company"
-   ],
-   "why": "Клок пары. Company кладёт счётчики на ЛЮБОЕ своё существо — на небло­кируемом Бильбо они превращаются в чистый неотразимый урон, и каждый удар ещё и лутает.",
-   "decks": 10,
-   "lift": 1.46,
-   "pair": "UG (Simic) — HOB"
-  },
-  {
-   "cards": [
-    "Beorn's Hospitality",
-    "Wood Elves",
-    "Beorn, Reluctant Host"
-   ],
-   "why": "Мультипликатор лендфолла. Hospitality даёт счётчик за каждый выход земли; Wood Elves кладёт Forest НА ПОЛЕ (второй триггер в ход), а Till and Tend (адвенчер Бео",
-   "decks": 9,
-   "lift": 10.26,
-   "pair": "RG (Gruul)"
-  },
-  {
-   "cards": [
-    "Bilbo, Luckwearer",
-    "Plunder the Trollshaws",
-    "Eagle's Rescue"
-   ],
-   "why": "Ядро всех четырёх листов. Триггер Bilbo — это второй добор за ход (первый был в шаге взятия) плюс сброс; сбрасывать надо Plunder или Eagle's Rescue — обе работа",
-   "decks": 9,
-   "lift": 7.31,
-   "pair": "WU (Azorius)"
+   "why": "Классическая связка «одна тапает — другая бьёт по тапнутому». Adventure Butterflies тапает одно-два существа за {1}{W}, после чего Magnificent End стоит {1}{W} ",
+   "decks": 12,
+   "lift": 2.8,
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 6.31e-05
   },
   {
    "cards": [
@@ -441,37 +323,20 @@
    "why": "Bolg просит пожертвовать существо — Fearsome Goblin Pair при смерти даёт amass 4. Жертвуем 1/1, получаем 1 урон по цели И +4/+4 на Армию. Худший корм Болга стан",
    "decks": 9,
    "lift": 4.06,
-   "pair": "BR (Rakdos)"
+   "pair": "BR (Rakdos)",
+   "p": 6.45e-05
   },
   {
    "cards": [
-    "Dori, Bearer of Friends",
-    "Smaug the Magnificent"
+    "Goblin Plate Mail",
+    "Rage into the Valley",
+    "Great Ugly-Looking Goblin"
    ],
-   "why": "Смауг стреляет на количество Сокровищ и сам делает по одному каждый апкип. Сокровище Дори — это +1 к урону с каждой атаки, а не просто фикс маны.",
-   "decks": 8,
-   "lift": 2.66,
-   "pair": "UR"
-  },
-  {
-   "cards": [
-    "The Misty Mountains Cold",
-    "Dori, Bearer of Friends"
-   ],
-   "why": "Сага проверяет «четыре или более Сокровищ» после КАЖДОЙ главы. Сокровище от Dori — четвёртое уже после главы III, то есть 6/6 летающий Дракон приходит на ход ра",
-   "decks": 8,
-   "lift": 2.66,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
-  },
-  {
-   "cards": [
-    "Bilbo, Thief in the Night",
-    "Plunder the Trollshaws"
-   ],
-   "why": "Bilbo даёт кастовать Plunder прямо из кладбища по триггеру атаки и со скидкой {1}, то есть за {U}. А Plunder, скастованный из кладбища, добирает две карты вмест",
-   "decks": 8,
-   "lift": 2.37,
-   "pair": "WU (Azorius)"
+   "why": "Amass всегда кладёт счётчики на ОДНУ и ту же Армию. Plate Mail надевается на неё бесплатно при выходе — и больше никогда не снимается, поэтому Equip {4} платить",
+   "decks": 13,
+   "lift": 3.76,
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 6.46e-05
   },
   {
    "cards": [
@@ -482,38 +347,8 @@
    "why": "Обе половины одной карты собираются друг с другом: Adventure делает X токенов-Гномов 2/2, а сама чара потом называет тип «Dwarf» и делает их 4/4. В листе ещё 7 ",
    "decks": 7,
    "lift": 9.06,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
-  },
-  {
-   "cards": [
-    "Duskwatch Hunter",
-    "Nasty Little Rabbit",
-    "Wilderland Scrounger"
-   ],
-   "why": "Тот же трюк дешевле: ETB Duskwatch Hunter говорит «target creature» — цель может быть он сам, 3/1 → 4/2. Трёхмановый общий включатель Ferocious, который вдобаво",
-   "decks": 7,
-   "lift": 7.36,
-   "pair": "RG (Gruul)"
-  },
-  {
-   "cards": [
-    "Bejeweled Warg",
-    "Wargling"
-   ],
-   "why": "Warg сам — Wolf, поэтому его же триггер кладёт счётчик на него самого (3/2 → 4/3) или на Wargling. Сила 4 включает ferocious у Wargling: вся команда получает тр",
-   "decks": 7,
-   "lift": 2.12,
-   "pair": "UG (Simic) — HOB"
-  },
-  {
-   "cards": [
-    "Desolation of Smaug",
-    "Smaug, the Great Calamity"
-   ],
-   "why": "Свипер, который щадит драконов и тут же выдаёт четыре маны ТОЛЬКО на драконов. В колоде streek дракон есть — Smaug, the Great Calamity {5}{R}{R}: подмёл доску з",
-   "decks": 6,
-   "lift": 4.33,
-   "pair": "UR"
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 9.34e-05
   },
   {
    "cards": [
@@ -524,7 +359,42 @@
    "why": "Ферочес требует существо с силой 4+. Клинок даёт +2/+1 — то есть превращает ЛЮБОЕ тело 2/2 (Wargling, Front Porch Sentries, Ravening Warg, Desolation Prowler) в",
    "decks": 6,
    "lift": 4.11,
-   "pair": "BG"
+   "pair": "BG",
+   "p": 0.000123
+  },
+  {
+   "cards": [
+    "Misty Mountains Raider",
+    "Goblin Plate Mail"
+   ],
+   "why": "Plate Mail сам цепляется к созданной Армии и даёт ей menace. Raider добавляет 2 счётчика КАЖДУЮ атаку на ту же Армию — получается растущий на +2/+2 за ход непро",
+   "decks": 28,
+   "lift": 1.72,
+   "pair": "BR (Rakdos)",
+   "p": 0.000131
+  },
+  {
+   "cards": [
+    "Desolation of Smaug",
+    "Smaug, the Great Calamity"
+   ],
+   "why": "Свипер, который щадит драконов и тут же выдаёт четыре маны ТОЛЬКО на драконов. В колоде streek дракон есть — Smaug, the Great Calamity {5}{R}{R}: подмёл доску з",
+   "decks": 6,
+   "lift": 4.33,
+   "pair": "UR",
+   "p": 0.000288
+  },
+  {
+   "cards": [
+    "Great Gilded Boat",
+    "Lakeshore Apothecary",
+    "Master's Councillors"
+   ],
+   "why": "Лодка триггерит recruit на КАЖДУЮ атаку и для этого её не надо экипировать — а recruit это добор, то есть вторая карта хода. Аптекарь и Советники (оба с вигилан",
+   "decks": 10,
+   "lift": 9.29,
+   "pair": "UR",
+   "p": 0.000288
   },
   {
    "cards": [
@@ -535,17 +405,684 @@
    "why": "Óin — единственный ПОВТОРЯЕМЫЙ outlet добора в паре: каждый ход за {1} и тап включает «вторую карту» у Аптекаря (счётчик) и Советников (милл 3). Двухмановое тел",
    "decks": 6,
    "lift": 3.62,
-   "pair": "UR"
+   "pair": "UR",
+   "p": 0.000422
   },
   {
    "cards": [
-    "Beorn the Fierce",
-    "Thranduil, Sindarin Liege"
+    "Great Gilded Boat",
+    "Master's Councillors"
    ],
-   "why": "Beorn каждый бой НАВСЕГДА делает одно твоё существо Медведем (тип не имеет срока), и все не-Beorn Медведи получают +2/+2. То есть эльф-токен 1/1 от Thranduil ст",
-   "decks": 6,
-   "lift": 2.1,
-   "pair": "MONO (одноцветные листы: b/g/r/u/w)"
+   "why": "Лодка рекрутит на КАЖДОЙ атаке — то есть каждый ход выдаёт второй добор (включая Councillors) плюс токен. Экипаж 2 оплачивается двумя 1/1-токенами, которые она ",
+   "decks": 12,
+   "lift": 2.54,
+   "pair": "WU (Azorius)",
+   "p": 0.000636
+  },
+  {
+   "cards": [
+    "Dwarven Mauler",
+    "Goblin Plate Mail"
+   ],
+   "why": "Equip {4} — заградительная цена на коммоне. Под Mauler'ом она {2}, и 2/1 становится 3/1 с menace. Плюс сам Plate Mail бесплатно создаёт Army-токен при выходе.",
+   "decks": 15,
+   "lift": 2.01,
+   "pair": "RG (Gruul)",
+   "p": 0.00069
+  },
+  {
+   "cards": [
+    "Bilbo, Luckwearer",
+    "Plunder the Trollshaws",
+    "Eagle's Rescue"
+   ],
+   "why": "Ядро всех четырёх листов. Триггер Bilbo — это второй добор за ход (первый был в шаге взятия) плюс сброс; сбрасывать надо Plunder или Eagle's Rescue — обе работа",
+   "decks": 9,
+   "lift": 7.31,
+   "pair": "WU (Azorius)",
+   "p": 0.000778
+  },
+  {
+   "cards": [
+    "Beorn's Hospitality",
+    "Wood Elves",
+    "Beorn, Reluctant Host"
+   ],
+   "why": "Мультипликатор лендфолла. Hospitality даёт счётчик за каждый выход земли; Wood Elves кладёт Forest НА ПОЛЕ (второй триггер в ход), а Till and Tend (адвенчер Бео",
+   "decks": 9,
+   "lift": 10.26,
+   "pair": "RG (Gruul)",
+   "p": 0.000791
+  },
+  {
+   "cards": [
+    "Eagle's Rescue",
+    "Bilbo, Luckwearer"
+   ],
+   "why": "Возврат Eagle's Rescue из кладбища требует цель с силой 1 или меньше — Бильбо Luckwearer (1/1) и Lakeshore Apothecary (1/2) ровно такие. Бильбо становится 3/3 л",
+   "decks": 11,
+   "lift": 2.52,
+   "pair": "UB (Dimir)",
+   "p": 0.000873
+  },
+  {
+   "cards": [
+    "Duskwatch Hunter",
+    "Nasty Little Rabbit",
+    "Wilderland Scrounger"
+   ],
+   "why": "Тот же трюк дешевле: ETB Duskwatch Hunter говорит «target creature» — цель может быть он сам, 3/1 → 4/2. Трёхмановый общий включатель Ferocious, который вдобаво",
+   "decks": 7,
+   "lift": 7.36,
+   "pair": "RG (Gruul)",
+   "p": 0.0016
+  },
+  {
+   "cards": [
+    "Dori, Bearer of Friends",
+    "Smaug the Magnificent"
+   ],
+   "why": "Смауг стреляет на количество Сокровищ и сам делает по одному каждый апкип. Сокровище Дори — это +1 к урону с каждой атаки, а не просто фикс маны.",
+   "decks": 8,
+   "lift": 2.66,
+   "pair": "UR",
+   "p": 0.00272
+  },
+  {
+   "cards": [
+    "The Misty Mountains Cold",
+    "Dori, Bearer of Friends"
+   ],
+   "why": "Сага проверяет «четыре или более Сокровищ» после КАЖДОЙ главы. Сокровище от Dori — четвёртое уже после главы III, то есть 6/6 летающий Дракон приходит на ход ра",
+   "decks": 8,
+   "lift": 2.66,
+   "pair": "MONO (одноцветные листы: b/g/r/u/w)",
+   "p": 0.00272
+  },
+  {
+   "cards": [
+    "Bilbo, Thief in the Night",
+    "Plunder the Trollshaws"
+   ],
+   "why": "Bilbo даёт кастовать Plunder прямо из кладбища по триггеру атаки и со скидкой {1}, то есть за {U}. А Plunder, скастованный из кладбища, добирает две карты вмест",
+   "decks": 8,
+   "lift": 2.37,
+   "pair": "WU (Azorius)",
+   "p": 0.00533
+  },
+  {
+   "cards": [
+    "Attercop",
+    "Quarrel",
+    "Troll Negotiations"
+   ],
+   "why": "Deathtouch работает на ЛЮБОМ уроне, не только боевом. Attercop 2/1 с deathtouch через Quarrel за {1}{G} убивает что угодно, вообще не получая ответа (Quarrel — ",
+   "decks": 10,
+   "lift": 4.98,
+   "pair": "WG (Selesnya)",
+   "p": 0.0257
+  },
+  {
+   "cards": [
+    "Bejeweled Warg",
+    "Wargling"
+   ],
+   "why": "Warg сам — Wolf, поэтому его же триггер кладёт счётчик на него самого (3/2 → 4/3) или на Wargling. Сила 4 включает ferocious у Wargling: вся команда получает тр",
+   "decks": 7,
+   "lift": 2.12,
+   "pair": "UG (Simic) — HOB",
+   "p": 0.0318
+  }
+ ],
+ "_hub_note": "Опорные карты (хабы) — узлы графа связок. deg = в скольких связках участвует, wdeg = сумма колод по ним, share = в % трофейных колод, ratio = ХАБ-ИНДЕКС: во сколько раз связей больше, чем ожидается от одной лишь частоты карты. Высокий ratio при низком share = карта редкая, но почти всегда работает в связке (Eagle's Rescue: 7% колод, индекс 8.6). Низкий ratio при высоком share = карта просто популярная, а не узловая (Goblin Plate Mail: 34% колод, индекс 1.8). Практический смысл: взяв хаб, открываешь несколько будущих связок — это ценность, которой нет ни в GIH, ни в частоте; спутник же берётся только после хаба.",
+ "hubs": [
+  {
+   "card": "Lakeshore Apothecary",
+   "deg": 7,
+   "wdeg": 215,
+   "freq": 68,
+   "share": 23,
+   "ratio": 6.2,
+   "links": [
+    {
+     "with": [
+      "Bilbo Baggins, Burglar"
+     ],
+     "decks": 57,
+     "lift": 2.87,
+     "why": "ETB Бильбо добирает карту — на своём ходу это ровно вторая карта за ход (первая — из дро-степа), Apothecary получает ПОСТОЯННЫЙ +1/+1 счётчик. Шесть копий Бильб"
+    },
+    {
+     "with": [
+      "Plunder the Trollshaws"
+     ],
+     "decks": 55,
+     "lift": 2.87,
+     "why": "Инстант за {1}{U} — сам выбираешь ход, в который добираешь вторую карту, и играет дважды: flashback из кладбища добирает СРАЗУ ДВЕ, то есть гарантированно перес"
+    },
+    {
+     "with": [
+      "Bilbo, Luckwearer"
+     ],
+     "decks": 41,
+     "lift": 2.9,
+     "why": "Бильбо непроходим для блока, значит его боевой урон и лут-триггер проходят КАЖДЫЙ ход. Лут = вторая карта за ход → Апотекари каждый ход получает +1/+1 счётчик и"
+    },
+    {
+     "with": [
+      "Great Gilded Boat"
+     ],
+     "decks": 25,
+     "lift": 2.96,
+     "why": "Триггер Лодки — «whenever YOU attack», а не «whenever this creature attacks»: он срабатывает от любой вашей атаки, даже если Лодку не экипировали (crew). Значит"
+    },
+    {
+     "with": [
+      "Confusticate and Bebother"
+     ],
+     "decks": 21,
+     "lift": 2.71,
+     "why": "Режим «draw two cards» бьёт по триггеру второй карты в чужой ход (инстант) — можно вырастить Апотекари и держать контрзаклинание на одной и той же карте."
+    },
+    {
+     "with": [
+      "Great Gilded Boat",
+      "Master's Councillors"
+     ],
+     "decks": 10,
+     "lift": 9.29,
+     "why": "Лодка триггерит recruit на КАЖДУЮ атаку и для этого её не надо экипировать — а recruit это добор, то есть вторая карта хода. Аптекарь и Советники (оба с вигилан"
+    },
+    {
+     "with": [
+      "Óin the Brave",
+      "Master's Councillors"
+     ],
+     "decks": 6,
+     "lift": 3.62,
+     "why": "Óin — единственный ПОВТОРЯЕМЫЙ outlet добора в паре: каждый ход за {1} и тап включает «вторую карту» у Аптекаря (счётчик) и Советников (милл 3). Двухмановое тел"
+    }
+   ]
+  },
+  {
+   "card": "Plunder the Trollshaws",
+   "deg": 5,
+   "wdeg": 116,
+   "freq": 84,
+   "share": 28,
+   "ratio": 3.6,
+   "links": [
+    {
+     "with": [
+      "Lakeshore Apothecary"
+     ],
+     "decks": 55,
+     "lift": 2.87,
+     "why": "Инстант за {1}{U} — сам выбираешь ход, в который добираешь вторую карту, и играет дважды: flashback из кладбища добирает СРАЗУ ДВЕ, то есть гарантированно перес"
+    },
+    {
+     "with": [
+      "Master's Councillors"
+     ],
+     "decks": 29,
+     "lift": 2.71,
+     "why": "Plunder триггерит «второй добор» дважды за игру — с руки и с флэшбэка (и с флэшбэка добирает 2, то есть вторую И третью карту). Каждый триггер милит 3 в свой GY"
+    },
+    {
+     "with": [
+      "Great Gilded Boat",
+      "Bilbo, Luckwearer"
+     ],
+     "decks": 15,
+     "lift": 6.91,
+     "why": "Сброс от recruit/лута — не издержка, а способ ЗАРЯДИТЬ Plunder: скинутый в кладбище Plunder возвращается через flashback и берёт ДВЕ карты вместо одной. То есть"
+    },
+    {
+     "with": [
+      "Bilbo, Luckwearer",
+      "Eagle's Rescue"
+     ],
+     "decks": 9,
+     "lift": 7.31,
+     "why": "Ядро всех четырёх листов. Триггер Bilbo — это второй добор за ход (первый был в шаге взятия) плюс сброс; сбрасывать надо Plunder или Eagle's Rescue — обе работа"
+    },
+    {
+     "with": [
+      "Bilbo, Thief in the Night"
+     ],
+     "decks": 8,
+     "lift": 2.37,
+     "why": "Bilbo даёт кастовать Plunder прямо из кладбища по триггеру атаки и со скидкой {1}, то есть за {U}. А Plunder, скастованный из кладбища, добирает две карты вмест"
+    }
+   ]
+  },
+  {
+   "card": "Master's Councillors",
+   "deg": 5,
+   "wdeg": 85,
+   "freq": 38,
+   "share": 13,
+   "ratio": 8.0,
+   "links": [
+    {
+     "with": [
+      "Plunder the Trollshaws"
+     ],
+     "decks": 29,
+     "lift": 2.71,
+     "why": "Plunder триггерит «второй добор» дважды за игру — с руки и с флэшбэка (и с флэшбэка добирает 2, то есть вторую И третью карту). Каждый триггер милит 3 в свой GY"
+    },
+    {
+     "with": [
+      "Long Lake Nuisance"
+     ],
+     "decks": 28,
+     "lift": 3.18,
+     "why": "Тот же движок, но Councillors сам себя разгоняет: второй добор → милл 3, цель можно взять СЕБЯ, и свой же GY переваливает за 7 карт, включая +2/+0. При двух зап"
+    },
+    {
+     "with": [
+      "Great Gilded Boat"
+     ],
+     "decks": 12,
+     "lift": 2.54,
+     "why": "Лодка рекрутит на КАЖДОЙ атаке — то есть каждый ход выдаёт второй добор (включая Councillors) плюс токен. Экипаж 2 оплачивается двумя 1/1-токенами, которые она "
+    },
+    {
+     "with": [
+      "Great Gilded Boat",
+      "Lakeshore Apothecary"
+     ],
+     "decks": 10,
+     "lift": 9.29,
+     "why": "Лодка триггерит recruit на КАЖДУЮ атаку и для этого её не надо экипировать — а recruit это добор, то есть вторая карта хода. Аптекарь и Советники (оба с вигилан"
+    },
+    {
+     "with": [
+      "Óin the Brave",
+      "Lakeshore Apothecary"
+     ],
+     "decks": 6,
+     "lift": 3.62,
+     "why": "Óin — единственный ПОВТОРЯЕМЫЙ outlet добора в паре: каждый ход за {1} и тап включает «вторую карту» у Аптекаря (счётчик) и Советников (милл 3). Двухмановое тел"
+    }
+   ]
+  },
+  {
+   "card": "Attercop",
+   "deg": 4,
+   "wdeg": 93,
+   "freq": 71,
+   "share": 24,
+   "ratio": 3.4,
+   "links": [
+    {
+     "with": [
+      "Quarrel"
+     ],
+     "decks": 52,
+     "lift": 2.69,
+     "why": "Quarrel наносит урон СИЛОЙ твоего существа. С дэстачем сила не важна: Attercop за 2 маны убивает любую тварь, и в отличие от файта не получает урон в ответ. Име"
+    },
+    {
+     "with": [
+      "Thranduil's Company"
+     ],
+     "decks": 20,
+     "lift": 2.54,
+     "why": "Company разрешает вторую землю за ход — значит ландфолл срабатывает ДВАЖДЫ за ход: Attercop получает +2/+2 до конца хода (и это уже 4/3 deathtouch под Quarrel),"
+    },
+    {
+     "with": [
+      "Beorn, Reluctant Host",
+      "Boughside Wanderers"
+     ],
+     "decks": 11,
+     "lift": 8.82,
+     "why": "Приключение Till and Tend за {1}{G} даёт лишнюю игру земли — это ДВА триггера лэндфолла за ход: Attercop бьёт как 4/3, Boughside как 8/8, а Beorn потом кастуетс"
+    },
+    {
+     "with": [
+      "Quarrel",
+      "Troll Negotiations"
+     ],
+     "decks": 10,
+     "lift": 4.98,
+     "why": "Deathtouch работает на ЛЮБОМ уроне, не только боевом. Attercop 2/1 с deathtouch через Quarrel за {1}{G} убивает что угодно, вообще не получая ответа (Quarrel — "
+    }
+   ]
+  },
+  {
+   "card": "Bilbo, Luckwearer",
+   "deg": 4,
+   "wdeg": 76,
+   "freq": 62,
+   "share": 21,
+   "ratio": 3.9,
+   "links": [
+    {
+     "with": [
+      "Lakeshore Apothecary"
+     ],
+     "decks": 41,
+     "lift": 2.9,
+     "why": "Бильбо непроходим для блока, значит его боевой урон и лут-триггер проходят КАЖДЫЙ ход. Лут = вторая карта за ход → Апотекари каждый ход получает +1/+1 счётчик и"
+    },
+    {
+     "with": [
+      "Plunder the Trollshaws",
+      "Great Gilded Boat"
+     ],
+     "decks": 15,
+     "lift": 6.91,
+     "why": "Сброс от recruit/лута — не издержка, а способ ЗАРЯДИТЬ Plunder: скинутый в кладбище Plunder возвращается через flashback и берёт ДВЕ карты вместо одной. То есть"
+    },
+    {
+     "with": [
+      "Eagle's Rescue"
+     ],
+     "decks": 11,
+     "lift": 2.52,
+     "why": "Возврат Eagle's Rescue из кладбища требует цель с силой 1 или меньше — Бильбо Luckwearer (1/1) и Lakeshore Apothecary (1/2) ровно такие. Бильбо становится 3/3 л"
+    },
+    {
+     "with": [
+      "Plunder the Trollshaws",
+      "Eagle's Rescue"
+     ],
+     "decks": 9,
+     "lift": 7.31,
+     "why": "Ядро всех четырёх листов. Триггер Bilbo — это второй добор за ход (первый был в шаге взятия) плюс сброс; сбрасывать надо Plunder или Eagle's Rescue — обе работа"
+    }
+   ]
+  },
+  {
+   "card": "Great Gilded Boat",
+   "deg": 4,
+   "wdeg": 62,
+   "freq": 37,
+   "share": 12,
+   "ratio": 6.5,
+   "links": [
+    {
+     "with": [
+      "Lakeshore Apothecary"
+     ],
+     "decks": 25,
+     "lift": 2.96,
+     "why": "Триггер Лодки — «whenever YOU attack», а не «whenever this creature attacks»: он срабатывает от любой вашей атаки, даже если Лодку не экипировали (crew). Значит"
+    },
+    {
+     "with": [
+      "Plunder the Trollshaws",
+      "Bilbo, Luckwearer"
+     ],
+     "decks": 15,
+     "lift": 6.91,
+     "why": "Сброс от recruit/лута — не издержка, а способ ЗАРЯДИТЬ Plunder: скинутый в кладбище Plunder возвращается через flashback и берёт ДВЕ карты вместо одной. То есть"
+    },
+    {
+     "with": [
+      "Master's Councillors"
+     ],
+     "decks": 12,
+     "lift": 2.54,
+     "why": "Лодка рекрутит на КАЖДОЙ атаке — то есть каждый ход выдаёт второй добор (включая Councillors) плюс токен. Экипаж 2 оплачивается двумя 1/1-токенами, которые она "
+    },
+    {
+     "with": [
+      "Lakeshore Apothecary",
+      "Master's Councillors"
+     ],
+     "decks": 10,
+     "lift": 9.29,
+     "why": "Лодка триггерит recruit на КАЖДУЮ атаку и для этого её не надо экипировать — а recruit это добор, то есть вторая карта хода. Аптекарь и Советники (оба с вигилан"
+    }
+   ]
+  },
+  {
+   "card": "Quarrel",
+   "deg": 3,
+   "wdeg": 99,
+   "freq": 81,
+   "share": 27,
+   "ratio": 2.2,
+   "links": [
+    {
+     "with": [
+      "Attercop"
+     ],
+     "decks": 52,
+     "lift": 2.69,
+     "why": "Quarrel наносит урон СИЛОЙ твоего существа. С дэстачем сила не важна: Attercop за 2 маны убивает любую тварь, и в отличие от файта не получает урон в ответ. Име"
+    },
+    {
+     "with": [
+      "Mirkwood Pathmaker"
+     ],
+     "decks": 37,
+     "lift": 2.23,
+     "why": "Pathmaker — не тело, а батарея для Quarrel: его сила равна числу земель, то есть на 6–8 ходу это выстрел на 6–8 урона за {1}{G}. Лишний ленд-дроп от Thranduil's"
+    },
+    {
+     "with": [
+      "Attercop",
+      "Troll Negotiations"
+     ],
+     "decks": 10,
+     "lift": 4.98,
+     "why": "Deathtouch работает на ЛЮБОМ уроне, не только боевом. Attercop 2/1 с deathtouch через Quarrel за {1}{G} убивает что угодно, вообще не получая ответа (Quarrel — "
+    }
+   ]
+  },
+  {
+   "card": "Patient Instructor",
+   "deg": 3,
+   "wdeg": 66,
+   "freq": 81,
+   "share": 27,
+   "ratio": 2.2,
+   "links": [
+    {
+     "with": [
+      "The Mountain-king's Return"
+     ],
+     "decks": 30,
+     "lift": 1.97,
+     "why": "Recruit заставляет сбросить карту; глава II Саги возвращает существо MV≤3 с кладбища на поле. То есть сброс на главе I — не потеря, а заряд для главы II. Patien"
+    },
+    {
+     "with": [
+      "Bard the Bowman"
+     ],
+     "decks": 21,
+     "lift": 2.41,
+     "why": "Recruit — это добор карты. На своём ходу он идёт вторым после шага взятия, поэтому любой recruit включает Bard: счётчик +1/+1 и лайфлинк. Patient Instructor за "
+    },
+    {
+     "with": [
+      "Eagle's Rescue"
+     ],
+     "decks": 15,
+     "lift": 2.63,
+     "why": "Двусторонняя связка. Recruit сбрасывает — Eagle's Rescue идеальный сброс (нонленд → токен создаётся, аура не теряется, она возвращается из GY). А 1/1 Human Sold"
+    }
+   ]
+  },
+  {
+   "card": "Goblin Plate Mail",
+   "deg": 3,
+   "wdeg": 56,
+   "freq": 101,
+   "share": 34,
+   "ratio": 1.8,
+   "links": [
+    {
+     "with": [
+      "Misty Mountains Raider"
+     ],
+     "decks": 28,
+     "lift": 1.72,
+     "why": "Plate Mail сам цепляется к созданной Армии и даёт ей menace. Raider добавляет 2 счётчика КАЖДУЮ атаку на ту же Армию — получается растущий на +2/+2 за ход непро"
+    },
+    {
+     "with": [
+      "Dwarven Mauler"
+     ],
+     "decks": 15,
+     "lift": 2.01,
+     "why": "Equip {4} — заградительная цена на коммоне. Под Mauler'ом она {2}, и 2/1 становится 3/1 с menace. Плюс сам Plate Mail бесплатно создаёт Army-токен при выходе."
+    },
+    {
+     "with": [
+      "Rage into the Valley",
+      "Great Ugly-Looking Goblin"
+     ],
+     "decks": 13,
+     "lift": 3.76,
+     "why": "Amass всегда кладёт счётчики на ОДНУ и ту же Армию. Plate Mail надевается на неё бесплатно при выходе — и больше никогда не снимается, поэтому Equip {4} платить"
+    }
+   ]
+  },
+  {
+   "card": "Thranduil's Company",
+   "deg": 3,
+   "wdeg": 51,
+   "freq": 33,
+   "share": 11,
+   "ratio": 5.5,
+   "links": [
+    {
+     "with": [
+      "Attercop"
+     ],
+     "decks": 20,
+     "lift": 2.54,
+     "why": "Company разрешает вторую землю за ход — значит ландфолл срабатывает ДВАЖДЫ за ход: Attercop получает +2/+2 до конца хода (и это уже 4/3 deathtouch под Quarrel),"
+    },
+    {
+     "with": [
+      "Silvan Reveler"
+     ],
+     "decks": 16,
+     "lift": 4.38,
+     "why": "ETB Reveler'а кладёт сброшенную землю ИЗ КЛАДБИЩА НА СТОЛ — это отдельный ландфолл поверх обычного ленд-дропа, то есть ещё два счётчика от Company. А ландфолл-с"
+    },
+    {
+     "with": [
+      "Thranduil, Sindarin Liege"
+     ],
+     "decks": 15,
+     "lift": 2.71,
+     "why": "Замкнутый круг: Liege за каждую землю делает 1/1 Эльфа-токена, токен постоянно выполняет условие «another Elf» у Company → лишний ленд-дроп → ещё один токен и е"
+    }
+   ]
+  },
+  {
+   "card": "Eagle's Rescue",
+   "deg": 3,
+   "wdeg": 35,
+   "freq": 21,
+   "share": 7,
+   "ratio": 8.6,
+   "links": [
+    {
+     "with": [
+      "Patient Instructor"
+     ],
+     "decks": 15,
+     "lift": 2.63,
+     "why": "Двусторонняя связка. Recruit сбрасывает — Eagle's Rescue идеальный сброс (нонленд → токен создаётся, аура не теряется, она возвращается из GY). А 1/1 Human Sold"
+    },
+    {
+     "with": [
+      "Bilbo, Luckwearer"
+     ],
+     "decks": 11,
+     "lift": 2.52,
+     "why": "Возврат Eagle's Rescue из кладбища требует цель с силой 1 или меньше — Бильбо Luckwearer (1/1) и Lakeshore Apothecary (1/2) ровно такие. Бильбо становится 3/3 л"
+    },
+    {
+     "with": [
+      "Bilbo, Luckwearer",
+      "Plunder the Trollshaws"
+     ],
+     "decks": 9,
+     "lift": 7.31,
+     "why": "Ядро всех четырёх листов. Триггер Bilbo — это второй добор за ход (первый был в шаге взятия) плюс сброс; сбрасывать надо Plunder или Eagle's Rescue — обе работа"
+    }
+   ]
+  },
+  {
+   "card": "Wargling",
+   "deg": 3,
+   "wdeg": 34,
+   "freq": 41,
+   "share": 14,
+   "ratio": 4.4,
+   "links": [
+    {
+     "with": [
+      "Duskwatch Hunter"
+     ],
+     "decks": 21,
+     "lift": 2.38,
+     "why": "Duskwatch кладёт счётчик и может выбрать САМ СЕБЯ: выходит 4/2, то есть постоянный включатель ферочеса за {2}{B/G} без экипировки. Плюс «не может быть заблокиро"
+    },
+    {
+     "with": [
+      "Bejeweled Warg"
+     ],
+     "decks": 7,
+     "lift": 2.12,
+     "why": "Warg сам — Wolf, поэтому его же триггер кладёт счётчик на него самого (3/2 → 4/3) или на Wargling. Сила 4 включает ferocious у Wargling: вся команда получает тр"
+    },
+    {
+     "with": [
+      "Crude Bent Blade",
+      "Nighthowl Pursuer"
+     ],
+     "decks": 6,
+     "lift": 4.11,
+     "why": "Ферочес требует существо с силой 4+. Клинок даёт +2/+1 — то есть превращает ЛЮБОЕ тело 2/2 (Wargling, Front Porch Sentries, Ravening Warg, Desolation Prowler) в"
+    }
+   ]
+  },
+  {
+   "card": "Dwarven Shortsword",
+   "deg": 3,
+   "wdeg": 33,
+   "freq": 44,
+   "share": 15,
+   "ratio": 4.1,
+   "links": [
+    {
+     "with": [
+      "Dwarven Mattock"
+     ],
+     "decks": 16,
+     "lift": 4.52,
+     "why": "Mattock крепится БЕСПЛАТНО, но только к Гному. Shortsword сам создаёт Гнома 2/2 — значит порядок «сначала Shortsword, потом Mattock» экономит Equip {3} и даёт т"
+    },
+    {
+     "with": [
+      "Iron Hills Blacksmith",
+      "Dwarven Provisioner"
+     ],
+     "decks": 10,
+     "lift": 10.78,
+     "why": "Double strike удваивает ЛЮБОЙ пампинг: Provisioner за {3}{W} превращает 1/1 Blacksmith в 2/2 double strike = 4 урона, Shortsword (+1/+2) — в 2/3 double strike. "
+    },
+    {
+     "with": [
+      "An Unexpected Party",
+      "Dwarven Provisioner"
+     ],
+     "decks": 7,
+     "lift": 9.06,
+     "why": "Обе половины одной карты собираются друг с другом: Adventure делает X токенов-Гномов 2/2, а сама чара потом называет тип «Dwarf» и делает их 4/4. В листе ещё 7 "
+    }
+   ]
   }
  ]
 }

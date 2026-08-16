@@ -21,6 +21,13 @@ Live drafting assistant for **MTG Arena Limited**. The user opens packs in Arena
 
 All commands use absolute paths so they work from any working directory. Set `SKILL=~/.claude/skills/mtg-draft-helper`.
 
+> ### 🔴 НИКОГДА НЕ ПУБЛИКОВАТЬ ДАННЫЕ НА claude.ai (указание пользователя, 16.08.2026)
+> Страницы этого скилла — атлас архетипов, индекс связок, replay-отчёты — **только локальные
+> файлы**. Не вызывать Artifact, не предлагать «показать через артефакт». Смотреть их через
+> локальный сервер: `bun ~/.claude/skills/mtg-draft-helper/serve.ts` (слушает только 127.0.0.1),
+> дальше http://localhost:8787/. Собирают страницы `build_atlas.py`, `build_combos_page.py`,
+> `replay_moments.py` — все пишут html рядом со скиллом.
+
 ## Prerequisite (one-time, user does this)
 Arena → **Settings → Account → Detailed Logs (Plugin Support)** = ON, then **restart Arena**. Without it the log has no draft/match data. Log lives at `~/Library/Logs/Wizards Of The Coast/MTGA/Player.log`.
 

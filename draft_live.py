@@ -976,6 +976,48 @@ def _norm_card(n):
     return (n or "").split(" //")[0].strip().lower()
 
 
+def hub_banner(ids, by_id, ratings, picks, max_lines=2):
+    """⚑ ОПОРА: карта в паке — узел графа связок, она откроет несколько будущих.
+
+    Зачем отдельно от ⚑СВЯЗКА (внесено 17.08.2026, наблюдение пользователя):
+    ⚑СВЯЗКА работает, когда половина связки УЖЕ в пуле — то есть на средних и поздних пиках.
+    А ценность опорной карты видна как раз на РАННЕМ пике, когда в пуле ещё ничего нет:
+    Lakeshore Apothecary входит в 7 связок из 47, и взяв её, ты открываешь семь будущих
+    поводов, а не один. Ни GIH, ни частота этого не показывают — обе меряют карту в одиночку.
+
+    Хаб-индекс отделяет узловую карту от просто популярной: Eagle's Rescue стоит всего в 7%
+    трофейных листов, но её индекс 8.6 — она почти всегда часть связки; Goblin Plate Mail
+    в 34% листов при индексе 1.8 — частая, но не узловая.
+    """
+    data = load_combos()
+    hubs = {_norm_card(h["card"]): h for h in (data.get("hubs") or [])}
+    if not hubs or not ids:
+        return []
+    pool = {_norm_card((by_id.get(c) or {}).get("name")) for c in picks}
+    pool |= {_norm_card((ratings.get(c) or {}).get("name")) for c in picks}
+    out = []
+    cand = []
+    for cid in ids:
+        nm = _norm_card((by_id.get(cid) or {}).get("name") or (ratings.get(cid) or {}).get("name"))
+        h = hubs.get(nm)
+        if not h or nm in pool:          # уже взяли — советовать нечего
+            continue
+        # сколько её связок ещё «живые»: партнёр не в пуле, значит связка впереди
+        open_links = [l for l in h.get("links", []) if not all(_norm_card(x) in pool for x in l["with"])]
+        cand.append((h["deg"], h, cid, open_links))
+    if not cand:
+        return []
+    cand.sort(key=lambda x: -x[0])
+    for deg, h, cid, links in cand[:max_lines]:
+        nm = _name_of(cid, by_id, ratings)
+        with_pool = [l for l in h.get("links", []) if any(_norm_card(x) in pool for x in l["with"])]
+        tail = (f" · {len(with_pool)} из них уже с картами пула" if with_pool else "")
+        top = ", ".join(" + ".join(l["with"]) for l in h.get("links", [])[:2])
+        out.append(f"⚑ ОПОРА: {nm} — узел {deg} связок (индекс ×{h['ratio']}){tail}. "
+                   f"Главные: {top}")
+    return out
+
+
 def combo_banner(ids, by_id, ratings, picks, max_lines=3):
     """⚑ СВЯЗКА: карта В ЭТОМ ПАКЕ достраивает то, что уже лежит в пуле.
 
@@ -1110,6 +1152,7 @@ def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
     out += combo_banner(ids, by_id, ratings, picks)
+    out += hub_banner(ids, by_id, ratings, picks)
     out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
