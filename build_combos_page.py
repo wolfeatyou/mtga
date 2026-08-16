@@ -64,10 +64,15 @@ def ensure_images(names, code):
 def hub_svg(hub, imgs, esc):
     """Звезда хаба: центр — опорная карта, лучи — её связки.
 
-    Почему звезда, а не общий граф: 47 связок в одном полотне превращаются в спагетти,
+    Почему звезда, а не общий граф: 65 связок в одном полотне превращаются в спагетти,
     где не видно ни одного факта. Звезда отвечает на конкретный вопрос — «я взял эту карту,
     что она мне открывает» — и толщина луча сразу показывает, какая из связок ходовая.
+
+    Луч интерактивен: наведение показывает принт карты-спутника И механизм связки (правка
+    17.08.2026). Без механизма луч сообщал только «эти две карты часто вместе», то есть
+    ровно ту статистику, объяснять которую и был весь смысл разбора.
     """
+    import math
     links = hub["links"][:7]
     W, H, CX, CY, R = 520, 300, 150, 150, 118
     top = max(l["decks"] for l in links) or 1
@@ -75,17 +80,24 @@ def hub_svg(hub, imgs, esc):
              f'aria-label="связки карты {esc(hub["card"])}">']
     n = len(links)
     for i, l in enumerate(links):
-        # полукруг вправо: −70°..+70°, чтобы подписи не наезжали друг на друга
-        import math
         a = math.radians(-70 + (140 * i / max(n - 1, 1)))
         x, y = CX + R * math.cos(a), CY + R * math.sin(a)
         w = 1 + 5 * l["decks"] / top
+        label = " + ".join(l["with"])
+        # data-c — карта для превью (первый партнёр), data-w — механизм связки
+        g = (f'<g class="ray" tabindex="0" role="button" '
+             f'data-c="{esc(l["with"][0])}" data-w="{esc(l.get("why", ""))}" '
+             f'data-pair="{esc(hub["card"] + " + " + label)}" '
+             f'data-n="{l["decks"]}" data-l="{l.get("lift", "")}">')
+        parts.append(g)
+        # широкая прозрачная линия — чтобы попадать курсором, а не целиться в 2px
+        parts.append(f'<line x1="{CX}" y1="{CY}" x2="{x:.1f}" y2="{y:.1f}" class="hit"/>')
         parts.append(f'<line x1="{CX}" y1="{CY}" x2="{x:.1f}" y2="{y:.1f}" '
                      f'stroke-width="{w:.1f}" class="edge"/>')
         parts.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" class="node"/>')
-        label = " + ".join(l["with"])
         parts.append(f'<text x="{x + 10:.1f}" y="{y + 4:.1f}" class="lbl">'
-                     f'{esc(label[:34])}<tspan class="num"> {l["decks"]}</tspan></text>')
+                     f'{esc(label[:32])}<tspan class="num"> {l["decks"]}</tspan></text>')
+        parts.append('</g>')
     parts.append(f'<circle cx="{CX}" cy="{CY}" r="9" class="hub"/>')
     parts.append('</svg>')
     return "".join(parts)
@@ -139,7 +151,7 @@ def main():
                     'ни в частоте. <b>Хаб-индекс</b> отделяет узловую карту от просто популярной: '
                     'у <i>Eagle\'s Rescue</i> всего 7% листов, но индекс 8.6 — она почти всегда '
                     'в связке; у <i>Goblin Plate Mail</i> 34% листов и индекс 1.8 — она частая, '
-                    'но не узловая. Толщина луча — сколько колод содержат эту связку.</p>'
+                    'но не узловая. Толщина луча — сколько колод содержат эту связку; наведите на луч, чтобы увидеть принт карты и <b>механизм связки</b>.</p>'
                     '<div class="hubgrid">' + "".join(cards_html) + '</div>'
                     '<h2 class="sec">Все связки по частоте</h2>')
     top = max(x["decks"] for x in combos)
@@ -219,7 +231,12 @@ h2.sec+.lede{{margin:0 0 18px}}
 .idx b{{display:block;font-family:var(--sans);font-size:19px;color:var(--brass);
   letter-spacing:normal;font-variant-numeric:tabular-nums}}
 .star{{width:100%;height:auto;margin-top:2px;overflow:visible}}
-.star .edge{{stroke:var(--brass);opacity:.42;stroke-linecap:round}}
+.star .edge{{stroke:var(--brass);opacity:.42;stroke-linecap:round;pointer-events:none}}
+.star .hit{{stroke:transparent;stroke-width:16;cursor:help}}
+.star .ray{{outline:none}}
+.star .ray:hover .edge,.star .ray:focus-visible .edge{{opacity:1;stroke-width:5}}
+.star .ray:hover .lbl,.star .ray:focus-visible .lbl{{fill:var(--brass);font-weight:600}}
+.star .ray:hover .node,.star .ray:focus-visible .node{{opacity:1;r:5.5}}
 .star .node{{fill:var(--brass);opacity:.75}}
 .star .hub{{fill:var(--brass)}}
 .star .lbl{{font-family:var(--sans);font-size:11px;fill:var(--ink-2)}}
@@ -256,6 +273,14 @@ button.cn.noimg{{cursor:default;border-bottom-color:transparent}}
 #peek.on{{opacity:1;visibility:visible;transform:none}}
 #peek img{{display:block;width:300px;border-radius:14px;
   box-shadow:0 4px 10px rgba(0,0,0,.28),0 22px 48px -14px rgba(0,0,0,.55)}}
+#peek figcaption{{width:300px;margin-top:8px;background:var(--surface);border:1px solid var(--line);
+  border-radius:5px;padding:9px 11px;font-size:12.5px;line-height:1.45;color:var(--ink-2);
+  box-shadow:0 10px 28px -14px rgba(0,0,0,.5)}}
+#peek figcaption b{{display:block;font-family:var(--serif);font-size:13.5px;color:var(--ink);
+  margin-bottom:3px}}
+#peek figcaption .st{{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  margin-top:5px}}
+#peek.txt img{{border-bottom-left-radius:6px;border-bottom-right-radius:6px}}
 footer{{border-top:1px solid var(--line);background:var(--surface)}}
 footer .wrap{{padding:22px;color:var(--muted);font-size:12.5px}}
 :focus-visible{{outline:2px solid var(--brass);outline-offset:3px;border-radius:3px}}
@@ -304,25 +329,40 @@ document.querySelector("nav .wrap").addEventListener("click", e => {{
     c.classList.toggle("hidden", f !== "*" && c.dataset.pair !== f));
 }});
 const peek = document.createElement("figure");
-peek.id = "peek"; peek.innerHTML = '<img alt="">';
+peek.id = "peek";
+peek.innerHTML = '<img alt=""><figcaption hidden></figcaption>';
 document.body.appendChild(peek);
-const img = peek.querySelector("img");
+const img = peek.querySelector("img"), cap = peek.querySelector("figcaption");
 let cur = null;
-function show(btn){{
-  const n = btn.dataset.c, src = IMGS[n];
+
+/* Один узел превью на всю страницу: 68 data-URI в DOM разом — это десятки мегабайт
+   декодированных пикселей. Здесь в любой момент живёт ровно одна картинка. */
+function show(el){{
+  const n = el.dataset.c, src = IMGS[n];
   if(!src) return;
   if(cur !== n){{ img.src = src; img.alt = n; cur = n; }}
-  const r = btn.getBoundingClientRect(), W = 300, H = 419, G = 14;
+  const why = el.dataset.w, pair = el.dataset.pair;
+  if(why){{
+    cap.innerHTML = "<b>" + (pair || n) + "</b>" + why +
+      (el.dataset.n ? '<span class="st">' + el.dataset.n + " трофейных колод" +
+        (el.dataset.l ? " · ×" + el.dataset.l + " чаще случайного" : "") + "</span>" : "");
+    cap.hidden = false; peek.classList.add("txt");
+  }} else {{
+    cap.hidden = true; peek.classList.remove("txt");
+  }}
+  const r = el.getBoundingClientRect(), W = 300, G = 14;
+  const H = 419 + (why ? 96 : 0);
   let x = r.right + G; if(x + W > innerWidth - 8) x = Math.max(8, r.left - W - G);
   let y = Math.min(Math.max(8, r.top + r.height/2 - H/2), innerHeight - H - 8);
   peek.style.left = x + "px"; peek.style.top = y + "px";
   peek.classList.add("on");
 }}
 const hide = () => peek.classList.remove("on");
+const target = e => e.target.closest?.("button.cn, .ray");
 for(const ev of ["mouseover","focusin"])
-  document.addEventListener(ev, e => {{ const b = e.target.closest?.("button.cn"); if(b) show(b); else if(ev==="focusin") hide(); }});
+  document.addEventListener(ev, e => {{ const b = target(e); if(b) show(b); else if(ev==="focusin") hide(); }});
 for(const ev of ["mouseout","focusout"])
-  document.addEventListener(ev, e => {{ if(e.target.closest?.("button.cn")) hide(); }});
+  document.addEventListener(ev, e => {{ if(target(e)) hide(); }});
 addEventListener("scroll", hide, {{passive:true}});
 addEventListener("keydown", e => {{ if(e.key === "Escape") hide(); }});
 </script>'''

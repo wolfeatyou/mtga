@@ -1,17 +1,25 @@
 Deck
 
 Sideboard
-1 Boughside Wanderers
-1 Gollum the Abandoned
-1 Great Fierce Bee
-1 Lake-town Toymaker
-1 Mirkwood Nurturer
+1 Bifur, Melodic Rider
+1 Bilbo Baggins, Burglar
+1 Desolation Prowler
+1 Down, Down to Goblin-town
+2 Eagle's Rescue
+1 Esgaroth Garrison
+1 Gollum, Silent Slinker
+1 Great Gilded Boat
+1 Hobbit Hole
+1 Iron Hills Blacksmith
+2 Lake-town Toymaker
+1 Mirkwood Meditator
 1 Moment of Glory
 1 Nori, Teller of Tales
-1 Patient Instructor
-1 Quarrel
+1 Old Thrush
+2 Ori, Keeper of Songs
+2 Patient Instructor
+1 Plunder the Trollshaws
 1 Ravening Warg
-1 Reverent Howl
-1 Smaug, the Great Calamity
-1 Tidings of War
-1 Vow to Erebor
+1 Stone by Sunlight
+1 Stony-Voiced Goblins
+1 The Mountain-king's Return
