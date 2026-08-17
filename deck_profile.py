@@ -89,7 +89,14 @@ def oracle(c):
     return c.get("oracle_text") or ""
 
 
-EVASION_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b|\breach\b", re.I)
+# Reach ВЫНЕСЕН из эвейжна 17.08.2026. Он не пробивает стойку, а держит её — блокирует
+# летунов. Слитая ось врала в обе стороны: колода с 3 летунами и 4 reach считалась
+# «в норме по ломателям», и именно так был проигран сид 42 слепого A/B — судья написал
+# «упирается в стену на земле без плана пробить», а аудит дал ей ЛУЧШЕЕ отклонение
+# прогона (4.0 против 13.0 у выигравшей). По 298 трофейным листам: пробивающих медиана 4,
+# reach медиана 1 — то есть слияние завышало порог примерно на одну карту.
+EVASION_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
+REACH_RE = re.compile(r"\breach\b", re.I)
 HARD_RE = re.compile(r"(destroy|exile) target (creature|permanent|nonland|attacking|blocking)", re.I)
 SOFT_RE = re.compile(r"gets -\d|gets \-|deals \d+ damage to target|tap target|doesn't untap|"
                      r"fights|return target .* to (its owner's|their owner's) hand", re.I)
@@ -102,6 +109,7 @@ def metrics(path, db, rat, prat=None):
     lands = nonlands = fixers = 0
     cre_curve, spell_curve, pips = Counter(), Counter(), Counter()
     cheap_bodies, evasion, hard, soft, topend, missing = [], [], [], [], [], []
+    reach = []
     gih_g, gih_p = [], []
     BASICS = {"plains", "island", "swamp", "mountain", "forest"}
     ANYCOLOR = re.compile(r"mana of any (one )?color|create a treasure", re.I)
@@ -140,6 +148,8 @@ def metrics(path, db, rat, prat=None):
             cheap_bodies += [name] * n
         if is_cre and EVASION_RE.search(oracle(c) + " " + tl):
             evasion += [name] * n
+        if is_cre and REACH_RE.search(oracle(c) + " " + tl):
+            reach += [name] * n
         ot = oracle(c)
         if HARD_RE.search(ot):
             hard += [name] * n
@@ -164,6 +174,7 @@ def metrics(path, db, rat, prat=None):
     return dict(
         name=os.path.basename(path), lands=lands, nonlands=nonlands, creatures=ncre,
         cheap=len(cheap_bodies), cheap_names=cheap_bodies, evasion=len(evasion),
+        reach=len(reach), reach_names=reach,
         evasion_names=evasion, hard=len(hard), hard_names=hard, soft=len(soft),
         soft_names=soft, fixers=fixers, colors="".join(real), splash="".join(splash),
         ncolors=len(real) + len(splash), gih=avg(gih_g), gih_pair=avg(gih_p),
@@ -205,9 +216,11 @@ def main():
     print(f"\n🔴 СУЩЕСТВ cmc≤2 : {len(cheap_bodies)}   (квота ⚑КРИВАЯ: ≥5)")
     for b in sorted(set(cheap_bodies)):
         print(f"     · {b}" + (f" ×{cheap_bodies.count(b)}" if cheap_bodies.count(b) > 1 else ""))
-    print(f"\nломателей стойки (эвейжн/reach) : {len(evasion)}")
+    print(f"\nПРОБИВАЮЩИХ стойку (flying/menace/unblockable/trample) : {len(evasion)}")
     for b in sorted(set(evasion)):
         print(f"     · {b}" + (f" ×{evasion.count(b)}" if evasion.count(b) > 1 else ""))
+    print(f"reach (ДЕРЖИТ стойку, не пробивает) : {M['reach']}   "
+          + (", ".join(sorted(set(M['reach_names']))) or "—"))
     print(f"\nбезусловное removal : {len(hard)}   " + (", ".join(sorted(set(hard))) or "—"))
     print(f"условная интеракция : {len(soft)}   " + (", ".join(sorted(set(soft))) or "—"))
     c5 = sum(v for k, v in list(cre_curve.items()) + list(spell_curve.items()) if k >= 5)
