@@ -108,6 +108,7 @@ def metrics(path, db, rat, prat=None):
     entries = parse_deck(path)
     lands = nonlands = fixers = 0
     cre_curve, spell_curve, pips = Counter(), Counter(), Counter()
+    pure_pips = Counter()
     cheap_bodies, evasion, hard, soft, topend, missing = [], [], [], [], [], []
     reach = []
     gih_g, gih_p = [], []
@@ -137,6 +138,8 @@ def metrics(path, db, rat, prat=None):
             parts = [ch for ch in sym.upper().split("/") if ch in "WUBRG"]
             for ch in parts:
                 pips[ch] += n / len(parts)
+            if len(parts) == 1:
+                pure_pips[parts[0]] += n
         if ANYCOLOR.search(oracle(c)):
             fixers += n
         nonlands += n
@@ -168,16 +171,25 @@ def metrics(path, db, rat, prat=None):
         return round(sum(xs) / len(xs), 2) if xs else None
 
     ncre = sum(cre_curve.values())
-    # цвета: считаем ПИПЫ нонлендов. Цвет «настоящий» если пипов ≥3, иначе сплеш.
-    real = sorted([c for c, v in pips.items() if v >= 3], key=lambda x: -pips[x])
-    splash = sorted([c for c, v in pips.items() if 0 < v < 3], key=lambda x: -pips[x])
+    # ЦВЕТА СЧИТАЮТСЯ ТОЛЬКО ПО ЧИСТЫМ ПИПАМ (17.08.2026). Гибрид {W/U} кастуется любой
+    # из половин, то есть НЕ требует второго цвета и не создаёт нужды в фиксинге. Раньше он
+    # шёл по половине пипа в каждый цвет и порождал фантомные «сплеши»: из 251 сплеша в 298
+    # трофейных листах 202 (80%) не имели НИ ОДНОГО чистого пипа своего цвета, а медиана
+    # источников под такой «сплеш» была 0 — то есть его нечем было кастовать, потому что его
+    # и не было. Доля колод со сплешем падает с 61% до 15%, и вывод переворачивается:
+    # победители в основном НЕ сплешат.
+    real = sorted([c for c, v in pure_pips.items() if v >= 3], key=lambda x: -pure_pips[x])
+    splash = sorted([c for c, v in pure_pips.items() if 0 < v < 3], key=lambda x: -pure_pips[x])
+    # Гибридные цвета, доступные колоде «бесплатно» — не цвет колоды, но знать полезно.
+    hybrid_only = sorted(c for c, v in pips.items()
+                         if v > 0 and pure_pips.get(c, 0) == 0)
     return dict(
         name=os.path.basename(path), lands=lands, nonlands=nonlands, creatures=ncre,
         cheap=len(cheap_bodies), cheap_names=cheap_bodies, evasion=len(evasion),
         reach=len(reach), reach_names=reach,
         evasion_names=evasion, hard=len(hard), hard_names=hard, soft=len(soft),
         soft_names=soft, fixers=fixers, colors="".join(real), splash="".join(splash),
-        ncolors=len(real) + len(splash), gih=avg(gih_g), gih_pair=avg(gih_p),
+        ncolors=len(real) + len(splash), hybrid_only="".join(hybrid_only), gih=avg(gih_g), gih_pair=avg(gih_p),
         cre_curve=cre_curve, spell_curve=spell_curve, missing=missing,
         c5=sum(v for k, v in list(cre_curve.items()) + list(spell_curve.items()) if k >= 5),
         c6=sum(v for k, v in list(cre_curve.items()) + list(spell_curve.items()) if k >= 6),
