@@ -1246,11 +1246,71 @@ def passed_color_banner(by_id, ratings, main, picks, draft_id, pnum=None, pick=N
     return out
 
 
+def _trap_key(n):
+    """Ключ как в <set>_traps.json: обратная сторона отрезана, пунктуация срезана.
+    Отдельно от _norm_card, который пунктуацию оставляет и с этим файлом не сходится
+    («bard, king of dale» против «bardkingofdale») — на этом баннер молчал при первой сборке."""
+    return re.sub(r"[^a-z0-9]", "", (n or "").split(" //")[0].strip().lower())
+
+
+_TRAPS = None
+
+
+def load_traps():
+    """Ловушки сета из <set>_traps.json (его пишет find_traps.py). {} если файла нет."""
+    global _TRAPS
+    if _TRAPS is None:
+        try:
+            _TRAPS = json.load(open(os.path.join(HERE, f"{setcode()}_traps.json"),
+                                    encoding="utf-8"))
+        except Exception:
+            _TRAPS = {}
+    return _TRAPS
+
+
+def trap_banner(ids, by_id, ratings, main, max_lines=2):
+    """Карта в паке, которую берут рано, а победители не играют.
+
+    Третий источник рядом с GIH и ALSA. GIH говорит, насколько карта выигрывает; ALSA —
+    насколько рано её берут; ни то ни другое не говорит, ДОШЛА ЛИ она до мейна выигравшей
+    колоды. Повод — замер 17.08.2026: `Bard, King of Dale` стоял в 40% наших WU-сборок и
+    в НУЛЕ из 298 трофейных при ALSA 2.7, то есть его берут третьим пиком, а играют никогда.
+
+    Два разных явления, и их нельзя путать (спутал, поймано пересчётом):
+      · ЛОВУШКА — карта не играется НИГДЕ, при поправке на редкость;
+      · НЕ В ЭТОЙ ПАРЕ — играется в сете, но не в текущей паре (гибрид {G/U} кастуется
+        чистой синей, а текст про Эльфов в WU мёртв).
+    """
+    t = load_traps()
+    if not t:
+        return []
+    in_pack = {_trap_key(_name_of(c, by_id, ratings)): c for c in ids}
+    out = []
+    for tr in t.get("traps", []):
+        if len(out) >= max_lines:
+            break
+        if tr["key"] in in_pack:
+            out.append(f"⚠ ЛОВУШКА: {tr['name']} — берут в среднем {tr['alsa']:.1f} пиком, "
+                       f"но стоит лишь в {tr['played']} из {tr['seen']} трофейных колод "
+                       f"({100*tr['rate']:.0f}% при медиане {100*t['meta']['rarity_median'].get(tr['rar'], 0):.0f}% "
+                       f"для своей редкости). Ранний пик тут не окупается.")
+    pair = "".join(x for x in "WUBRG" if x in (main or set()))
+    for bad in t.get("pair_bad", {}).get(pair, []):
+        if len(out) >= max_lines:
+            break
+        if bad["key"] in in_pack:
+            out.append(f"⚠ НЕ В ЭТОЙ ПАРЕ: {bad['name']} — в сете играется "
+                       f"{100*bad['set_rate']:.0f}%, в {pair} только {100*bad['here']:.0f}% "
+                       f"({bad['n']} листов). Кастуемость ≠ принадлежность к архетипу.")
+    return out
+
+
 def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
     out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
+    out += trap_banner(ids, by_id, ratings, main)
     out += combo_banner(ids, by_id, ratings, picks, main=main, pnum=pnum, pick=pick)
     out += hub_banner(ids, by_id, ratings, picks)
     out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)

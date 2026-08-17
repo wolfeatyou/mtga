@@ -1,0 +1,457 @@
+{
+ "traps": [
+  {
+   "name": "Orcrist, Goblin-cleaver",
+   "key": "orcristgoblincleaver",
+   "alsa": 1.8592593,
+   "rar": "rare",
+   "played": 2,
+   "seen": 298,
+   "rate": 0.007
+  },
+  {
+   "name": "Bard, King of Dale",
+   "key": "bardkingofdale",
+   "alsa": 2.7483296,
+   "rar": "rare",
+   "played": 0,
+   "seen": 47,
+   "rate": 0.0
+  },
+  {
+   "name": "Gleaming Splendor",
+   "key": "gleamingsplendor",
+   "alsa": 3.8783784,
+   "rar": "rare",
+   "played": 2,
+   "seen": 115,
+   "rate": 0.017
+  }
+ ],
+ "pair_bad": {
+  "BG": [
+   {
+    "name": "Reverent Howl",
+    "key": "reverenthowl",
+    "here": 0.13,
+    "set_rate": 0.2,
+    "n": 23
+   },
+   {
+    "name": "Beorn's Hospitality",
+    "key": "beornshospitality",
+    "here": 0.087,
+    "set_rate": 0.262,
+    "n": 23
+   },
+   {
+    "name": "Boughside Wanderers",
+    "key": "boughsidewanderers",
+    "here": 0.087,
+    "set_rate": 0.32,
+    "n": 23
+   }
+  ],
+  "BR": [
+   {
+    "name": "Gathering of Darkness",
+    "key": "gatheringofdarkness",
+    "here": 0.143,
+    "set_rate": 0.207,
+    "n": 28
+   },
+   {
+    "name": "Gollum the Abandoned",
+    "key": "gollumtheabandoned",
+    "here": 0.143,
+    "set_rate": 0.2,
+    "n": 28
+   }
+  ],
+  "UB": [
+   {
+    "name": "Dreaded Bat-Cloud",
+    "key": "dreadedbatcloud",
+    "here": 0.059,
+    "set_rate": 0.257,
+    "n": 17
+   },
+   {
+    "name": "Front Porch Sentries",
+    "key": "frontporchsentries",
+    "here": 0.118,
+    "set_rate": 0.257,
+    "n": 17
+   },
+   {
+    "name": "Gathering of Darkness",
+    "key": "gatheringofdarkness",
+    "here": 0.059,
+    "set_rate": 0.207,
+    "n": 17
+   },
+   {
+    "name": "Gollum the Abandoned",
+    "key": "gollumtheabandoned",
+    "here": 0.118,
+    "set_rate": 0.2,
+    "n": 17
+   },
+   {
+    "name": "Nighthowl Pursuer",
+    "key": "nighthowlpursuer",
+    "here": 0.118,
+    "set_rate": 0.221,
+    "n": 17
+   },
+   {
+    "name": "Reverent Howl",
+    "key": "reverenthowl",
+    "here": 0.059,
+    "set_rate": 0.2,
+    "n": 17
+   },
+   {
+    "name": "Duskwatch Hunter",
+    "key": "duskwatchhunter",
+    "here": 0.059,
+    "set_rate": 0.295,
+    "n": 17
+   },
+   {
+    "name": "Thranduil, Sindarin Liege",
+    "key": "thranduilsindarinliege",
+    "here": 0.0,
+    "set_rate": 0.256,
+    "n": 17
+   }
+  ],
+  "UG": [
+   {
+    "name": "Master's Councillors",
+    "key": "masterscouncillors",
+    "here": 0.062,
+    "set_rate": 0.292,
+    "n": 32
+   },
+   {
+    "name": "Wilderland Scrounger",
+    "key": "wilderlandscrounger",
+    "here": 0.094,
+    "set_rate": 0.246,
+    "n": 32
+   },
+   {
+    "name": "Duskwatch Hunter",
+    "key": "duskwatchhunter",
+    "here": 0.062,
+    "set_rate": 0.295,
+    "n": 32
+   }
+  ],
+  "UR": [
+   {
+    "name": "Nori, Teller of Tales",
+    "key": "noritelleroftales",
+    "here": 0.077,
+    "set_rate": 0.263,
+    "n": 13
+   },
+   {
+    "name": "Thranduil, Sindarin Liege",
+    "key": "thranduilsindarinliege",
+    "here": 0.077,
+    "set_rate": 0.256,
+    "n": 13
+   }
+  ],
+  "WB": [
+   {
+    "name": "Large Bear",
+    "key": "largebear",
+    "here": 0.062,
+    "set_rate": 0.221,
+    "n": 16
+   }
+  ],
+  "WBR": [
+   {
+    "name": "Celebrate the Mountain-king",
+    "key": "celebratethemountainking",
+    "here": 0.071,
+    "set_rate": 0.383,
+    "n": 14
+   },
+   {
+    "name": "Iron Hills Blacksmith",
+    "key": "ironhillsblacksmith",
+    "here": 0.143,
+    "set_rate": 0.313,
+    "n": 14
+   },
+   {
+    "name": "An Unexpected Party",
+    "key": "anunexpectedparty",
+    "here": 0.143,
+    "set_rate": 0.217,
+    "n": 14
+   },
+   {
+    "name": "Down, Down to Goblin-town",
+    "key": "downdowntogoblintown",
+    "here": 0.143,
+    "set_rate": 0.371,
+    "n": 14
+   },
+   {
+    "name": "Dreaded Bat-Cloud",
+    "key": "dreadedbatcloud",
+    "here": 0.071,
+    "set_rate": 0.257,
+    "n": 14
+   },
+   {
+    "name": "Gathering of Darkness",
+    "key": "gatheringofdarkness",
+    "here": 0.0,
+    "set_rate": 0.207,
+    "n": 14
+   },
+   {
+    "name": "Gnashing of Teeth",
+    "key": "gnashingofteeth",
+    "here": 0.143,
+    "set_rate": 0.279,
+    "n": 14
+   },
+   {
+    "name": "Great Ugly-Looking Goblin",
+    "key": "greatuglylookinggoblin",
+    "here": 0.143,
+    "set_rate": 0.271,
+    "n": 14
+   },
+   {
+    "name": "Nighthowl Pursuer",
+    "key": "nighthowlpursuer",
+    "here": 0.143,
+    "set_rate": 0.221,
+    "n": 14
+   },
+   {
+    "name": "Ravening Warg",
+    "key": "raveningwarg",
+    "here": 0.071,
+    "set_rate": 0.493,
+    "n": 14
+   },
+   {
+    "name": "Reverent Howl",
+    "key": "reverenthowl",
+    "here": 0.071,
+    "set_rate": 0.2,
+    "n": 14
+   },
+   {
+    "name": "Stony-Voiced Goblins",
+    "key": "stonyvoicedgoblins",
+    "here": 0.143,
+    "set_rate": 0.471,
+    "n": 14
+   },
+   {
+    "name": "Dáin's Company",
+    "key": "dinscompany",
+    "here": 0.071,
+    "set_rate": 0.296,
+    "n": 14
+   },
+   {
+    "name": "Duskwatch Hunter",
+    "key": "duskwatchhunter",
+    "here": 0.143,
+    "set_rate": 0.295,
+    "n": 14
+   },
+   {
+    "name": "Large Bear",
+    "key": "largebear",
+    "here": 0.071,
+    "set_rate": 0.221,
+    "n": 14
+   },
+   {
+    "name": "Patient Instructor",
+    "key": "patientinstructor",
+    "here": 0.071,
+    "set_rate": 0.409,
+    "n": 14
+   }
+  ],
+  "WR": [
+   {
+    "name": "Tidings of War",
+    "key": "tidingsofwar",
+    "here": 0.071,
+    "set_rate": 0.304,
+    "n": 28
+   }
+  ],
+  "WU": [
+   {
+    "name": "Ori, Keeper of Songs",
+    "key": "orikeeperofsongs",
+    "here": 0.105,
+    "set_rate": 0.391,
+    "n": 19
+   },
+   {
+    "name": "An Unexpected Party",
+    "key": "anunexpectedparty",
+    "here": 0.105,
+    "set_rate": 0.217,
+    "n": 19
+   },
+   {
+    "name": "Nori, Teller of Tales",
+    "key": "noritelleroftales",
+    "here": 0.105,
+    "set_rate": 0.263,
+    "n": 19
+   },
+   {
+    "name": "Thranduil, Sindarin Liege",
+    "key": "thranduilsindarinliege",
+    "here": 0.105,
+    "set_rate": 0.256,
+    "n": 19
+   }
+  ],
+  "WUG": [
+   {
+    "name": "Bofur, Reliable Guardian",
+    "key": "bofurreliableguardian",
+    "here": 0.083,
+    "set_rate": 0.287,
+    "n": 12
+   },
+   {
+    "name": "Dáin, Lord of the Iron Hills",
+    "key": "dinlordoftheironhills",
+    "here": 0.083,
+    "set_rate": 0.287,
+    "n": 12
+   },
+   {
+    "name": "Dwarven Provisioner",
+    "key": "dwarvenprovisioner",
+    "here": 0.083,
+    "set_rate": 0.452,
+    "n": 12
+   },
+   {
+    "name": "Dwarven Shortsword",
+    "key": "dwarvenshortsword",
+    "here": 0.0,
+    "set_rate": 0.383,
+    "n": 12
+   },
+   {
+    "name": "Fíli the Pathfinder",
+    "key": "flithepathfinder",
+    "here": 0.083,
+    "set_rate": 0.261,
+    "n": 12
+   },
+   {
+    "name": "An Unexpected Party",
+    "key": "anunexpectedparty",
+    "here": 0.083,
+    "set_rate": 0.217,
+    "n": 12
+   },
+   {
+    "name": "Boughside Wanderers",
+    "key": "boughsidewanderers",
+    "here": 0.0,
+    "set_rate": 0.32,
+    "n": 12
+   },
+   {
+    "name": "Old Fat Spider",
+    "key": "oldfatspider",
+    "here": 0.083,
+    "set_rate": 0.279,
+    "n": 12
+   },
+   {
+    "name": "Wilderland Scrounger",
+    "key": "wilderlandscrounger",
+    "here": 0.083,
+    "set_rate": 0.246,
+    "n": 12
+   },
+   {
+    "name": "Duskwatch Hunter",
+    "key": "duskwatchhunter",
+    "here": 0.083,
+    "set_rate": 0.295,
+    "n": 12
+   },
+   {
+    "name": "Nori, Teller of Tales",
+    "key": "noritelleroftales",
+    "here": 0.0,
+    "set_rate": 0.263,
+    "n": 12
+   }
+  ],
+  "WUR": [
+   {
+    "name": "Confusticate and Bebother",
+    "key": "confusticateandbebother",
+    "here": 0.083,
+    "set_rate": 0.262,
+    "n": 12
+   },
+   {
+    "name": "Glóin the Mighty",
+    "key": "glinthemighty",
+    "here": 0.0,
+    "set_rate": 0.264,
+    "n": 12
+   },
+   {
+    "name": "Bard the Bowman",
+    "key": "bardthebowman",
+    "here": 0.083,
+    "set_rate": 0.489,
+    "n": 12
+   },
+   {
+    "name": "Mirkwood Nurturer",
+    "key": "mirkwoodnurturer",
+    "here": 0.0,
+    "set_rate": 0.303,
+    "n": 12
+   },
+   {
+    "name": "Thranduil, Sindarin Liege",
+    "key": "thranduilsindarinliege",
+    "here": 0.0,
+    "set_rate": 0.256,
+    "n": 12
+   }
+  ]
+ },
+ "meta": {
+  "lists": 298,
+  "alsa_early": 4.5,
+  "trap_fraction": 0.25,
+  "rarity_median": {
+   "common": 0.304,
+   "uncommon": 0.256,
+   "rare": 0.071
+  }
+ }
+}
