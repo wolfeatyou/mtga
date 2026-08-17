@@ -651,7 +651,7 @@ CALIB = {
         # из API untapped 16.08.2026. Кластеры «воздух/земля» не размечены: флаеров в сете
         # мало, разделения не видно — ⚑СТОЙКА печатает счётчики без вердикта.
         air_fly=4, air_reach_max=1, gnd_fly_max=1, gnd_reach=1,
-        ref=dict(creatures=(9, 14, 21), cheap=(1, 6, 11), hard=(0, 2, 12),
+        ref=dict(creatures=(9, 14, 21), cheap=(1, 6, 11), hard=(0, 2, 12), answers=(2, 3, 5),
                  c5=(0, 3, 9), fixers=(0, 2, 6)),
     ),
     "msh": dict(
@@ -961,6 +961,17 @@ _COMBOS = None
 
 
 
+# ОТВЕТ НА ТЕЛО — шире, чем «уничтожь». Расширено 17.08.2026 после реальной партии: игрок
+# проиграл двум колодам с `Bilbo, Luckwearer` (1/1 неблокируемый, лутит каждый бой) со
+# словами «убрать её мне было нечем». Счётчик считал только destroy/exile/урон-в-цель, то
+# есть колода с тремя эффектами -1/-1 читалась как «removal 0» — а Бильбо от любого из них
+# умирает. Правило «−X/−0 и трюки не removal» приехало из MSH, где ключевые тела крупные.
+# В HOB наоборот: из 110 существ, встречающихся у победителей, 54% имеют выносливость ≤2,
+# а среди 15 самых частых крупнее 3 только двое (Gollum 4/3, Smaug 5/5).
+# Медианы по 298 листам: безусловных 1 (0-2), условных 2 (1-3), ВСЕГО ОТВЕТОВ 3 (2-5).
+_SOFT_RE = re.compile(r"gets -\d|gets \-|deals \d+ damage to target|tap target|"
+                      r"doesn't untap|fights|return target .* to (its owner's|their owner's) hand",
+                      re.I)
 _HARD_RE = re.compile(r"destroy target creature|exile target creature|"
                       r"deals \d+ damage to target creature", re.I)
 
@@ -988,13 +999,14 @@ def role_gaps(picks, by_id, ratings, main, pnum=None, pick=None):
     if not cal:
         return []
     r = _pool_roles(picks, by_id, ratings, main)
-    hard = 0
+    answers = 0
     for cid in picks:
         c = by_id.get(cid)
         if not c or (main and (_colors_of(cid, by_id, ratings) - set(main))):
             continue
-        if _HARD_RE.search(full_oracle(c) or ""):
-            hard += 1
+        txt = full_oracle(c) or ""
+        if _HARD_RE.search(txt) or _SOFT_RE.search(txt):
+            answers += 1
     done = ((pnum or 1) - 1) * 14 + (pick or 1)
     # Раньше пика 8 проекция шумит: один взятый removal даёт «к финалу будет 10».
     if done < MIN_PICKS_FOR_PROJECTION:
@@ -1004,12 +1016,17 @@ def role_gaps(picks, by_id, ratings, main, pnum=None, pick=None):
     out = []
     checks = [
         ("пробивающих", r["brk"], 4),                            # медиана 298 листов, БЕЗ reach
-        ("безусл. removal", hard, ref.get("hard", (0, 2, 0))[1]),
+        ("ответов на тело", answers, ref.get("answers", (2, 3, 5))[1]),
         ("тела cmc≤2", r["cheap"], ref.get("cheap", (0, 6, 0))[1]),
     ]
     for name, have, med in checks:
         proj = have / frac
-        if proj < med:
+        # ПОЛ поверх проекции. Проекция линейна, а ответы в третьем бустере разбирают —
+        # к концу драфта темп падает, и «1 ответ на 10-м пике → к финалу 4» врёт в нашу
+        # пользу. Поэтому ноль ответов на входе во второй бустер называется независимо от
+        # арифметики: из 298 победителей с нулём ответов живут 7 (2%), с одним и меньше — 11%.
+        floor_hit = have == 0 and done >= 14 and med >= 2
+        if proj < med or floor_hit:
             out.append((name, have, round(proj, 1), med))
     return out
 

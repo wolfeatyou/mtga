@@ -86,14 +86,15 @@ print("   " + ("; ".join(f"{n} {h}→{p:g}" for n, h, p, _ in g2) or "(молч�
 check(has(g2, "пробивающих"), "пул без пробития получает предупреждение")
 
 print("\n" + "=" * 78)
-print("B. removal предупреждается в СЕРЕДИНЕ драфта, а не на 32-м пике")
+print("B. дефицит ОТВЕТОВ предупреждается в середине драфта, а не на 32-м пике")
+# Ни одна из этих карт не убирает тело — ни destroy/exile, ни -X/-X, ни файт, ни баунс.
 no_removal = ["Patient Instructor", "Lakeshore Apothecary", "Bilbo Baggins, Burglar",
               "Long Lake Nuisance", "Old Thrush", "Bard the Bowman",
               "Mirkwood Meditator", "Lake-town Lookout"]
 g3 = gaps(no_removal, 1, 8)
 print(f"   P1P8, ноль removal в пуле: "
       + ("; ".join(f"{n} {h}→{p:g}" for n, h, p, _ in g3) or "(молчит)"))
-check(has(g3, "removal"), "на пике 8 уже говорит про removal (раньше молчал до пика 32)")
+check(has(g3, "ответов"), "на пике 8 уже говорит про removal (раньше молчал до пика 32)")
 
 g4 = gaps(no_removal[:6], 1, 6)
 print(f"   P1P6 (раньше порога проекции): "
@@ -102,9 +103,30 @@ check(not g4, "до пика 8 молчит — проекция от 5 карт
 
 print("\n   контроль: removal в пуле есть — молчит")
 with_removal = no_removal + ["Magnificent End", "Stone by Sunlight"]
+# Расширение определения ответа (17.08): условный эффект, убивающий мелкое тело, засчитывается.
+# Повод — реальная партия: проигрыш Bilbo, Luckwearer (1/1) со словами «убрать её было нечем»,
+# при том что -1/-1 её убивает. В HOB 54% существ у победителей имеют выносливость ≤2.
 g5 = gaps(with_removal, 1, 10)
 print("   " + ("; ".join(f"{n} {h}→{p:g}" for n, h, p, _ in g5) or "(молчит про removal)"))
-check(not has(g5, "removal"), "два removal к пику 10 — вопросов нет")
+check(not has(g5, "ответов"), "два removal к пику 10 — вопросов нет")
+
+print("\nB3. ПОЛ: ноль ответов на входе во второй бустер — говорит независимо от проекции")
+# Пул из 14 карт, НИ ОДНА не убирает тело (проверено фильтром по _HARD_RE/_SOFT_RE).
+# Раньше `Vow to Erebor` незаметно засчитывался ответом и портил этот кейс.
+none_at_all = ["Old Thrush", "Troop of Ponies", "Belladonna Took", "Bofur, Reliable Guardian",
+               "Celebrate the Mountain-king", "Dáin, Lord of the Iron Hills",
+               "Dwarven Provisioner", "Dwarven Shortsword", "Eagle of the Great Shelf",
+               "The Eagles Are Coming!", "Esgaroth Garrison", "Fíli the Pathfinder",
+               "Iron Hills Blacksmith", "Lake-town Lookout"]
+ids = [cid(n) for n in none_at_all]
+real = sum(1 for i in ids
+           if D._HARD_RE.search(D.full_oracle(by[i]) or "")
+           or D._SOFT_RE.search(D.full_oracle(by[i]) or ""))
+check(real == 0, f"контрольный пул действительно без ответов (насчитано {real})")
+g6 = D.role_gaps(ids, by, rat, {"W", "U"}, 2, 1)
+print("   " + ("; ".join(f"{n} {h}→{p:g}" for n, h, p, _ in g6) or "(молчит)"))
+check(any(x[0] == "ответов на тело" and x[1] == 0 for x in g6),
+      "на P2P1 при нуле ответов баннер говорит")
 
 print("\n" + "=" * 78)
 print("C. без калибровки сета не падает")
