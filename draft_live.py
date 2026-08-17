@@ -199,12 +199,24 @@ def load_ratings():
 
 # arena_id -> карта
 def load_cards():
+    """grpId -> карта. Регистрируем ВСЕ печати, а не только базовую.
+
+    Одно имя в Arena имеет несколько GrpId (базовый принт + альт-арты/showcase), и
+    в пак может прийти ЛЮБОЙ из них. `build_arena_ids.py` давно складывал их в
+    `arena_ids`, но здесь читался только `arena_id` — то есть альт-принт молча
+    становился «НЕ РАСПОЗНАНО» и выпадал из всех счётчиков (кривая, роли, ось).
+    На HOB это 60 карт из 193, включая An Unexpected Party и Bilbo, Luckwearer.
+    Поймано в живом драфте 17.08.2026 на базовых землях (#189-193 против #194-198).
+    """
     cards = json.load(open(set_file()))
     by_id = {}
     for c in cards:
+        ids = c.get("arena_ids") or []
         aid = c.get("arena_id")
         if aid is not None:
-            by_id[int(aid)] = c
+            ids = list(ids) + [aid]
+        for i in ids:
+            by_id[int(i)] = c
     return by_id
 
 def face(c, k):
@@ -490,27 +502,79 @@ def _pair_data_is_real(pair_gih):
     подтверждение из второго источника, а это одно и то же число дважды. Хуже на сборке:
     § Шаг 0 требует ранжировать пул по ПАРНОМУ GIH, и правило молча выродилось бы в
     «ранжируй по глобальному», сохранив вид проделанной работы. Молчать честнее.
+
+    ⚠️ СРАВНИВАТЬ МОЖНО ТОЛЬКО ОТВЕТЫ, СНЯТЫЕ В ОДИН МОМЕНТ (исправлено 17.08.2026).
+    Первая редакция сверяла свежескачанный парный файл с ЛОКАЛЬНЫМ глобальным снапшотом
+    и требовала совпадения float с точностью 1e-9. Но числа 17Lands дрейфуют по мере
+    поступления партий: на HOB локальный снапшот от 16.08 00:23 против кэша BG от
+    17.08 22:58 разошёлся по ВСЕМ 136 картам. Проверка приняла дрейф за работу фильтра,
+    открыла колонку `BG`, и весь живой драфт 17.08 читал глобальные числа как парные.
+    Прямой запрос в тот же момент подтвердил: colors=BG против запроса без фильтра —
+    0 из 136 расхождений, фильтр на HOB по-прежнему игнорируется.
     """
     if not pair_gih:
         return False
-    glob = load_ratings()
-    same = tot = 0
-    for mid, g in pair_gih.items():
-        r = glob.get(mid)
-        if r and r.get("ever_drawn_win_rate"):
-            tot += 1
-            same += abs(r["ever_drawn_win_rate"] - g) < 1e-9
-    if tot < 20:
-        return True                      # мало пересечений — не нам судить
-    if same / tot < 0.95:
-        return True                      # реально другие числа = фильтр работает
+    honored = _pair_filter_honored()
+    if honored is None:
+        return True                      # проверить не смогли — не блокируем молча
+    if honored:
+        return True
     key = setcode()
     if key not in _PAIR_FAKE_WARNED:
         _PAIR_FAKE_WARNED.add(key)
         print(f"  ⚠ пар-GIH для {key.upper()} недоступен: 17Lands отдаёт на фильтр цветов те же "
-              f"глобальные числа ({same}/{tot} совпали точно). Колонка пары скрыта — "
+              f"глобальные числа (проверено запросом в один момент). Колонка пары скрыта — "
               f"это отсутствие данных, а не их совпадение.", file=sys.stderr)
     return False
+
+
+def _pair_filter_honored():
+    """True/False — учитывает ли 17Lands `colors=` для текущего сета; None — не проверили.
+
+    Единственная корректная проверка — два запроса В ОДИН МОМЕНТ: с фильтром и без.
+    Вердикт кладём на диск, чтобы не платить лишним запросом на каждом пике, и
+    перепроверяем раз в трое суток (фильтр включается, когда сет набирает выборку).
+    """
+    import time
+    path = os.path.join(HERE, f".paircheck_{setcode()}.json")
+    try:
+        v = json.load(open(path))
+        if time.time() - v.get("ts", 0) < 3 * 86400:
+            return v.get("honored")
+    except Exception:
+        pass
+    if os.environ.get("MTGA_OFFLINE"):
+        return None
+    import urllib.request
+    base = (f"https://www.17lands.com/card_ratings/data?expansion={setcode().upper()}"
+            f"&format=PremierDraft")
+
+    def grab(url):
+        req = urllib.request.Request(url, headers={"User-Agent": "mtg-draft-helper"})
+        return json.load(urllib.request.urlopen(req, timeout=8))
+
+    try:
+        a = {c.get("mtga_id"): c.get("ever_drawn_win_rate") for c in grab(base)}
+        b = {c.get("mtga_id"): c.get("ever_drawn_win_rate")
+             for c in grab(base + "&colors=BG")}
+    except Exception:
+        return None
+    same = tot = 0
+    for mid, g in a.items():
+        h = b.get(mid)
+        if mid is None or g is None or h is None:
+            continue
+        tot += 1
+        same += abs(g - h) < 1e-9
+    if tot < 20:
+        return None
+    honored = same / tot < 0.95
+    try:
+        json.dump({"honored": honored, "ts": time.time(), "same": same, "tot": tot},
+                  open(path, "w"))
+    except Exception:
+        pass
+    return honored
 
 # ─── детектор сигналов: пивот / разрыв мощности / колесо / soup-audit ─────────
 def _colors_of(cid, by_id, ratings):

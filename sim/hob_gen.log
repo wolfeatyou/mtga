@@ -1,0 +1,13 @@
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":1,"SelfPack":1,"PackCards":"103499,103402,103464,103525,103388,103396,103533,103479,103572,103437,103485,103378,103470,103407"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4001-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103437],\"Pack\":1,\"Pick\":1}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":2,"SelfPack":1,"PackCards":"103383,103384,103466,103391,103460,103386,103480,103455,103378,103533,103484,103389,103410"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4002-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103466],\"Pack\":1,\"Pick\":2}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":3,"SelfPack":1,"PackCards":"103393,103512,103464,103388,103377,103480,103540,103391,103418,103448,103396,103479"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4003-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103418],\"Pack\":1,\"Pick\":3}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":4,"SelfPack":1,"PackCards":"103422,103510,103440,103407,103484,103490,103405,103572,103388,103480,103507"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4004-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103440],\"Pack\":1,\"Pick\":4}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":5,"SelfPack":1,"PackCards":"103376,103521,103448,103570,103497,103479,103455,103519,103457,103555"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4005-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103455],\"Pack\":1,\"Pick\":5}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":6,"SelfPack":1,"PackCards":"103511,103429,103461,103386,103484,103421,103570,103432,103508"}
+[UnityCrossThreadLogger]==> EventPlayerDraftMakePick {"id":"00000007-0001-4006-8000-000000000000","request":"{\"DraftId\":\"00000007-0000-4000-8000-000000000007\",\"GrpIds\":[103461],\"Pack\":1,\"Pick\":6}"}
+[UnityCrossThreadLogger]Draft.Notify {"draftId":"00000007-0000-4000-8000-000000000007","SelfPick":7,"SelfPack":1,"PackCards":"103544,103518,103379,103411,103399,103432,103396,103448"}
