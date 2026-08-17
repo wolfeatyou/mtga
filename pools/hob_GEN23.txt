@@ -2,19 +2,34 @@ Deck
 
 Sideboard
 1 Attercop
+1 Bejeweled Warg
 2 Bilbo Baggins, Burglar
-1 Boughside Wanderers
+2 Boughside Wanderers
 1 Confusticate and Bebother
-1 Elvenking's Harper
+1 Elvenking's Halls
+2 Elvenking's Harper
 1 Galion, Elvenking's Butler
-1 Lakeshore Apothecary
+1 Gandalf, Wandering Wizard
+2 Lakeshore Apothecary
+1 Large Bear
+2 Little Bear
+1 Long Lake Nuisance
 1 Mirkwood Meditator
-1 Mirkwood Pathmaker
+1 Mirkwood Nurturer
+2 Mirkwood Pathmaker
 1 Old Fat Spider
+1 Patient Instructor
 1 Pinecone Strike
+1 Quarrel
 1 Rage into the Valley
-1 Ravenhill Flock
+2 Ravenhill Flock
 1 Ravening Warg
+1 The Black Arrow
+1 The Chief Warg
+1 Thranduil's Company
 1 Thranduil, Sindarin Liege
+1 Troll Negotiations
 2 Uneasy Partings
+2 Warg Tactics
 1 Wargling
+1 Wood Elves

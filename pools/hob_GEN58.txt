@@ -1,22 +1,4 @@
 Deck
 
 Sideboard
-1 Bilbo Baggins, Burglar
-1 Bilbo's Deadly Slice
-1 Confusticate and Bebother
-1 Duskwatch Hunter
-2 Elvenking's Halls
-1 Front Porch Sentries
-1 Gandalf, Wandering Wizard
-1 Glamdring, Foe-hammer
-2 Gollum, Silent Slinker
-2 Great Fierce Bee
-1 Great Ugly-Looking Goblin
-1 Long Lake Nuisance
-1 Long-Bodied Grey Dog
-1 Nori, Teller of Tales
-2 Old Thrush
-1 Patient Instructor
-1 Plunder the Trollshaws
-2 Ravening Warg
-1 Thranduil, Sindarin Liege
+1 Gollum, Silent Slinker

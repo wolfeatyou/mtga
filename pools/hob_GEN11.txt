@@ -3,18 +3,29 @@ Deck
 Sideboard
 1 Attercop
 1 Beorn, Reluctant Host
-1 Boughside Wanderers
+2 Boughside Wanderers
+1 Crude Bent Blade
 1 Duskwatch Hunter
 1 Elrond, Moon-Reader
 1 Gollum, Silent Slinker
 1 Lakeshore Apothecary
-1 Large Bear
+3 Large Bear
 1 Long Lake Nuisance
-2 Mirkwood Nurturer
+1 Long-Bodied Grey Dog
+1 Mirkwood
+2 Mirkwood Meditator
+3 Mirkwood Nurturer
 2 Mirkwood Pathmaker
 1 Nasty Little Rabbit
-1 Ordinary Bear
-1 Plunder the Trollshaws
-1 Quarrel
+1 Old Thrush
+2 Ordinary Bear
+2 Plunder the Trollshaws
+3 Quarrel
+1 Silvan Reveler
+1 Stony-Voiced Goblins
+1 Thranduil, Sindarin Liege
 1 Thranduil, the Elvenking
-1 Woodland Weavemaster
+1 Troll Negotiations
+2 Warg Tactics
+1 Wargling
+2 Woodland Weavemaster

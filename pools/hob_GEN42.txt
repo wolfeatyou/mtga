@@ -1,22 +1,34 @@
 Deck
 
 Sideboard
+1 Attercop
+1 Bard the Bowman
+1 Bifur, Melodic Rider
 1 Bilbo Baggins, Burglar
 1 Celebrate the Mountain-king
-1 Confusticate and Bebother
+2 Confusticate and Bebother
 1 Desolation Prowler
 1 Dáin, Lord of the Iron Hills
+1 Eagle of the Great Shelf
+1 Eagle's Rescue
+1 Elven Raft-Steerer
 1 Elvenking's Harper
 1 Enchanted River's Grasp
+1 Esgaroth Garrison
 1 Gnashing of Teeth
+2 Lake-town
 1 Lakeshore Apothecary
 1 Long Lake Nuisance
-1 Long-Bodied Grey Dog
+2 Long-Bodied Grey Dog
+1 Mirkwood Meditator
 1 Mirkwood Nurturer
 1 Old Thrush
 1 Ori, Keeper of Songs
-3 Patient Instructor
+4 Patient Instructor
 1 Plunder the Trollshaws
+1 Quarrel
+1 Ravenhill Flock
+1 Silvan Reveler
 1 Smaug's Fury
-1 Thranduil, Sindarin Liege
-3 Velvetwing Butterflies
+2 Thranduil, Sindarin Liege
+4 Velvetwing Butterflies

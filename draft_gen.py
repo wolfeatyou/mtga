@@ -50,6 +50,11 @@ def make_booster(rng, by):
     return out
 
 
+def _first_face(name):
+    """«Gollum, Silent Slinker // Meager Meal» и «Gollum, Silent Slinker» — одно и то же."""
+    return re.split(r"\s*//\s*", (name or "").strip())[0].strip().lower()
+
+
 def card_colors(c):
     cols = c.get("colors")
     if cols is None and c.get("card_faces"):
@@ -103,7 +108,12 @@ def simulate(code, seed, my_pool_names, upto_pack, upto_pick):
     boosters = [[make_booster(rng, by) for _ in range(SEATS)] for _ in range(PACKS)]
 
     pools = [[] for _ in range(SEATS)]        # 0 — наше место
-    taken_names = [n.strip().lower() for n in my_pool_names]
+    # Имя нормализуем ОБЕИМИ сторонами (17.08.2026): двусторонняя карта печатается в паке как
+    # «Gollum, Silent Slinker // Meager Meal», а матчер сравнивал с первой стороной — поэтому
+    # имя, скопированное из вывода целиком, не находилось НИКОГДА. В перепроверке это съело
+    # 17 пиков из 42 у одного агента и 12 у другого, причём почти только в контрольной группе,
+    # то есть перекосило сам результат теста. Принимаем обе записи.
+    taken_names = [_first_face(n) for n in my_pool_names]
     misses = []                                # карты из --pool, которых не было в паке
     bot_rng = random.Random(seed * 977 + 13)
 
@@ -122,7 +132,7 @@ def simulate(code, seed, my_pool_names, upto_pack, upto_pick):
             chosen = None
             if want:
                 for c in mine_pack:
-                    if c["name"].split(" //")[0].lower() == want:
+                    if _first_face(c["name"]) == want:
                         chosen = c
                         break
             if chosen is None:
