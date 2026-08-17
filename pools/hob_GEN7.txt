@@ -1,10 +1,4 @@
 Deck
 
 Sideboard
-1 Bilbo Baggins, Burglar
-1 Bilbo, Luckwearer
-1 Burn, Burn, Tree and Fern
-1 Gundabad Opportunist
-1 Long Lake Nuisance
-1 Sound the Trumpets
-1 Uneasy Partings
+1 Beorn the Fierce

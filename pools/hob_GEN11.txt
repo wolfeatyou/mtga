@@ -1,17 +1,34 @@
 Deck
 
 Sideboard
-1 Attercop
+1 Bard the Bowman
+1 Bard, King of Dale
 1 Beorn, Reluctant Host
-1 Boughside Wanderers
-1 Gandalf, Spark Starter
-1 Lakeshore Apothecary
+2 Bilbo Baggins, Burglar
+1 Bilbo, Thief in the Night
+1 Eagle of the Great Shelf
+1 Elrond, Moon-Reader
+1 Elven Raft-Steerer
+1 Elvenking's Harper
+1 Esgaroth Garrison
+1 Gandalf, Wandering Wizard
+1 Giant's Boulder
+1 Glamdring, Foe-hammer
+1 Gollum, Silent Slinker
+1 Lake-town Lookout
+1 Lake-town Mariners
+2 Lakeshore Apothecary
 1 Long Lake Nuisance
-1 Mirkwood Nurturer
-2 Mirkwood Pathmaker
-1 Old Thrush
+2 Long-Bodied Grey Dog
+3 Mirkwood Meditator
+2 Mirkwood Nurturer
+1 Mirkwood Pathmaker
+2 Old Thrush
+2 Patient Instructor
 1 Plunder the Trollshaws
-1 Warg Tactics
-1 Wargling
-1 Wilderland Scrounger
-2 Wood Elves
+2 Stone by Sunlight
+1 The Arkenstone
+1 The Lord of the Eagles
+1 Thranduil, Sindarin Liege
+2 Vow to Erebor
+1 Well-Worn Spatula

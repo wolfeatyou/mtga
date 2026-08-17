@@ -1,31 +1,35 @@
 Deck
 
 Sideboard
-1 Attercop
-1 Bejeweled Warg
-3 Bilbo Baggins, Burglar
-1 Bilbo, Thief in the Night
-3 Boughside Wanderers
-1 Confusticate and Bebother
-2 Elvenking's Halls
-1 Elvenking's Harper
+1 Bifur, Melodic Rider
+1 Bilbo's Gambit
+1 Bofur, Reliable Guardian
+1 Dori, Bearer of Friends
+1 Dwarven Mattock
+1 Dwarven Mauler
+1 Esgaroth Garrison
 1 Galion, Elvenking's Butler
-1 Gandalf, Wandering Wizard
-1 Lakeshore Apothecary
-2 Little Bear
-1 Long Lake Nuisance
-2 Mirkwood Meditator
+1 Giant's Boulder
+1 Iron Hills
+1 Iron Hills Blacksmith
+3 Iron Hills Stalwart
+1 Long-Bodied Grey Dog
+1 Magnificent End
+1 Mirkwood Meditator
 2 Mirkwood Nurturer
-2 Mirkwood Pathmaker
-1 Old Fat Spider
-1 Patient Instructor
+1 Nori, Teller of Tales
+2 Old Thrush
+2 Patient Instructor
 1 Pinecone Strike
-1 Quarrel
-1 Rage into the Valley
-2 Ravenhill Flock
-1 Ravening Warg
-1 Thranduil's Company
-1 Thranduil, Sindarin Liege
-2 Uneasy Partings
-2 Warg Tactics
+1 Smaug the Magnificent
+2 Smaug, the Great Calamity
+1 Stone-Giant of High Pass
+1 The Arkenstone
+1 The Black Arrow
+1 The Chief Warg
+1 The Queen of Dale
+1 Thorin's Last Stand
+3 Velvetwing Butterflies
+1 Vow to Erebor
 2 Wargling
+1 Well-Worn Spatula

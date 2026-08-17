@@ -1,30 +1,30 @@
 Deck
 
 Sideboard
-2 Bard the Bowman
+1 Attercop
+1 Azog, Moria's Ruin
+1 Bard the Bowman
+2 Bilbo's Deadly Slice
+1 Boughside Wanderers
+1 Cantankerous Keepers
 1 Crude Bent Blade
-2 Eagle of the Great Shelf
-1 Elrond, Moon-Reader
-1 Enchanted River's Grasp
-2 Gandalf, Wandering Wizard
-1 Lake-town
-1 Lake-town Lookout
-3 Lakeshore Apothecary
-2 Little Bear
-2 Long-Bodied Grey Dog
-1 Magnificent End
-1 Mirkwood Meditator
+3 Duskwatch Hunter
+2 Elvenking's Halls
+1 Great Ugly-Looking Goblin
+1 Key to the Side-Door
+1 Large Bear
+3 Little Bear
+1 Long-Bodied Grey Dog
+2 Mirkwood
 1 Mirkwood Nurturer
-1 Moment of Glory
-2 Nori, Teller of Tales
-1 Old Thrush
-4 Patient Instructor
-1 Plunder the Trollshaws
-2 Ravenhill Flock
-1 Stone by Sunlight
-1 The Mountain-king's Return
-3 Thorin's Last Stand
-1 Thranduil, Sindarin Liege
-1 Uneasy Partings
-1 Velvetwing Butterflies
-1 Vow to Erebor
+1 Nighthowl Pursuer
+1 Old Fat Spider
+3 Old Thrush
+2 Ordinary Bear
+3 Ravening Warg
+1 The Master of Lake-town
+1 Thorin's Last Stand
+1 Tom, Bert, and William
+1 Troll Negotiations
+3 Wargling
+1 Well-Worn Spatula
