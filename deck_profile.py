@@ -9,7 +9,7 @@
   · **существ cmc≤2** — квота ⚑ КРИВАЯ (4 шт ≈ 55% «существо к T2», 5 ≈ 64-65%)
   · ломатели стойки (flying / menace / unblockable / trample / reach)
   · безусловное removal (destroy|exile target) отдельно от условного
-  · верх кривой: cmc≥5 и cmc≥6 (порог 5)
+  · верх кривой: cmc≥5 (≤4) и cmc≥6 (≤2 — переоткалибровано на 298 листах HOB)
   · средний GIH (глобальный) и парный, если есть cache_17l_<set>_<PAIR>.json
 
 Usage:  python3 deck_profile.py <decklist.txt> [PAIR]
@@ -237,7 +237,9 @@ def main():
     print(f"условная интеракция : {len(soft)}   " + (", ".join(sorted(set(soft))) or "—"))
     c5 = sum(v for k, v in list(cre_curve.items()) + list(spell_curve.items()) if k >= 5)
     c6 = sum(v for k, v in list(cre_curve.items()) + list(spell_curve.items()) if k >= 6)
-    print(f"\nверх кривой : cmc≥5 — {c5} (порог ≤4) · cmc≥6 — {c6} (порог 0)")
+    # Порог по cmc≥6 переоткалиброван 17.08.2026: «0» приехало из MSH и на HOB не держится —
+    # 194 из 298 трофейных листов (65%) несут хотя бы одну такую карту, медиана 1, ≤2 у 87%.
+    print(f"\nверх кривой : cmc≥5 — {c5} (порог ≤4) · cmc≥6 — {c6} (порог ≤2, медиана победителей 1)")
     print(f"средний GIH глоб : {M['gih']}")
     if pair:
         print(f"средний GIH {pair}   : {M['gih_pair']}")
