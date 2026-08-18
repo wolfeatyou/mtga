@@ -415,6 +415,13 @@ def do_loop(scope="myturn"):
             time.sleep(1)
 
 if __name__ == "__main__":
+    # Учёт партий (JOURNAL § 8.13): при старте вотчера архивируем всё новое из лога
+    # (реестр matches/ + сырьё logs/), чтобы прошлые матчи пережили ротацию. Тихо.
+    try:
+        import match_archive
+        match_archive.run_quiet(setcode())
+    except Exception:
+        pass
     mode = "watch"; scope = "myturn"
     for a in sys.argv[1:]:
         if a in ("raw", "once", "watch", "loop"):

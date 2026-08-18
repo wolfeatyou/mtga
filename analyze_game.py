@@ -7,6 +7,10 @@
 могут быть за срезом, если лог ротировался."""
 import re, sys
 import match_watch as mw
+# Учёт партий (JOURNAL § 8.13): каждый разбор сначала архивирует всё новое из лога —
+# реестр matches/ + сырые сегменты logs/ переживают ротацию Player.log. Никогда не падает.
+import match_archive
+match_archive.run_quiet(mw.setcode())
 
 def main():
     idx = -1
