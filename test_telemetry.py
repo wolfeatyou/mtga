@@ -21,7 +21,7 @@ import telemetry_report as TR
 
 by_id = D.load_cards()
 ratings = D.load_ratings()
-DRAFT = "te1e0000fake"        # hex-подобный тег, не пересекается с реальными
+DRAFT = "7e1e0000cafe"        # hex-тег (гард пропускает только hex), не пересекается с реальными
 path = D._telemetry_path(DRAFT)
 if os.path.exists(path):
     os.remove(path)

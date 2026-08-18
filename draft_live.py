@@ -406,6 +406,11 @@ def record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings):
     финальный совет модели: прозу советчика машинно не сверить, ранжировку — можно.
     Как и save_pool: телеметрия никогда не роняет живой драфт."""
     try:
+        # Реальные draftId Арены — hex (как и фейки gen_feed, намеренно hex — § 8 JOURNAL).
+        # Не-hex тег значит тестовый/служебный рендер (test_parser_parity, ручные вызовы) —
+        # без гарда каждый прогон тестов плодил telemetry-файлы в pools/ (поймано 18.08.2026).
+        if not re.fullmatch(r"[0-9a-f]{8}", (draft_id or "")[:8]):
+            return None
         path = _telemetry_path(draft_id)
         seen_packs, seen_picks = set(), set()
         if os.path.exists(path):
