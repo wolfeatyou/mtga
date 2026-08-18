@@ -97,7 +97,19 @@ def oracle(c):
 # reach медиана 1 — то есть слияние завышало порог примерно на одну карту.
 EVASION_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
 REACH_RE = re.compile(r"\breach\b", re.I)
-HARD_RE = re.compile(r"(destroy|exile) target (creature|permanent|nonland|attacking|blocking)", re.I)
+# «up to one other target …» — та же безусловная убивалка, что и «destroy target …».
+# Без этих групп Azog, Moria's Ruin («destroy up to one other target creature») считался
+# нулём, и колода с двумя копиями получала «безусл. removal 0 — нижние 10% популяции»
+# (поймано на сборке 18.08.2026, JOURNAL § 8.3 ②).
+# Негативный lookahead отсекает БЛИНК своих перманентов: Elrond, Moon-Reader
+# («exile up to two other target nonland permanents you control») — не removal.
+# Проверено 18.08.2026: по сету правка добавляет ровно 2 карты (Azog, Moria's Ruin ·
+# Celebrate the Mountain-king), не теряет ни одной, и медиана оси по 298 листам
+# остаётся 1 — эталоны JOURNAL § 2.1 и базовая линия § 2.3 не сдвигаются.
+HARD_RE = re.compile(
+    r"(?:destroy|exile)\s+(?:up to \w+\s+)?(?:other\s+)?target\s+"
+    r"(?:creature|permanent|nonland|attacking|blocking)"
+    r"(?![^.]{0,60}?\byou control\b)", re.I)
 SOFT_RE = re.compile(r"gets -\d|gets \-|deals \d+ damage to target|tap target|doesn't untap|"
                      r"fights|return target .* to (its owner's|their owner's) hand", re.I)
 

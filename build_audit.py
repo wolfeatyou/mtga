@@ -196,6 +196,26 @@ def merge_pool(md, pool):
     return out
 
 
+def rating_of(rat, nm):
+    """Запись 17Lands по имени карты, принимая имя В ЛЮБОЙ ЗАПИСИ.
+
+    17Lands ключует ДВУСТОРОННИЕ карты по ЛИЦЕВОЙ стороне ("Smaug, the Great Calamity"),
+    а лист и <set>_set.json — полным именем ("Smaug, the Great Calamity // Spew Flame").
+    Без фолбэка такая карта получала GIH=None и молча выпадала из ОБЕИХ сторон теста
+    «мейн vs жадный»: 18.08.2026 на HOB-листе так выпали все 4 Smaug + оба Gollum SS +
+    Glóin, тест посчитался по 15 картам вместо 19 и напечатал «отдано +0.00, мейн =
+    жадный список, план не выбран» — при настоящих +0.93, то есть вердикт был перевёрнут.
+    Тот же дефект ловили в генераторе (JOURNAL § 5.5) и не прогнали по остальным приборам.
+
+    Вынесено на уровень модуля НАРОЧНО, чтобы `test_dfc_names.py` звал боевой код,
+    а не повторял его у себя: первая редакция теста повторяла — и осталась зелёной,
+    когда дефект вернули (18.08.2026).
+    """
+    return (rat.get(norm(nm))
+            or rat.get(norm(nm.split(" //")[0]))
+            or rat.get(norm(nm.split(",")[0])))
+
+
 def greedy_check(path, db, rat, pool_path=None):
     """Сравнить мейн с топ-N по GIH из пула (мейн + сайд НА ЦВЕТЕ)."""
     md, sb = split_deck(path)
@@ -227,7 +247,7 @@ def greedy_check(path, db, rat, pool_path=None):
     mains = {c for c, v in pips.items() if v >= max(3, _top * 0.25)}
 
     def G(nm):
-        r = rat.get(norm(nm)) or rat.get(norm(nm.split(",")[0]))
+        r = rating_of(rat, nm)
         return round(r["ever_drawn_win_rate"] * 100, 1) if r and r.get("ever_drawn_win_rate") else None
 
     real, pool = [], []

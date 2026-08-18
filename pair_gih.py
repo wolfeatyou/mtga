@@ -118,13 +118,22 @@ def main():
     grat = load_global(setcode)
     by_name, _ = load_set(setcode)
 
+    # 17Lands ключует двусторонние карты по ЛИЦЕВОЙ стороне ("Smaug, the Great Calamity"),
+    # а листы и <set>_set.json — полным именем ("Smaug, the Great Calamity // Spew Flame").
+    # Без этого фолбэка такая карта получала GIH/пар-GIH = None и выпадала из ранжирования
+    # пула — то есть § Шаг 0 сборки молча не видел Adventure-карты.
+    # Третий прибор с этим же багом за один вечер (JOURNAL § 8.3 ①, там же список
+    # непроверенных). 18.08.2026.
+    def _rat(d, nm):
+        return d.get(nm) or d.get(nm.split(" //")[0])
+
     rows = []
     for name, qty in cards:
         c = by_name.get(name)
         if c and "Land" in (c.get("type_line") or "") and "Creature" not in (c.get("type_line") or ""):
-            if not grat.get(name):
+            if not _rat(grat, name):
                 continue
-        g = grat.get(name); p = prat.get(name)
+        g = _rat(grat, name); p = _rat(prat, name)
         gg = round(g["ever_drawn_win_rate"] * 100, 1) if g and g.get("ever_drawn_win_rate") else None
         pg = round(p["gih"] * 100, 1) if p and p.get("gih") else None
         pi = round(p["iwd"] * 100, 1) if p and p.get("iwd") is not None else None

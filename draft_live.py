@@ -82,7 +82,13 @@ def pick_tier(name):
     global PICK_TIERS
     if PICK_TIERS is None:
         PICK_TIERS = load_pick_tiers()
-    return PICK_TIERS.get(_norm_name(name)) or PICK_TIERS.get(_norm_name((name or "").split(",")[0]))
+    # Фолбэк на лицевую сторону DFC — страховка, а не починка живого пути: вызывающие
+    # (_name_of, запись рейтинга) уже отдают лицевое имя. Но без него ЛЮБОЙ будущий вызов
+    # с полным именем молча вернёт None, а в MSH это все 5 двусторонних карт, включая
+    # Tony Stark (тир B+) и Bruce Banner (A). Проверено 18.08.2026: 5 из 5 не находились.
+    return (PICK_TIERS.get(_norm_name(name))
+            or PICK_TIERS.get(_norm_name((name or "").split(" //")[0]))
+            or PICK_TIERS.get(_norm_name((name or "").split(",")[0])))
 
 
 # Веса осей в ПОРЯДКЕ ПЕЧАТИ пака: score = 2·GIH + 1·IWD, обе в процентных пунктах.
