@@ -42,3 +42,7 @@ draft_training*.html
 # (3.3 МБ и 4 МБ соответственно — в git им делать нечего)
 hob_atlas.html
 atlas/imgs.json
+
+# свёрнутые публичные датасеты 17Lands — воспроизводятся fetch_17l_games.py за ~20с
+# (msh_decks.json.gz это 6.5 МБ производных данных, в git им делать нечего)
+games/
