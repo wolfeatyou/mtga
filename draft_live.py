@@ -383,6 +383,67 @@ def save_pool(picks, by_id, ratings, draft_id):
         return None       # автосохранение никогда не должно ронять живой драфт
 
 
+def _telemetry_path(draft_id):
+    return os.path.join(POOL_DIR, f"{setcode()}_{(draft_id or 'nodraftid')[:8]}_telemetry.jsonl")
+
+
+def record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings):
+    """Журнал «совет / фактический пик» (поставлен 18.08.2026, JOURNAL § 8.12).
+
+    ЗАЧЕМ. Связка «что советовала ранжировка → что взял игрок» до сих пор испарялась:
+    пул сохранялся, а согласие/расхождение с советом — нет. Экзамен § 8.9 показал, что
+    вся измеримая разница между сильным и слабым драфтером — точность следования
+    «сильнейшему кастуемому»; этот файл делает ту же проверку для НАШИХ драфтов:
+    в скольких пиках игрок идёт против ранжировки и кто оказывается прав.
+
+    Пишется в pools/<set>_<draft8>_telemetry.jsonl двумя типами строк:
+      {"t":"pack","pn","pk","i","n","adv":[топ-1,топ-2 первой группы],"gih_top":имя}
+      {"t":"pick","i","name"}   — i это индекс в пуле, у пака i = len(picks) на рендере
+    Джойн pack.i == pick.i. Дедуп по координате пака и индексу пика — повторные
+    рендеры того же пака строк не плодят. Сводка: `python3 telemetry_report.py <set>`.
+
+    ⚠ «adv» — топ МЕХАНИЧЕСКОЙ ранжировки (кастуемость + GIH с поправками), а не
+    финальный совет модели: прозу советчика машинно не сверить, ранжировку — можно.
+    Как и save_pool: телеметрия никогда не роняет живой драфт."""
+    try:
+        path = _telemetry_path(draft_id)
+        seen_packs, seen_picks = set(), set()
+        if os.path.exists(path):
+            for line in open(path, encoding="utf-8"):
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                if rec.get("t") == "pack":
+                    seen_packs.add((rec.get("pn"), rec.get("pk")))
+                elif rec.get("t") == "pick":
+                    seen_picks.add(rec.get("i"))
+
+        def nm(cid):
+            c = by_id.get(cid)
+            n = (c or {}).get("name") or (ratings.get(cid) or {}).get("name") or f"id{cid}"
+            return n.split(" //")[0]
+
+        out = []
+        if ids and (pnum, pick) not in seen_packs:
+            first_group = grouped[0][1] if grouped else []
+            def g(cid):
+                return (ratings.get(cid) or {}).get("ever_drawn_win_rate") or 0
+            out.append({"t": "pack", "pn": pnum, "pk": pick, "i": len(picks),
+                        "n": len(ids), "adv": [nm(c) for c in first_group[:2]],
+                        "gih_top": nm(max(ids, key=g))})
+        for i, cid in enumerate(picks):
+            if i not in seen_picks:
+                out.append({"t": "pick", "i": i, "name": nm(cid)})
+        if out:
+            with open(path, "a", encoding="utf-8") as f:
+                for rec in out:
+                    f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        return path if out else None
+    except Exception:
+        return None       # телеметрия никогда не должна ронять живой драфт
+
+
 def pool_summary(picks, by_id, ratings):
     """Текст: список пула, баланс цветов, кривая."""
     if not picks:
@@ -1559,6 +1620,7 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
     saved = save_pool(picks, by_id, ratings, draft_id)
     if saved:
         lines.append(f"  💾 пул сохранён: pools/{os.path.basename(saved)} ({len(picks)} карт)")
+    record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings)
     return "\n".join(lines)
 
 
