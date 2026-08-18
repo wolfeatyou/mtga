@@ -59,9 +59,10 @@ def _norm_name(s):
 def load_pick_tiers():
     """name -> тир пика по untapped.gg (DIAMOND_TO_MYTHIC). Это ДРУГАЯ ось, чем GIH:
     как сильные драфтеры карту РЕАЛЬНО берут, а не какой у неё винрейт.
-    Измерено на 196 картах (10.08.2026): ρ(тир,GIH)=+0.79, но при РАВНОМ GIH решает IWD —
-    ρ(тир,IWD) внутри полосы 59-61 = +0.58, внутри 61-64 = +0.66. Поэтому тир печатается
-    рядом с GIH: расхождение между ними и есть содержательная часть пика."""
+    ρ(тир,GIH)=+0.79 (n=196, 10.08.2026). Прежний вывод «при равном GIH решает IWD»
+    ОПРОВЕРГНУТ поведением победителей 18.08.2026 (JOURNAL § 8.9): на GIH-ничьих
+    трофейщики берут высокий IWD в 52.2% — монетка. Тир печатается рядом с GIH:
+    расхождение между ними и есть содержательная часть пика."""
     f = os.path.join(HERE, f"{setcode()}_pick_tiers.json")
     if not os.path.exists(f):
         return {}
@@ -91,29 +92,55 @@ def pick_tier(name):
             or PICK_TIERS.get(_norm_name((name or "").split(",")[0])))
 
 
-# Веса осей в ПОРЯДКЕ ПЕЧАТИ пака: score = 2·GIH + 1·IWD, обе в процентных пунктах.
+# Ось сортировки внутри группы: score = GIH + цветовая поправка + бомба-надбавка (пункты).
 #
-# Обоснование — измерение из SKILL.md (n=196, 10.08.2026): ρ(пик-тир, GIH) = +0.79
-# глобально, но внутри узкой полосы GIH решает IWD — ρ(пик-тир, IWD) = +0.42 (полоса
-# 57-59), +0.58 (59-61), +0.66 (61-64). GIH сильнее как одиночный предиктор, IWD —
-# настоящий тайбрейк. Вес 2:1 даёт ровно это: пункт GIH весит вдвое, но при равном GIH
-# (вклад одинаков и сокращается) весь выбор ложится на IWD.
+# IWD ИЗ ОСИ СНЯТ 18.08.2026 (JOURNAL § 8.9, по указанию пользователя). Прежний вес
+# 2·GIH + 1·IWD обосновывался корреляцией с пик-тирами (n=196 карт, 10.08.2026), а не
+# поведением победителей и не исходами. Экзамен на реальных пиках MSH (294k спорных):
+# ось 2GIH+IWD попадает в пик будущего трофейщика НЕ чаще чистого GIH (31.6% vs 31.8%),
+# а ровно в точке правила «при равном GIH решает IWD» — на GIH-ничьих с различающим
+# IWD — трофейщики берут высокий IWD в 52.2% (монетка), провальщики в 55.4% (ЧАЩЕ).
+# Гипотеза опровергнута по § КАЛИБРОВКА закон 4; разбор — rules_graveyard.md.
+#
+# ДВЕ ПОПРАВКИ ВМЕСТО НЕГО — из ridge-остатков «вес карты в трофее против её GIH»
+# (JOURNAL § 8.8 ③, 15 230 колод MSH, устойчивы на сплит-половинах):
+# · ЦВЕТ: глобальный GIH завышает карты цветов сильнейшей пары сета — сила архетипа
+#   протекает в число карты. Поправка ПО-СЕТОВАЯ (считается из game-датасета
+#   `axes_vs_outcome.py <set>`, блок C); для сета без данных — пусто и ось = чистый GIH.
+# · БОМБА: GIH сжимает верх шкалы — средний остаток по полосам: до 63 ≈ 0 (шум),
+#   63–66 → +3.4 пункта, 66+ → +7.3 (Captain Marvel 70.2 «стоит» ~81). Надбавка
+#   1.5·(GIH−63)⁺ с капом +12: внутри группы порядок не меняет (монотонна), нужна для
+#   сравнения ЧЕРЕЗ группы (бомба вне цвета против середняка в цвете) — печатается
+#   в ярлыке как 💣экв. Величины сняты на MSH; на HOB пересчитать при данных (§ 9).
 #
 # Шкала АБСОЛЮТНАЯ, а не нормированная внутри пака. Две отвергнутые попытки — обе
-# поймал регресс-тест test_pack_order на док. случае P1P2 (GIH 59.9 против 59.9,
-# IWD +3.0 против +8.6), и обе ломались одинаково: превращали ничью по GIH в разрыв
-# на всю ширину оси, из-за чего GIH голосовал полным весом там, где не различает карты.
+# поймал регресс-тест test_pack_order на док. случае P1P2 (GIH 59.9 против 59.9),
+# и обе ломались одинаково: превращали ничью по GIH в разрыв на всю ширину оси.
 #   · ранги — ничья становилась «первая/вторая»;
 #   · min-max внутри пака — при двух картах всегда 0 и 1, то же самое.
 # Пункт GIH имеет фиксированный смысл сам по себе, нормировать его составом пака не надо.
-#
-# ⚠️ ЧИСЛО 2:1 НАЗНАЧЕНО ПО ЭТИМ ρ, А НЕ ИЗМЕРЕНО НАПРЯМУЮ. Статус — гипотеза
-# (§ КАЛИБРОВКА закон 4). Проверять на ref_decks/; противоречит — менять, а не оставлять.
-W_GIH, W_IWD = 2.0, 1.0
+COLOR_GIH_ADJ = {  # GIH-пункты; провенанс: axes_vs_outcome.py msh, JOURNAL § 8.8 ③
+    "msh": {"W": -1.2, "U": -1.0, "B": +1.2, "R": +2.3, "G": -0.4},
+}
+BOMB_KNEE, BOMB_RATE, BOMB_CAP = 63.0, 1.5, 12.0
+
+
+def color_adj(r):
+    """Поправка к GIH за цвет карты (среднее по цветам для мультиколора)."""
+    adj = COLOR_GIH_ADJ.get(setcode())
+    if not adj or not r:
+        return 0.0
+    cols = [ch for ch in (r.get("color") or "") if ch in adj]
+    return sum(adj[c] for c in cols) / len(cols) if cols else 0.0
+
+
+def bomb_bonus(gih_pts):
+    """Недооценка верха шкалы GIH (§ 8.8): 0 ниже колена, дальше линейно до капа."""
+    return min(BOMB_CAP, BOMB_RATE * max(0.0, gih_pts - BOMB_KNEE))
 
 
 def pack_order(ids, by_id, ratings, cratings, main):
-    """Порядок печати пака: сначала ГРУППА по кастуемости, внутри — score = 2·GIH + 1·IWD.
+    """Порядок печати пака: сначала ГРУППА по кастуемости, внутри — GIH с поправками.
 
     Зачем это не «sorted по GIH» (внесено 16.08.2026): вывод, отсортированный по одному
     числу, создаёт якорь — рассуждение начинается с верхней строки и дальше её
@@ -125,11 +152,11 @@ def pack_order(ids, by_id, ratings, cratings, main):
       1. Кастуемость — ГРУППА, а не флаг в конце строки. Некастуемая карта с высоким GIH
          больше не стоит первой (её всё равно видно: группы печатаются целиком, а
          ⚑ СИЛЬНЕЕ ВНЕ ЦВЕТА продолжает ловить настоящий повод для пивота).
-      2. Внутри группы порядок — по 2·GIH + 1·IWD, а не по одному GIH. При равном GIH
-         вклад первого слагаемого одинаков и сокращается — весь выбор ложится на IWD.
-         Док. случай, который это ловит (MSH, 10.08.2026, P1P2): Take Up the Shield
-         GIH 59.9 / IWD +3.0 и Super-Skrull GIH 59.9 / IWD +8.6 — GIH совпал до десятой,
-         старая сортировка ставила первой Take Up the Shield, и совет пошёл за ней.
+      2. Внутри группы порядок — GIH + цветовая поправка + бомба-надбавка (IWD снят
+         18.08.2026, см. комментарий у COLOR_GIH_ADJ). Док. случай (MSH, 10.08.2026,
+         P1P2): Take Up the Shield {W} GIH 59.9 и Super-Skrull {B} GIH 59.9 — ничья по
+         GIH; цветовая поправка (W −1.2, B +1.2 — глобальный GIH завышает цвета модной
+         пары) решает в пользу Super-Skrull, как решил и игрок, и как пикают трофейщики.
 
     Возвращает [(заголовок_группы | None, [cid, ...]), ...] в порядке печати.
     """
@@ -138,10 +165,6 @@ def pack_order(ids, by_id, ratings, cratings, main):
             return cratings[cid]
         r = ratings.get(cid)
         return r.get("ever_drawn_win_rate") if r else None
-
-    def iwd(cid):
-        r = ratings.get(cid)
-        return r.get("drawn_improvement_win_rate") if r else None
 
     groups = {"": [], "~splash": [], "✗offcolor": []}
     for cid in ids:
@@ -157,7 +180,8 @@ def pack_order(ids, by_id, ratings, cratings, main):
             gv = gih(cid)
             if gv is None:
                 return None                      # нет данных — в конец группы
-            return W_GIH * gv * 100 + W_IWD * (iwd(cid) or 0) * 100
+            pts = gv * 100
+            return pts + color_adj(ratings.get(cid)) + bomb_bonus(pts)
         g.sort(key=lambda c: (score(c) is None, -(score(c) or 0), -(gih(c) or 0)))
         out.append((label, g))
     # пул ещё не закоммичен (main=None) → cast_flag молчит, всё падает в одну группу
@@ -187,6 +211,13 @@ def stat_tag(r, cgih=None, pair=None):
     pt = pick_tier(r.get("name"))
     if pt:
         parts.append(f"пик {pt}")     # как берут в Diamond→Mythic (untapped), ось ≠ GIH
+    # Поправки § 8.8: бомба-эквивалент (GIH сжимает верх шкалы) и цветовой сдвиг.
+    # 💣экв — «настоящая» цена карты в GIH-пунктах, сравнивать ЧЕРЕЗ группы кастуемости.
+    adj, bb = color_adj(r), bomb_bonus(g * 100)
+    if bb:
+        parts.append(f"💣экв≈{g*100 + adj + bb:.0f}")
+    elif adj:
+        parts.append(f"цвет{adj:+.1f}")
     flag = " ⚠trap" if (iwd is not None and iwd < 0) else ""
     return "[" + "|".join(parts) + "]" + flag
 
@@ -978,7 +1009,8 @@ def profile_banner(picks, by_id, ratings, main, pnum, pick):
 # Правило текстом в SKILL.md уже стояло («floor vs ceiling») и не сработало ни разу:
 # сортировка по GIH сильнее любой прозы. Поэтому — баннером.
 GIH_TIE = 1.5        # в пределах этого GIH считаем «равным»
-IWD_GAP = 2.0        # разница IWD, с которой она решает
+# IWD_GAP снят 18.08.2026 вместе с IWD-тайбрейком (JOURNAL § 8.9): на GIH-ничьих
+# трофейщики берут высокий IWD в 52.2% (монетка), провальщики — 55.4%.
 TIER_GAP = 2         # ступеней пик-тира, с которых он решает
 _TIER_ORDER = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D"]
 
@@ -989,7 +1021,11 @@ def _tier_idx(name):
 
 
 def tiebreak_banner(ids, by_id, ratings, main):
-    """Молчит, пока верх по GIH и верх по тайбрейку — одна карта. Говорит, когда разошлись."""
+    """Молчит, пока верх по GIH и верх по тайбрейку — одна карта. Говорит, когда разошлись.
+
+    Тайбрейк — ПИК-ТИР (как реально берут сильные драфтеры, untapped D→M). IWD из
+    тайбрейка СНЯТ 18.08.2026 (JOURNAL § 8.9): на GIH-ничьих с различающим IWD
+    трофейщики берут высокий IWD в 52.2% (монетка), провальщики — 55.4% (чаще!)."""
     cand = []
     for cid in ids:
         r = ratings.get(cid)
@@ -999,7 +1035,6 @@ def tiebreak_banner(ids, by_id, ratings, main):
             continue                       # некастуемые в тайбрейке не участвуют
         nm = _name_of(cid, by_id, ratings)
         cand.append(dict(name=nm, gih=round(r["ever_drawn_win_rate"] * 100, 1),
-                         iwd=round((r.get("drawn_improvement_win_rate") or 0) * 100, 1),
                          tier=pick_tier(nm), ti=_tier_idx(nm)))
     if len(cand) < 2:
         return []
@@ -1007,19 +1042,16 @@ def tiebreak_banner(ids, by_id, ratings, main):
     near = [c for c in cand if top["gih"] - c["gih"] <= GIH_TIE]
     if len(near) < 2:
         return []
-    by_iwd = max(near, key=lambda x: x["iwd"])
     tiered = [c for c in near if c["ti"] is not None]
     by_tier = min(tiered, key=lambda x: x["ti"]) if tiered else None
 
     reasons = []
-    if by_iwd["name"] != top["name"] and by_iwd["iwd"] - top["iwd"] >= IWD_GAP:
-        reasons.append(f"IWD {top['iwd']:+.1f} → {by_iwd['iwd']:+.1f}")
     if (by_tier and by_tier["name"] != top["name"] and top["ti"] is not None
             and top["ti"] - by_tier["ti"] >= TIER_GAP):
         reasons.append(f"пик-тир {top['tier']} → {by_tier['tier']}")
     if not reasons:
         return []
-    win = by_iwd if by_iwd["name"] != top["name"] else by_tier
+    win = by_tier
     return [f"⚑ ТАЙБРЕЙК: сверху по GIH {top['name']} ({top['gih']}), но в пределах "
             f"{GIH_TIE} GIH есть {win['name']} ({win['gih']}) — и он лучше по: "
             + " · ".join(reasons),

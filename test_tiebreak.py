@@ -34,10 +34,10 @@ def show(label, ids, main=None):
 # ── A. настоящий случай P1P2 ──────────────────────────────────────────────────
 REAL = [find(n) for n in ["Take Up the Shield", "Super-Skrull", "Undercover Skrull",
                           "Madame Masque", "Reptil, Dinomorpher"]]
-a = show("A. реальный P1P2: Take Up the Shield 59.9/+3.0/C+ vs Super-Skrull 59.9/+8.6/B", REAL)
+a = show("A. реальный P1P2: Take Up the Shield 59.9/пик C+ vs Super-Skrull 59.9/пик B", REAL)
 assert "ТАЙБРЕЙК" in a, "не сработал на случае, ради которого написан!"
 assert "Super-Skrull" in a, "не назвал правильного победителя тайбрейка"
-assert "IWD" in a, "не назвал причину"
+assert "пик-тир" in a, "не назвал причину (пик-тир; IWD снят 18.08.2026, § 8.9)"
 
 # ── B. молчит, когда верх по GIH и по тайбрейку — одна карта ──────────────────
 QUIET = [find(n) for n in ["Web Up", "Crowd of True Believers", "Atlantis Attacks"]]
@@ -54,7 +54,7 @@ d = show("D. Super-Skrull ({1}{B}{B}{B}) вне цвета при пуле UW �
 assert "Super-Skrull" not in d, "предложил некастуемую карту"
 
 print("\n✅ ВСЕ ПРОВЕРКИ ПРОШЛИ:")
-print("   · срабатывает на реальном случае и называет Super-Skrull + причину (IWD)")
+print("   · срабатывает на реальном случае и называет Super-Skrull + причину (пик-тир)")
 print("   · молчит, когда GIH-топ и есть лучший выбор")
 print("   · молчит, когда GIH решает сам (разрыв > порога)")
 print("   · не предлагает карты вне цвета")
