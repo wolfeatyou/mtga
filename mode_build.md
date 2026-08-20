@@ -327,7 +327,11 @@ trio § 8.19 = 7; judge-v2 = 6 и 5).
 матч-логи и существующие листы — они работают только от пула и досье.
 
 ### ALWAYS goldfish a deck you build — `draft_goldfish.py`
-**Whenever you build, tune, or compare a Limited deck, run the goldfish sim and report the numbers as part of the answer** (not just the list). It quantifies the things GIH/curve can't: mulligan rate, early-survival, colour/splash reliability, flood/screw, top-end castability.
+**Whenever you build, tune, or compare a Limited deck, run the goldfish sim and report the numbers as part of the answer** (not just the list). С 20.08.2026 голдфиш
+печатает и **CLOCK** (§ 8.23): медианный ход 20 урона — пустая доска / через 2 блокеров —
+против медианы победителей пары (`<set>_clocks.json`, пересчёт: `--calibrate <set>`).
+Это верхняя граница темпа для сравнения кандидатов; эквип/бёрн/amass в clock не бьют —
+часы таких колод занижены. It quantifies the things GIH/curve can't: mulligan rate, early-survival, colour/splash reliability, flood/screw, top-end castability.
 
 ```bash
 # write the maindeck to an MTGA-format .txt, then:

@@ -84,9 +84,23 @@ def card_info(name, db):
         fixer = "is" if "instant or sorcery" in txt else "any"   # 'is' = restricted to I/S spells
     elif "search your library for a basic land" in txt and "into your hand" in txt:
         fixer = "fetch"
+    # CLOCK-поля (§ 8.23): сила, печатное пробитие (та же EVASION_RE, что в deck_profile
+    # и routes-медианах — общий словарь «ломателей»), haste. */X-силы считаются нулём —
+    # как в оси big (deck_profile.metrics), договорённость единая.
+    pw = c.get("power")
+    if pw is None and c.get("card_faces"):
+        pw = c["card_faces"][0].get("power")
+    try:
+        pw = int(pw)
+    except (TypeError, ValueError):
+        pw = 0
+    import deck_profile as _DP
+    front = (c.get("oracle_text") or "").split(" // ")[0]
     return {"name": name, "land": False, "cmc": int(round(cmc)), "pips": pips,
             "creature": "Creature" in tl,
             "removal": any(k in txt for k in INTERACT),
+            "power": pw, "evasive": bool(_DP.EVASION_RE.search(front + " " + tl)),
+            "haste": "haste" in txt,
             "fixer": fixer, "bomb": False}
 
 # ---------- decklist ----------
@@ -146,7 +160,9 @@ def choose_land(hand_lands, in_play, turn):
 def keepable(hand):
     return 2 <= sum(1 for c in hand if c["land"]) <= 5
 
-def simulate(base_deck):
+def opening(base_deck):
+    """Мулиган-политика, ВЫНЕСЕНА из simulate() без изменения порядка вызовов RNG
+    (числа screw/T2 откалиброваны — сдвигать нельзя, § 8.3). Общая для simulate и clock_sim."""
     deck = [dict(c) for c in base_deck]
     random.shuffle(deck)
     raw_lands = sum(1 for c in deck[:7] if c["land"])
@@ -166,8 +182,11 @@ def simulate(base_deck):
             sp = sorted([c for c in hand if not c["land"]], key=lambda c: -c.get("cmc", 0))
             victim = sp[0] if sp else hand[-1]
         hand.remove(victim); lib.append(victim)
+    return deck, list(hand), lib, mcount, raw_lands
 
-    in_play, hand = [], list(hand)
+def simulate(base_deck):
+    deck, hand, lib, mcount, raw_lands = opening(base_deck)
+    in_play = []
     first_block = first_removal = mascot_t = 99
     lands_at, black_floor, black_real = {}, {}, {}
     fixers = []          # list of (kind, online_turn) for 'any'/'is' sources
@@ -219,12 +238,132 @@ def simulate(base_deck):
                 first_removal=first_removal, mascot_t=mascot_t, lands_at=lands_at,
                 black_floor=black_floor, black_real=black_real)
 
+# ---------- CLOCK: на каком ходу колода набирает 20 урона (§ 8.23) ----------
+def _alloc(sources, cmc, pips):
+    """Индексы источников под каст (сначала пипы бэктреком, затем generic) или None."""
+    n = int(cmc)
+    if len(sources) < n or len(pips) > n:
+        return None
+    used = [False] * len(sources)
+    def bt(i):
+        if i == len(pips):
+            return True
+        for j, p in enumerate(sources):
+            if not used[j] and (p & pips[i]):
+                used[j] = True
+                if bt(i + 1):
+                    return True
+                used[j] = False
+        return False
+    if not bt(0):
+        return None
+    picked = [j for j, u in enumerate(used) if u]
+    for j in range(len(sources)):
+        if len(picked) >= n:
+            break
+        if not used[j]:
+            picked.append(j)
+    return picked if len(picked) == n else None
+
+def clock_sim(base_deck, N=4000, blockers=2, max_turn=14):
+    """ЧАСЫ КОЛОДЫ: медианный ход, на котором суммарный урон достигает 20.
+
+    ВЕРХНЯЯ ГРАНИЦА ТЕМПА, не винрейт: оппонент не мешает (removal/блоков по нам нет).
+    Два режима: пустая доска (бьют все) и «стойка» из K блокеров — каждый ход блокеры
+    съедают урон K самых крупных НЕпробивающих атакеров; пробивающие = та же
+    EVASION_RE, что ось «воздух» в routes (flying/menace/unblockable/trample).
+    Ограничения v1 (задокументированы в § 8.23): некреатуры урона не дают (эквип,
+    бёрн, Армии-токены amass — мимо), саммон-сикнесс учтён, haste учтён, счётчики/
+    пампы не растят силу. Каст — жадный (дорогие существа вперёд) на реальной
+    манабазе через ту же модель источников, что и остальной голдфиш."""
+    kills_open, kills_wall = [], []
+    for _ in range(N):
+        _deck, hand, lib, _mc, _rl = opening(base_deck)
+        lands_ip, board = [], []          # board: (power, evasive, cast_turn, haste)
+        dmg_o = dmg_w = 0
+        ko = kw = 99
+        for turn in range(1, max_turn + 1):
+            if turn > 1 and lib:
+                hand.append(lib.pop(0))
+            hl = [c for c in hand if c["land"]]
+            if hl:
+                land = hl[choose_land(hl, lands_ip, turn)]
+                hand.remove(land)
+                lands_ip.append({**land, "pt": turn})
+            avail = [l["produces"] for l in lands_ip if l["pt"] < turn or not l["tapped"]]
+            for c in sorted([h for h in hand if not h["land"] and h.get("creature")],
+                            key=lambda c: -c["cmc"]):
+                pick = _alloc(avail, c["cmc"], c["pips"])
+                if pick is not None:
+                    avail = [s for j, s in enumerate(avail) if j not in pick]
+                    hand.remove(c)
+                    board.append((c["power"], c["evasive"], turn, c["haste"]))
+            attackers = [(p, e) for p, e, t, h in board if t < turn or h]
+            dmg_o += sum(p for p, _e in attackers)
+            ground = sorted((p for p, e in attackers if not e), reverse=True)
+            dmg_w += sum(p for p, e in attackers if e) + sum(ground[blockers:])
+            if ko == 99 and dmg_o >= 20:
+                ko = turn
+            if kw == 99 and dmg_w >= 20:
+                kw = turn
+            if ko < 99 and kw < 99:
+                break
+        kills_open.append(ko)
+        kills_wall.append(kw)
+    return kills_open, kills_wall
+
+def clock_stats(kills):
+    s = sorted(kills)
+    med = s[len(s) // 2]
+    return med, (lambda t: sum(1 for x in kills if x <= t) / len(kills))
+
+def calibrate(setcode, N=1200):
+    """Медианные часы по парам на ref_decks/<set>/ → <set>_clocks.json."""
+    import glob
+    import build_audit as A
+    import statistics as st
+    dbA = A.load_db()
+    db = load_db()
+    rows = {}
+    files = sorted(glob.glob(os.path.join(SKILL, "ref_decks", setcode, "*.txt")))
+    print(f"калибровка часов: {len(files)} листов · {N} игр на лист")
+    for i, f in enumerate(files):
+        deck, missing = build_deck(parse_decklist(f), db)
+        if len(deck) < 38:
+            continue
+        pair = A.deck_colors(f, dbA)
+        ko, kw = clock_sim(deck, N)
+        mo = sorted(ko)[len(ko) // 2]
+        mw = sorted(kw)[len(kw) // 2]
+        rows.setdefault(pair, []).append((mo, mw))
+        if (i + 1) % 50 == 0:
+            print(f"  …{i + 1}/{len(files)}")
+    out = {}
+    for pair, v in rows.items():
+        if len(v) < 12:
+            continue
+        out[pair] = dict(open=st.median([a for a, _ in v]), wall=st.median([b for _, b in v]),
+                         n=len(v))
+    p = os.path.join(SKILL, f"{setcode}_clocks.json")
+    json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"{'пара':<5}{'n':>4} {'пустая':>7} {'стойка':>7}")
+    for pair in sorted(out, key=lambda x: -out[x]["n"]):
+        r = out[pair]
+        print(f"{pair:<5}{r['n']:>4} {r['open']:>7} {r['wall']:>7}")
+    print(f"→ записано {p}")
+
 def main():
     args = [a for a in sys.argv[1:]]
+    if "--calibrate" in args:
+        i = args.index("--calibrate")
+        code = args[i + 1] if len(args) > i + 1 else "hob"
+        random.seed(12345)
+        calibrate(code, next((int(a) for a in args if a.isdigit()), 1200))
+        return
     path = next((a for a in args if not a.isdigit()), None)
     N = next((int(a) for a in args if a.isdigit()), 20000)
     if not path or not os.path.exists(path):
-        print("usage: python3 draft_goldfish.py <decklist.txt> [N]"); sys.exit(1)
+        print("usage: python3 draft_goldfish.py <decklist.txt> [N] | --calibrate <set> [N]"); sys.exit(1)
 
     db = load_db()
     decklist = parse_decklist(path)
@@ -289,6 +428,28 @@ def main():
         print(f"  castable by turn 6: {P(sum(1 for r in res if r['mascot_t']<=6))}")
         print(f"  castable by turn 7: {P(sum(1 for r in res if r['mascot_t']<=7))}")
     print(f"avg mulligans/game: {sum(r['mcount'] for r in res)/N:.2f}\n")
+
+    ko, kw = clock_sim(deck, min(N, 4000))
+    mo, po = clock_stats(ko)
+    mw, pw_ = clock_stats(kw)
+    fmt = lambda m: (f"ход {m}" if m < 99 else ">14")
+    print("CLOCK — на каком ходу набрано 20 урона (оппонент НЕ мешает — верхняя граница темпа):")
+    print(f"  пустая доска:     медиана {fmt(mo)} · к 8-му {100*po(8):.0f}% · к 10-му {100*po(10):.0f}%")
+    print(f"  через 2 блокеров: медиана {fmt(mw)} · к 8-му {100*pw_(8):.0f}% · к 10-му {100*pw_(10):.0f}%")
+    print("  (некреатуры урона не дают: эквип/бёрн/amass-Армии мимо — см. JOURNAL § 8.23)")
+    try:
+        import build_audit as A
+        code, _how = A.detect_set(path, path, None)
+        cp = os.path.join(SKILL, f"{code}_clocks.json")
+        if os.path.exists(cp):
+            pair = A.deck_colors(path, A.load_db())
+            ref = json.load(open(cp)).get(pair)
+            if ref:
+                print(f"  победители пары {pair} (n={ref['n']}): пустая {ref['open']} · "
+                      f"стойка {ref['wall']}")
+    except SystemExit:
+        pass
+    print()
 
 if __name__ == "__main__":
     main()
