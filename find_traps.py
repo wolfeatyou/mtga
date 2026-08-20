@@ -35,6 +35,44 @@ PAIR_SET_RATE = 0.20    # «в сете играется» для парного
 PAIR_HERE_RATE = 0.15   # «а в этой паре почти нет»
 
 SYM = re.compile(r"\{([^}]+)\}")
+# Оси маршрутов (§ 8.17): эвейжн — только ПЕЧАТНЫЙ (строка со стоимостью активации не считается).
+EV_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
+ACT_RE = re.compile(r"\{[^}]+\}\s*:")
+
+
+def sig_of(cnt, cards):
+    """Сигнатура {big, evp, cre, cheap, rem} для набора карт {norm-имя: копий}.
+
+    Вынесена из main() на уровень модуля 20.08.2026, чтобы pool_dossier.py и тесты
+    звали ТУ ЖЕ функцию, которой посчитаны медианы `routes` в <set>_traps.json —
+    копия логики у потребителя не измеряет (JOURNAL § 8.5). Поведение не менялось.
+    """
+    import deck_profile as _DP
+    big = evp = cre = cheap = rem = 0
+    for c in cards:
+        k = norm(c["name"])
+        if k not in cnt:
+            continue
+        n_ = cnt[k]; tl = face(c, "type_line"); ora = _DP.oracle(c)
+        if _DP.HARD_RE.search(ora) or _DP.SOFT_RE.search(ora):
+            rem += n_
+        if "Creature" not in tl:
+            continue
+        cre += n_
+        if int(c.get("cmc") or 0) <= 2:
+            cheap += n_
+        pw = c.get("power")
+        if pw is None and c.get("card_faces"):
+            pw = c["card_faces"][0].get("power")
+        try:
+            pw = int(pw)
+        except (TypeError, ValueError):
+            pw = 0
+        if pw >= 4:
+            big += n_
+        if any(EV_RE.search(l) and not ACT_RE.search(l) for l in ora.split("\n")):
+            evp += pw * n_
+    return dict(big=big, evp=evp, cre=cre, cheap=cheap, rem=rem)
 
 
 def norm(s):
@@ -241,31 +279,10 @@ def main():
     # своей популяции; листов «ни одной оси» всего 20 из 298 (6.7%). Проигравшая
     # колода драфта eba1b036 (0-3) была ниже медианы по ВСЕМ четырём — мягкая
     # середина как измеримое состояние, а не как метафора.
-    EV_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
-    ACT_RE = re.compile(r"\{[^}]+\}\s*:")
-    import deck_profile as _DP
-    def _sig(cnt):
-        big = evp = cre = cheap = rem = 0
-        for c in cards:
-            k = norm(c["name"])
-            if k not in cnt: continue
-            n_ = cnt[k]; tl = face(c, "type_line"); ora = _DP.oracle(c)
-            if _DP.HARD_RE.search(ora) or _DP.SOFT_RE.search(ora): rem += n_
-            if "Creature" not in tl: continue
-            cre += n_
-            if int(c.get("cmc") or 0) <= 2: cheap += n_
-            pw = c.get("power")
-            if pw is None and c.get("card_faces"): pw = c["card_faces"][0].get("power")
-            try: pw = int(pw)
-            except (TypeError, ValueError): pw = 0
-            if pw >= 4: big += n_
-            if any(EV_RE.search(l) and not ACT_RE.search(l) for l in ora.split("\n")):
-                evp += pw * n_
-        return dict(big=big, evp=evp, cre=cre, cheap=cheap, rem=rem)
     routes = {}
     for pair, cnts in counts_by_pair.items():
         if len(cnts) < PAIR_MIN_LISTS: continue
-        sigs = [_sig(c) for c in cnts]
+        sigs = [sig_of(c, cards) for c in cnts]
         routes[pair] = {k: round(_st.median([x[k] for x in sigs]))
                         for k in ("big", "evp", "cre", "cheap", "rem")}
         routes[pair]["n"] = len(sigs)

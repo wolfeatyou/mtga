@@ -112,6 +112,9 @@ HARD_RE = re.compile(
     r"(?![^.]{0,60}?\byou control\b)", re.I)
 SOFT_RE = re.compile(r"gets -\d|gets \-|deals \d+ damage to target|tap target|doesn't untap|"
                      r"fights|return target .* to (its owner's|their owner's) hand", re.I)
+# Вынесен из metrics() на уровень модуля 20.08.2026 — pool_dossier.py помечает фикс той же
+# регуляркой, а не копией (JOURNAL § 8.5: копия логики у потребителя не измеряет).
+ANYCOLOR_RE = re.compile(r"mana of any (one )?color|create a treasure", re.I)
 
 
 def metrics(path, db, rat, prat=None):
@@ -132,7 +135,7 @@ def metrics(path, db, rat, prat=None):
     big_bodies = []
     gih_g, gih_p = [], []
     BASICS = {"plains", "island", "swamp", "mountain", "forest"}
-    ANYCOLOR = re.compile(r"mana of any (one )?color|create a treasure", re.I)
+    ANYCOLOR = ANYCOLOR_RE
 
     for n, name in entries:
         c = db.get(norm(name)) or db.get(norm(name.split(",")[0]))
