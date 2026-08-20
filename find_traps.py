@@ -152,13 +152,41 @@ def main():
     if not pair_bad:
         print("  (ничего выше порога)")
 
+    # ── ЧАСТОТА КАЖДОЙ КАРТЫ: по сету и по каждой паре ────────────────────────
+    # Нужна баннеру ⚑КРИВАЯ: «квоту дешёвых тел закрывает только тело ИЗ ЯДРА ПАРЫ»
+    # (hob_insights.md 17.08). Без этой таблицы баннер называл кандидатом любое тело за 2
+    # и трижды за драфт eba1b036 указал на Old Thrush — 0 из 14 UR-листов победителей.
+    # pair_bad для этого не годится: там только карты выше порога «играется в сете ≥20%»,
+    # а тела вроде Old Thrush (8% по сету) в него не попадают вовсе.
+    big_pairs = sorted(p for p, d in by_pair.items() if len(d) >= PAIR_MIN_LISTS)
+    played_tbl = {}
+    for c in cards:
+        if "Basic" in face(c, "type_line"):
+            continue
+        k = norm(c["name"])
+        pl = sn = 0
+        pairs = {}
+        for pair, decks in by_pair.items():
+            if not castable(c, pair):
+                continue
+            hits = sum(1 for d in decks if k in d)
+            sn += len(decks)
+            pl += hits
+            if pair in big_pairs:
+                pairs[pair] = round(hits / len(decks), 3)
+        if sn:
+            played_tbl[k] = dict(set=round(pl / sn, 3), n=sn, pairs=pairs)
+
     if "--write" in sys.argv:
         out = dict(
             traps=[dict(name=r["name"], key=r["key"], alsa=r["alsa"], rar=r["rar"],
                         played=r["played"], seen=r["seen"], rate=round(r["rate"], 3))
                    for r in traps],
             pair_bad={k: v for k, v in pair_bad.items()},
+            played=played_tbl,
             meta=dict(lists=total, alsa_early=ALSA_EARLY, trap_fraction=TRAP_FRACTION,
+                      pair_min_lists=PAIR_MIN_LISTS, big_pairs=big_pairs,
+                      pair_lists={p: len(d) for p, d in sorted(by_pair.items())},
                       rarity_median={k: round(v, 3) for k, v in med.items()}),
         )
         p = os.path.join(HERE, f"{code}_traps.json")

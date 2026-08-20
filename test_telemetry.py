@@ -63,4 +63,55 @@ assert picks_j[0] == adv_name.split(" //")[0] or picks_j[0] == adv_name, \
 assert D.record_telemetry(None, 1, 3, [], [], [], by_id, ratings) is None
 
 os.remove(path)
-print("✅ ТЕЛЕМЕТРИЯ: пак и пик пишутся по разу, джойн отчёта сходится, мусор не роняет")
+
+# ── 5. 🔴 ГОНКА ДЕБАУНСА: пул уехал вперёд пака (баг найден 20.08.2026) ───────
+# Прежний тест проверял только «идеальное» состояние (пак 1-1 при пустом пуле,
+# пак 1-2 при пуле из одной карты) и поэтому НЕ МОГ УПАСТЬ на реальном дефекте:
+# при MTGA_SETTLE игрок успевает пикнуть до рендера, len(picks) обгоняет пак, и
+# индекс, писавшийся как len(picks), перескакивал. Воспроизводим ровно это.
+DRAFT2 = "7e1e0000beef"
+path2 = D._telemetry_path(DRAFT2)
+if os.path.exists(path2):
+    os.remove(path2)
+
+allc = sorted(ratings.keys())
+PACK = 14
+# пак P1P13 (2 карты) рендерится, когда в логе УЖЕ 13 пиков — пул обогнал пак на один
+pack13 = allc[:2]
+picks13 = allc[10:23]                       # 13 карт в пуле
+assert len(picks13) == 13
+D.record_telemetry(DRAFT2, 1, 13, pack13, picks13,
+                   D.pack_order(pack13, by_id, ratings, {}, None), by_id, ratings)
+# следом P1P14 (1 карта) при тех же 13 пиках
+pack14 = allc[3:4]
+D.record_telemetry(DRAFT2, 1, 14, pack14, picks13,
+                   D.pack_order(pack14, by_id, ratings, {}, None), by_id, ratings)
+
+recs = [json.loads(l) for l in open(path2, encoding="utf-8")]
+pk_recs = {(r["pn"], r["pk"]): r for r in recs if r["t"] == "pack"}
+assert pk_recs[(1, 13)]["i"] == 12, \
+    f"P1P13 должен получить i=12 (координата), получил {pk_recs[(1,13)]['i']} — индекс снова из len(picks)"
+assert pk_recs[(1, 14)]["i"] == 13, f"P1P14: {pk_recs[(1,14)]['i']} != 13"
+assert pk_recs[(1, 13)]["i"] != pk_recs[(1, 14)]["i"], "коллизия индексов вернулась"
+
+# размер бустера восстанавливается из пака независимо от номера пика
+assert D.pick_index(1, 1, 14) == 0 and D.pick_index(1, 13, 2) == 12
+assert D.pick_index(2, 1, 14) == 14 and D.pick_index(2, 12, 3) == 25
+assert D.pick_index(3, 14, 1) == 41
+
+# отчёт джойнит по КООРДИНАТЕ, поэтому чинит и файлы, писанные до починки
+old = path2 + ".old"
+with open(old, "w", encoding="utf-8") as f:
+    f.write(json.dumps({"t": "pack", "pn": 1, "pk": 13, "i": 13, "n": 2,
+                        "adv": ["A", "B"], "gih_top": "A"}) + "\n")
+    f.write(json.dumps({"t": "pick", "i": 12, "name": "A"}) + "\n")
+    f.write(json.dumps({"t": "pick", "i": 13, "name": "Z"}) + "\n")
+p_old, k_old = TR.load_events(old)
+assert 12 in p_old and k_old.get(12) == "A", \
+    "старый файл с битым i не перепривязался по координате — джойн чинит только новые"
+assert p_old[12]["adv"][0] == "A", "совет уехал не к тому пику"
+os.remove(old)
+os.remove(path2)
+
+print("✅ ТЕЛЕМЕТРИЯ: пак и пик пишутся по разу, джойн отчёта сходится, мусор не роняет,\n"
+      "   индекс берётся из координаты пака (гонка дебаунса воспроизведена и не проходит)")

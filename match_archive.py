@@ -111,6 +111,11 @@ def collect(setcode):
         rec = dict(match=mid, game=gno, ts=_nearest_ts(txt, pos), event=deck_ev,
                    seat=me, result=res, turns=max(turns) if turns else None,
                    deck=[f"{q} {n}" for n, q in deck] if deck else None)
+        # бот-матч (Sparky/Direct Challenge с ботом): точный маркер — участник с
+        # isBotPlayer / eventId AIBotMatch в СВОЁМ сегменте партии. Строка "Sparky"
+        # сама по себе не годится: она встречается в квест-статусе аккаунта (20.08.2026).
+        if re.search(r'"isBotPlayer"\s*:\s*true|"eventId"\s*:\s*"AIBotMatch', sl):
+            rec["vs_bot"] = True
         records.append(rec)
     for mid, (lo, hi) in bounds.items():
         segments[mid] = txt[max(0, lo - 30000):min(len(txt), hi + 60000)]
@@ -177,10 +182,17 @@ def status(setcode):
     for r in rows:
         by_ev.setdefault(r.get("event") or "?", []).append(r)
     for ev, rs in sorted(by_ev.items()):
+        bots = [r for r in rs if r.get("vs_bot")]
+        rs = [r for r in rs if not r.get("vs_bot")]
         w = sum(1 for r in rs if r["result"] == "W")
         l = sum(1 for r in rs if r["result"] == "L")
         u = sum(1 for r in rs if r["result"] is None)
-        print(f"  {ev}: {w}W-{l}L" + (f" (+{u} без результата)" if u else ""))
+        line = f"  {ev}: {w}W-{l}L" + (f" (+{u} без результата)" if u else "")
+        if bots:
+            bw = sum(1 for r in bots if r["result"] == "W")
+            bl = sum(1 for r in bots if r["result"] == "L")
+            line += f" · боты отдельно: {bw}W-{bl}L (в счёт не идут)"
+        print(line)
         by_deck = {}
         for r in rs:
             key = tuple(r["deck"]) if r.get("deck") else ("<колода неизвестна>",)

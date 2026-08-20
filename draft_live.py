@@ -387,6 +387,29 @@ def _telemetry_path(draft_id):
     return os.path.join(POOL_DIR, f"{setcode()}_{(draft_id or 'nodraftid')[:8]}_telemetry.jsonl")
 
 
+def pick_index(pnum, pick, npack):
+    """Порядковый номер пика по КООРДИНАТЕ пака: (pn−1)·размер_бустера + (pk−1).
+
+    Размер бустера выводится из самого пака: на пике pk в нём лежит npack карт, значит
+    бустер был npack + pk − 1. Величина не зависит ни от тайминга рендера, ни от того,
+    сколько пиков успело попасть в лог.
+
+    🔴 ЗАЧЕМ (баг найден 20.08.2026 разбором драфта eba1b036). Раньше индекс пака писался
+    как `i = len(picks)` — число пиков В ПУЛЕ НА МОМЕНТ РЕНДЕРА. Это движущаяся величина:
+    при MTGA_SETTLE игрок успевает сделать пик до того, как воркер отрисует пак, пул уезжает
+    вперёд, и `i` перескакивает. В разобранном драфте это дало:
+      · P1P13 записан i=13 вместо 12 → джойн подсунул пик СЛЕДУЮЩЕГО пака;
+      · P2P12 записан i=26 вместо 25 → то же, и вдобавок КОЛЛИЗИЯ с P2P13 (тоже 26),
+        из-за которой `telemetry_report` молча терял одну запись (setdefault).
+    Итог: 2 из 17 «расхождений с ранжировкой» в отчёте были артефактом прибора.
+    Пик-записи от этого не страдали — там `i` = позиция в пуле, она честно последовательна.
+    """
+    size = (npack or 0) + (pick or 1) - 1
+    if size <= 0:
+        size = PICKS_PER_PACK
+    return ((pnum or 1) - 1) * size + ((pick or 1) - 1)
+
+
 def record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings):
     """Журнал «совет / фактический пик» (поставлен 18.08.2026, JOURNAL § 8.12).
 
@@ -434,7 +457,7 @@ def record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings):
             first_group = grouped[0][1] if grouped else []
             def g(cid):
                 return (ratings.get(cid) or {}).get("ever_drawn_win_rate") or 0
-            out.append({"t": "pack", "pn": pnum, "pk": pick, "i": len(picks),
+            out.append({"t": "pack", "pn": pnum, "pk": pick, "i": pick_index(pnum, pick, len(ids)),
                         "n": len(ids), "adv": [nm(c) for c in first_group[:2]],
                         "gih_top": nm(max(ids, key=g))})
         for i, cid in enumerate(picks):
@@ -471,10 +494,19 @@ def pool_summary(picks, by_id, ratings):
         if cmc is not None and "Land" not in tl:
             curve[int(cmc)] += 1
     order = ["W", "U", "B", "R", "G", "C"]
-    bal = " ".join(f"{k}:{col[k]}" for k in order if col[k])
+    # ⬛ выделяем цвета, которые инструмент считает СВОИМИ. Раньше строка печатала голый
+    # Scryfall-счёт, где гибрид {W/U} прибавлял и W, и U, и читалась она как «мы в WU»,
+    # хотя main давно UR (док. случай eba1b036 — см. pool_main_colors). Пометка убирает
+    # расхождение между тем, что человек видит, и тем, на чём считаются баннеры.
+    mainc = pool_main_colors(picks, by_id) or set()
+    bal = " ".join(f"[{k}:{col[k]}]" if k in mainc else f"{k}:{col[k]}"
+                   for k in order if col[k])
     cv = " ".join(f"{k}cmc:{curve[k]}" for k in sorted(curve))
     out = [f"  Пул ({len(picks)}): " + ", ".join(names)]
-    out.append(f"  Цвета: {bal or '—'}")
+    out.append(f"  Цвета: {bal or '—'}" +
+               (f"   (в квадратных скобках — цвета пула по мана-стоимости: "
+                f"{''.join(sorted(mainc))}; гибрид голосует за цвет, который уже есть)"
+                if mainc else ""))
     out.append(f"  Кривая: {cv or '—'}")
     return "\n".join(out)
 
@@ -507,21 +539,56 @@ def mana_pips(cost):
     return out
 
 def pool_main_colors(picks, by_id, min_picks=5):
-    """Топ-2 цвета пула как set ('W','R'). None пока пул не закоммичен (<min_picks)."""
+    """Топ-2 цвета пула как set ('W','R'). None пока пул не закоммичен (<min_picks).
+
+    🔴 ГИБРИД ДАЁТ ДОСТУП, А НЕ ПРИНАДЛЕЖНОСТЬ (починено 20.08.2026, разбор драфта eba1b036).
+    Раньше считались Scryfall-цвета, где {2}{W/U} = ["U","W"], то есть карта, кастуемая
+    с одних Островов, голосовала за белый наравне с настоящей белой. В разобранном драфте
+    четыре `Patient Instructor` {2}{W/U} дали W:7 против R:6 — и инструмент ВЕСЬ второй и
+    третий бустер считал колоду WU вместо UR. Последствия видны в логе: ⚑ОСЬ печатала
+    чужую пару, «⚠ НЕ В ЭТОЙ ПАРЕ» сверялось не с той парой, а собственные красные карты
+    (Glóin, Gandalf, Pinecone Strike) уезжали в группы `~splash` / `✗offcolor`, и ⚑ПИВОТ
+    объявлял «сильные вне цвета» про карту В нашем цвете.
+    Тот же класс бага уже ловился в build_audit (JOURNAL § 5.3) и там был починен —
+    сюда фикс не доехал. Формулировка правила — hob_insights.md 17.08: «гибридный пип даёт
+    ДОСТУП, а не принадлежность к архетипу».
+
+    Как считаем: два прохода.
+      1. Только ЖЁСТКИЕ пипы (одноцветные требования) — они и есть заявка на цвет.
+      2. Гибрид отдаёт голос тому из своих цветов, который УЖЕ в лидерах: {W/U} при
+         пятнадцати синих картах кастуется с Островов и белого не требует. Гибрид, чьи
+         цвета оба вне лидеров, голосует за все свои цвета (тогда он действительно заявка).
+    Если жёстких пипов не набралось на два цвета (ранний пул, colorless-старт) — падаем
+    на старое поведение по Scryfall-цветам, чтобы не потерять сигнал вовсе.
+    """
     if len(picks) < min_picks:
         return None
     from collections import Counter
-    col = Counter()
+
+    hard, hybrid, soft = Counter(), [], Counter()
     for cid in picks:
         c = by_id.get(cid)
-        cl = (c or {}).get("colors")
-        if cl is None and "card_faces" in (c or {}):
-            cl = c["card_faces"][0].get("colors")
-        if cl:
-            for x in cl:
-                col[x] += 1
-    if not col:
-        return None
+        pips = mana_pips(face(c, "mana_cost")) if c else []
+        for x in _colors_of(cid, by_id, {}):
+            soft[x] += 1
+        seen_h = set()
+        for opt in pips:
+            if len(opt) == 1:
+                seen_h.add(opt[0])
+            else:
+                hybrid.append(opt)
+        for x in seen_h:
+            hard[x] += 1
+
+    if len(hard) < 2:                       # нечего ранжировать — старое поведение
+        return set(k for k, _ in soft.most_common(2)) or None
+
+    lead = set(k for k, _ in hard.most_common(2))
+    col = Counter(hard)
+    for opt in hybrid:
+        avail = [x for x in opt if x in lead]
+        for x in (avail or opt):            # покрыт лидером → голос лидеру, иначе всем своим
+            col[x] += 1
     return set(k for k, _ in col.most_common(2))
 
 def cast_flag(c, main):
@@ -769,8 +836,45 @@ def cheap_bodies(picks, by_id, ratings, main):
         out.append(_name_of(cid, by_id, ratings))
     return out
 
+CORE_MIN_RATE = 0.15    # ниже этой доли листов пары карта ядром пары не считается
+                        # (тот же порог, что PAIR_HERE_RATE в find_traps.py — не выдуман заново)
+
+
+def played_rate(name, main):
+    """Как часто победители РЕАЛЬНО играют карту: (доля, ярлык-области) или (None, None).
+
+    Считается по паре, если по ней набрано ≥PAIR_MIN_LISTS листов, иначе по всему сету.
+    Источник — блок `played` в <set>_traps.json (пишет find_traps.py по ref_decks/)."""
+    t = load_traps()
+    tbl = (t or {}).get("played") or {}
+    rec = tbl.get(_trap_key(name))
+    if not rec:
+        return None, None
+    pair = "".join(x for x in "WUBRG" if x in (main or set()))
+    if pair and pair in rec.get("pairs", {}):
+        return rec["pairs"][pair], pair
+    return rec.get("set"), "сет"
+
+
 def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
-    """Всегда-печатаемая строка про кривую + кандидаты в ЭТОМ паке, если отстаём."""
+    """Всегда-печатаемая строка про кривую + кандидаты в ЭТОМ паке, если отстаём.
+
+    🔴 КВОТУ ЗАКРЫВАЕТ ТОЛЬКО ТЕЛО ИЗ ЯДРА ПАРЫ (починено 20.08.2026, разбор eba1b036).
+    Раньше кандидатом печаталось ЛЮБОЕ существо cmc≤2 в цвете, а следом шла строка
+    «ПРАВИЛО: берём дешёвое тело. Обходится ТОЛЬКО бомбой (GIH ≥63) или безусловным
+    removal». За один драфт баннер трижды указал на `Old Thrush` (GIH 50.9), и все три
+    раза его взяли — 19.3 GIH-пункта, треть всей упущенной ценности драфта, при том что
+    Old Thrush стоит в 0 из 14 UR-листов победителей и 23 из 298 по сету.
+
+    Поправка была ЗАПИСАНА ещё 17.08 в <set>_insights.md («квоту закрывает тело ТОЛЬКО
+    если оно есть в Ядре пары; иначе бери карту из документированного ядра, даже при более
+    низком GIH»), но осталась прозой, а приказ остался в баннере. Тезис самого скилла —
+    «сортировка сильнее прозы» — сработал против него же; чиним там, где он живёт.
+
+    Заодно снято слово ПРАВИЛО: порог кривой понижен до ориентира ещё 10.08
+    (rules_graveyard § 1, медиана победителей 54.3%), а баннер продолжал звучать
+    как стоп-кран — ровно болезнь JOURNAL § 8.14.
+    """
     have = cheap_bodies(picks, by_id, ratings, main)
     n = len(have)
     prev = CHEAP_TARGET.get((pnum or 1) - 1, 0)
@@ -783,16 +887,35 @@ def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
     cand = [(c, _gih_of(c, ratings)) for c in ids
             if _is_cheap_body(c, by_id) and not (main and (_colors_of(c, by_id, ratings) - set(main)))]
     cand = [x for x in cand if x[1] is not None]
-    cand.sort(key=lambda x: -x[1])
     out = [f"⚑ КРИВАЯ — НЕДОБОР: существ cmc≤2 — {n}, к этому пику надо {need_now} "
            f"(финал ≥{fin}). Не хватает {need_now - n}."]
-    if cand:
-        s = " · ".join(f"{_name_of(c, by_id, ratings)} GIH {g}" for c, g in cand[:3])
-        out.append(f"   дешёвые тела в цвете ЗДЕСЬ: {s}")
-        out.append("   ПРАВИЛО: берём дешёвое тело. Обходится ТОЛЬКО бомбой (GIH ≥63) или "
-                   "безусловным removal — не «картой повыше GIH».")
-    else:
+    if not cand:
         out.append("   дешёвых тел в цвете в этом паке НЕТ — добираем в следующем, приоритет держим.")
+        return out
+
+    ann = []
+    for c, g in cand:
+        nm = _name_of(c, by_id, ratings)
+        rate, scope = played_rate(nm, main)
+        core = rate is None or rate >= CORE_MIN_RATE   # нет данных — не наказываем
+        ann.append((core, g, nm, rate, scope))
+    ann.sort(key=lambda x: (not x[0], -x[1]))          # ядро вперёд, внутри по GIH
+
+    def fmt(a):
+        core, g, nm, rate, scope = a
+        tag = "✔" if core else "✗"
+        got = f" ({scope} {100*rate:.0f}%)" if rate is not None else ""
+        return f"{tag}{nm} GIH {g}{got}"
+
+    out.append("   дешёвые тела в цвете ЗДЕСЬ: " + " · ".join(fmt(a) for a in ann[:3]))
+    pair = "".join(x for x in "WUBRG" if x in (main or set())) or "паре"
+    if any(a[0] for a in ann):
+        out.append("   роль закрывает ✔-карта (её играют победители пары). "
+                   "Счётчик — ориентир полосы, не приказ: обходится бомбой, "
+                   "безусловным removal или картой ядра.")
+    else:
+        out.append(f"   ⚠ НИ ОДНО из них не входит в ядро {pair} — квоту таким телом НЕ закрывают. "
+                   f"Бери карту ядра пары даже при более низком GIH; счётчик подождёт.")
     return out
 
 # ─── ПЛАН/ПРОФИЛЬ: калибровка ПО СЕТУ, а не общая ────────────────────────────
@@ -1384,12 +1507,18 @@ def passed_color_banner(by_id, ratings, main, picks, draft_id, pnum=None, pick=N
         # только УЖЕ ПРОЙДЕННЫЕ паки. История на диске переживает драфт целиком, и без этого
         # фильтра баннер считал бы будущие паки — на P1P6 печаталось «12-й раз» (поймано
         # реплеем при внесении). Считать можно только то, что советчик реально видел.
+        #
+        # СТРОГОЕ неравенство (починено 20.08.2026): раньше стояло `>`, то есть ТЕКУЩИЙ пак
+        # попадал в «отданные» — баннер объявлял карту отданной до того, как игрок решил.
+        # Док. случай (eba1b036, P3P3): «уже 4-й раз отдаём … Desolation Prowler 60.4» —
+        # Prowler лежал в этом самом паке, и мы его взяли. Счётчик завышался на единицу
+        # в каждом срабатывании, а порог thresh=3 из-за этого срабатывал на пик раньше.
         if pnum:
             try:
                 kp, kk = (int(x) for x in key.split("-"))
             except ValueError:
                 continue
-            if (kp, kk) > (pnum, pick or 1):
+            if (kp, kk) >= (pnum, pick or 1):
                 continue
         for cid in pack:
             if cid in taken:
@@ -1585,7 +1714,7 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
         lines += sigs
         lines.append("───────────────")
     lines.append(header or f"PACK {pnum}/{pick} — {len(ids)} карт")
-    lines.append("  ⓘ порядок = кастуемость, затем 2·GIH+1·IWD. ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
+    lines.append("  ⓘ порядок = кастуемость, затем GIH + поправки (цвет сета, бомба). ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
                  "порядок пика — верхняя строка не является ответом. Решают роль, план полосы, "
                  "дыра и квадранты; числа сверяются ПОСЛЕДНИМИ.")
     for glabel, gids in grouped:

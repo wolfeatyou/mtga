@@ -20,8 +20,27 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def pack_index(rec):
+    """Порядковый номер пика по КООРДИНАТЕ пака, а не по записанному `i`.
+
+    🔴 Записанному `i` доверять нельзя (баг найден 20.08.2026, разбор драфта eba1b036):
+    до починки `draft_live.record_telemetry` писал туда `len(picks)` — размер пула на
+    момент рендера. При быстром пике пул уезжал вперёд, `i` перескакивал, и джойн
+    подставлял пик СЛЕДУЮЩЕГО пака; на коллизии двух паков с одним `i` прежний
+    `setdefault` ещё и молча терял запись. Координата (pn,pk) неподвижна, поэтому
+    считаем индекс из неё — это чинит и УЖЕ НАПИСАННЫЕ файлы, а не только новые.
+    Размер бустера восстанавливается из самого пака: n + pk − 1.
+    """
+    pn, pk, n = rec.get("pn") or 1, rec.get("pk") or 1, rec.get("n") or 0
+    size = n + pk - 1
+    if size <= 0:
+        i = rec.get("i")
+        return i if isinstance(i, int) else None
+    return (pn - 1) * size + (pk - 1)
+
+
 def load_events(path):
-    """(packs: {i: pack_rec}, picks: {i: name}) одного драфта."""
+    """(packs: {i: pack_rec}, picks: {i: name}) одного драфта; i — порядковый номер пика."""
     packs, picks = {}, {}
     for line in open(path, encoding="utf-8"):
         try:
@@ -29,7 +48,16 @@ def load_events(path):
         except Exception:
             continue
         if rec.get("t") == "pack":
-            packs.setdefault(rec.get("i"), rec)
+            i = pack_index(rec)
+            if i is None:
+                continue
+            # дедуп по КООРДИНАТЕ: повторный рендер того же пака перезаписью не страшен,
+            # а вот два РАЗНЫХ пака с одним индексом — это уже сломанный файл, не молчим
+            prev = packs.get(i)
+            if prev is not None and (prev.get("pn"), prev.get("pk")) != (rec.get("pn"), rec.get("pk")):
+                print(f"  ⚠ коллизия индекса {i}: P{prev['pn']}P{prev['pk']} и "
+                      f"P{rec['pn']}P{rec['pk']} — файл писан до починки 20.08.2026")
+            packs[i] = rec
         elif rec.get("t") == "pick":
             picks[rec.get("i")] = rec.get("name")
     return packs, picks

@@ -3,7 +3,7 @@
   {
    "name": "Orcrist, Goblin-cleaver",
    "key": "orcristgoblincleaver",
-   "alsa": 1.8592593,
+   "alsa": 1.7752809,
    "rar": "rare",
    "played": 2,
    "seen": 298,
@@ -12,7 +12,7 @@
   {
    "name": "Bard, King of Dale",
    "key": "bardkingofdale",
-   "alsa": 2.7483296,
+   "alsa": 2.6746667,
    "rar": "rare",
    "played": 0,
    "seen": 47,
@@ -21,7 +21,7 @@
   {
    "name": "Gleaming Splendor",
    "key": "gleamingsplendor",
-   "alsa": 3.8783784,
+   "alsa": 4.028169,
    "rar": "rare",
    "played": 2,
    "seen": 115,
@@ -444,10 +444,2420 @@
    }
   ]
  },
+ "played": {
+  "longbodiedgreydog": {
+   "set": 0.054,
+   "n": 298,
+   "pairs": {
+    "B": 0.154,
+    "BG": 0.0,
+    "BR": 0.071,
+    "G": 0.0,
+    "UG": 0.031,
+    "RG": 0.077,
+    "WR": 0.071,
+    "UB": 0.0,
+    "WUR": 0.167,
+    "UR": 0.077,
+    "WB": 0.0,
+    "WBR": 0.071,
+    "WU": 0.0,
+    "WUG": 0.167
+   }
+  },
+  "oldthrush": {
+   "set": 0.077,
+   "n": 298,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.0,
+    "BR": 0.071,
+    "G": 0.167,
+    "UG": 0.219,
+    "RG": 0.154,
+    "WR": 0.036,
+    "UB": 0.0,
+    "WUR": 0.167,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "troopofponies": {
+   "set": 0.091,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.087,
+    "BR": 0.0,
+    "G": 0.083,
+    "UG": 0.219,
+    "RG": 0.077,
+    "WR": 0.071,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WB": 0.125,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.25
+   }
+  },
+  "belladonnatook": {
+   "set": 0.07,
+   "n": 115,
+   "pairs": {
+    "WR": 0.036,
+    "WUR": 0.083,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WU": 0.211,
+    "WUG": 0.0
+   }
+  },
+  "bilbosgambit": {
+   "set": 0.017,
+   "n": 115,
+   "pairs": {
+    "WR": 0.0,
+    "WUR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.071,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "bofurreliableguardian": {
+   "set": 0.287,
+   "n": 115,
+   "pairs": {
+    "WR": 0.25,
+    "WUR": 0.333,
+    "WB": 0.375,
+    "WBR": 0.286,
+    "WU": 0.263,
+    "WUG": 0.083
+   }
+  },
+  "celebratethemountainking": {
+   "set": 0.383,
+   "n": 115,
+   "pairs": {
+    "WR": 0.357,
+    "WUR": 0.25,
+    "WB": 0.375,
+    "WBR": 0.071,
+    "WU": 0.526,
+    "WUG": 0.583
+   }
+  },
+  "dinlordoftheironhills": {
+   "set": 0.287,
+   "n": 115,
+   "pairs": {
+    "WR": 0.393,
+    "WUR": 0.167,
+    "WB": 0.25,
+    "WBR": 0.357,
+    "WU": 0.263,
+    "WUG": 0.083
+   }
+  },
+  "dwarvenprovisioner": {
+   "set": 0.452,
+   "n": 115,
+   "pairs": {
+    "WR": 0.643,
+    "WUR": 0.417,
+    "WB": 0.625,
+    "WBR": 0.286,
+    "WU": 0.368,
+    "WUG": 0.083
+   }
+  },
+  "dwarvenshortsword": {
+   "set": 0.383,
+   "n": 115,
+   "pairs": {
+    "WR": 0.571,
+    "WUR": 0.583,
+    "WB": 0.5,
+    "WBR": 0.429,
+    "WU": 0.158,
+    "WUG": 0.0
+   }
+  },
+  "eagleofthegreatshelf": {
+   "set": 0.096,
+   "n": 115,
+   "pairs": {
+    "WR": 0.071,
+    "WUR": 0.083,
+    "WB": 0.188,
+    "WBR": 0.0,
+    "WU": 0.158,
+    "WUG": 0.083
+   }
+  },
+  "theeaglesarecoming": {
+   "set": 0.157,
+   "n": 115,
+   "pairs": {
+    "WR": 0.107,
+    "WUR": 0.167,
+    "WB": 0.125,
+    "WBR": 0.214,
+    "WU": 0.211,
+    "WUG": 0.0
+   }
+  },
+  "esgarothgarrison": {
+   "set": 0.148,
+   "n": 115,
+   "pairs": {
+    "WR": 0.0,
+    "WUR": 0.167,
+    "WB": 0.25,
+    "WBR": 0.0,
+    "WU": 0.368,
+    "WUG": 0.083
+   }
+  },
+  "flithepathfinder": {
+   "set": 0.261,
+   "n": 115,
+   "pairs": {
+    "WR": 0.321,
+    "WUR": 0.167,
+    "WB": 0.375,
+    "WBR": 0.357,
+    "WU": 0.316,
+    "WUG": 0.083
+   }
+  },
+  "gleamingsplendor": {
+   "set": 0.017,
+   "n": 115,
+   "pairs": {
+    "WR": 0.036,
+    "WUR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "ironhillsblacksmith": {
+   "set": 0.313,
+   "n": 115,
+   "pairs": {
+    "WR": 0.5,
+    "WUR": 0.167,
+    "WB": 0.562,
+    "WBR": 0.143,
+    "WU": 0.211,
+    "WUG": 0.167
+   }
+  },
+  "klitheresourceful": {
+   "set": 0.191,
+   "n": 115,
+   "pairs": {
+    "WR": 0.357,
+    "WUR": 0.25,
+    "WB": 0.062,
+    "WBR": 0.214,
+    "WU": 0.105,
+    "WUG": 0.0
+   }
+  },
+  "laketownlookout": {
+   "set": 0.113,
+   "n": 115,
+   "pairs": {
+    "WR": 0.143,
+    "WUR": 0.083,
+    "WB": 0.125,
+    "WBR": 0.0,
+    "WU": 0.158,
+    "WUG": 0.083
+   }
+  },
+  "laketowntoymaker": {
+   "set": 0.061,
+   "n": 115,
+   "pairs": {
+    "WR": 0.0,
+    "WUR": 0.083,
+    "WB": 0.062,
+    "WBR": 0.0,
+    "WU": 0.211,
+    "WUG": 0.0
+   }
+  },
+  "magnificentend": {
+   "set": 0.6,
+   "n": 115,
+   "pairs": {
+    "WR": 0.786,
+    "WUR": 0.667,
+    "WB": 0.438,
+    "WBR": 0.286,
+    "WU": 0.789,
+    "WUG": 0.417
+   }
+  },
+  "momentofglory": {
+   "set": 0.043,
+   "n": 115,
+   "pairs": {
+    "WR": 0.036,
+    "WUR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.053,
+    "WUG": 0.083
+   }
+  },
+  "themountainkingsreturn": {
+   "set": 0.452,
+   "n": 115,
+   "pairs": {
+    "WR": 0.536,
+    "WUR": 0.25,
+    "WB": 0.562,
+    "WBR": 0.286,
+    "WU": 0.474,
+    "WUG": 0.5
+   }
+  },
+  "orikeeperofsongs": {
+   "set": 0.391,
+   "n": 115,
+   "pairs": {
+    "WR": 0.714,
+    "WUR": 0.167,
+    "WB": 0.562,
+    "WBR": 0.286,
+    "WU": 0.105,
+    "WUG": 0.167
+   }
+  },
+  "thequeenofdale": {
+   "set": 0.096,
+   "n": 115,
+   "pairs": {
+    "WR": 0.143,
+    "WUR": 0.083,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WU": 0.211,
+    "WUG": 0.0
+   }
+  },
+  "roadsgoevereveron": {
+   "set": 0.104,
+   "n": 115,
+   "pairs": {
+    "WR": 0.071,
+    "WUR": 0.083,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WU": 0.211,
+    "WUG": 0.083
+   }
+  },
+  "settlethewreckage": {
+   "set": 0.191,
+   "n": 115,
+   "pairs": {
+    "WR": 0.107,
+    "WUR": 0.083,
+    "WB": 0.188,
+    "WBR": 0.143,
+    "WU": 0.368,
+    "WUG": 0.25
+   }
+  },
+  "stonebysunlight": {
+   "set": 0.487,
+   "n": 115,
+   "pairs": {
+    "WR": 0.464,
+    "WUR": 0.5,
+    "WB": 0.438,
+    "WBR": 0.429,
+    "WU": 0.579,
+    "WUG": 0.333
+   }
+  },
+  "thorinslaststand": {
+   "set": 0.07,
+   "n": 115,
+   "pairs": {
+    "WR": 0.107,
+    "WUR": 0.0,
+    "WB": 0.125,
+    "WBR": 0.0,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "anunexpectedparty": {
+   "set": 0.217,
+   "n": 115,
+   "pairs": {
+    "WR": 0.25,
+    "WUR": 0.25,
+    "WB": 0.375,
+    "WBR": 0.143,
+    "WU": 0.105,
+    "WUG": 0.083
+   }
+  },
+  "velvetwingbutterflies": {
+   "set": 0.148,
+   "n": 115,
+   "pairs": {
+    "WR": 0.143,
+    "WUR": 0.0,
+    "WB": 0.188,
+    "WBR": 0.071,
+    "WU": 0.211,
+    "WUG": 0.167
+   }
+  },
+  "vowtoerebor": {
+   "set": 0.087,
+   "n": 115,
+   "pairs": {
+    "WR": 0.214,
+    "WUR": 0.0,
+    "WB": 0.125,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.083
+   }
+  },
+  "bilboluckwearer": {
+   "set": 0.477,
+   "n": 130,
+   "pairs": {
+    "UG": 0.344,
+    "UB": 0.588,
+    "WUR": 0.25,
+    "UR": 0.385,
+    "WU": 0.737,
+    "WUG": 0.5
+   }
+  },
+  "bilbothiefinthenight": {
+   "set": 0.092,
+   "n": 130,
+   "pairs": {
+    "UG": 0.156,
+    "UB": 0.176,
+    "WUR": 0.083,
+    "UR": 0.077,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "bilbobagginsburglar": {
+   "set": 0.669,
+   "n": 130,
+   "pairs": {
+    "UG": 0.594,
+    "UB": 0.765,
+    "WUR": 0.583,
+    "UR": 0.923,
+    "WU": 0.789,
+    "WUG": 0.583
+   }
+  },
+  "confusticateandbebother": {
+   "set": 0.262,
+   "n": 130,
+   "pairs": {
+    "UG": 0.25,
+    "UB": 0.294,
+    "WUR": 0.083,
+    "UR": 0.308,
+    "WU": 0.368,
+    "WUG": 0.25
+   }
+  },
+  "elrondmoonreader": {
+   "set": 0.046,
+   "n": 130,
+   "pairs": {
+    "UG": 0.125,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "elvenraftsteerer": {
+   "set": 0.046,
+   "n": 130,
+   "pairs": {
+    "UG": 0.125,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.083
+   }
+  },
+  "elvenkingsharper": {
+   "set": 0.169,
+   "n": 130,
+   "pairs": {
+    "UG": 0.469,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.154,
+    "WU": 0.053,
+    "WUG": 0.25
+   }
+  },
+  "enchantedriversgrasp": {
+   "set": 0.585,
+   "n": 130,
+   "pairs": {
+    "UG": 0.812,
+    "UB": 0.412,
+    "WUR": 0.417,
+    "UR": 0.615,
+    "WU": 0.684,
+    "WUG": 0.5
+   }
+  },
+  "fatefuldiscovery": {
+   "set": 0.0,
+   "n": 130,
+   "pairs": {
+    "UG": 0.0,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "gandalfwanderingwizard": {
+   "set": 0.115,
+   "n": 130,
+   "pairs": {
+    "UG": 0.156,
+    "UB": 0.059,
+    "WUR": 0.083,
+    "UR": 0.154,
+    "WU": 0.158,
+    "WUG": 0.167
+   }
+  },
+  "greatgildedboat": {
+   "set": 0.262,
+   "n": 130,
+   "pairs": {
+    "UG": 0.156,
+    "UB": 0.412,
+    "WUR": 0.167,
+    "UR": 0.231,
+    "WU": 0.316,
+    "WUG": 0.25
+   }
+  },
+  "lakeshoreapothecary": {
+   "set": 0.523,
+   "n": 130,
+   "pairs": {
+    "UG": 0.25,
+    "UB": 0.824,
+    "WUR": 0.25,
+    "UR": 0.923,
+    "WU": 0.789,
+    "WUG": 0.583
+   }
+  },
+  "laketownmariners": {
+   "set": 0.085,
+   "n": 130,
+   "pairs": {
+    "UG": 0.094,
+    "UB": 0.059,
+    "WUR": 0.0,
+    "UR": 0.231,
+    "WU": 0.158,
+    "WUG": 0.083
+   }
+  },
+  "longlakenuisance": {
+   "set": 0.523,
+   "n": 130,
+   "pairs": {
+    "UG": 0.25,
+    "UB": 0.706,
+    "WUR": 0.5,
+    "UR": 0.692,
+    "WU": 0.789,
+    "WUG": 0.75
+   }
+  },
+  "thelordoftheeagles": {
+   "set": 0.054,
+   "n": 130,
+   "pairs": {
+    "UG": 0.062,
+    "UB": 0.0,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WU": 0.158,
+    "WUG": 0.0
+   }
+  },
+  "masterscouncillors": {
+   "set": 0.292,
+   "n": 130,
+   "pairs": {
+    "UG": 0.062,
+    "UB": 0.353,
+    "WUR": 0.25,
+    "UR": 0.692,
+    "WU": 0.579,
+    "WUG": 0.25
+   }
+  },
+  "mirkwoodmeditator": {
+   "set": 0.038,
+   "n": 130,
+   "pairs": {
+    "UG": 0.156,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "mostdecrepitoldbird": {
+   "set": 0.062,
+   "n": 130,
+   "pairs": {
+    "UG": 0.031,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WU": 0.158,
+    "WUG": 0.083
+   }
+  },
+  "oldfatspidercantseeme": {
+   "set": 0.177,
+   "n": 130,
+   "pairs": {
+    "UG": 0.062,
+    "UB": 0.118,
+    "WUR": 0.25,
+    "UR": 0.308,
+    "WU": 0.211,
+    "WUG": 0.167
+   }
+  },
+  "plunderthetrollshaws": {
+   "set": 0.631,
+   "n": 130,
+   "pairs": {
+    "UG": 0.562,
+    "UB": 0.882,
+    "WUR": 0.5,
+    "UR": 0.846,
+    "WU": 0.737,
+    "WUG": 0.5
+   }
+  },
+  "ravenhillflock": {
+   "set": 0.123,
+   "n": 130,
+   "pairs": {
+    "UG": 0.031,
+    "UB": 0.059,
+    "WUR": 0.083,
+    "UR": 0.385,
+    "WU": 0.211,
+    "WUG": 0.0
+   }
+  },
+  "riddlesinthedark": {
+   "set": 0.046,
+   "n": 130,
+   "pairs": {
+    "UG": 0.031,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WU": 0.053,
+    "WUG": 0.083
+   }
+  },
+  "rollrollrollroll": {
+   "set": 0.015,
+   "n": 130,
+   "pairs": {
+    "UG": 0.062,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "soundthetrumpets": {
+   "set": 0.108,
+   "n": 130,
+   "pairs": {
+    "UG": 0.094,
+    "UB": 0.118,
+    "WUR": 0.0,
+    "UR": 0.308,
+    "WU": 0.263,
+    "WUG": 0.0
+   }
+  },
+  "thranduilsdecree": {
+   "set": 0.069,
+   "n": 130,
+   "pairs": {
+    "UG": 0.125,
+    "UB": 0.059,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.25
+   }
+  },
+  "uncoverthemoonletters": {
+   "set": 0.008,
+   "n": 130,
+   "pairs": {
+    "UG": 0.0,
+    "UB": 0.059,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "uneasypartings": {
+   "set": 0.462,
+   "n": 130,
+   "pairs": {
+    "UG": 0.469,
+    "UB": 0.529,
+    "WUR": 0.167,
+    "UR": 0.615,
+    "WU": 0.632,
+    "WUG": 0.417
+   }
+  },
+  "wizardsstaff": {
+   "set": 0.015,
+   "n": 130,
+   "pairs": {
+    "UG": 0.031,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.083
+   }
+  },
+  "alongthecrookedway": {
+   "set": 0.05,
+   "n": 140,
+   "pairs": {
+    "B": 0.154,
+    "BG": 0.0,
+    "BR": 0.071,
+    "UB": 0.0,
+    "WB": 0.062,
+    "WBR": 0.0
+   }
+  },
+  "azogmoriasruin": {
+   "set": 0.071,
+   "n": 140,
+   "pairs": {
+    "B": 0.308,
+    "BG": 0.0,
+    "BR": 0.036,
+    "UB": 0.118,
+    "WB": 0.125,
+    "WBR": 0.0
+   }
+  },
+  "bilbosdeadlyslice": {
+   "set": 0.6,
+   "n": 140,
+   "pairs": {
+    "B": 0.692,
+    "BG": 0.522,
+    "BR": 0.571,
+    "UB": 0.765,
+    "WB": 0.688,
+    "WBR": 0.429
+   }
+  },
+  "crudebentblade": {
+   "set": 0.693,
+   "n": 140,
+   "pairs": {
+    "B": 0.846,
+    "BG": 0.522,
+    "BR": 0.786,
+    "UB": 0.765,
+    "WB": 0.625,
+    "WBR": 0.571
+   }
+  },
+  "desolationprowler": {
+   "set": 0.364,
+   "n": 140,
+   "pairs": {
+    "B": 0.538,
+    "BG": 0.261,
+    "BR": 0.393,
+    "UB": 0.294,
+    "WB": 0.375,
+    "WBR": 0.214
+   }
+  },
+  "downdowntogoblintown": {
+   "set": 0.371,
+   "n": 140,
+   "pairs": {
+    "B": 0.538,
+    "BG": 0.435,
+    "BR": 0.357,
+    "UB": 0.353,
+    "WB": 0.438,
+    "WBR": 0.143
+   }
+  },
+  "dreadedbatcloud": {
+   "set": 0.257,
+   "n": 140,
+   "pairs": {
+    "B": 0.615,
+    "BG": 0.348,
+    "BR": 0.286,
+    "UB": 0.059,
+    "WB": 0.375,
+    "WBR": 0.071
+   }
+  },
+  "frontporchsentries": {
+   "set": 0.257,
+   "n": 140,
+   "pairs": {
+    "B": 0.615,
+    "BG": 0.217,
+    "BR": 0.25,
+    "UB": 0.118,
+    "WB": 0.562,
+    "WBR": 0.214
+   }
+  },
+  "gatheringofdarkness": {
+   "set": 0.207,
+   "n": 140,
+   "pairs": {
+    "B": 0.385,
+    "BG": 0.435,
+    "BR": 0.143,
+    "UB": 0.059,
+    "WB": 0.375,
+    "WBR": 0.0
+   }
+  },
+  "gnashingofteeth": {
+   "set": 0.279,
+   "n": 140,
+   "pairs": {
+    "B": 0.462,
+    "BG": 0.304,
+    "BR": 0.286,
+    "UB": 0.353,
+    "WB": 0.188,
+    "WBR": 0.143
+   }
+  },
+  "gollumriddlemaster": {
+   "set": 0.071,
+   "n": 140,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.087,
+    "BR": 0.107,
+    "UB": 0.059,
+    "WB": 0.0,
+    "WBR": 0.071
+   }
+  },
+  "gollumsilentslinker": {
+   "set": 0.521,
+   "n": 140,
+   "pairs": {
+    "B": 0.846,
+    "BG": 0.391,
+    "BR": 0.679,
+    "UB": 0.412,
+    "WB": 0.812,
+    "WBR": 0.214
+   }
+  },
+  "gollumtheabandoned": {
+   "set": 0.2,
+   "n": 140,
+   "pairs": {
+    "B": 0.462,
+    "BG": 0.217,
+    "BR": 0.143,
+    "UB": 0.118,
+    "WB": 0.188,
+    "WBR": 0.214
+   }
+  },
+  "greatfiercebee": {
+   "set": 0.093,
+   "n": 140,
+   "pairs": {
+    "B": 0.231,
+    "BG": 0.13,
+    "BR": 0.143,
+    "UB": 0.059,
+    "WB": 0.062,
+    "WBR": 0.0
+   }
+  },
+  "greatuglylookinggoblin": {
+   "set": 0.271,
+   "n": 140,
+   "pairs": {
+    "B": 0.538,
+    "BG": 0.348,
+    "BR": 0.321,
+    "UB": 0.176,
+    "WB": 0.375,
+    "WBR": 0.143
+   }
+  },
+  "headofthehunt": {
+   "set": 0.157,
+   "n": 140,
+   "pairs": {
+    "B": 0.154,
+    "BG": 0.13,
+    "BR": 0.179,
+    "UB": 0.176,
+    "WB": 0.188,
+    "WBR": 0.071
+   }
+  },
+  "insideinformation": {
+   "set": 0.036,
+   "n": 140,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.043,
+    "BR": 0.0,
+    "UB": 0.0,
+    "WB": 0.062,
+    "WBR": 0.071
+   }
+  },
+  "themasteroflaketown": {
+   "set": 0.079,
+   "n": 140,
+   "pairs": {
+    "B": 0.154,
+    "BG": 0.087,
+    "BR": 0.036,
+    "UB": 0.059,
+    "WB": 0.062,
+    "WBR": 0.143
+   }
+  },
+  "nighthowlpursuer": {
+   "set": 0.221,
+   "n": 140,
+   "pairs": {
+    "B": 0.385,
+    "BG": 0.348,
+    "BR": 0.25,
+    "UB": 0.118,
+    "WB": 0.25,
+    "WBR": 0.143
+   }
+  },
+  "rageintothevalley": {
+   "set": 0.55,
+   "n": 140,
+   "pairs": {
+    "B": 0.846,
+    "BG": 0.391,
+    "BR": 0.714,
+    "UB": 0.765,
+    "WB": 0.5,
+    "WBR": 0.357
+   }
+  },
+  "raveningwarg": {
+   "set": 0.493,
+   "n": 140,
+   "pairs": {
+    "B": 0.923,
+    "BG": 0.609,
+    "BR": 0.607,
+    "UB": 0.412,
+    "WB": 0.438,
+    "WBR": 0.071
+   }
+  },
+  "reverenthowl": {
+   "set": 0.2,
+   "n": 140,
+   "pairs": {
+    "B": 0.462,
+    "BG": 0.13,
+    "BR": 0.357,
+    "UB": 0.059,
+    "WB": 0.25,
+    "WBR": 0.071
+   }
+  },
+  "rhovanionrampager": {
+   "set": 0.107,
+   "n": 140,
+   "pairs": {
+    "B": 0.231,
+    "BG": 0.13,
+    "BR": 0.071,
+    "UB": 0.118,
+    "WB": 0.25,
+    "WBR": 0.071
+   }
+  },
+  "thesackvillebagginses": {
+   "set": 0.129,
+   "n": 140,
+   "pairs": {
+    "B": 0.308,
+    "BG": 0.13,
+    "BR": 0.143,
+    "UB": 0.176,
+    "WB": 0.125,
+    "WBR": 0.071
+   }
+  },
+  "stiruptrouble": {
+   "set": 0.543,
+   "n": 140,
+   "pairs": {
+    "B": 0.846,
+    "BG": 0.435,
+    "BR": 0.536,
+    "UB": 0.412,
+    "WB": 0.562,
+    "WBR": 0.643
+   }
+  },
+  "stonyvoicedgoblins": {
+   "set": 0.471,
+   "n": 140,
+   "pairs": {
+    "B": 0.615,
+    "BG": 0.391,
+    "BR": 0.679,
+    "UB": 0.412,
+    "WB": 0.5,
+    "WBR": 0.143
+   }
+  },
+  "supperforspiders": {
+   "set": 0.007,
+   "n": 140,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.0,
+    "UB": 0.0,
+    "WB": 0.062,
+    "WBR": 0.0
+   }
+  },
+  "balinloremaster": {
+   "set": 0.048,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.0,
+    "WR": 0.107,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.0
+   }
+  },
+  "bomburgentledreamer": {
+   "set": 0.144,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.077,
+    "WR": 0.429,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.143
+   }
+  },
+  "bothersomenoisemaker": {
+   "set": 0.352,
+   "n": 125,
+   "pairs": {
+    "BR": 0.536,
+    "RG": 0.308,
+    "WR": 0.214,
+    "WUR": 0.167,
+    "UR": 0.385,
+    "WBR": 0.286
+   }
+  },
+  "burnburntreeandfern": {
+   "set": 0.4,
+   "n": 125,
+   "pairs": {
+    "BR": 0.286,
+    "RG": 0.538,
+    "WR": 0.536,
+    "WUR": 0.167,
+    "UR": 0.385,
+    "WBR": 0.286
+   }
+  },
+  "dinironfoot": {
+   "set": 0.128,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.077,
+    "WR": 0.357,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.143
+   }
+  },
+  "desertwereworm": {
+   "set": 0.04,
+   "n": 125,
+   "pairs": {
+    "BR": 0.0,
+    "RG": 0.154,
+    "WR": 0.071,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WBR": 0.0
+   }
+  },
+  "desolationofsmaug": {
+   "set": 0.056,
+   "n": 125,
+   "pairs": {
+    "BR": 0.107,
+    "RG": 0.0,
+    "WR": 0.0,
+    "WUR": 0.083,
+    "UR": 0.077,
+    "WBR": 0.071
+   }
+  },
+  "doribeareroffriends": {
+   "set": 0.552,
+   "n": 125,
+   "pairs": {
+    "BR": 0.536,
+    "RG": 0.538,
+    "WR": 0.714,
+    "WUR": 0.583,
+    "UR": 0.308,
+    "WBR": 0.714
+   }
+  },
+  "dwarvenmauler": {
+   "set": 0.176,
+   "n": 125,
+   "pairs": {
+    "BR": 0.214,
+    "RG": 0.154,
+    "WR": 0.321,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.286
+   }
+  },
+  "gandalfgoblinsbane": {
+   "set": 0.048,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.154,
+    "WR": 0.0,
+    "WUR": 0.0,
+    "UR": 0.154,
+    "WBR": 0.0
+   }
+  },
+  "gandalfsparkstarter": {
+   "set": 0.344,
+   "n": 125,
+   "pairs": {
+    "BR": 0.357,
+    "RG": 0.385,
+    "WR": 0.286,
+    "WUR": 0.417,
+    "UR": 0.615,
+    "WBR": 0.214
+   }
+  },
+  "getawaybarrel": {
+   "set": 0.0,
+   "n": 125,
+   "pairs": {
+    "BR": 0.0,
+    "RG": 0.0,
+    "WR": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WBR": 0.0
+   }
+  },
+  "glinthemighty": {
+   "set": 0.264,
+   "n": 125,
+   "pairs": {
+    "BR": 0.321,
+    "RG": 0.154,
+    "WR": 0.464,
+    "WUR": 0.0,
+    "UR": 0.308,
+    "WBR": 0.214
+   }
+  },
+  "goblintownflunkies": {
+   "set": 0.184,
+   "n": 125,
+   "pairs": {
+    "BR": 0.429,
+    "RG": 0.0,
+    "WR": 0.036,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WBR": 0.214
+   }
+  },
+  "gundabadopportunist": {
+   "set": 0.424,
+   "n": 125,
+   "pairs": {
+    "BR": 0.5,
+    "RG": 0.692,
+    "WR": 0.321,
+    "WUR": 0.167,
+    "UR": 0.385,
+    "WBR": 0.571
+   }
+  },
+  "ironhillsstalwart": {
+   "set": 0.16,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.154,
+    "WR": 0.286,
+    "WUR": 0.333,
+    "UR": 0.0,
+    "WBR": 0.286
+   }
+  },
+  "lastlightofdurinsday": {
+   "set": 0.0,
+   "n": 125,
+   "pairs": {
+    "BR": 0.0,
+    "RG": 0.0,
+    "WR": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WBR": 0.0
+   }
+  },
+  "themistymountainscold": {
+   "set": 0.104,
+   "n": 125,
+   "pairs": {
+    "BR": 0.107,
+    "RG": 0.154,
+    "WR": 0.071,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.214
+   }
+  },
+  "mistymountainsraider": {
+   "set": 0.368,
+   "n": 125,
+   "pairs": {
+    "BR": 0.464,
+    "RG": 0.462,
+    "WR": 0.25,
+    "WUR": 0.167,
+    "UR": 0.462,
+    "WBR": 0.5
+   }
+  },
+  "inthebrave": {
+   "set": 0.456,
+   "n": 125,
+   "pairs": {
+    "BR": 0.357,
+    "RG": 0.385,
+    "WR": 0.714,
+    "WUR": 0.417,
+    "UR": 0.615,
+    "WBR": 0.429
+   }
+  },
+  "pineconestrike": {
+   "set": 0.624,
+   "n": 125,
+   "pairs": {
+    "BR": 0.536,
+    "RG": 0.923,
+    "WR": 0.536,
+    "WUR": 0.667,
+    "UR": 1.0,
+    "WBR": 0.571
+   }
+  },
+  "raggedshortspear": {
+   "set": 0.272,
+   "n": 125,
+   "pairs": {
+    "BR": 0.179,
+    "RG": 0.231,
+    "WR": 0.393,
+    "WUR": 0.25,
+    "UR": 0.462,
+    "WBR": 0.357
+   }
+  },
+  "smaugthegreatcalamity": {
+   "set": 0.472,
+   "n": 125,
+   "pairs": {
+    "BR": 0.393,
+    "RG": 0.538,
+    "WR": 0.393,
+    "WUR": 0.5,
+    "UR": 0.692,
+    "WBR": 0.357
+   }
+  },
+  "smaugthemagnificent": {
+   "set": 0.104,
+   "n": 125,
+   "pairs": {
+    "BR": 0.036,
+    "RG": 0.077,
+    "WR": 0.107,
+    "WUR": 0.167,
+    "UR": 0.308,
+    "WBR": 0.0
+   }
+  },
+  "smaugsfury": {
+   "set": 0.064,
+   "n": 125,
+   "pairs": {
+    "BR": 0.0,
+    "RG": 0.0,
+    "WR": 0.143,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WBR": 0.143
+   }
+  },
+  "snowslopehunter": {
+   "set": 0.168,
+   "n": 125,
+   "pairs": {
+    "BR": 0.25,
+    "RG": 0.154,
+    "WR": 0.214,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WBR": 0.214
+   }
+  },
+  "stonegiantofhighpass": {
+   "set": 0.096,
+   "n": 125,
+   "pairs": {
+    "BR": 0.107,
+    "RG": 0.154,
+    "WR": 0.143,
+    "WUR": 0.083,
+    "UR": 0.154,
+    "WBR": 0.0
+   }
+  },
+  "thorinmountainking": {
+   "set": 0.08,
+   "n": 125,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.0,
+    "WR": 0.071,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WBR": 0.286
+   }
+  },
+  "tidingsofwar": {
+   "set": 0.304,
+   "n": 125,
+   "pairs": {
+    "BR": 0.571,
+    "RG": 0.385,
+    "WR": 0.071,
+    "WUR": 0.25,
+    "UR": 0.231,
+    "WBR": 0.214
+   }
+  },
+  "attercop": {
+   "set": 0.582,
+   "n": 122,
+   "pairs": {
+    "BG": 0.652,
+    "G": 0.5,
+    "UG": 0.688,
+    "RG": 0.385,
+    "WUG": 0.417
+   }
+  },
+  "bejeweledwarg": {
+   "set": 0.189,
+   "n": 122,
+   "pairs": {
+    "BG": 0.13,
+    "G": 0.167,
+    "UG": 0.188,
+    "RG": 0.385,
+    "WUG": 0.083
+   }
+  },
+  "beornreluctanthost": {
+   "set": 0.328,
+   "n": 122,
+   "pairs": {
+    "BG": 0.261,
+    "G": 0.667,
+    "UG": 0.281,
+    "RG": 0.538,
+    "WUG": 0.417
+   }
+  },
+  "beornthefierce": {
+   "set": 0.131,
+   "n": 122,
+   "pairs": {
+    "BG": 0.087,
+    "G": 0.333,
+    "UG": 0.094,
+    "RG": 0.154,
+    "WUG": 0.167
+   }
+  },
+  "beornshospitality": {
+   "set": 0.262,
+   "n": 122,
+   "pairs": {
+    "BG": 0.087,
+    "G": 0.5,
+    "UG": 0.312,
+    "RG": 0.385,
+    "WUG": 0.167
+   }
+  },
+  "boughsidewanderers": {
+   "set": 0.32,
+   "n": 122,
+   "pairs": {
+    "BG": 0.087,
+    "G": 0.583,
+    "UG": 0.5,
+    "RG": 0.308,
+    "WUG": 0.0
+   }
+  },
+  "cantankerouskeepers": {
+   "set": 0.115,
+   "n": 122,
+   "pairs": {
+    "BG": 0.0,
+    "G": 0.25,
+    "UG": 0.25,
+    "RG": 0.154,
+    "WUG": 0.0
+   }
+  },
+  "dancingfromdarktodawn": {
+   "set": 0.082,
+   "n": 122,
+   "pairs": {
+    "BG": 0.13,
+    "G": 0.167,
+    "UG": 0.062,
+    "RG": 0.0,
+    "WUG": 0.083
+   }
+  },
+  "downinthevalley": {
+   "set": 0.148,
+   "n": 122,
+   "pairs": {
+    "BG": 0.087,
+    "G": 0.167,
+    "UG": 0.25,
+    "RG": 0.154,
+    "WUG": 0.167
+   }
+  },
+  "galionelvenkingsbutler": {
+   "set": 0.254,
+   "n": 122,
+   "pairs": {
+    "BG": 0.391,
+    "G": 0.583,
+    "UG": 0.188,
+    "RG": 0.231,
+    "WUG": 0.167
+   }
+  },
+  "giganticbigbear": {
+   "set": 0.09,
+   "n": 122,
+   "pairs": {
+    "BG": 0.043,
+    "G": 0.333,
+    "UG": 0.125,
+    "RG": 0.077,
+    "WUG": 0.0
+   }
+  },
+  "guardianofthehalls": {
+   "set": 0.361,
+   "n": 122,
+   "pairs": {
+    "BG": 0.304,
+    "G": 0.75,
+    "UG": 0.469,
+    "RG": 0.385,
+    "WUG": 0.25
+   }
+  },
+  "littlebear": {
+   "set": 0.098,
+   "n": 122,
+   "pairs": {
+    "BG": 0.13,
+    "G": 0.167,
+    "UG": 0.062,
+    "RG": 0.154,
+    "WUG": 0.0
+   }
+  },
+  "mirkwoodpathmaker": {
+   "set": 0.484,
+   "n": 122,
+   "pairs": {
+    "BG": 0.391,
+    "G": 0.75,
+    "UG": 0.5,
+    "RG": 0.308,
+    "WUG": 0.583
+   }
+  },
+  "nastylittlerabbit": {
+   "set": 0.352,
+   "n": 122,
+   "pairs": {
+    "BG": 0.696,
+    "G": 0.5,
+    "UG": 0.188,
+    "RG": 0.385,
+    "WUG": 0.25
+   }
+  },
+  "thenotaryhobbits": {
+   "set": 0.049,
+   "n": 122,
+   "pairs": {
+    "BG": 0.043,
+    "G": 0.083,
+    "UG": 0.062,
+    "RG": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "oldfatspider": {
+   "set": 0.279,
+   "n": 122,
+   "pairs": {
+    "BG": 0.217,
+    "G": 0.5,
+    "UG": 0.375,
+    "RG": 0.308,
+    "WUG": 0.083
+   }
+  },
+  "ordinarybear": {
+   "set": 0.246,
+   "n": 122,
+   "pairs": {
+    "BG": 0.261,
+    "G": 0.333,
+    "UG": 0.156,
+    "RG": 0.231,
+    "WUG": 0.25
+   }
+  },
+  "partinfriendship": {
+   "set": 0.107,
+   "n": 122,
+   "pairs": {
+    "BG": 0.217,
+    "G": 0.167,
+    "UG": 0.062,
+    "RG": 0.154,
+    "WUG": 0.0
+   }
+  },
+  "quarrel": {
+   "set": 0.656,
+   "n": 122,
+   "pairs": {
+    "BG": 0.696,
+    "G": 0.917,
+    "UG": 0.688,
+    "RG": 0.846,
+    "WUG": 0.333
+   }
+  },
+  "radagastofrhosgobel": {
+   "set": 0.115,
+   "n": 122,
+   "pairs": {
+    "BG": 0.13,
+    "G": 0.167,
+    "UG": 0.094,
+    "RG": 0.154,
+    "WUG": 0.167
+   }
+  },
+  "throughtheforestgate": {
+   "set": 0.016,
+   "n": 122,
+   "pairs": {
+    "BG": 0.0,
+    "G": 0.083,
+    "UG": 0.0,
+    "RG": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "trollnegotiations": {
+   "set": 0.254,
+   "n": 122,
+   "pairs": {
+    "BG": 0.174,
+    "G": 0.583,
+    "UG": 0.312,
+    "RG": 0.308,
+    "WUG": 0.167
+   }
+  },
+  "wargtactics": {
+   "set": 0.254,
+   "n": 122,
+   "pairs": {
+    "BG": 0.174,
+    "G": 0.5,
+    "UG": 0.25,
+    "RG": 0.462,
+    "WUG": 0.167
+   }
+  },
+  "wargling": {
+   "set": 0.336,
+   "n": 122,
+   "pairs": {
+    "BG": 0.522,
+    "G": 0.667,
+    "UG": 0.156,
+    "RG": 0.615,
+    "WUG": 0.25
+   }
+  },
+  "wilderlandscrounger": {
+   "set": 0.246,
+   "n": 122,
+   "pairs": {
+    "BG": 0.478,
+    "G": 0.25,
+    "UG": 0.094,
+    "RG": 0.308,
+    "WUG": 0.083
+   }
+  },
+  "woodelves": {
+   "set": 0.484,
+   "n": 122,
+   "pairs": {
+    "BG": 0.261,
+    "G": 0.917,
+    "UG": 0.656,
+    "RG": 0.385,
+    "WUG": 0.417
+   }
+  },
+  "woodlandweavemaster": {
+   "set": 0.197,
+   "n": 122,
+   "pairs": {
+    "BG": 0.043,
+    "G": 0.417,
+    "UG": 0.438,
+    "RG": 0.077,
+    "WUG": 0.167
+   }
+  },
+  "bardkingofdale": {
+   "set": 0.0,
+   "n": 47,
+   "pairs": {
+    "WUR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "bardthebowman": {
+   "set": 0.489,
+   "n": 47,
+   "pairs": {
+    "WUR": 0.083,
+    "WU": 0.684,
+    "WUG": 0.583
+   }
+  },
+  "bardscompany": {
+   "set": 0.319,
+   "n": 47,
+   "pairs": {
+    "WUR": 0.583,
+    "WU": 0.211,
+    "WUG": 0.25
+   }
+  },
+  "bifurmelodicrider": {
+   "set": 0.129,
+   "n": 186,
+   "pairs": {
+    "BR": 0.107,
+    "RG": 0.077,
+    "WR": 0.393,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WB": 0.188,
+    "WBR": 0.071,
+    "WU": 0.053,
+    "WUG": 0.0
+   }
+  },
+  "bolgofthenorth": {
+   "set": 0.321,
+   "n": 56,
+   "pairs": {
+    "BR": 0.321,
+    "WBR": 0.357
+   }
+  },
+  "bolgscompany": {
+   "set": 0.036,
+   "n": 56,
+   "pairs": {
+    "BR": 0.071,
+    "WBR": 0.0
+   }
+  },
+  "thechiefwarg": {
+   "set": 0.489,
+   "n": 45,
+   "pairs": {
+    "BG": 0.565
+   }
+  },
+  "chiefwargscompany": {
+   "set": 0.222,
+   "n": 45,
+   "pairs": {
+    "BG": 0.217
+   }
+  },
+  "dinscompany": {
+   "set": 0.296,
+   "n": 54,
+   "pairs": {
+    "WR": 0.464,
+    "WUR": 0.167,
+    "WBR": 0.071
+   }
+  },
+  "duskwatchhunter": {
+   "set": 0.295,
+   "n": 217,
+   "pairs": {
+    "B": 0.538,
+    "BG": 0.652,
+    "BR": 0.357,
+    "G": 0.417,
+    "UG": 0.062,
+    "RG": 0.385,
+    "UB": 0.059,
+    "WB": 0.375,
+    "WBR": 0.143,
+    "WUG": 0.083
+   }
+  },
+  "dwalinweaponmaster": {
+   "set": 0.07,
+   "n": 186,
+   "pairs": {
+    "BR": 0.071,
+    "RG": 0.0,
+    "WR": 0.214,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.062,
+    "WBR": 0.143,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "eaglesrescue": {
+   "set": 0.106,
+   "n": 198,
+   "pairs": {
+    "UG": 0.0,
+    "WR": 0.107,
+    "UB": 0.059,
+    "WUR": 0.167,
+    "UR": 0.077,
+    "WB": 0.062,
+    "WBR": 0.0,
+    "WU": 0.474,
+    "WUG": 0.167
+   }
+  },
+  "fearsomegoblinpair": {
+   "set": 0.144,
+   "n": 209,
+   "pairs": {
+    "B": 0.231,
+    "BG": 0.13,
+    "BR": 0.393,
+    "RG": 0.0,
+    "WR": 0.071,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.429
+   }
+  },
+  "goblinplatemail": {
+   "set": 0.483,
+   "n": 209,
+   "pairs": {
+    "B": 0.846,
+    "BG": 0.391,
+    "BR": 0.607,
+    "RG": 0.385,
+    "WR": 0.571,
+    "UB": 0.294,
+    "WUR": 0.5,
+    "UR": 0.231,
+    "WB": 0.438,
+    "WBR": 0.714
+   }
+  },
+  "thegreatgoblin": {
+   "set": 0.057,
+   "n": 209,
+   "pairs": {
+    "B": 0.154,
+    "BG": 0.043,
+    "BR": 0.107,
+    "RG": 0.154,
+    "WR": 0.036,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.062,
+    "WBR": 0.071
+   }
+  },
+  "largebear": {
+   "set": 0.221,
+   "n": 217,
+   "pairs": {
+    "B": 0.231,
+    "BG": 0.174,
+    "BR": 0.179,
+    "G": 0.167,
+    "UG": 0.406,
+    "RG": 0.308,
+    "UB": 0.176,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WUG": 0.167
+   }
+  },
+  "mirkwoodnurturer": {
+   "set": 0.303,
+   "n": 195,
+   "pairs": {
+    "BG": 0.304,
+    "G": 0.25,
+    "UG": 0.406,
+    "RG": 0.308,
+    "UB": 0.294,
+    "WUR": 0.0,
+    "UR": 0.231,
+    "WU": 0.211,
+    "WUG": 0.167
+   }
+  },
+  "noritelleroftales": {
+   "set": 0.263,
+   "n": 186,
+   "pairs": {
+    "BR": 0.214,
+    "RG": 0.154,
+    "WR": 0.607,
+    "WUR": 0.25,
+    "UR": 0.077,
+    "WB": 0.312,
+    "WBR": 0.571,
+    "WU": 0.105,
+    "WUG": 0.0
+   }
+  },
+  "patientinstructor": {
+   "set": 0.409,
+   "n": 198,
+   "pairs": {
+    "UG": 0.156,
+    "WR": 0.214,
+    "UB": 0.588,
+    "WUR": 0.917,
+    "UR": 0.538,
+    "WB": 0.5,
+    "WBR": 0.071,
+    "WU": 0.737,
+    "WUG": 0.583
+   }
+  },
+  "silvanreveler": {
+   "set": 0.544,
+   "n": 57,
+   "pairs": {
+    "UG": 0.719,
+    "WUG": 0.5
+   }
+  },
+  "smaugwickedworm": {
+   "set": 0.161,
+   "n": 56,
+   "pairs": {
+    "BR": 0.107,
+    "WBR": 0.143
+   }
+  },
+  "thorinoakenshield": {
+   "set": 0.519,
+   "n": 54,
+   "pairs": {
+    "WR": 0.679,
+    "WUR": 0.417,
+    "WBR": 0.286
+   }
+  },
+  "thranduilsindarinliege": {
+   "set": 0.256,
+   "n": 195,
+   "pairs": {
+    "BG": 0.217,
+    "G": 0.5,
+    "UG": 0.75,
+    "RG": 0.154,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WU": 0.105,
+    "WUG": 0.167
+   }
+  },
+  "thranduiltheelvenking": {
+   "set": 0.182,
+   "n": 11,
+   "pairs": {}
+  },
+  "thranduilscompany": {
+   "set": 0.386,
+   "n": 57,
+   "pairs": {
+    "UG": 0.438,
+    "WUG": 0.333
+   }
+  },
+  "tombertandwilliam": {
+   "set": 0.156,
+   "n": 45,
+   "pairs": {
+    "BG": 0.174
+   }
+  },
+  "thearkenstone": {
+   "set": 0.026,
+   "n": 115,
+   "pairs": {
+    "WR": 0.036,
+    "WUR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.167
+   }
+  },
+  "theblackarrow": {
+   "set": 0.034,
+   "n": 298,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.043,
+    "BR": 0.107,
+    "G": 0.0,
+    "UG": 0.031,
+    "RG": 0.0,
+    "WR": 0.071,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.071,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "dwarvenmattock": {
+   "set": 0.081,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.0,
+    "G": 0.0,
+    "UG": 0.0,
+    "RG": 0.077,
+    "WR": 0.536,
+    "UB": 0.0,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WB": 0.062,
+    "WBR": 0.214,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "giantsboulder": {
+   "set": 0.07,
+   "n": 298,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.043,
+    "BR": 0.071,
+    "G": 0.083,
+    "UG": 0.062,
+    "RG": 0.0,
+    "WR": 0.143,
+    "UB": 0.059,
+    "WUR": 0.083,
+    "UR": 0.0,
+    "WB": 0.062,
+    "WBR": 0.143,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "glamdringfoehammer": {
+   "set": 0.008,
+   "n": 130,
+   "pairs": {
+    "UG": 0.0,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.077,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "keytothesidedoor": {
+   "set": 0.007,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.043,
+    "BR": 0.0,
+    "G": 0.083,
+    "UG": 0.0,
+    "RG": 0.0,
+    "WR": 0.0,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "myprecious": {
+   "set": 0.043,
+   "n": 140,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.087,
+    "BR": 0.036,
+    "UB": 0.0,
+    "WB": 0.125,
+    "WBR": 0.0
+   }
+  },
+  "orcristgoblincleaver": {
+   "set": 0.007,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.043,
+    "BR": 0.0,
+    "G": 0.083,
+    "UG": 0.0,
+    "RG": 0.0,
+    "WR": 0.0,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "stingbilbossword": {
+   "set": 0.03,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.087,
+    "BR": 0.036,
+    "G": 0.083,
+    "UG": 0.062,
+    "RG": 0.0,
+    "WR": 0.107,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "thrrsmap": {
+   "set": 0.117,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.087,
+    "BR": 0.107,
+    "G": 0.083,
+    "UG": 0.156,
+    "RG": 0.077,
+    "WR": 0.071,
+    "UB": 0.176,
+    "WUR": 0.083,
+    "UR": 0.154,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WU": 0.105,
+    "WUG": 0.167
+   }
+  },
+  "wellwornspatula": {
+   "set": 0.034,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.036,
+    "G": 0.0,
+    "UG": 0.0,
+    "RG": 0.077,
+    "WR": 0.179,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.214,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "elvenpassage": {
+   "set": 0.06,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.036,
+    "G": 0.25,
+    "UG": 0.125,
+    "RG": 0.077,
+    "WR": 0.0,
+    "UB": 0.0,
+    "WUR": 0.167,
+    "UR": 0.0,
+    "WB": 0.062,
+    "WBR": 0.071,
+    "WU": 0.053,
+    "WUG": 0.083
+   }
+  },
+  "elvenkingshalls": {
+   "set": 0.151,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.0,
+    "G": 0.167,
+    "UG": 0.75,
+    "RG": 0.0,
+    "WR": 0.0,
+    "UB": 0.059,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.0,
+    "WUG": 0.667
+   }
+  },
+  "goblintown": {
+   "set": 0.138,
+   "n": 298,
+   "pairs": {
+    "B": 0.077,
+    "BG": 0.043,
+    "BR": 0.607,
+    "G": 0.0,
+    "UG": 0.0,
+    "RG": 0.077,
+    "WR": 0.107,
+    "UB": 0.059,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.714,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "hobbithole": {
+   "set": 0.433,
+   "n": 298,
+   "pairs": {
+    "B": 0.308,
+    "BG": 0.304,
+    "BR": 0.321,
+    "G": 0.583,
+    "UG": 0.562,
+    "RG": 0.538,
+    "WR": 0.214,
+    "UB": 0.412,
+    "WUR": 0.5,
+    "UR": 0.308,
+    "WB": 0.375,
+    "WBR": 0.5,
+    "WU": 0.368,
+    "WUG": 0.667
+   }
+  },
+  "ironhills": {
+   "set": 0.141,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.071,
+    "G": 0.0,
+    "UG": 0.0,
+    "RG": 0.0,
+    "WR": 0.821,
+    "UB": 0.0,
+    "WUR": 0.583,
+    "UR": 0.077,
+    "WB": 0.0,
+    "WBR": 0.571,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "laketown": {
+   "set": 0.181,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.0,
+    "G": 0.083,
+    "UG": 0.156,
+    "RG": 0.0,
+    "WR": 0.071,
+    "UB": 0.176,
+    "WUR": 0.833,
+    "UR": 0.077,
+    "WB": 0.0,
+    "WBR": 0.0,
+    "WU": 0.789,
+    "WUG": 0.833
+   }
+  },
+  "thelonelymountain": {
+   "set": 0.057,
+   "n": 298,
+   "pairs": {
+    "B": 0.0,
+    "BG": 0.0,
+    "BR": 0.071,
+    "G": 0.0,
+    "UG": 0.0,
+    "RG": 0.077,
+    "WR": 0.214,
+    "UB": 0.0,
+    "WUR": 0.167,
+    "UR": 0.077,
+    "WB": 0.0,
+    "WBR": 0.286,
+    "WU": 0.0,
+    "WUG": 0.0
+   }
+  },
+  "mirkwood": {
+   "set": 0.191,
+   "n": 298,
+   "pairs": {
+    "B": 0.308,
+    "BG": 0.696,
+    "BR": 0.107,
+    "G": 0.333,
+    "UG": 0.125,
+    "RG": 0.385,
+    "WR": 0.0,
+    "UB": 0.0,
+    "WUR": 0.0,
+    "UR": 0.0,
+    "WB": 0.0,
+    "WBR": 0.071,
+    "WU": 0.0,
+    "WUG": 0.167
+   }
+  }
+ },
  "meta": {
   "lists": 298,
   "alsa_early": 4.5,
   "trap_fraction": 0.25,
+  "pair_min_lists": 12,
+  "big_pairs": [
+   "B",
+   "BG",
+   "BR",
+   "G",
+   "RG",
+   "UB",
+   "UG",
+   "UR",
+   "WB",
+   "WBR",
+   "WR",
+   "WU",
+   "WUG",
+   "WUR"
+  ],
+  "pair_lists": {
+   "B": 13,
+   "BG": 23,
+   "BR": 28,
+   "BRG": 10,
+   "G": 12,
+   "R": 1,
+   "RG": 13,
+   "U": 5,
+   "UB": 17,
+   "UBG": 10,
+   "UBR": 3,
+   "UBRG": 1,
+   "UG": 32,
+   "UR": 13,
+   "URG": 2,
+   "W": 3,
+   "WB": 16,
+   "WBG": 1,
+   "WBR": 14,
+   "WG": 6,
+   "WR": 28,
+   "WU": 19,
+   "WUB": 4,
+   "WUG": 12,
+   "WUR": 12
+  },
   "rarity_median": {
    "common": 0.304,
    "uncommon": 0.256,
