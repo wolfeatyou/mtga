@@ -35,6 +35,9 @@ import find_traps as FT          # noqa: E402
 POWER_RE = re.compile(r"you control a creature with power (\d+) or greater", re.I)
 TRIBAL_RE = re.compile(r"other (\w+) you control get", re.I)
 TWO_OTHER_RE = re.compile(r"control two or more other (\w+)\b", re.I)
+# «another <Type>» — единичное условие (Thranduil's Company: additional land while you
+# control another Elf). Пропуск пойман 20.08.2026 на трофейном листе блоггера (§ 8.28).
+ANOTHER_RE = re.compile(r"control another (\w+)\b", re.I)
 AFFINITY_RE = re.compile(r"affinity for (\w+)\b", re.I)
 
 
@@ -108,12 +111,13 @@ def lint(path, setcode=None):
                 warns.append(f"{name}: условие «сила {need}+» — включателей всего {eff} "
                              f"({', '.join(names) or 'нет'})")
 
-        for rex, what in ((TRIBAL_RE, "лорд"), (TWO_OTHER_RE, "условие"), (AFFINITY_RE, "affinity")):
+        for rex, what in ((TRIBAL_RE, "лорд"), (TWO_OTHER_RE, "условие"),
+                          (ANOTHER_RE, "условие-another"), (AFFINITY_RE, "affinity")):
             m = rex.search(ora)
             if m:
                 sub = singular(m.group(1))
                 tot, names = subtype_count(sub, k)
-                floor = 2 if rex is TWO_OTHER_RE else 3
+                floor = 2 if rex is TWO_OTHER_RE else (1 if rex is ANOTHER_RE else 3)
                 if tot < floor:
                     warns.append(f"{name}: {what} «{sub}» — таких существ в мейне {tot} "
                                  f"({', '.join(names) or 'нет'})")
