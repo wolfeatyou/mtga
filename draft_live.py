@@ -2069,10 +2069,13 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
             ncop = pool_copies.get(nm.split(" //")[0], 0)
             dup = f"  ⟳в пуле ×{ncop}" if ncop else ""
             lines.append(f"  {tag}{flags} {nm} {cost}{pt} — {tl}{dup}")
+            # Обрезка текста СНЯТА 20.08.2026 (запрос пользователя «всегда читай текст»).
+            # Кап 280 резал 32 карты HOB из 193 (макс 425): у DFC глушилась вторая
+            # сторона, у саг — решающие главы, у Azog — сам removal-текст (тот, чью
+            # формулировку HARD_RE уже пропускал — JOURNAL § 8.3). Сет может быть новее
+            # кат-оффа модели: напечатанный текст — единственный источник механики.
             ot = full_oracle(c)
             if ot:
-                if len(ot) > 280:
-                    ot = ot[:279] + "…"
                 lines.append(f"        {ot}")
     lines.append("POOL:")
     lines.append(pool_summary(picks, by_id, ratings))

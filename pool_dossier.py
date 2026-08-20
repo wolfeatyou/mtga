@@ -30,6 +30,7 @@ GIH — ось сортировки, не мерило колоды (§ КАЛИ
 """
 import json
 import os
+import re
 import sys
 from collections import Counter
 
@@ -280,6 +281,13 @@ def render(path, setcode=None, pairs=None, lanes_only=False):
             g = f"{gih:.1f}" if gih is not None else "  — "
             a_ = f"A{alsa}" if alsa is not None else ""
             out.append(f" {g:>5} {a_:>5} ×{n} {name[:34]:<34} {pt:<5} {rl:<28} {stat}{ed}{bomb}{fl}")
+            # ПОЛНЫЙ оракл-текст (внесено 20.08.2026, запрос «всегда читай текст»).
+            # Сет может быть новее кат-оффа модели — строители/судья/советчик обязаны
+            # брать механику из напечатанного, а не из памяти (§ 8.16: «value-движок
+            # приписан защитной саге без чтения текста»). Ремайндеры в скобках срезаны.
+            ora = re.sub(r"\s*\([^()]*\)", "", DP.oracle(c)).replace("\n", " · ").strip()
+            if ora and "Land" not in FT.face(c, "type_line"):
+                out.append(f"          {ora}")
         if off:
             names = ", ".join(f"{name}×{n}" if n > 1 else name for _, _, n, name, _, _ in off)
             out.append(f"   вне пары {pair}: {names}")

@@ -105,6 +105,10 @@ with redirect_stdout(buf):
 text = buf.getvalue()
 check("⚠×4>потолка" in text and "Mirkwood Nurturer" in text,
       "⚠×4>потолка у Mirkwood Nurturer (ошибка P3P2 § 8.18 была бы видна в досье)")
+check("Reach, deathtouch" in text,
+      "полный оракл-текст печатается под картой (Attercop; сет новее кат-оффа модели)")
+check("It's an artifact with" not in text,
+      "ремайндеры в скобках срезаны из оракл-текстов")
 check("⚠ЛОВУШКА" not in text.split("КАРТЫ ПУЛА")[1].split("СВЯЗКИ")[0].replace("⚠НЕ-В-ЭТОЙ-ПАРЕ", "")
       if "КАРТЫ ПУЛА" in text else True,
       "ловушек сета в этом пуле нет — флаг не печатается зря")
