@@ -1,21 +1,20 @@
 Deck
-2 Bilbo, Luckwearer
-1 Eagle's Rescue
-1 Plunder the Trollshaws
-2 Enchanted River's Grasp
-2 Long Lake Nuisance
 2 Patient Instructor
-1 Bard the Bowman
-1 Lakeshore Apothecary
-1 Magnificent End
-1 Master's Councillors
-1 Uneasy Partings
 2 Bilbo Baggins, Burglar
-2 The Mountain-king's Return
-1 Belladonna Took
-1 Eagle of the Great Shelf
-1 Old Fat Spider Can't See Me
+2 Lakeshore Apothecary
+2 Long Lake Nuisance
+2 Plunder the Trollshaws
+1 Magnificent End
+2 Enchanted River's Grasp
+1 Uneasy Partings
+1 The Mountain-king's Return
+2 Master's Councillors
+1 Bilbo, Luckwearer
+1 Bard the Bowman
 1 Stone by Sunlight
+1 Celebrate the Mountain-king
+1 Bofur, Reliable Guardian
+1 Eagle's Rescue
 1 Lake-town
-11 Island
 5 Plains
+11 Island

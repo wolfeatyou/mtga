@@ -1,0 +1,25 @@
+Deck
+5 Forest
+5 Island
+3 Lakeshore Apothecary
+3 Mirkwood Pathmaker
+2 Plains
+2 Celebrate the Mountain-king
+2 Patient Instructor
+2 Silvan Reveler
+2 Thranduil, Sindarin Liege
+2 Mirkwood
+1 Swamp
+1 Wood Elves
+1 Bilbo Baggins, Burglar
+1 Enchanted River's Grasp
+1 Uneasy Partings
+1 Boughside Wanderers
+1 Guardian of the Halls
+1 Warg Tactics
+1 Woodland Weavemaster
+1 Bard the Bowman
+1 Tom, Bert, and William
+1 Giant's Boulder
+1 Elvenking's Halls
+1 Lake-town

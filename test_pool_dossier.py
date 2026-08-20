@@ -118,16 +118,20 @@ check("⚠ЛОВУШКА" not in text.split("КАРТЫ ПУЛА")[1].split("С�
 
 print("7) режим --deck: скорборд готового мейна (вход судьи § МУЛЬТИСБОРКА)")
 import tempfile
+# потолок копий берём из ТЕКУЩЕГО traps.json: на популяции 298 у Ordinary Bear в BG
+# был ≤2, на 416 стал ≤3 (§ 8.27) — хардкод сгнил за день, кейс переведён на данные.
+_cap = json.load(open(os.path.join(HERE, "hob_traps.json")))["played"]["ordinarybear"]["max_pairs"]["BG"]
 _deck = tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8")
-# мини-мейн из фикстуры: 3 тела ≥4 (медиана BG 4 → маршрут закрыт быть не должен) + перебор копий
-_deck.write("Deck\n3 Ordinary Bear\n1 Large Bear\n2 Nasty Little Rabbit\n8 Forest\n")
+_deck.write(f"Deck\n{_cap + 1} Ordinary Bear\n1 Large Bear\n2 Nasty Little Rabbit\n8 Forest\n")
 _deck.close()
 buf2 = io.StringIO()
 with redirect_stdout(buf2):
     PD.deck_check(_deck.name, "hob", "BG")
 t2 = buf2.getvalue()
-check("тел≥4 4 (✔" in t2, "deck_check считает тела ≥4 тем же sig_of (3 Bear + Large = 4, медиана 4 ✔)")
-check("⚠×3>потолка(≤2)" in t2, "deck_check ловит перебор копий (Ordinary Bear ×3 при потолке 2)")
+check(f"тел≥4 {_cap + 2} (✔" in t2,
+      f"deck_check считает тела ≥4 тем же sig_of ({_cap + 1} Bear + Large, медиана 4 ✔)")
+check(f"⚠×{_cap + 1}>потолка(≤{_cap})" in t2,
+      f"deck_check ловит перебор копий (Ordinary Bear ×{_cap + 1} при потолке {_cap} из traps.json)")
 os.unlink(_deck.name)
 
 print()

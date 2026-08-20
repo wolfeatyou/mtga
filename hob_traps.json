@@ -1,46 +1,46 @@
 {
  "big_bodies": {
   "B": {
-   "n": 13,
+   "n": 15,
    "min": 0,
    "med": 3,
    "max": 7
   },
   "BG": {
-   "n": 23,
+   "n": 39,
    "min": 1,
    "med": 4,
-   "max": 6
+   "max": 9
   },
   "BR": {
-   "n": 28,
+   "n": 49,
    "min": 2,
    "med": 6,
    "max": 9
   },
   "BRG": {
-   "n": 10,
+   "n": 11,
    "min": 1,
    "med": 5,
    "max": 10
   },
   "G": {
-   "n": 12,
-   "min": 3,
+   "n": 14,
+   "min": 2,
    "med": 4,
    "max": 8
   },
   "UG": {
-   "n": 32,
+   "n": 46,
    "min": 0,
    "med": 4,
    "max": 8
   },
   "R": {
-   "n": 1,
+   "n": 2,
    "min": 6,
-   "med": 6,
-   "max": 6
+   "med": 7,
+   "max": 8
   },
   "RG": {
    "n": 13,
@@ -49,10 +49,10 @@
    "max": 9
   },
   "WR": {
-   "n": 28,
+   "n": 49,
    "min": 0,
    "med": 4,
-   "max": 6
+   "max": 9
   },
   "U": {
    "n": 5,
@@ -61,7 +61,7 @@
    "max": 1
   },
   "UB": {
-   "n": 17,
+   "n": 19,
    "min": 0,
    "med": 2,
    "max": 5
@@ -73,7 +73,7 @@
    "max": 4
   },
   "UBG": {
-   "n": 10,
+   "n": 15,
    "min": 2,
    "med": 4,
    "max": 6
@@ -85,9 +85,9 @@
    "max": 5
   },
   "WUR": {
-   "n": 12,
+   "n": 13,
    "min": 0,
-   "med": 2,
+   "med": 3,
    "max": 4
   },
   "UR": {
@@ -109,7 +109,7 @@
    "max": 2
   },
   "WB": {
-   "n": 16,
+   "n": 18,
    "min": 0,
    "med": 2,
    "max": 6
@@ -121,31 +121,37 @@
    "max": 2
   },
   "WBR": {
-   "n": 14,
+   "n": 18,
    "min": 1,
    "med": 4,
    "max": 7
   },
   "WG": {
-   "n": 6,
+   "n": 7,
    "min": 1,
-   "med": 2,
+   "med": 3,
    "max": 4
   },
+  "WRG": {
+   "n": 1,
+   "min": 5,
+   "med": 5,
+   "max": 5
+  },
   "WU": {
-   "n": 19,
+   "n": 41,
    "min": 0,
    "med": 0,
    "max": 3
   },
   "WUB": {
-   "n": 4,
+   "n": 5,
    "min": 0,
-   "med": 2,
+   "med": 1,
    "max": 2
   },
   "WUG": {
-   "n": 12,
+   "n": 13,
    "min": 0,
    "med": 2,
    "max": 4
@@ -158,15 +164,15 @@
    "cre": 14,
    "cheap": 6,
    "rem": 5,
-   "n": 13
+   "n": 15
   },
   "BG": {
    "big": 4,
-   "evp": 18,
-   "cre": 15,
+   "evp": 19,
+   "cre": 16,
    "cheap": 7,
    "rem": 3,
-   "n": 23
+   "n": 39
   },
   "BR": {
    "big": 6,
@@ -174,23 +180,23 @@
    "cre": 15,
    "cheap": 6,
    "rem": 4,
-   "n": 28
+   "n": 49
   },
   "G": {
    "big": 4,
-   "evp": 17,
+   "evp": 15,
    "cre": 16,
    "cheap": 6,
-   "rem": 2,
-   "n": 12
+   "rem": 3,
+   "n": 14
   },
   "UG": {
    "big": 4,
    "evp": 12,
    "cre": 16,
-   "cheap": 5,
-   "rem": 3,
-   "n": 32
+   "cheap": 6,
+   "rem": 2,
+   "n": 46
   },
   "RG": {
    "big": 7,
@@ -202,27 +208,35 @@
   },
   "WR": {
    "big": 4,
-   "evp": 12,
+   "evp": 11,
    "cre": 14,
    "cheap": 7,
    "rem": 5,
-   "n": 28
+   "n": 49
   },
   "UB": {
    "big": 2,
    "evp": 9,
-   "cre": 12,
+   "cre": 13,
    "cheap": 6,
    "rem": 3,
-   "n": 17
+   "n": 19
+  },
+  "UBG": {
+   "big": 4,
+   "evp": 15,
+   "cre": 16,
+   "cheap": 5,
+   "rem": 3,
+   "n": 15
   },
   "WUR": {
-   "big": 2,
+   "big": 3,
    "evp": 14,
    "cre": 14,
    "cheap": 5,
-   "rem": 6,
-   "n": 12
+   "rem": 5,
+   "n": 13
   },
   "UR": {
    "big": 4,
@@ -238,7 +252,7 @@
    "cre": 14,
    "cheap": 7,
    "rem": 5,
-   "n": 16
+   "n": 18
   },
   "WBR": {
    "big": 4,
@@ -246,23 +260,23 @@
    "cre": 14,
    "cheap": 6,
    "rem": 4,
-   "n": 14
+   "n": 18
   },
   "WU": {
    "big": 0,
-   "evp": 8,
-   "cre": 15,
+   "evp": 7,
+   "cre": 14,
    "cheap": 6,
-   "rem": 4,
-   "n": 19
+   "rem": 3,
+   "n": 41
   },
   "WUG": {
    "big": 2,
-   "evp": 13,
+   "evp": 12,
    "cre": 15,
-   "cheap": 4,
+   "cheap": 5,
    "rem": 3,
-   "n": 12
+   "n": 13
   }
  },
  "traps": [
@@ -272,17 +286,17 @@
    "alsa": 1.9537037,
    "rar": "rare",
    "played": 2,
-   "seen": 298,
-   "rate": 0.007
+   "seen": 416,
+   "rate": 0.005
   },
   {
    "name": "Bard, King of Dale",
    "key": "bardkingofdale",
    "alsa": 2.9230769,
    "rar": "rare",
-   "played": 0,
-   "seen": 47,
-   "rate": 0.0
+   "played": 1,
+   "seen": 72,
+   "rate": 0.014
   },
   {
    "name": "Gleaming Splendor",
@@ -290,144 +304,248 @@
    "alsa": 3.8255528,
    "rar": "rare",
    "played": 2,
-   "seen": 115,
-   "rate": 0.017
+   "seen": 169,
+   "rate": 0.012
   }
  ],
  "pair_bad": {
   "BG": [
    {
-    "name": "Reverent Howl",
-    "key": "reverenthowl",
-    "here": 0.13,
-    "set_rate": 0.2,
-    "n": 23
-   },
-   {
-    "name": "Beorn's Hospitality",
-    "key": "beornshospitality",
-    "here": 0.087,
-    "set_rate": 0.262,
-    "n": 23
-   },
-   {
     "name": "Boughside Wanderers",
     "key": "boughsidewanderers",
-    "here": 0.087,
-    "set_rate": 0.32,
-    "n": 23
+    "here": 0.128,
+    "set_rate": 0.325,
+    "n": 39
    }
   ],
   "BR": [
    {
     "name": "Gathering of Darkness",
     "key": "gatheringofdarkness",
-    "here": 0.143,
-    "set_rate": 0.207,
-    "n": 28
+    "here": 0.122,
+    "set_rate": 0.206,
+    "n": 49
    },
    {
-    "name": "Gollum the Abandoned",
-    "key": "gollumtheabandoned",
-    "here": 0.143,
+    "name": "Bombur, Gentle Dreamer",
+    "key": "bomburgentledreamer",
+    "here": 0.122,
     "set_rate": 0.2,
-    "n": 28
+    "n": 49
+   }
+  ],
+  "G": [
+   {
+    "name": "Large Bear",
+    "key": "largebear",
+    "here": 0.143,
+    "set_rate": 0.238,
+    "n": 14
+   }
+  ],
+  "RG": [
+   {
+    "name": "Bombur, Gentle Dreamer",
+    "key": "bomburgentledreamer",
+    "here": 0.077,
+    "set_rate": 0.2,
+    "n": 13
    }
   ],
   "UB": [
    {
     "name": "Dreaded Bat-Cloud",
     "key": "dreadedbatcloud",
-    "here": 0.059,
-    "set_rate": 0.257,
-    "n": 17
+    "here": 0.105,
+    "set_rate": 0.253,
+    "n": 19
    },
    {
     "name": "Front Porch Sentries",
     "key": "frontporchsentries",
-    "here": 0.118,
-    "set_rate": 0.257,
-    "n": 17
+    "here": 0.105,
+    "set_rate": 0.258,
+    "n": 19
    },
    {
     "name": "Gathering of Darkness",
     "key": "gatheringofdarkness",
-    "here": 0.059,
-    "set_rate": 0.207,
-    "n": 17
-   },
-   {
-    "name": "Gollum the Abandoned",
-    "key": "gollumtheabandoned",
-    "here": 0.118,
-    "set_rate": 0.2,
-    "n": 17
+    "here": 0.105,
+    "set_rate": 0.206,
+    "n": 19
    },
    {
     "name": "Nighthowl Pursuer",
     "key": "nighthowlpursuer",
-    "here": 0.118,
-    "set_rate": 0.221,
-    "n": 17
+    "here": 0.105,
+    "set_rate": 0.227,
+    "n": 19
    },
    {
     "name": "Reverent Howl",
     "key": "reverenthowl",
-    "here": 0.059,
-    "set_rate": 0.2,
-    "n": 17
+    "here": 0.105,
+    "set_rate": 0.201,
+    "n": 19
    },
    {
     "name": "Duskwatch Hunter",
     "key": "duskwatchhunter",
-    "here": 0.059,
-    "set_rate": 0.295,
-    "n": 17
+    "here": 0.053,
+    "set_rate": 0.286,
+    "n": 19
    },
    {
     "name": "Thranduil, Sindarin Liege",
     "key": "thranduilsindarinliege",
     "here": 0.0,
-    "set_rate": 0.256,
-    "n": 17
+    "set_rate": 0.275,
+    "n": 19
+   }
+  ],
+  "UBG": [
+   {
+    "name": "Confusticate and Bebother",
+    "key": "confusticateandbebother",
+    "here": 0.133,
+    "set_rate": 0.239,
+    "n": 15
+   },
+   {
+    "name": "Great Gilded Boat",
+    "key": "greatgildedboat",
+    "here": 0.133,
+    "set_rate": 0.227,
+    "n": 15
+   },
+   {
+    "name": "Lakeshore Apothecary",
+    "key": "lakeshoreapothecary",
+    "here": 0.067,
+    "set_rate": 0.551,
+    "n": 15
+   },
+   {
+    "name": "Master's Councillors",
+    "key": "masterscouncillors",
+    "here": 0.0,
+    "set_rate": 0.33,
+    "n": 15
+   },
+   {
+    "name": "Front Porch Sentries",
+    "key": "frontporchsentries",
+    "here": 0.067,
+    "set_rate": 0.258,
+    "n": 15
+   },
+   {
+    "name": "Gollum the Abandoned",
+    "key": "gollumtheabandoned",
+    "here": 0.133,
+    "set_rate": 0.242,
+    "n": 15
+   },
+   {
+    "name": "Great Ugly-Looking Goblin",
+    "key": "greatuglylookinggoblin",
+    "here": 0.067,
+    "set_rate": 0.289,
+    "n": 15
+   },
+   {
+    "name": "Nighthowl Pursuer",
+    "key": "nighthowlpursuer",
+    "here": 0.133,
+    "set_rate": 0.227,
+    "n": 15
+   },
+   {
+    "name": "Rage into the Valley",
+    "key": "rageintothevalley",
+    "here": 0.133,
+    "set_rate": 0.495,
+    "n": 15
+   },
+   {
+    "name": "Reverent Howl",
+    "key": "reverenthowl",
+    "here": 0.067,
+    "set_rate": 0.201,
+    "n": 15
+   },
+   {
+    "name": "Warg Tactics",
+    "key": "wargtactics",
+    "here": 0.067,
+    "set_rate": 0.233,
+    "n": 15
+   },
+   {
+    "name": "Chief Warg's Company",
+    "key": "chiefwargscompany",
+    "here": 0.133,
+    "set_rate": 0.224,
+    "n": 15
+   },
+   {
+    "name": "Patient Instructor",
+    "key": "patientinstructor",
+    "here": 0.067,
+    "set_rate": 0.392,
+    "n": 15
    }
   ],
   "UG": [
    {
-    "name": "Master's Councillors",
-    "key": "masterscouncillors",
-    "here": 0.062,
-    "set_rate": 0.292,
-    "n": 32
+    "name": "Great Gilded Boat",
+    "key": "greatgildedboat",
+    "here": 0.109,
+    "set_rate": 0.227,
+    "n": 46
    },
    {
-    "name": "Wilderland Scrounger",
-    "key": "wilderlandscrounger",
-    "here": 0.094,
-    "set_rate": 0.246,
-    "n": 32
+    "name": "Master's Councillors",
+    "key": "masterscouncillors",
+    "here": 0.13,
+    "set_rate": 0.33,
+    "n": 46
    },
    {
     "name": "Duskwatch Hunter",
     "key": "duskwatchhunter",
-    "here": 0.062,
-    "set_rate": 0.295,
-    "n": 32
+    "here": 0.087,
+    "set_rate": 0.286,
+    "n": 46
    }
   ],
   "UR": [
    {
+    "name": "Bombur, Gentle Dreamer",
+    "key": "bomburgentledreamer",
+    "here": 0.0,
+    "set_rate": 0.2,
+    "n": 13
+   },
+   {
+    "name": "Dwarven Mauler",
+    "key": "dwarvenmauler",
+    "here": 0.0,
+    "set_rate": 0.211,
+    "n": 13
+   },
+   {
     "name": "Nori, Teller of Tales",
     "key": "noritelleroftales",
     "here": 0.077,
-    "set_rate": 0.263,
+    "set_rate": 0.274,
     "n": 13
    },
    {
     "name": "Thranduil, Sindarin Liege",
     "key": "thranduilsindarinliege",
     "here": 0.077,
-    "set_rate": 0.256,
+    "set_rate": 0.275,
     "n": 13
    }
   ],
@@ -435,300 +553,280 @@
    {
     "name": "Large Bear",
     "key": "largebear",
-    "here": 0.062,
-    "set_rate": 0.221,
-    "n": 16
+    "here": 0.111,
+    "set_rate": 0.238,
+    "n": 18
    }
   ],
   "WBR": [
    {
     "name": "Celebrate the Mountain-king",
     "key": "celebratethemountainking",
-    "here": 0.071,
-    "set_rate": 0.383,
-    "n": 14
-   },
-   {
-    "name": "Iron Hills Blacksmith",
-    "key": "ironhillsblacksmith",
-    "here": 0.143,
-    "set_rate": 0.313,
-    "n": 14
-   },
-   {
-    "name": "An Unexpected Party",
-    "key": "anunexpectedparty",
-    "here": 0.143,
-    "set_rate": 0.217,
-    "n": 14
+    "here": 0.111,
+    "set_rate": 0.367,
+    "n": 18
    },
    {
     "name": "Down, Down to Goblin-town",
     "key": "downdowntogoblintown",
-    "here": 0.143,
+    "here": 0.111,
     "set_rate": 0.371,
-    "n": 14
+    "n": 18
    },
    {
     "name": "Dreaded Bat-Cloud",
     "key": "dreadedbatcloud",
-    "here": 0.071,
-    "set_rate": 0.257,
-    "n": 14
+    "here": 0.056,
+    "set_rate": 0.253,
+    "n": 18
    },
    {
     "name": "Gathering of Darkness",
     "key": "gatheringofdarkness",
     "here": 0.0,
-    "set_rate": 0.207,
-    "n": 14
-   },
-   {
-    "name": "Gnashing of Teeth",
-    "key": "gnashingofteeth",
-    "here": 0.143,
-    "set_rate": 0.279,
-    "n": 14
+    "set_rate": 0.206,
+    "n": 18
    },
    {
     "name": "Great Ugly-Looking Goblin",
     "key": "greatuglylookinggoblin",
-    "here": 0.143,
-    "set_rate": 0.271,
-    "n": 14
-   },
-   {
-    "name": "Nighthowl Pursuer",
-    "key": "nighthowlpursuer",
-    "here": 0.143,
-    "set_rate": 0.221,
-    "n": 14
+    "here": 0.111,
+    "set_rate": 0.289,
+    "n": 18
    },
    {
     "name": "Ravening Warg",
     "key": "raveningwarg",
-    "here": 0.071,
-    "set_rate": 0.493,
-    "n": 14
+    "here": 0.056,
+    "set_rate": 0.515,
+    "n": 18
    },
    {
     "name": "Reverent Howl",
     "key": "reverenthowl",
-    "here": 0.071,
-    "set_rate": 0.2,
-    "n": 14
-   },
-   {
-    "name": "Stony-Voiced Goblins",
-    "key": "stonyvoicedgoblins",
-    "here": 0.143,
-    "set_rate": 0.471,
-    "n": 14
+    "here": 0.056,
+    "set_rate": 0.201,
+    "n": 18
    },
    {
     "name": "Dáin's Company",
     "key": "dinscompany",
-    "here": 0.071,
-    "set_rate": 0.296,
-    "n": 14
+    "here": 0.111,
+    "set_rate": 0.284,
+    "n": 18
    },
    {
     "name": "Duskwatch Hunter",
     "key": "duskwatchhunter",
-    "here": 0.143,
-    "set_rate": 0.295,
-    "n": 14
+    "here": 0.111,
+    "set_rate": 0.286,
+    "n": 18
    },
    {
     "name": "Large Bear",
     "key": "largebear",
-    "here": 0.071,
-    "set_rate": 0.221,
-    "n": 14
+    "here": 0.111,
+    "set_rate": 0.238,
+    "n": 18
    },
    {
     "name": "Patient Instructor",
     "key": "patientinstructor",
-    "here": 0.071,
-    "set_rate": 0.409,
-    "n": 14
+    "here": 0.056,
+    "set_rate": 0.392,
+    "n": 18
    }
   ],
   "WR": [
    {
     "name": "Tidings of War",
     "key": "tidingsofwar",
-    "here": 0.071,
-    "set_rate": 0.304,
-    "n": 28
+    "here": 0.061,
+    "set_rate": 0.297,
+    "n": 49
    }
   ],
   "WU": [
    {
-    "name": "Ori, Keeper of Songs",
-    "key": "orikeeperofsongs",
-    "here": 0.105,
-    "set_rate": 0.391,
-    "n": 19
+    "name": "Dwarven Shortsword",
+    "key": "dwarvenshortsword",
+    "here": 0.098,
+    "set_rate": 0.379,
+    "n": 41
    },
    {
-    "name": "An Unexpected Party",
-    "key": "anunexpectedparty",
-    "here": 0.105,
-    "set_rate": 0.217,
-    "n": 19
+    "name": "Ori, Keeper of Songs",
+    "key": "orikeeperofsongs",
+    "here": 0.098,
+    "set_rate": 0.373,
+    "n": 41
+   },
+   {
+    "name": "Mirkwood Nurturer",
+    "key": "mirkwoodnurturer",
+    "here": 0.146,
+    "set_rate": 0.294,
+    "n": 41
    },
    {
     "name": "Nori, Teller of Tales",
     "key": "noritelleroftales",
-    "here": 0.105,
-    "set_rate": 0.263,
-    "n": 19
-   },
-   {
-    "name": "Thranduil, Sindarin Liege",
-    "key": "thranduilsindarinliege",
-    "here": 0.105,
-    "set_rate": 0.256,
-    "n": 19
+    "here": 0.122,
+    "set_rate": 0.274,
+    "n": 41
    }
   ],
   "WUG": [
    {
     "name": "Bofur, Reliable Guardian",
     "key": "bofurreliableguardian",
-    "here": 0.083,
-    "set_rate": 0.287,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.32,
+    "n": 13
    },
    {
     "name": "Dáin, Lord of the Iron Hills",
     "key": "dinlordoftheironhills",
-    "here": 0.083,
-    "set_rate": 0.287,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.331,
+    "n": 13
    },
    {
     "name": "Dwarven Provisioner",
     "key": "dwarvenprovisioner",
-    "here": 0.083,
-    "set_rate": 0.452,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.42,
+    "n": 13
    },
    {
     "name": "Dwarven Shortsword",
     "key": "dwarvenshortsword",
     "here": 0.0,
-    "set_rate": 0.383,
-    "n": 12
+    "set_rate": 0.379,
+    "n": 13
    },
    {
     "name": "Fíli the Pathfinder",
     "key": "flithepathfinder",
-    "here": 0.083,
-    "set_rate": 0.261,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.243,
+    "n": 13
    },
    {
-    "name": "An Unexpected Party",
-    "key": "anunexpectedparty",
-    "here": 0.083,
-    "set_rate": 0.217,
-    "n": 12
+    "name": "Bejeweled Warg",
+    "key": "bejeweledwarg",
+    "here": 0.077,
+    "set_rate": 0.202,
+    "n": 13
    },
    {
     "name": "Boughside Wanderers",
     "key": "boughsidewanderers",
-    "here": 0.0,
-    "set_rate": 0.32,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.325,
+    "n": 13
    },
    {
     "name": "Old Fat Spider",
     "key": "oldfatspider",
-    "here": 0.083,
-    "set_rate": 0.279,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.301,
+    "n": 13
    },
    {
     "name": "Wilderland Scrounger",
     "key": "wilderlandscrounger",
-    "here": 0.083,
-    "set_rate": 0.246,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.245,
+    "n": 13
    },
    {
     "name": "Duskwatch Hunter",
     "key": "duskwatchhunter",
-    "here": 0.083,
-    "set_rate": 0.295,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.286,
+    "n": 13
    },
    {
     "name": "Nori, Teller of Tales",
     "key": "noritelleroftales",
     "here": 0.0,
-    "set_rate": 0.263,
-    "n": 12
+    "set_rate": 0.274,
+    "n": 13
    }
   ],
   "WUR": [
    {
     "name": "Confusticate and Bebother",
     "key": "confusticateandbebother",
-    "here": 0.083,
-    "set_rate": 0.262,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.239,
+    "n": 13
+   },
+   {
+    "name": "Bombur, Gentle Dreamer",
+    "key": "bomburgentledreamer",
+    "here": 0.077,
+    "set_rate": 0.2,
+    "n": 13
+   },
+   {
+    "name": "Dwarven Mauler",
+    "key": "dwarvenmauler",
+    "here": 0.077,
+    "set_rate": 0.211,
+    "n": 13
    },
    {
     "name": "Glóin the Mighty",
     "key": "glinthemighty",
     "here": 0.0,
-    "set_rate": 0.264,
-    "n": 12
+    "set_rate": 0.257,
+    "n": 13
    },
    {
     "name": "Bard the Bowman",
     "key": "bardthebowman",
-    "here": 0.083,
-    "set_rate": 0.489,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.472,
+    "n": 13
    },
    {
     "name": "Mirkwood Nurturer",
     "key": "mirkwoodnurturer",
     "here": 0.0,
-    "set_rate": 0.303,
-    "n": 12
+    "set_rate": 0.294,
+    "n": 13
    },
    {
     "name": "Thranduil, Sindarin Liege",
     "key": "thranduilsindarinliege",
-    "here": 0.0,
-    "set_rate": 0.256,
-    "n": 12
+    "here": 0.077,
+    "set_rate": 0.275,
+    "n": 13
    }
   ]
  },
  "played": {
   "longbodiedgreydog": {
-   "set": 0.054,
-   "n": 298,
+   "set": 0.05,
+   "n": 416,
    "pairs": {
-    "B": 0.154,
+    "B": 0.133,
     "BG": 0.0,
-    "BR": 0.071,
+    "BR": 0.082,
     "G": 0.0,
-    "UG": 0.031,
+    "UG": 0.043,
     "RG": 0.077,
-    "WR": 0.071,
+    "WR": 0.041,
     "UB": 0.0,
-    "WUR": 0.167,
+    "UBG": 0.0,
+    "WUR": 0.154,
     "UR": 0.077,
     "WB": 0.0,
-    "WBR": 0.071,
+    "WBR": 0.056,
     "WU": 0.0,
-    "WUG": 0.167
+    "WUG": 0.154
    },
    "max": 2,
    "max_pairs": {
@@ -744,22 +842,23 @@
    }
   },
   "oldthrush": {
-   "set": 0.077,
-   "n": 298,
+   "set": 0.06,
+   "n": 416,
    "pairs": {
-    "B": 0.077,
+    "B": 0.067,
     "BG": 0.0,
-    "BR": 0.071,
-    "G": 0.167,
-    "UG": 0.219,
+    "BR": 0.041,
+    "G": 0.143,
+    "UG": 0.174,
     "RG": 0.154,
-    "WR": 0.036,
+    "WR": 0.0,
     "UB": 0.0,
-    "WUR": 0.167,
+    "UBG": 0.067,
+    "WUR": 0.154,
     "UR": 0.0,
-    "WB": 0.0,
+    "WB": 0.056,
     "WBR": 0.0,
-    "WU": 0.053,
+    "WU": 0.024,
     "WUG": 0.0
    },
    "max": 2,
@@ -769,29 +868,31 @@
     "G": 1,
     "UG": 1,
     "RG": 1,
-    "WR": 1,
+    "UBG": 1,
     "WUR": 1,
+    "WB": 1,
     "WU": 1
    }
   },
   "troopofponies": {
-   "set": 0.091,
-   "n": 298,
+   "set": 0.082,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.087,
+    "BG": 0.077,
     "BR": 0.0,
-    "G": 0.083,
-    "UG": 0.219,
+    "G": 0.071,
+    "UG": 0.217,
     "RG": 0.077,
-    "WR": 0.071,
+    "WR": 0.061,
     "UB": 0.0,
-    "WUR": 0.0,
+    "UBG": 0.4,
+    "WUR": 0.077,
     "UR": 0.077,
-    "WB": 0.125,
+    "WB": 0.111,
     "WBR": 0.0,
     "WU": 0.0,
-    "WUG": 0.25
+    "WUG": 0.231
    },
    "max": 1,
    "max_pairs": {
@@ -800,40 +901,42 @@
     "UG": 1,
     "RG": 1,
     "WR": 1,
+    "UBG": 1,
+    "WUR": 1,
     "UR": 1,
     "WB": 1,
     "WUG": 1
    }
   },
   "belladonnatook": {
-   "set": 0.07,
-   "n": 115,
+   "set": 0.071,
+   "n": 169,
    "pairs": {
-    "WR": 0.036,
-    "WUR": 0.083,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WU": 0.211,
+    "WR": 0.041,
+    "WUR": 0.077,
+    "WB": 0.111,
+    "WBR": 0.056,
+    "WU": 0.146,
     "WUG": 0.0
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
     "WR": 1,
     "WUR": 1,
     "WB": 1,
     "WBR": 1,
-    "WU": 1
+    "WU": 2
    }
   },
   "bilbosgambit": {
-   "set": 0.017,
-   "n": 115,
+   "set": 0.012,
+   "n": 169,
    "pairs": {
     "WR": 0.0,
     "WUR": 0.0,
     "WB": 0.0,
-    "WBR": 0.071,
-    "WU": 0.053,
+    "WBR": 0.056,
+    "WU": 0.024,
     "WUG": 0.0
    },
    "max": 1,
@@ -843,78 +946,78 @@
    }
   },
   "bofurreliableguardian": {
-   "set": 0.287,
-   "n": 115,
+   "set": 0.32,
+   "n": 169,
    "pairs": {
-    "WR": 0.25,
-    "WUR": 0.333,
-    "WB": 0.375,
-    "WBR": 0.286,
-    "WU": 0.263,
-    "WUG": 0.083
+    "WR": 0.306,
+    "WUR": 0.308,
+    "WB": 0.389,
+    "WBR": 0.333,
+    "WU": 0.366,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
     "WR": 2,
     "WUR": 1,
     "WB": 2,
-    "WBR": 1,
+    "WBR": 2,
     "WU": 1,
     "WUG": 1
    }
   },
   "celebratethemountainking": {
-   "set": 0.383,
-   "n": 115,
+   "set": 0.367,
+   "n": 169,
    "pairs": {
-    "WR": 0.357,
-    "WUR": 0.25,
-    "WB": 0.375,
-    "WBR": 0.071,
-    "WU": 0.526,
-    "WUG": 0.583
+    "WR": 0.347,
+    "WUR": 0.308,
+    "WB": 0.333,
+    "WBR": 0.111,
+    "WU": 0.415,
+    "WUG": 0.615
    },
    "max": 3,
    "max_pairs": {
     "WR": 3,
     "WUR": 2,
     "WB": 2,
-    "WBR": 1,
-    "WU": 2,
-    "WUG": 1
+    "WBR": 2,
+    "WU": 3,
+    "WUG": 2
    }
   },
   "dinlordoftheironhills": {
-   "set": 0.287,
-   "n": 115,
+   "set": 0.331,
+   "n": 169,
    "pairs": {
-    "WR": 0.393,
-    "WUR": 0.167,
-    "WB": 0.25,
-    "WBR": 0.357,
-    "WU": 0.263,
-    "WUG": 0.083
+    "WR": 0.429,
+    "WUR": 0.154,
+    "WB": 0.278,
+    "WBR": 0.444,
+    "WU": 0.293,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
-    "WR": 1,
+    "WR": 2,
     "WUR": 1,
     "WB": 1,
-    "WBR": 1,
+    "WBR": 2,
     "WU": 2,
     "WUG": 1
    }
   },
   "dwarvenprovisioner": {
-   "set": 0.452,
-   "n": 115,
+   "set": 0.42,
+   "n": 169,
    "pairs": {
-    "WR": 0.643,
-    "WUR": 0.417,
-    "WB": 0.625,
-    "WBR": 0.286,
-    "WU": 0.368,
-    "WUG": 0.083
+    "WR": 0.633,
+    "WUR": 0.385,
+    "WB": 0.611,
+    "WBR": 0.222,
+    "WU": 0.293,
+    "WUG": 0.077
    },
    "max": 3,
    "max_pairs": {
@@ -927,14 +1030,14 @@
    }
   },
   "dwarvenshortsword": {
-   "set": 0.383,
-   "n": 115,
+   "set": 0.379,
+   "n": 169,
    "pairs": {
-    "WR": 0.571,
-    "WUR": 0.583,
-    "WB": 0.5,
-    "WBR": 0.429,
-    "WU": 0.158,
+    "WR": 0.673,
+    "WUR": 0.538,
+    "WB": 0.444,
+    "WBR": 0.333,
+    "WU": 0.098,
     "WUG": 0.0
    },
    "max": 3,
@@ -947,15 +1050,15 @@
    }
   },
   "eagleofthegreatshelf": {
-   "set": 0.096,
-   "n": 115,
+   "set": 0.095,
+   "n": 169,
    "pairs": {
-    "WR": 0.071,
-    "WUR": 0.083,
-    "WB": 0.188,
+    "WR": 0.061,
+    "WUR": 0.077,
+    "WB": 0.222,
     "WBR": 0.0,
-    "WU": 0.158,
-    "WUG": 0.083
+    "WU": 0.122,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
@@ -967,14 +1070,14 @@
    }
   },
   "theeaglesarecoming": {
-   "set": 0.157,
-   "n": 115,
+   "set": 0.16,
+   "n": 169,
    "pairs": {
-    "WR": 0.107,
-    "WUR": 0.167,
-    "WB": 0.125,
-    "WBR": 0.214,
-    "WU": 0.211,
+    "WR": 0.143,
+    "WUR": 0.154,
+    "WB": 0.111,
+    "WBR": 0.167,
+    "WU": 0.22,
     "WUG": 0.0
    },
    "max": 2,
@@ -983,38 +1086,39 @@
     "WUR": 1,
     "WB": 1,
     "WBR": 1,
-    "WU": 1
+    "WU": 2
    }
   },
   "esgarothgarrison": {
-   "set": 0.148,
-   "n": 115,
+   "set": 0.16,
+   "n": 169,
    "pairs": {
-    "WR": 0.0,
-    "WUR": 0.167,
-    "WB": 0.25,
+    "WR": 0.041,
+    "WUR": 0.154,
+    "WB": 0.278,
     "WBR": 0.0,
-    "WU": 0.368,
-    "WUG": 0.083
+    "WU": 0.341,
+    "WUG": 0.077
    },
    "max": 3,
    "max_pairs": {
+    "WR": 1,
     "WUR": 1,
     "WB": 3,
-    "WU": 1,
+    "WU": 2,
     "WUG": 1
    }
   },
   "flithepathfinder": {
-   "set": 0.261,
-   "n": 115,
+   "set": 0.243,
+   "n": 169,
    "pairs": {
-    "WR": 0.321,
-    "WUR": 0.167,
-    "WB": 0.375,
-    "WBR": 0.357,
-    "WU": 0.316,
-    "WUG": 0.083
+    "WR": 0.306,
+    "WUR": 0.231,
+    "WB": 0.333,
+    "WBR": 0.333,
+    "WU": 0.195,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
@@ -1027,14 +1131,14 @@
    }
   },
   "gleamingsplendor": {
-   "set": 0.017,
-   "n": 115,
+   "set": 0.012,
+   "n": 169,
    "pairs": {
-    "WR": 0.036,
+    "WR": 0.02,
     "WUR": 0.0,
     "WB": 0.0,
     "WBR": 0.0,
-    "WU": 0.053,
+    "WU": 0.024,
     "WUG": 0.0
    },
    "max": 1,
@@ -1044,15 +1148,15 @@
    }
   },
   "ironhillsblacksmith": {
-   "set": 0.313,
-   "n": 115,
+   "set": 0.32,
+   "n": 169,
    "pairs": {
-    "WR": 0.5,
-    "WUR": 0.167,
-    "WB": 0.562,
-    "WBR": 0.143,
-    "WU": 0.211,
-    "WUG": 0.167
+    "WR": 0.51,
+    "WUR": 0.154,
+    "WB": 0.5,
+    "WBR": 0.167,
+    "WU": 0.244,
+    "WUG": 0.154
    },
    "max": 4,
    "max_pairs": {
@@ -1060,19 +1164,19 @@
     "WUR": 2,
     "WB": 2,
     "WBR": 1,
-    "WU": 2,
+    "WU": 3,
     "WUG": 1
    }
   },
   "klitheresourceful": {
-   "set": 0.191,
-   "n": 115,
+   "set": 0.183,
+   "n": 169,
    "pairs": {
-    "WR": 0.357,
-    "WUR": 0.25,
-    "WB": 0.062,
-    "WBR": 0.214,
-    "WU": 0.105,
+    "WR": 0.327,
+    "WUR": 0.231,
+    "WB": 0.056,
+    "WBR": 0.222,
+    "WU": 0.098,
     "WUG": 0.0
    },
    "max": 2,
@@ -1085,15 +1189,15 @@
    }
   },
   "laketownlookout": {
-   "set": 0.113,
-   "n": 115,
+   "set": 0.089,
+   "n": 169,
    "pairs": {
-    "WR": 0.143,
-    "WUR": 0.083,
-    "WB": 0.125,
+    "WR": 0.082,
+    "WUR": 0.077,
+    "WB": 0.111,
     "WBR": 0.0,
-    "WU": 0.158,
-    "WUG": 0.083
+    "WU": 0.122,
+    "WUG": 0.077
    },
    "max": 4,
    "max_pairs": {
@@ -1105,14 +1209,14 @@
    }
   },
   "laketowntoymaker": {
-   "set": 0.061,
-   "n": 115,
+   "set": 0.077,
+   "n": 169,
    "pairs": {
     "WR": 0.0,
-    "WUR": 0.083,
-    "WB": 0.062,
+    "WUR": 0.077,
+    "WB": 0.056,
     "WBR": 0.0,
-    "WU": 0.211,
+    "WU": 0.244,
     "WUG": 0.0
    },
    "max": 2,
@@ -1123,54 +1227,55 @@
    }
   },
   "magnificentend": {
-   "set": 0.6,
-   "n": 115,
+   "set": 0.609,
+   "n": 169,
    "pairs": {
-    "WR": 0.786,
-    "WUR": 0.667,
-    "WB": 0.438,
-    "WBR": 0.286,
-    "WU": 0.789,
-    "WUG": 0.417
+    "WR": 0.776,
+    "WUR": 0.615,
+    "WB": 0.5,
+    "WBR": 0.333,
+    "WU": 0.659,
+    "WUG": 0.385
    },
    "max": 4,
    "max_pairs": {
     "WR": 2,
     "WUR": 4,
     "WB": 2,
-    "WBR": 2,
-    "WU": 2,
+    "WBR": 3,
+    "WU": 3,
     "WUG": 2
    }
   },
   "momentofglory": {
-   "set": 0.043,
-   "n": 115,
+   "set": 0.065,
+   "n": 169,
    "pairs": {
-    "WR": 0.036,
+    "WR": 0.061,
     "WUR": 0.0,
-    "WB": 0.0,
+    "WB": 0.056,
     "WBR": 0.0,
-    "WU": 0.053,
-    "WUG": 0.083
+    "WU": 0.098,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
     "WR": 2,
+    "WB": 1,
     "WU": 2,
     "WUG": 1
    }
   },
   "themountainkingsreturn": {
-   "set": 0.452,
-   "n": 115,
+   "set": 0.45,
+   "n": 169,
    "pairs": {
-    "WR": 0.536,
-    "WUR": 0.25,
-    "WB": 0.562,
-    "WBR": 0.286,
-    "WU": 0.474,
-    "WUG": 0.5
+    "WR": 0.449,
+    "WUR": 0.231,
+    "WB": 0.556,
+    "WBR": 0.278,
+    "WU": 0.561,
+    "WUG": 0.462
    },
    "max": 3,
    "max_pairs": {
@@ -1178,20 +1283,20 @@
     "WUR": 2,
     "WB": 2,
     "WBR": 1,
-    "WU": 2,
+    "WU": 3,
     "WUG": 3
    }
   },
   "orikeeperofsongs": {
-   "set": 0.391,
-   "n": 115,
+   "set": 0.373,
+   "n": 169,
    "pairs": {
-    "WR": 0.714,
-    "WUR": 0.167,
-    "WB": 0.562,
-    "WBR": 0.286,
-    "WU": 0.105,
-    "WUG": 0.167
+    "WR": 0.653,
+    "WUR": 0.154,
+    "WB": 0.611,
+    "WBR": 0.278,
+    "WU": 0.098,
+    "WUG": 0.154
    },
    "max": 3,
    "max_pairs": {
@@ -1204,14 +1309,14 @@
    }
   },
   "thequeenofdale": {
-   "set": 0.096,
-   "n": 115,
+   "set": 0.101,
+   "n": 169,
    "pairs": {
-    "WR": 0.143,
-    "WUR": 0.083,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WU": 0.211,
+    "WR": 0.102,
+    "WUR": 0.077,
+    "WB": 0.056,
+    "WBR": 0.056,
+    "WU": 0.195,
     "WUG": 0.0
    },
    "max": 1,
@@ -1224,36 +1329,36 @@
    }
   },
   "roadsgoevereveron": {
-   "set": 0.104,
-   "n": 115,
+   "set": 0.13,
+   "n": 169,
    "pairs": {
-    "WR": 0.071,
-    "WUR": 0.083,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WU": 0.211,
-    "WUG": 0.083
+    "WR": 0.082,
+    "WUR": 0.077,
+    "WB": 0.111,
+    "WBR": 0.056,
+    "WU": 0.22,
+    "WUG": 0.077
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
     "WR": 1,
     "WUR": 1,
-    "WB": 1,
+    "WB": 2,
     "WBR": 1,
     "WU": 1,
     "WUG": 1
    }
   },
   "settlethewreckage": {
-   "set": 0.191,
-   "n": 115,
+   "set": 0.189,
+   "n": 169,
    "pairs": {
-    "WR": 0.107,
-    "WUR": 0.083,
-    "WB": 0.188,
-    "WBR": 0.143,
-    "WU": 0.368,
-    "WUG": 0.25
+    "WR": 0.122,
+    "WUR": 0.154,
+    "WB": 0.167,
+    "WBR": 0.111,
+    "WU": 0.293,
+    "WUG": 0.231
    },
    "max": 2,
    "max_pairs": {
@@ -1266,15 +1371,15 @@
    }
   },
   "stonebysunlight": {
-   "set": 0.487,
-   "n": 115,
+   "set": 0.45,
+   "n": 169,
    "pairs": {
-    "WR": 0.464,
-    "WUR": 0.5,
-    "WB": 0.438,
-    "WBR": 0.429,
-    "WU": 0.579,
-    "WUG": 0.333
+    "WR": 0.408,
+    "WUR": 0.538,
+    "WB": 0.444,
+    "WBR": 0.333,
+    "WU": 0.512,
+    "WUG": 0.308
    },
    "max": 2,
    "max_pairs": {
@@ -1287,14 +1392,14 @@
    }
   },
   "thorinslaststand": {
-   "set": 0.07,
-   "n": 115,
+   "set": 0.071,
+   "n": 169,
    "pairs": {
-    "WR": 0.107,
+    "WR": 0.122,
     "WUR": 0.0,
-    "WB": 0.125,
+    "WB": 0.167,
     "WBR": 0.0,
-    "WU": 0.053,
+    "WU": 0.024,
     "WUG": 0.0
    },
    "max": 2,
@@ -1305,15 +1410,15 @@
    }
   },
   "anunexpectedparty": {
-   "set": 0.217,
-   "n": 115,
+   "set": 0.183,
+   "n": 169,
    "pairs": {
-    "WR": 0.25,
-    "WUR": 0.25,
-    "WB": 0.375,
-    "WBR": 0.143,
-    "WU": 0.105,
-    "WUG": 0.083
+    "WR": 0.204,
+    "WUR": 0.231,
+    "WB": 0.389,
+    "WBR": 0.111,
+    "WU": 0.098,
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
@@ -1326,58 +1431,61 @@
    }
   },
   "velvetwingbutterflies": {
-   "set": 0.148,
-   "n": 115,
+   "set": 0.166,
+   "n": 169,
    "pairs": {
-    "WR": 0.143,
+    "WR": 0.204,
     "WUR": 0.0,
-    "WB": 0.188,
-    "WBR": 0.071,
-    "WU": 0.211,
-    "WUG": 0.167
+    "WB": 0.222,
+    "WBR": 0.056,
+    "WU": 0.171,
+    "WUG": 0.154
    },
-   "max": 2,
+   "max": 3,
    "max_pairs": {
-    "WR": 1,
+    "WR": 3,
     "WB": 1,
     "WBR": 2,
-    "WU": 1,
+    "WU": 2,
     "WUG": 1
    }
   },
   "vowtoerebor": {
-   "set": 0.087,
-   "n": 115,
+   "set": 0.112,
+   "n": 169,
    "pairs": {
-    "WR": 0.214,
+    "WR": 0.265,
     "WUR": 0.0,
-    "WB": 0.125,
+    "WB": 0.167,
     "WBR": 0.0,
-    "WU": 0.0,
-    "WUG": 0.083
+    "WU": 0.024,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
     "WR": 2,
     "WB": 1,
+    "WU": 1,
     "WUG": 2
    }
   },
   "bilboluckwearer": {
-   "set": 0.477,
-   "n": 130,
+   "set": 0.449,
+   "n": 176,
    "pairs": {
-    "UG": 0.344,
-    "UB": 0.588,
-    "WUR": 0.25,
+    "UG": 0.37,
+    "UB": 0.526,
+    "UBG": 0.333,
+    "WUR": 0.308,
     "UR": 0.385,
-    "WU": 0.737,
-    "WUG": 0.5
+    "WU": 0.561,
+    "WUG": 0.462
    },
    "max": 3,
    "max_pairs": {
-    "UG": 1,
+    "UG": 2,
     "UB": 2,
+    "UBG": 2,
     "WUR": 1,
     "UR": 1,
     "WU": 3,
@@ -1385,14 +1493,15 @@
    }
   },
   "bilbothiefinthenight": {
-   "set": 0.092,
-   "n": 130,
+   "set": 0.074,
+   "n": 176,
    "pairs": {
-    "UG": 0.156,
-    "UB": 0.176,
-    "WUR": 0.083,
+    "UG": 0.109,
+    "UB": 0.158,
+    "UBG": 0.0,
+    "WUR": 0.077,
     "UR": 0.077,
-    "WU": 0.053,
+    "WU": 0.049,
     "WUG": 0.0
    },
    "max": 1,
@@ -1405,53 +1514,58 @@
    }
   },
   "bilbobagginsburglar": {
-   "set": 0.669,
-   "n": 130,
+   "set": 0.682,
+   "n": 176,
    "pairs": {
-    "UG": 0.594,
-    "UB": 0.765,
-    "WUR": 0.583,
+    "UG": 0.63,
+    "UB": 0.789,
+    "UBG": 0.267,
+    "WUR": 0.615,
     "UR": 0.923,
-    "WU": 0.789,
-    "WUG": 0.583
+    "WU": 0.78,
+    "WUG": 0.615
    },
    "max": 4,
    "max_pairs": {
     "UG": 4,
     "UB": 4,
+    "UBG": 1,
     "WUR": 3,
     "UR": 3,
-    "WU": 3,
+    "WU": 4,
     "WUG": 3
    }
   },
   "confusticateandbebother": {
-   "set": 0.262,
-   "n": 130,
+   "set": 0.239,
+   "n": 176,
    "pairs": {
-    "UG": 0.25,
-    "UB": 0.294,
-    "WUR": 0.083,
+    "UG": 0.217,
+    "UB": 0.263,
+    "UBG": 0.133,
+    "WUR": 0.077,
     "UR": 0.308,
-    "WU": 0.368,
-    "WUG": 0.25
+    "WU": 0.317,
+    "WUG": 0.231
    },
    "max": 3,
    "max_pairs": {
     "UG": 2,
     "UB": 3,
+    "UBG": 1,
     "WUR": 1,
     "UR": 3,
-    "WU": 1,
+    "WU": 2,
     "WUG": 2
    }
   },
   "elrondmoonreader": {
-   "set": 0.046,
-   "n": 130,
+   "set": 0.04,
+   "n": 176,
    "pairs": {
-    "UG": 0.125,
+    "UG": 0.109,
     "UB": 0.0,
+    "UBG": 0.067,
     "WUR": 0.0,
     "UR": 0.077,
     "WU": 0.0,
@@ -1460,72 +1574,80 @@
    "max": 1,
    "max_pairs": {
     "UG": 1,
+    "UBG": 1,
     "UR": 1
    }
   },
   "elvenraftsteerer": {
-   "set": 0.046,
-   "n": 130,
+   "set": 0.051,
+   "n": 176,
    "pairs": {
-    "UG": 0.125,
+    "UG": 0.109,
     "UB": 0.0,
+    "UBG": 0.133,
     "WUR": 0.0,
     "UR": 0.0,
-    "WU": 0.0,
-    "WUG": 0.083
+    "WU": 0.024,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
     "UG": 1,
+    "UBG": 1,
+    "WU": 1,
     "WUG": 2
    }
   },
   "elvenkingsharper": {
-   "set": 0.169,
-   "n": 130,
+   "set": 0.148,
+   "n": 176,
    "pairs": {
-    "UG": 0.469,
+    "UG": 0.37,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.154,
-    "WU": 0.053,
-    "WUG": 0.25
+    "WU": 0.073,
+    "WUG": 0.231
    },
    "max": 3,
    "max_pairs": {
     "UG": 2,
     "UR": 1,
-    "WU": 1,
+    "WU": 2,
     "WUG": 3
    }
   },
   "enchantedriversgrasp": {
-   "set": 0.585,
-   "n": 130,
+   "set": 0.608,
+   "n": 176,
    "pairs": {
-    "UG": 0.812,
-    "UB": 0.412,
-    "WUR": 0.417,
+    "UG": 0.826,
+    "UB": 0.368,
+    "UBG": 0.4,
+    "WUR": 0.462,
     "UR": 0.615,
-    "WU": 0.684,
-    "WUG": 0.5
+    "WU": 0.707,
+    "WUG": 0.538
    },
    "max": 4,
    "max_pairs": {
     "UG": 4,
     "UB": 3,
+    "UBG": 2,
     "WUR": 2,
     "UR": 2,
-    "WU": 2,
+    "WU": 3,
     "WUG": 3
    }
   },
   "fatefuldiscovery": {
    "set": 0.0,
-   "n": 130,
+   "n": 176,
    "pairs": {
     "UG": 0.0,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WU": 0.0,
@@ -1535,20 +1657,22 @@
    "max_pairs": {}
   },
   "gandalfwanderingwizard": {
-   "set": 0.115,
-   "n": 130,
+   "set": 0.108,
+   "n": 176,
    "pairs": {
-    "UG": 0.156,
-    "UB": 0.059,
-    "WUR": 0.083,
+    "UG": 0.13,
+    "UB": 0.053,
+    "UBG": 0.067,
+    "WUR": 0.077,
     "UR": 0.154,
-    "WU": 0.158,
-    "WUG": 0.167
+    "WU": 0.146,
+    "WUG": 0.154
    },
    "max": 2,
    "max_pairs": {
     "UG": 2,
     "UB": 2,
+    "UBG": 1,
     "WUR": 1,
     "UR": 1,
     "WU": 2,
@@ -1556,20 +1680,22 @@
    }
   },
   "greatgildedboat": {
-   "set": 0.262,
-   "n": 130,
+   "set": 0.227,
+   "n": 176,
    "pairs": {
-    "UG": 0.156,
-    "UB": 0.412,
-    "WUR": 0.167,
+    "UG": 0.109,
+    "UB": 0.421,
+    "UBG": 0.133,
+    "WUR": 0.154,
     "UR": 0.231,
-    "WU": 0.316,
-    "WUG": 0.25
+    "WU": 0.268,
+    "WUG": 0.231
    },
    "max": 3,
    "max_pairs": {
     "UG": 1,
     "UB": 1,
+    "UBG": 1,
     "WUR": 1,
     "UR": 3,
     "WU": 1,
@@ -1577,36 +1703,39 @@
    }
   },
   "lakeshoreapothecary": {
-   "set": 0.523,
-   "n": 130,
+   "set": 0.551,
+   "n": 176,
    "pairs": {
-    "UG": 0.25,
-    "UB": 0.824,
-    "WUR": 0.25,
+    "UG": 0.304,
+    "UB": 0.842,
+    "UBG": 0.067,
+    "WUR": 0.308,
     "UR": 0.923,
-    "WU": 0.789,
-    "WUG": 0.583
+    "WU": 0.805,
+    "WUG": 0.615
    },
    "max": 8,
    "max_pairs": {
     "UG": 4,
     "UB": 4,
+    "UBG": 1,
     "WUR": 3,
     "UR": 5,
     "WU": 3,
-    "WUG": 1
+    "WUG": 3
    }
   },
   "laketownmariners": {
    "set": 0.085,
-   "n": 130,
+   "n": 176,
    "pairs": {
-    "UG": 0.094,
-    "UB": 0.059,
+    "UG": 0.087,
+    "UB": 0.105,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.231,
-    "WU": 0.158,
-    "WUG": 0.083
+    "WU": 0.122,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
@@ -1618,20 +1747,22 @@
    }
   },
   "longlakenuisance": {
-   "set": 0.523,
-   "n": 130,
+   "set": 0.54,
+   "n": 176,
    "pairs": {
-    "UG": 0.25,
-    "UB": 0.706,
-    "WUR": 0.5,
+    "UG": 0.261,
+    "UB": 0.737,
+    "UBG": 0.2,
+    "WUR": 0.538,
     "UR": 0.692,
-    "WU": 0.789,
-    "WUG": 0.75
+    "WU": 0.805,
+    "WUG": 0.692
    },
    "max": 4,
    "max_pairs": {
     "UG": 2,
     "UB": 4,
+    "UBG": 3,
     "WUR": 2,
     "UR": 2,
     "WU": 4,
@@ -1639,50 +1770,54 @@
    }
   },
   "thelordoftheeagles": {
-   "set": 0.054,
-   "n": 130,
+   "set": 0.057,
+   "n": 176,
    "pairs": {
-    "UG": 0.062,
+    "UG": 0.043,
     "UB": 0.0,
-    "WUR": 0.083,
+    "UBG": 0.067,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WU": 0.158,
+    "WU": 0.146,
     "WUG": 0.0
    },
    "max": 2,
    "max_pairs": {
     "UG": 1,
+    "UBG": 2,
     "WUR": 1,
-    "WU": 1
+    "WU": 2
    }
   },
   "masterscouncillors": {
-   "set": 0.292,
-   "n": 130,
+   "set": 0.33,
+   "n": 176,
    "pairs": {
-    "UG": 0.062,
-    "UB": 0.353,
-    "WUR": 0.25,
+    "UG": 0.13,
+    "UB": 0.368,
+    "UBG": 0.0,
+    "WUR": 0.308,
     "UR": 0.692,
-    "WU": 0.579,
-    "WUG": 0.25
+    "WU": 0.61,
+    "WUG": 0.231
    },
-   "max": 3,
+   "max": 4,
    "max_pairs": {
     "UG": 1,
     "UB": 3,
     "WUR": 2,
     "UR": 3,
-    "WU": 3,
+    "WU": 4,
     "WUG": 2
    }
   },
   "mirkwoodmeditator": {
-   "set": 0.038,
-   "n": 130,
+   "set": 0.028,
+   "n": 176,
    "pairs": {
-    "UG": 0.156,
+    "UG": 0.109,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WU": 0.0,
@@ -1695,14 +1830,15 @@
   },
   "mostdecrepitoldbird": {
    "set": 0.062,
-   "n": 130,
+   "n": 176,
    "pairs": {
-    "UG": 0.031,
+    "UG": 0.065,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.077,
-    "WU": 0.158,
-    "WUG": 0.083
+    "WU": 0.098,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
@@ -1713,20 +1849,22 @@
    }
   },
   "oldfatspidercantseeme": {
-   "set": 0.177,
-   "n": 130,
+   "set": 0.182,
+   "n": 176,
    "pairs": {
-    "UG": 0.062,
-    "UB": 0.118,
-    "WUR": 0.25,
+    "UG": 0.109,
+    "UB": 0.158,
+    "UBG": 0.267,
+    "WUR": 0.231,
     "UR": 0.308,
-    "WU": 0.211,
-    "WUG": 0.167
+    "WU": 0.22,
+    "WUG": 0.154
    },
    "max": 3,
    "max_pairs": {
     "UG": 1,
     "UB": 1,
+    "UBG": 1,
     "WUR": 1,
     "UR": 2,
     "WU": 1,
@@ -1734,20 +1872,22 @@
    }
   },
   "plunderthetrollshaws": {
-   "set": 0.631,
-   "n": 130,
+   "set": 0.614,
+   "n": 176,
    "pairs": {
-    "UG": 0.562,
-    "UB": 0.882,
-    "WUR": 0.5,
+    "UG": 0.522,
+    "UB": 0.842,
+    "UBG": 0.267,
+    "WUR": 0.538,
     "UR": 0.846,
-    "WU": 0.737,
-    "WUG": 0.5
+    "WU": 0.756,
+    "WUG": 0.462
    },
    "max": 4,
    "max_pairs": {
     "UG": 2,
     "UB": 4,
+    "UBG": 2,
     "WUR": 2,
     "UR": 2,
     "WU": 4,
@@ -1755,14 +1895,15 @@
    }
   },
   "ravenhillflock": {
-   "set": 0.123,
-   "n": 130,
+   "set": 0.142,
+   "n": 176,
    "pairs": {
-    "UG": 0.031,
-    "UB": 0.059,
-    "WUR": 0.083,
+    "UG": 0.043,
+    "UB": 0.053,
+    "UBG": 0.0,
+    "WUR": 0.077,
     "UR": 0.385,
-    "WU": 0.211,
+    "WU": 0.293,
     "WUG": 0.0
    },
    "max": 2,
@@ -1775,30 +1916,34 @@
    }
   },
   "riddlesinthedark": {
-   "set": 0.046,
-   "n": 130,
+   "set": 0.051,
+   "n": 176,
    "pairs": {
-    "UG": 0.031,
+    "UG": 0.043,
     "UB": 0.0,
-    "WUR": 0.0,
+    "UBG": 0.067,
+    "WUR": 0.077,
     "UR": 0.077,
-    "WU": 0.053,
-    "WUG": 0.083
+    "WU": 0.049,
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
     "UG": 1,
+    "UBG": 1,
+    "WUR": 1,
     "UR": 1,
     "WU": 1,
     "WUG": 1
    }
   },
   "rollrollrollroll": {
-   "set": 0.015,
-   "n": 130,
+   "set": 0.011,
+   "n": 176,
    "pairs": {
-    "UG": 0.062,
+    "UG": 0.043,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WU": 0.0,
@@ -1810,14 +1955,15 @@
    }
   },
   "soundthetrumpets": {
-   "set": 0.108,
-   "n": 130,
+   "set": 0.091,
+   "n": 176,
    "pairs": {
-    "UG": 0.094,
-    "UB": 0.118,
+    "UG": 0.065,
+    "UB": 0.105,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.308,
-    "WU": 0.263,
+    "WU": 0.171,
     "WUG": 0.0
    },
    "max": 2,
@@ -1825,33 +1971,36 @@
     "UG": 1,
     "UB": 1,
     "UR": 2,
-    "WU": 1
+    "WU": 2
    }
   },
   "thranduilsdecree": {
-   "set": 0.069,
-   "n": 130,
+   "set": 0.062,
+   "n": 176,
    "pairs": {
-    "UG": 0.125,
-    "UB": 0.059,
+    "UG": 0.087,
+    "UB": 0.053,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
-    "WU": 0.0,
-    "WUG": 0.25
+    "WU": 0.049,
+    "WUG": 0.231
    },
    "max": 1,
    "max_pairs": {
     "UG": 1,
     "UB": 1,
+    "WU": 1,
     "WUG": 1
    }
   },
   "uncoverthemoonletters": {
-   "set": 0.008,
-   "n": 130,
+   "set": 0.006,
+   "n": 176,
    "pairs": {
     "UG": 0.0,
-    "UB": 0.059,
+    "UB": 0.053,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WU": 0.0,
@@ -1863,20 +2012,22 @@
    }
   },
   "uneasypartings": {
-   "set": 0.462,
-   "n": 130,
+   "set": 0.477,
+   "n": 176,
    "pairs": {
-    "UG": 0.469,
-    "UB": 0.529,
-    "WUR": 0.167,
+    "UG": 0.5,
+    "UB": 0.526,
+    "UBG": 0.2,
+    "WUR": 0.154,
     "UR": 0.615,
-    "WU": 0.632,
-    "WUG": 0.417
+    "WU": 0.634,
+    "WUG": 0.462
    },
    "max": 4,
    "max_pairs": {
     "UG": 2,
     "UB": 4,
+    "UBG": 1,
     "WUR": 2,
     "UR": 2,
     "WU": 2,
@@ -1884,15 +2035,16 @@
    }
   },
   "wizardsstaff": {
-   "set": 0.015,
-   "n": 130,
+   "set": 0.011,
+   "n": 176,
    "pairs": {
-    "UG": 0.031,
+    "UG": 0.022,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WU": 0.0,
-    "WUG": 0.083
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
@@ -1901,52 +2053,58 @@
    }
   },
   "alongthecrookedway": {
-   "set": 0.05,
-   "n": 140,
+   "set": 0.046,
+   "n": 194,
    "pairs": {
-    "B": 0.154,
+    "B": 0.133,
     "BG": 0.0,
-    "BR": 0.071,
+    "BR": 0.061,
     "UB": 0.0,
-    "WB": 0.062,
-    "WBR": 0.0
+    "UBG": 0.0,
+    "WB": 0.056,
+    "WBR": 0.056
    },
    "max": 1,
    "max_pairs": {
     "B": 1,
     "BR": 1,
-    "WB": 1
+    "WB": 1,
+    "WBR": 1
    }
   },
   "azogmoriasruin": {
-   "set": 0.071,
-   "n": 140,
+   "set": 0.082,
+   "n": 194,
    "pairs": {
-    "B": 0.308,
-    "BG": 0.0,
-    "BR": 0.036,
-    "UB": 0.118,
-    "WB": 0.125,
+    "B": 0.267,
+    "BG": 0.026,
+    "BR": 0.102,
+    "UB": 0.105,
+    "UBG": 0.067,
+    "WB": 0.111,
     "WBR": 0.0
    },
    "max": 1,
    "max_pairs": {
     "B": 1,
+    "BG": 1,
     "BR": 1,
     "UB": 1,
+    "UBG": 1,
     "WB": 1
    }
   },
   "bilbosdeadlyslice": {
-   "set": 0.6,
-   "n": 140,
+   "set": 0.588,
+   "n": 194,
    "pairs": {
-    "B": 0.692,
-    "BG": 0.522,
-    "BR": 0.571,
-    "UB": 0.765,
-    "WB": 0.688,
-    "WBR": 0.429
+    "B": 0.667,
+    "BG": 0.564,
+    "BR": 0.51,
+    "UB": 0.789,
+    "UBG": 0.667,
+    "WB": 0.722,
+    "WBR": 0.444
    },
    "max": 4,
    "max_pairs": {
@@ -1954,104 +2112,114 @@
     "BG": 3,
     "BR": 3,
     "UB": 3,
+    "UBG": 2,
     "WB": 3,
     "WBR": 2
    }
   },
   "crudebentblade": {
-   "set": 0.693,
-   "n": 140,
+   "set": 0.706,
+   "n": 194,
    "pairs": {
-    "B": 0.846,
-    "BG": 0.522,
-    "BR": 0.786,
-    "UB": 0.765,
-    "WB": 0.625,
-    "WBR": 0.571
+    "B": 0.867,
+    "BG": 0.59,
+    "BR": 0.776,
+    "UB": 0.789,
+    "UBG": 0.8,
+    "WB": 0.611,
+    "WBR": 0.556
    },
    "max": 4,
    "max_pairs": {
-    "B": 3,
+    "B": 4,
     "BG": 3,
-    "BR": 3,
+    "BR": 4,
     "UB": 4,
+    "UBG": 2,
     "WB": 3,
     "WBR": 2
    }
   },
   "desolationprowler": {
-   "set": 0.364,
-   "n": 140,
+   "set": 0.387,
+   "n": 194,
    "pairs": {
-    "B": 0.538,
-    "BG": 0.261,
-    "BR": 0.393,
-    "UB": 0.294,
-    "WB": 0.375,
-    "WBR": 0.214
+    "B": 0.533,
+    "BG": 0.436,
+    "BR": 0.388,
+    "UB": 0.316,
+    "UBG": 0.467,
+    "WB": 0.333,
+    "WBR": 0.222
    },
    "max": 4,
    "max_pairs": {
     "B": 2,
     "BG": 3,
-    "BR": 1,
+    "BR": 2,
     "UB": 4,
+    "UBG": 2,
     "WB": 2,
     "WBR": 1
    }
   },
   "downdowntogoblintown": {
    "set": 0.371,
-   "n": 140,
+   "n": 194,
    "pairs": {
-    "B": 0.538,
-    "BG": 0.435,
-    "BR": 0.357,
-    "UB": 0.353,
-    "WB": 0.438,
-    "WBR": 0.143
-   },
-   "max": 3,
-   "max_pairs": {
-    "B": 2,
-    "BG": 2,
-    "BR": 2,
-    "UB": 2,
-    "WB": 3,
-    "WBR": 2
-   }
-  },
-  "dreadedbatcloud": {
-   "set": 0.257,
-   "n": 140,
-   "pairs": {
-    "B": 0.615,
-    "BG": 0.348,
-    "BR": 0.286,
-    "UB": 0.059,
-    "WB": 0.375,
-    "WBR": 0.071
+    "B": 0.6,
+    "BG": 0.385,
+    "BR": 0.429,
+    "UB": 0.368,
+    "UBG": 0.267,
+    "WB": 0.389,
+    "WBR": 0.111
    },
    "max": 3,
    "max_pairs": {
     "B": 3,
     "BG": 2,
-    "BR": 1,
+    "BR": 2,
+    "UB": 2,
+    "UBG": 2,
+    "WB": 3,
+    "WBR": 2
+   }
+  },
+  "dreadedbatcloud": {
+   "set": 0.253,
+   "n": 194,
+   "pairs": {
+    "B": 0.533,
+    "BG": 0.308,
+    "BR": 0.286,
+    "UB": 0.105,
+    "UBG": 0.2,
+    "WB": 0.333,
+    "WBR": 0.056
+   },
+   "max": 3,
+   "max_pairs": {
+    "B": 3,
+    "BG": 2,
+    "BR": 2,
     "UB": 1,
+    "UBG": 2,
     "WB": 2,
     "WBR": 1
    }
   },
   "frontporchsentries": {
-   "set": 0.257,
-   "n": 140,
+   "set": 0.258,
+   "n": 194,
    "pairs": {
-    "B": 0.615,
-    "BG": 0.217,
-    "BR": 0.25,
-    "UB": 0.118,
-    "WB": 0.562,
-    "WBR": 0.214
+    "B": 0.667,
+    "BG": 0.205,
+    "BR": 0.286,
+    "UB": 0.105,
+    "UBG": 0.067,
+    "WB": 0.5,
+    "WBR": 0.167
    },
    "max": 4,
    "max_pairs": {
@@ -2059,19 +2227,21 @@
     "BG": 4,
     "BR": 3,
     "UB": 1,
+    "UBG": 1,
     "WB": 2,
     "WBR": 1
    }
   },
   "gatheringofdarkness": {
-   "set": 0.207,
-   "n": 140,
+   "set": 0.206,
+   "n": 194,
    "pairs": {
-    "B": 0.385,
-    "BG": 0.435,
-    "BR": 0.143,
-    "UB": 0.059,
-    "WB": 0.375,
+    "B": 0.333,
+    "BG": 0.385,
+    "BR": 0.122,
+    "UB": 0.105,
+    "UBG": 0.2,
+    "WB": 0.389,
     "WBR": 0.0
    },
    "max": 2,
@@ -2080,19 +2250,21 @@
     "BG": 2,
     "BR": 2,
     "UB": 1,
+    "UBG": 1,
     "WB": 1
    }
   },
   "gnashingofteeth": {
-   "set": 0.279,
-   "n": 140,
+   "set": 0.273,
+   "n": 194,
    "pairs": {
-    "B": 0.462,
-    "BG": 0.304,
-    "BR": 0.286,
-    "UB": 0.353,
-    "WB": 0.188,
-    "WBR": 0.143
+    "B": 0.4,
+    "BG": 0.359,
+    "BR": 0.245,
+    "UB": 0.316,
+    "UBG": 0.333,
+    "WB": 0.167,
+    "WBR": 0.167
    },
    "max": 2,
    "max_pairs": {
@@ -2100,20 +2272,22 @@
     "BG": 2,
     "BR": 1,
     "UB": 2,
+    "UBG": 2,
     "WB": 1,
     "WBR": 1
    }
   },
   "gollumriddlemaster": {
-   "set": 0.071,
-   "n": 140,
+   "set": 0.067,
+   "n": 194,
    "pairs": {
-    "B": 0.077,
-    "BG": 0.087,
-    "BR": 0.107,
-    "UB": 0.059,
+    "B": 0.067,
+    "BG": 0.077,
+    "BR": 0.102,
+    "UB": 0.053,
+    "UBG": 0.0,
     "WB": 0.0,
-    "WBR": 0.071
+    "WBR": 0.056
    },
    "max": 2,
    "max_pairs": {
@@ -2125,36 +2299,39 @@
    }
   },
   "gollumsilentslinker": {
-   "set": 0.521,
-   "n": 140,
+   "set": 0.536,
+   "n": 194,
    "pairs": {
-    "B": 0.846,
-    "BG": 0.391,
-    "BR": 0.679,
-    "UB": 0.412,
-    "WB": 0.812,
-    "WBR": 0.214
+    "B": 0.867,
+    "BG": 0.385,
+    "BR": 0.673,
+    "UB": 0.421,
+    "UBG": 0.333,
+    "WB": 0.833,
+    "WBR": 0.333
    },
    "max": 3,
    "max_pairs": {
     "B": 3,
-    "BG": 2,
+    "BG": 3,
     "BR": 3,
     "UB": 2,
+    "UBG": 1,
     "WB": 3,
-    "WBR": 1
+    "WBR": 3
    }
   },
   "gollumtheabandoned": {
-   "set": 0.2,
-   "n": 140,
+   "set": 0.242,
+   "n": 194,
    "pairs": {
-    "B": 0.462,
-    "BG": 0.217,
-    "BR": 0.143,
-    "UB": 0.118,
-    "WB": 0.188,
-    "WBR": 0.214
+    "B": 0.467,
+    "BG": 0.179,
+    "BR": 0.286,
+    "UB": 0.158,
+    "UBG": 0.133,
+    "WB": 0.278,
+    "WBR": 0.222
    },
    "max": 3,
    "max_pairs": {
@@ -2162,101 +2339,112 @@
     "BG": 1,
     "BR": 2,
     "UB": 2,
+    "UBG": 1,
     "WB": 2,
-    "WBR": 1
+    "WBR": 2
    }
   },
   "greatfiercebee": {
-   "set": 0.093,
-   "n": 140,
+   "set": 0.103,
+   "n": 194,
    "pairs": {
-    "B": 0.231,
-    "BG": 0.13,
+    "B": 0.2,
+    "BG": 0.128,
     "BR": 0.143,
-    "UB": 0.059,
-    "WB": 0.062,
+    "UB": 0.053,
+    "UBG": 0.133,
+    "WB": 0.056,
     "WBR": 0.0
    },
    "max": 2,
    "max_pairs": {
     "B": 1,
     "BG": 2,
-    "BR": 1,
+    "BR": 2,
     "UB": 1,
+    "UBG": 2,
     "WB": 2
    }
   },
   "greatuglylookinggoblin": {
-   "set": 0.271,
-   "n": 140,
+   "set": 0.289,
+   "n": 194,
    "pairs": {
-    "B": 0.538,
-    "BG": 0.348,
-    "BR": 0.321,
-    "UB": 0.176,
-    "WB": 0.375,
-    "WBR": 0.143
+    "B": 0.533,
+    "BG": 0.41,
+    "BR": 0.327,
+    "UB": 0.158,
+    "UBG": 0.067,
+    "WB": 0.389,
+    "WBR": 0.111
    },
    "max": 2,
    "max_pairs": {
     "B": 2,
     "BG": 2,
-    "BR": 1,
+    "BR": 2,
     "UB": 2,
+    "UBG": 1,
     "WB": 1,
     "WBR": 1
    }
   },
   "headofthehunt": {
-   "set": 0.157,
-   "n": 140,
+   "set": 0.149,
+   "n": 194,
    "pairs": {
-    "B": 0.154,
-    "BG": 0.13,
-    "BR": 0.179,
-    "UB": 0.176,
-    "WB": 0.188,
-    "WBR": 0.071
+    "B": 0.133,
+    "BG": 0.179,
+    "BR": 0.122,
+    "UB": 0.158,
+    "UBG": 0.2,
+    "WB": 0.167,
+    "WBR": 0.111
    },
    "max": 2,
    "max_pairs": {
     "B": 1,
-    "BG": 1,
+    "BG": 2,
     "BR": 1,
     "UB": 1,
+    "UBG": 1,
     "WB": 1,
     "WBR": 2
    }
   },
   "insideinformation": {
    "set": 0.036,
-   "n": 140,
+   "n": 194,
    "pairs": {
-    "B": 0.077,
-    "BG": 0.043,
-    "BR": 0.0,
+    "B": 0.067,
+    "BG": 0.026,
+    "BR": 0.02,
     "UB": 0.0,
-    "WB": 0.062,
-    "WBR": 0.071
+    "UBG": 0.067,
+    "WB": 0.056,
+    "WBR": 0.111
    },
    "max": 1,
    "max_pairs": {
     "B": 1,
     "BG": 1,
+    "BR": 1,
+    "UBG": 1,
     "WB": 1,
     "WBR": 1
    }
   },
   "themasteroflaketown": {
-   "set": 0.079,
-   "n": 140,
+   "set": 0.082,
+   "n": 194,
    "pairs": {
-    "B": 0.154,
-    "BG": 0.087,
-    "BR": 0.036,
-    "UB": 0.059,
-    "WB": 0.062,
-    "WBR": 0.143
+    "B": 0.133,
+    "BG": 0.051,
+    "BR": 0.082,
+    "UB": 0.053,
+    "UBG": 0.067,
+    "WB": 0.111,
+    "WBR": 0.167
    },
    "max": 1,
    "max_pairs": {
@@ -2264,20 +2452,22 @@
     "BG": 1,
     "BR": 1,
     "UB": 1,
+    "UBG": 1,
     "WB": 1,
     "WBR": 1
    }
   },
   "nighthowlpursuer": {
-   "set": 0.221,
-   "n": 140,
+   "set": 0.227,
+   "n": 194,
    "pairs": {
-    "B": 0.385,
-    "BG": 0.348,
-    "BR": 0.25,
-    "UB": 0.118,
-    "WB": 0.25,
-    "WBR": 0.143
+    "B": 0.4,
+    "BG": 0.359,
+    "BR": 0.224,
+    "UB": 0.105,
+    "UBG": 0.133,
+    "WB": 0.222,
+    "WBR": 0.167
    },
    "max": 3,
    "max_pairs": {
@@ -2285,62 +2475,68 @@
     "BG": 2,
     "BR": 3,
     "UB": 1,
+    "UBG": 2,
     "WB": 2,
     "WBR": 1
    }
   },
   "rageintothevalley": {
-   "set": 0.55,
-   "n": 140,
+   "set": 0.495,
+   "n": 194,
    "pairs": {
-    "B": 0.846,
-    "BG": 0.391,
-    "BR": 0.714,
-    "UB": 0.765,
-    "WB": 0.5,
-    "WBR": 0.357
+    "B": 0.8,
+    "BG": 0.333,
+    "BR": 0.612,
+    "UB": 0.737,
+    "UBG": 0.133,
+    "WB": 0.444,
+    "WBR": 0.389
    },
-   "max": 3,
+   "max": 5,
    "max_pairs": {
-    "B": 3,
+    "B": 5,
     "BG": 2,
     "BR": 3,
     "UB": 3,
+    "UBG": 1,
     "WB": 2,
-    "WBR": 2
+    "WBR": 3
    }
   },
   "raveningwarg": {
-   "set": 0.493,
-   "n": 140,
+   "set": 0.515,
+   "n": 194,
    "pairs": {
-    "B": 0.923,
-    "BG": 0.609,
-    "BR": 0.607,
-    "UB": 0.412,
-    "WB": 0.438,
-    "WBR": 0.071
+    "B": 0.933,
+    "BG": 0.615,
+    "BR": 0.612,
+    "UB": 0.421,
+    "UBG": 0.4,
+    "WB": 0.5,
+    "WBR": 0.056
    },
    "max": 5,
    "max_pairs": {
     "B": 4,
-    "BG": 3,
+    "BG": 4,
     "BR": 3,
     "UB": 2,
+    "UBG": 2,
     "WB": 5,
     "WBR": 1
    }
   },
   "reverenthowl": {
-   "set": 0.2,
-   "n": 140,
+   "set": 0.201,
+   "n": 194,
    "pairs": {
-    "B": 0.462,
-    "BG": 0.13,
-    "BR": 0.357,
-    "UB": 0.059,
-    "WB": 0.25,
-    "WBR": 0.071
+    "B": 0.4,
+    "BG": 0.179,
+    "BR": 0.265,
+    "UB": 0.105,
+    "UBG": 0.067,
+    "WB": 0.333,
+    "WBR": 0.056
    },
    "max": 2,
    "max_pairs": {
@@ -2348,62 +2544,67 @@
     "BG": 2,
     "BR": 1,
     "UB": 1,
+    "UBG": 1,
     "WB": 1,
     "WBR": 1
    }
   },
   "rhovanionrampager": {
-   "set": 0.107,
-   "n": 140,
+   "set": 0.129,
+   "n": 194,
    "pairs": {
-    "B": 0.231,
-    "BG": 0.13,
-    "BR": 0.071,
-    "UB": 0.118,
-    "WB": 0.25,
-    "WBR": 0.071
+    "B": 0.267,
+    "BG": 0.154,
+    "BR": 0.102,
+    "UB": 0.158,
+    "UBG": 0.067,
+    "WB": 0.222,
+    "WBR": 0.111
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
     "B": 1,
     "BG": 1,
-    "BR": 1,
-    "UB": 1,
+    "BR": 2,
+    "UB": 2,
+    "UBG": 1,
     "WB": 1,
     "WBR": 1
    }
   },
   "thesackvillebagginses": {
-   "set": 0.129,
-   "n": 140,
+   "set": 0.134,
+   "n": 194,
    "pairs": {
-    "B": 0.308,
-    "BG": 0.13,
-    "BR": 0.143,
-    "UB": 0.176,
-    "WB": 0.125,
-    "WBR": 0.071
+    "B": 0.267,
+    "BG": 0.103,
+    "BR": 0.184,
+    "UB": 0.158,
+    "UBG": 0.0,
+    "WB": 0.111,
+    "WBR": 0.111
    },
    "max": 2,
    "max_pairs": {
     "B": 2,
     "BG": 1,
-    "BR": 1,
+    "BR": 2,
     "UB": 2,
     "WB": 1,
     "WBR": 1
    }
   },
   "stiruptrouble": {
-   "set": 0.543,
-   "n": 140,
+   "set": 0.562,
+   "n": 194,
    "pairs": {
-    "B": 0.846,
-    "BG": 0.435,
-    "BR": 0.536,
-    "UB": 0.412,
-    "WB": 0.562,
-    "WBR": 0.643
+    "B": 0.8,
+    "BG": 0.538,
+    "BR": 0.531,
+    "UB": 0.474,
+    "UBG": 0.4,
+    "WB": 0.611,
+    "WBR": 0.556
    },
    "max": 3,
    "max_pairs": {
@@ -2411,20 +2612,22 @@
     "BG": 3,
     "BR": 3,
     "UB": 2,
+    "UBG": 2,
     "WB": 3,
     "WBR": 2
    }
   },
   "stonyvoicedgoblins": {
-   "set": 0.471,
-   "n": 140,
+   "set": 0.474,
+   "n": 194,
    "pairs": {
-    "B": 0.615,
-    "BG": 0.391,
-    "BR": 0.679,
-    "UB": 0.412,
-    "WB": 0.5,
-    "WBR": 0.143
+    "B": 0.6,
+    "BG": 0.41,
+    "BR": 0.633,
+    "UB": 0.421,
+    "UBG": 0.333,
+    "WB": 0.444,
+    "WBR": 0.222
    },
    "max": 3,
    "max_pairs": {
@@ -2432,19 +2635,21 @@
     "BG": 2,
     "BR": 3,
     "UB": 3,
+    "UBG": 2,
     "WB": 3,
     "WBR": 1
    }
   },
   "supperforspiders": {
-   "set": 0.007,
-   "n": 140,
+   "set": 0.005,
+   "n": 194,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
     "BR": 0.0,
     "UB": 0.0,
-    "WB": 0.062,
+    "UBG": 0.0,
+    "WB": 0.056,
     "WBR": 0.0
    },
    "max": 1,
@@ -2453,13 +2658,13 @@
    }
   },
   "balinloremaster": {
-   "set": 0.048,
-   "n": 125,
+   "set": 0.051,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.082,
     "RG": 0.0,
-    "WR": 0.107,
-    "WUR": 0.083,
+    "WR": 0.061,
+    "WUR": 0.077,
     "UR": 0.0,
     "WBR": 0.0
    },
@@ -2471,15 +2676,15 @@
    }
   },
   "bomburgentledreamer": {
-   "set": 0.144,
-   "n": 125,
+   "set": 0.2,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.122,
     "RG": 0.077,
-    "WR": 0.429,
-    "WUR": 0.083,
+    "WR": 0.469,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WBR": 0.143
+    "WBR": 0.167
    },
    "max": 2,
    "max_pairs": {
@@ -2491,36 +2696,36 @@
    }
   },
   "bothersomenoisemaker": {
-   "set": 0.352,
-   "n": 125,
+   "set": 0.371,
+   "n": 175,
    "pairs": {
-    "BR": 0.536,
+    "BR": 0.469,
     "RG": 0.308,
-    "WR": 0.214,
-    "WUR": 0.167,
+    "WR": 0.286,
+    "WUR": 0.231,
     "UR": 0.385,
-    "WBR": 0.286
+    "WBR": 0.333
    },
    "max": 3,
    "max_pairs": {
     "BR": 2,
     "RG": 1,
-    "WR": 1,
+    "WR": 3,
     "WUR": 1,
     "UR": 2,
     "WBR": 3
    }
   },
   "burnburntreeandfern": {
-   "set": 0.4,
-   "n": 125,
+   "set": 0.429,
+   "n": 175,
    "pairs": {
-    "BR": 0.286,
+    "BR": 0.408,
     "RG": 0.538,
-    "WR": 0.536,
-    "WUR": 0.167,
+    "WR": 0.49,
+    "WUR": 0.154,
     "UR": 0.385,
-    "WBR": 0.286
+    "WBR": 0.333
    },
    "max": 2,
    "max_pairs": {
@@ -2533,19 +2738,19 @@
    }
   },
   "dinironfoot": {
-   "set": 0.128,
-   "n": 125,
+   "set": 0.154,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.143,
     "RG": 0.077,
-    "WR": 0.357,
-    "WUR": 0.083,
+    "WR": 0.286,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WBR": 0.143
+    "WBR": 0.111
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
-    "BR": 1,
+    "BR": 2,
     "RG": 1,
     "WR": 1,
     "WUR": 1,
@@ -2554,54 +2759,56 @@
   },
   "desertwereworm": {
    "set": 0.04,
-   "n": 125,
+   "n": 175,
    "pairs": {
-    "BR": 0.0,
+    "BR": 0.02,
     "RG": 0.154,
-    "WR": 0.071,
+    "WR": 0.061,
     "WUR": 0.0,
     "UR": 0.0,
     "WBR": 0.0
    },
    "max": 1,
    "max_pairs": {
+    "BR": 1,
     "RG": 1,
     "WR": 1
    }
   },
   "desolationofsmaug": {
-   "set": 0.056,
-   "n": 125,
+   "set": 0.063,
+   "n": 175,
    "pairs": {
-    "BR": 0.107,
+    "BR": 0.122,
     "RG": 0.0,
-    "WR": 0.0,
-    "WUR": 0.083,
+    "WR": 0.02,
+    "WUR": 0.077,
     "UR": 0.077,
-    "WBR": 0.071
+    "WBR": 0.056
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
-    "BR": 1,
+    "BR": 2,
+    "WR": 1,
     "WUR": 1,
     "UR": 1,
     "WBR": 1
    }
   },
   "doribeareroffriends": {
-   "set": 0.552,
-   "n": 125,
+   "set": 0.571,
+   "n": 175,
    "pairs": {
-    "BR": 0.536,
+    "BR": 0.571,
     "RG": 0.538,
-    "WR": 0.714,
-    "WUR": 0.583,
+    "WR": 0.673,
+    "WUR": 0.615,
     "UR": 0.308,
-    "WBR": 0.714
+    "WBR": 0.667
    },
    "max": 3,
    "max_pairs": {
-    "BR": 2,
+    "BR": 3,
     "RG": 3,
     "WR": 2,
     "WUR": 3,
@@ -2610,15 +2817,15 @@
    }
   },
   "dwarvenmauler": {
-   "set": 0.176,
-   "n": 125,
+   "set": 0.211,
+   "n": 175,
    "pairs": {
-    "BR": 0.214,
+    "BR": 0.204,
     "RG": 0.154,
-    "WR": 0.321,
-    "WUR": 0.083,
+    "WR": 0.367,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WBR": 0.286
+    "WBR": 0.278
    },
    "max": 3,
    "max_pairs": {
@@ -2630,10 +2837,10 @@
    }
   },
   "gandalfgoblinsbane": {
-   "set": 0.048,
-   "n": 125,
+   "set": 0.051,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.082,
     "RG": 0.154,
     "WR": 0.0,
     "WUR": 0.0,
@@ -2648,21 +2855,21 @@
    }
   },
   "gandalfsparkstarter": {
-   "set": 0.344,
-   "n": 125,
+   "set": 0.383,
+   "n": 175,
    "pairs": {
-    "BR": 0.357,
+    "BR": 0.408,
     "RG": 0.385,
-    "WR": 0.286,
-    "WUR": 0.417,
+    "WR": 0.367,
+    "WUR": 0.385,
     "UR": 0.615,
-    "WBR": 0.214
+    "WBR": 0.278
    },
    "max": 2,
    "max_pairs": {
     "BR": 2,
     "RG": 2,
-    "WR": 1,
+    "WR": 2,
     "WUR": 1,
     "UR": 1,
     "WBR": 1
@@ -2670,7 +2877,7 @@
   },
   "getawaybarrel": {
    "set": 0.0,
-   "n": 125,
+   "n": 175,
    "pairs": {
     "BR": 0.0,
     "RG": 0.0,
@@ -2683,15 +2890,15 @@
    "max_pairs": {}
   },
   "glinthemighty": {
-   "set": 0.264,
-   "n": 125,
+   "set": 0.257,
+   "n": 175,
    "pairs": {
-    "BR": 0.321,
+    "BR": 0.265,
     "RG": 0.154,
-    "WR": 0.464,
+    "WR": 0.367,
     "WUR": 0.0,
     "UR": 0.308,
-    "WBR": 0.214
+    "WBR": 0.278
    },
    "max": 2,
    "max_pairs": {
@@ -2703,15 +2910,15 @@
    }
   },
   "goblintownflunkies": {
-   "set": 0.184,
-   "n": 125,
+   "set": 0.189,
+   "n": 175,
    "pairs": {
     "BR": 0.429,
     "RG": 0.0,
-    "WR": 0.036,
+    "WR": 0.02,
     "WUR": 0.0,
     "UR": 0.077,
-    "WBR": 0.214
+    "WBR": 0.167
    },
    "max": 6,
    "max_pairs": {
@@ -2722,15 +2929,15 @@
    }
   },
   "gundabadopportunist": {
-   "set": 0.424,
-   "n": 125,
+   "set": 0.423,
+   "n": 175,
    "pairs": {
-    "BR": 0.5,
+    "BR": 0.469,
     "RG": 0.692,
-    "WR": 0.321,
-    "WUR": 0.167,
+    "WR": 0.347,
+    "WUR": 0.154,
     "UR": 0.385,
-    "WBR": 0.571
+    "WBR": 0.556
    },
    "max": 4,
    "max_pairs": {
@@ -2743,15 +2950,15 @@
    }
   },
   "ironhillsstalwart": {
-   "set": 0.16,
-   "n": 125,
+   "set": 0.137,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.041,
     "RG": 0.154,
-    "WR": 0.286,
-    "WUR": 0.333,
+    "WR": 0.245,
+    "WUR": 0.308,
     "UR": 0.0,
-    "WBR": 0.286
+    "WBR": 0.222
    },
    "max": 1,
    "max_pairs": {
@@ -2764,7 +2971,7 @@
   },
   "lastlightofdurinsday": {
    "set": 0.0,
-   "n": 125,
+   "n": 175,
    "pairs": {
     "BR": 0.0,
     "RG": 0.0,
@@ -2777,19 +2984,19 @@
    "max_pairs": {}
   },
   "themistymountainscold": {
-   "set": 0.104,
-   "n": 125,
+   "set": 0.103,
+   "n": 175,
    "pairs": {
-    "BR": 0.107,
+    "BR": 0.102,
     "RG": 0.154,
-    "WR": 0.071,
-    "WUR": 0.083,
+    "WR": 0.082,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WBR": 0.214
+    "WBR": 0.222
    },
    "max": 2,
    "max_pairs": {
-    "BR": 1,
+    "BR": 2,
     "RG": 2,
     "WR": 1,
     "WUR": 1,
@@ -2797,36 +3004,36 @@
    }
   },
   "mistymountainsraider": {
-   "set": 0.368,
-   "n": 125,
+   "set": 0.366,
+   "n": 175,
    "pairs": {
-    "BR": 0.464,
+    "BR": 0.449,
     "RG": 0.462,
-    "WR": 0.25,
-    "WUR": 0.167,
+    "WR": 0.306,
+    "WUR": 0.231,
     "UR": 0.462,
-    "WBR": 0.5
+    "WBR": 0.389
    },
    "max": 3,
    "max_pairs": {
     "BR": 2,
     "RG": 2,
     "WR": 2,
-    "WUR": 1,
+    "WUR": 2,
     "UR": 3,
     "WBR": 2
    }
   },
   "inthebrave": {
-   "set": 0.456,
-   "n": 125,
+   "set": 0.457,
+   "n": 175,
    "pairs": {
-    "BR": 0.357,
+    "BR": 0.306,
     "RG": 0.385,
     "WR": 0.714,
-    "WUR": 0.417,
+    "WUR": 0.385,
     "UR": 0.615,
-    "WBR": 0.429
+    "WBR": 0.444
    },
    "max": 2,
    "max_pairs": {
@@ -2839,15 +3046,15 @@
    }
   },
   "pineconestrike": {
-   "set": 0.624,
-   "n": 125,
+   "set": 0.64,
+   "n": 175,
    "pairs": {
-    "BR": 0.536,
+    "BR": 0.592,
     "RG": 0.923,
-    "WR": 0.536,
-    "WUR": 0.667,
+    "WR": 0.633,
+    "WUR": 0.615,
     "UR": 1.0,
-    "WBR": 0.571
+    "WBR": 0.611
    },
    "max": 3,
    "max_pairs": {
@@ -2860,15 +3067,15 @@
    }
   },
   "raggedshortspear": {
-   "set": 0.272,
-   "n": 125,
+   "set": 0.291,
+   "n": 175,
    "pairs": {
-    "BR": 0.179,
+    "BR": 0.265,
     "RG": 0.231,
-    "WR": 0.393,
-    "WUR": 0.25,
+    "WR": 0.347,
+    "WUR": 0.231,
     "UR": 0.462,
-    "WBR": 0.357
+    "WBR": 0.389
    },
    "max": 2,
    "max_pairs": {
@@ -2881,15 +3088,15 @@
    }
   },
   "smaugthegreatcalamity": {
-   "set": 0.472,
-   "n": 125,
+   "set": 0.514,
+   "n": 175,
    "pairs": {
-    "BR": 0.393,
+    "BR": 0.49,
     "RG": 0.538,
-    "WR": 0.393,
-    "WUR": 0.5,
+    "WR": 0.531,
+    "WUR": 0.462,
     "UR": 0.692,
-    "WBR": 0.357
+    "WBR": 0.389
    },
    "max": 3,
    "max_pairs": {
@@ -2902,13 +3109,13 @@
    }
   },
   "smaugthemagnificent": {
-   "set": 0.104,
-   "n": 125,
+   "set": 0.08,
+   "n": 175,
    "pairs": {
-    "BR": 0.036,
+    "BR": 0.02,
     "RG": 0.077,
-    "WR": 0.107,
-    "WUR": 0.167,
+    "WR": 0.082,
+    "WUR": 0.154,
     "UR": 0.308,
     "WBR": 0.0
    },
@@ -2922,32 +3129,33 @@
    }
   },
   "smaugsfury": {
-   "set": 0.064,
-   "n": 125,
+   "set": 0.074,
+   "n": 175,
    "pairs": {
-    "BR": 0.0,
+    "BR": 0.041,
     "RG": 0.0,
-    "WR": 0.143,
+    "WR": 0.122,
     "WUR": 0.0,
     "UR": 0.0,
-    "WBR": 0.143
+    "WBR": 0.111
    },
    "max": 1,
    "max_pairs": {
+    "BR": 1,
     "WR": 1,
     "WBR": 1
    }
   },
   "snowslopehunter": {
-   "set": 0.168,
-   "n": 125,
+   "set": 0.171,
+   "n": 175,
    "pairs": {
-    "BR": 0.25,
+    "BR": 0.265,
     "RG": 0.154,
-    "WR": 0.214,
+    "WR": 0.184,
     "WUR": 0.0,
     "UR": 0.0,
-    "WBR": 0.214
+    "WBR": 0.167
    },
    "max": 2,
    "max_pairs": {
@@ -2958,35 +3166,35 @@
    }
   },
   "stonegiantofhighpass": {
-   "set": 0.096,
-   "n": 125,
+   "set": 0.12,
+   "n": 175,
    "pairs": {
-    "BR": 0.107,
+    "BR": 0.122,
     "RG": 0.154,
-    "WR": 0.143,
-    "WUR": 0.083,
+    "WR": 0.163,
+    "WUR": 0.154,
     "UR": 0.154,
     "WBR": 0.0
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
-    "BR": 1,
+    "BR": 2,
     "RG": 1,
-    "WR": 1,
+    "WR": 2,
     "WUR": 1,
     "UR": 1
    }
   },
   "thorinmountainking": {
-   "set": 0.08,
-   "n": 125,
+   "set": 0.069,
+   "n": 175,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.061,
     "RG": 0.0,
-    "WR": 0.071,
-    "WUR": 0.083,
+    "WR": 0.061,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WBR": 0.286
+    "WBR": 0.222
    },
    "max": 2,
    "max_pairs": {
@@ -2997,15 +3205,15 @@
    }
   },
   "tidingsofwar": {
-   "set": 0.304,
-   "n": 125,
+   "set": 0.297,
+   "n": 175,
    "pairs": {
-    "BR": 0.571,
+    "BR": 0.551,
     "RG": 0.385,
-    "WR": 0.071,
-    "WUR": 0.25,
+    "WR": 0.061,
+    "WUR": 0.231,
     "UR": 0.231,
-    "WBR": 0.214
+    "WBR": 0.167
    },
    "max": 3,
    "max_pairs": {
@@ -3018,33 +3226,36 @@
    }
   },
   "attercop": {
-   "set": 0.582,
-   "n": 122,
+   "set": 0.613,
+   "n": 163,
    "pairs": {
-    "BG": 0.652,
-    "G": 0.5,
-    "UG": 0.688,
+    "BG": 0.718,
+    "G": 0.571,
+    "UG": 0.696,
     "RG": 0.385,
-    "WUG": 0.417
+    "UBG": 0.733,
+    "WUG": 0.385
    },
    "max": 4,
    "max_pairs": {
     "BG": 3,
     "G": 4,
-    "UG": 2,
+    "UG": 3,
     "RG": 4,
+    "UBG": 2,
     "WUG": 1
    }
   },
   "bejeweledwarg": {
-   "set": 0.189,
-   "n": 122,
+   "set": 0.202,
+   "n": 163,
    "pairs": {
-    "BG": 0.13,
-    "G": 0.167,
-    "UG": 0.188,
+    "BG": 0.179,
+    "G": 0.214,
+    "UG": 0.196,
     "RG": 0.385,
-    "WUG": 0.083
+    "UBG": 0.2,
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
@@ -3052,18 +3263,20 @@
     "G": 1,
     "UG": 1,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "beornreluctanthost": {
-   "set": 0.328,
-   "n": 122,
+   "set": 0.288,
+   "n": 163,
    "pairs": {
-    "BG": 0.261,
-    "G": 0.667,
-    "UG": 0.281,
+    "BG": 0.205,
+    "G": 0.571,
+    "UG": 0.283,
     "RG": 0.538,
-    "WUG": 0.417
+    "UBG": 0.2,
+    "WUG": 0.385
    },
    "max": 3,
    "max_pairs": {
@@ -3071,18 +3284,20 @@
     "G": 2,
     "UG": 3,
     "RG": 2,
+    "UBG": 3,
     "WUG": 1
    }
   },
   "beornthefierce": {
-   "set": 0.131,
-   "n": 122,
+   "set": 0.117,
+   "n": 163,
    "pairs": {
-    "BG": 0.087,
-    "G": 0.333,
-    "UG": 0.094,
+    "BG": 0.077,
+    "G": 0.286,
+    "UG": 0.087,
     "RG": 0.154,
-    "WUG": 0.167
+    "UBG": 0.067,
+    "WUG": 0.154
    },
    "max": 1,
    "max_pairs": {
@@ -3090,54 +3305,61 @@
     "G": 1,
     "UG": 1,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "beornshospitality": {
-   "set": 0.262,
-   "n": 122,
+   "set": 0.313,
+   "n": 163,
    "pairs": {
-    "BG": 0.087,
-    "G": 0.5,
-    "UG": 0.312,
+    "BG": 0.205,
+    "G": 0.571,
+    "UG": 0.413,
     "RG": 0.385,
-    "WUG": 0.167
+    "UBG": 0.2,
+    "WUG": 0.154
    },
-   "max": 2,
+   "max": 3,
    "max_pairs": {
     "BG": 1,
     "G": 2,
-    "UG": 2,
+    "UG": 3,
     "RG": 2,
+    "UBG": 1,
     "WUG": 2
    }
   },
   "boughsidewanderers": {
-   "set": 0.32,
-   "n": 122,
+   "set": 0.325,
+   "n": 163,
    "pairs": {
-    "BG": 0.087,
-    "G": 0.583,
-    "UG": 0.5,
+    "BG": 0.128,
+    "G": 0.643,
+    "UG": 0.478,
     "RG": 0.308,
-    "WUG": 0.0
+    "UBG": 0.333,
+    "WUG": 0.077
    },
    "max": 4,
    "max_pairs": {
     "BG": 1,
     "G": 2,
     "UG": 4,
-    "RG": 2
+    "RG": 2,
+    "UBG": 2,
+    "WUG": 1
    }
   },
   "cantankerouskeepers": {
-   "set": 0.115,
-   "n": 122,
+   "set": 0.098,
+   "n": 163,
    "pairs": {
     "BG": 0.0,
-    "G": 0.25,
-    "UG": 0.25,
+    "G": 0.214,
+    "UG": 0.217,
     "RG": 0.154,
+    "UBG": 0.0,
     "WUG": 0.0
    },
    "max": 2,
@@ -3148,32 +3370,35 @@
    }
   },
   "dancingfromdarktodawn": {
-   "set": 0.082,
-   "n": 122,
+   "set": 0.086,
+   "n": 163,
    "pairs": {
-    "BG": 0.13,
-    "G": 0.167,
-    "UG": 0.062,
+    "BG": 0.103,
+    "G": 0.214,
+    "UG": 0.043,
     "RG": 0.0,
-    "WUG": 0.083
+    "UBG": 0.2,
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
     "BG": 1,
     "G": 1,
     "UG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "downinthevalley": {
-   "set": 0.148,
-   "n": 122,
+   "set": 0.141,
+   "n": 163,
    "pairs": {
-    "BG": 0.087,
-    "G": 0.167,
-    "UG": 0.25,
+    "BG": 0.077,
+    "G": 0.214,
+    "UG": 0.239,
     "RG": 0.154,
-    "WUG": 0.167
+    "UBG": 0.067,
+    "WUG": 0.154
    },
    "max": 2,
    "max_pairs": {
@@ -3181,18 +3406,20 @@
     "G": 1,
     "UG": 1,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "galionelvenkingsbutler": {
-   "set": 0.254,
-   "n": 122,
+   "set": 0.294,
+   "n": 163,
    "pairs": {
-    "BG": 0.391,
-    "G": 0.583,
-    "UG": 0.188,
+    "BG": 0.385,
+    "G": 0.571,
+    "UG": 0.283,
     "RG": 0.231,
-    "WUG": 0.167
+    "UBG": 0.267,
+    "WUG": 0.154
    },
    "max": 2,
    "max_pairs": {
@@ -3200,17 +3427,19 @@
     "G": 2,
     "UG": 2,
     "RG": 1,
+    "UBG": 1,
     "WUG": 2
    }
   },
   "giganticbigbear": {
-   "set": 0.09,
-   "n": 122,
+   "set": 0.098,
+   "n": 163,
    "pairs": {
-    "BG": 0.043,
-    "G": 0.333,
-    "UG": 0.125,
+    "BG": 0.026,
+    "G": 0.286,
+    "UG": 0.152,
     "RG": 0.077,
+    "UBG": 0.067,
     "WUG": 0.0
    },
    "max": 1,
@@ -3218,36 +3447,40 @@
     "BG": 1,
     "G": 1,
     "UG": 1,
-    "RG": 1
+    "RG": 1,
+    "UBG": 1
    }
   },
   "guardianofthehalls": {
-   "set": 0.361,
-   "n": 122,
+   "set": 0.38,
+   "n": 163,
    "pairs": {
-    "BG": 0.304,
-    "G": 0.75,
-    "UG": 0.469,
+    "BG": 0.308,
+    "G": 0.786,
+    "UG": 0.522,
     "RG": 0.385,
-    "WUG": 0.25
+    "UBG": 0.2,
+    "WUG": 0.308
    },
    "max": 3,
    "max_pairs": {
     "BG": 1,
     "G": 3,
-    "UG": 2,
+    "UG": 3,
     "RG": 1,
+    "UBG": 2,
     "WUG": 3
    }
   },
   "littlebear": {
-   "set": 0.098,
-   "n": 122,
+   "set": 0.104,
+   "n": 163,
    "pairs": {
-    "BG": 0.13,
-    "G": 0.167,
-    "UG": 0.062,
+    "BG": 0.154,
+    "G": 0.143,
+    "UG": 0.087,
     "RG": 0.154,
+    "UBG": 0.067,
     "WUG": 0.0
    },
    "max": 3,
@@ -3255,18 +3488,20 @@
     "BG": 2,
     "G": 2,
     "UG": 3,
-    "RG": 2
+    "RG": 2,
+    "UBG": 1
    }
   },
   "mirkwoodpathmaker": {
-   "set": 0.484,
-   "n": 122,
+   "set": 0.472,
+   "n": 163,
    "pairs": {
-    "BG": 0.391,
-    "G": 0.75,
-    "UG": 0.5,
+    "BG": 0.41,
+    "G": 0.714,
+    "UG": 0.522,
     "RG": 0.308,
-    "WUG": 0.583
+    "UBG": 0.467,
+    "WUG": 0.615
    },
    "max": 3,
    "max_pairs": {
@@ -3274,18 +3509,20 @@
     "G": 3,
     "UG": 2,
     "RG": 2,
-    "WUG": 2
+    "UBG": 2,
+    "WUG": 3
    }
   },
   "nastylittlerabbit": {
-   "set": 0.352,
-   "n": 122,
+   "set": 0.374,
+   "n": 163,
    "pairs": {
-    "BG": 0.696,
+    "BG": 0.667,
     "G": 0.5,
-    "UG": 0.188,
+    "UG": 0.261,
     "RG": 0.385,
-    "WUG": 0.25
+    "UBG": 0.2,
+    "WUG": 0.231
    },
    "max": 4,
    "max_pairs": {
@@ -3293,72 +3530,19 @@
     "G": 4,
     "UG": 2,
     "RG": 1,
+    "UBG": 2,
     "WUG": 2
    }
   },
   "thenotaryhobbits": {
-   "set": 0.049,
-   "n": 122,
+   "set": 0.037,
+   "n": 163,
    "pairs": {
-    "BG": 0.043,
-    "G": 0.083,
-    "UG": 0.062,
+    "BG": 0.026,
+    "G": 0.071,
+    "UG": 0.043,
     "RG": 0.0,
-    "WUG": 0.0
-   },
-   "max": 1,
-   "max_pairs": {
-    "BG": 1,
-    "G": 1,
-    "UG": 1
-   }
-  },
-  "oldfatspider": {
-   "set": 0.279,
-   "n": 122,
-   "pairs": {
-    "BG": 0.217,
-    "G": 0.5,
-    "UG": 0.375,
-    "RG": 0.308,
-    "WUG": 0.083
-   },
-   "max": 2,
-   "max_pairs": {
-    "BG": 2,
-    "G": 1,
-    "UG": 2,
-    "RG": 1,
-    "WUG": 1
-   }
-  },
-  "ordinarybear": {
-   "set": 0.246,
-   "n": 122,
-   "pairs": {
-    "BG": 0.261,
-    "G": 0.333,
-    "UG": 0.156,
-    "RG": 0.231,
-    "WUG": 0.25
-   },
-   "max": 3,
-   "max_pairs": {
-    "BG": 2,
-    "G": 2,
-    "UG": 2,
-    "RG": 1,
-    "WUG": 3
-   }
-  },
-  "partinfriendship": {
-   "set": 0.107,
-   "n": 122,
-   "pairs": {
-    "BG": 0.217,
-    "G": 0.167,
-    "UG": 0.062,
-    "RG": 0.154,
+    "UBG": 0.133,
     "WUG": 0.0
    },
    "max": 1,
@@ -3366,18 +3550,81 @@
     "BG": 1,
     "G": 1,
     "UG": 1,
-    "RG": 1
+    "UBG": 1
+   }
+  },
+  "oldfatspider": {
+   "set": 0.301,
+   "n": 163,
+   "pairs": {
+    "BG": 0.256,
+    "G": 0.429,
+    "UG": 0.435,
+    "RG": 0.308,
+    "UBG": 0.267,
+    "WUG": 0.077
+   },
+   "max": 2,
+   "max_pairs": {
+    "BG": 2,
+    "G": 1,
+    "UG": 2,
+    "RG": 1,
+    "UBG": 1,
+    "WUG": 1
+   }
+  },
+  "ordinarybear": {
+   "set": 0.264,
+   "n": 163,
+   "pairs": {
+    "BG": 0.333,
+    "G": 0.357,
+    "UG": 0.174,
+    "RG": 0.231,
+    "UBG": 0.333,
+    "WUG": 0.231
+   },
+   "max": 3,
+   "max_pairs": {
+    "BG": 3,
+    "G": 2,
+    "UG": 2,
+    "RG": 1,
+    "UBG": 2,
+    "WUG": 3
+   }
+  },
+  "partinfriendship": {
+   "set": 0.086,
+   "n": 163,
+   "pairs": {
+    "BG": 0.128,
+    "G": 0.143,
+    "UG": 0.043,
+    "RG": 0.154,
+    "UBG": 0.067,
+    "WUG": 0.0
+   },
+   "max": 1,
+   "max_pairs": {
+    "BG": 1,
+    "G": 1,
+    "UG": 1,
+    "RG": 1,
+    "UBG": 1
    }
   },
   "quarrel": {
-   "set": 0.656,
-   "n": 122,
+   "set": 0.663,
+   "n": 163,
    "pairs": {
-    "BG": 0.696,
-    "G": 0.917,
-    "UG": 0.688,
+    "BG": 0.692,
+    "G": 0.857,
+    "UG": 0.739,
     "RG": 0.846,
-    "WUG": 0.333
+    "UBG": 0.6,
+    "WUG": 0.308
    },
    "max": 4,
    "max_pairs": {
@@ -3385,18 +3632,20 @@
     "G": 4,
     "UG": 4,
     "RG": 3,
+    "UBG": 2,
     "WUG": 3
    }
   },
   "radagastofrhosgobel": {
-   "set": 0.115,
-   "n": 122,
+   "set": 0.135,
+   "n": 163,
    "pairs": {
-    "BG": 0.13,
-    "G": 0.167,
-    "UG": 0.094,
+    "BG": 0.179,
+    "G": 0.143,
+    "UG": 0.109,
     "RG": 0.154,
-    "WUG": 0.167
+    "UBG": 0.067,
+    "WUG": 0.154
    },
    "max": 1,
    "max_pairs": {
@@ -3404,33 +3653,37 @@
     "G": 1,
     "UG": 1,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "throughtheforestgate": {
-   "set": 0.016,
-   "n": 122,
+   "set": 0.012,
+   "n": 163,
    "pairs": {
     "BG": 0.0,
-    "G": 0.083,
+    "G": 0.071,
     "UG": 0.0,
     "RG": 0.0,
+    "UBG": 0.067,
     "WUG": 0.0
    },
    "max": 1,
    "max_pairs": {
-    "G": 1
+    "G": 1,
+    "UBG": 1
    }
   },
   "trollnegotiations": {
-   "set": 0.254,
-   "n": 122,
+   "set": 0.288,
+   "n": 163,
    "pairs": {
-    "BG": 0.174,
-    "G": 0.583,
-    "UG": 0.312,
+    "BG": 0.256,
+    "G": 0.643,
+    "UG": 0.326,
     "RG": 0.308,
-    "WUG": 0.167
+    "UBG": 0.2,
+    "WUG": 0.154
    },
    "max": 3,
    "max_pairs": {
@@ -3438,75 +3691,83 @@
     "G": 3,
     "UG": 2,
     "RG": 2,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "wargtactics": {
-   "set": 0.254,
-   "n": 122,
+   "set": 0.233,
+   "n": 163,
    "pairs": {
-    "BG": 0.174,
+    "BG": 0.205,
     "G": 0.5,
-    "UG": 0.25,
+    "UG": 0.196,
     "RG": 0.462,
-    "WUG": 0.167
+    "UBG": 0.067,
+    "WUG": 0.231
    },
    "max": 3,
    "max_pairs": {
-    "BG": 2,
+    "BG": 3,
     "G": 3,
     "UG": 1,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "wargling": {
-   "set": 0.336,
-   "n": 122,
+   "set": 0.344,
+   "n": 163,
    "pairs": {
-    "BG": 0.522,
-    "G": 0.667,
-    "UG": 0.156,
+    "BG": 0.538,
+    "G": 0.643,
+    "UG": 0.196,
     "RG": 0.615,
-    "WUG": 0.25
+    "UBG": 0.2,
+    "WUG": 0.231
    },
    "max": 4,
    "max_pairs": {
     "BG": 4,
     "G": 3,
-    "UG": 1,
+    "UG": 2,
     "RG": 2,
+    "UBG": 2,
     "WUG": 1
    }
   },
   "wilderlandscrounger": {
-   "set": 0.246,
-   "n": 122,
+   "set": 0.245,
+   "n": 163,
    "pairs": {
-    "BG": 0.478,
-    "G": 0.25,
-    "UG": 0.094,
+    "BG": 0.385,
+    "G": 0.286,
+    "UG": 0.152,
     "RG": 0.308,
-    "WUG": 0.083
+    "UBG": 0.2,
+    "WUG": 0.077
    },
    "max": 2,
    "max_pairs": {
     "BG": 2,
     "G": 2,
-    "UG": 1,
+    "UG": 2,
     "RG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "woodelves": {
-   "set": 0.484,
-   "n": 122,
+   "set": 0.497,
+   "n": 163,
    "pairs": {
-    "BG": 0.261,
-    "G": 0.917,
-    "UG": 0.656,
+    "BG": 0.282,
+    "G": 0.929,
+    "UG": 0.63,
     "RG": 0.385,
-    "WUG": 0.417
+    "UBG": 0.467,
+    "WUG": 0.462
    },
    "max": 4,
    "max_pairs": {
@@ -3514,18 +3775,20 @@
     "G": 3,
     "UG": 3,
     "RG": 3,
+    "UBG": 3,
     "WUG": 1
    }
   },
   "woodlandweavemaster": {
-   "set": 0.197,
-   "n": 122,
+   "set": 0.196,
+   "n": 163,
    "pairs": {
-    "BG": 0.043,
-    "G": 0.417,
-    "UG": 0.438,
+    "BG": 0.051,
+    "G": 0.5,
+    "UG": 0.391,
     "RG": 0.077,
-    "WUG": 0.167
+    "UBG": 0.0,
+    "WUG": 0.231
    },
    "max": 4,
    "max_pairs": {
@@ -3537,23 +3800,25 @@
    }
   },
   "bardkingofdale": {
-   "set": 0.0,
-   "n": 47,
+   "set": 0.014,
+   "n": 72,
    "pairs": {
     "WUR": 0.0,
-    "WU": 0.0,
+    "WU": 0.024,
     "WUG": 0.0
    },
-   "max": 0,
-   "max_pairs": {}
+   "max": 1,
+   "max_pairs": {
+    "WU": 1
+   }
   },
   "bardthebowman": {
-   "set": 0.489,
-   "n": 47,
+   "set": 0.472,
+   "n": 72,
    "pairs": {
-    "WUR": 0.083,
-    "WU": 0.684,
-    "WUG": 0.583
+    "WUR": 0.077,
+    "WU": 0.537,
+    "WUG": 0.615
    },
    "max": 2,
    "max_pairs": {
@@ -3563,12 +3828,12 @@
    }
   },
   "bardscompany": {
-   "set": 0.319,
-   "n": 47,
+   "set": 0.278,
+   "n": 72,
    "pairs": {
-    "WUR": 0.583,
-    "WU": 0.211,
-    "WUG": 0.25
+    "WUR": 0.538,
+    "WU": 0.195,
+    "WUG": 0.231
    },
    "max": 2,
    "max_pairs": {
@@ -3578,24 +3843,24 @@
    }
   },
   "bifurmelodicrider": {
-   "set": 0.129,
-   "n": 186,
+   "set": 0.152,
+   "n": 263,
    "pairs": {
-    "BR": 0.107,
+    "BR": 0.061,
     "RG": 0.077,
-    "WR": 0.393,
-    "WUR": 0.083,
+    "WR": 0.429,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WB": 0.188,
-    "WBR": 0.071,
-    "WU": 0.053,
+    "WB": 0.222,
+    "WBR": 0.167,
+    "WU": 0.049,
     "WUG": 0.0
    },
    "max": 2,
    "max_pairs": {
     "BR": 1,
     "RG": 2,
-    "WR": 1,
+    "WR": 2,
     "WUR": 1,
     "WB": 2,
     "WBR": 1,
@@ -3603,81 +3868,87 @@
    }
   },
   "bolgofthenorth": {
-   "set": 0.321,
-   "n": 56,
+   "set": 0.354,
+   "n": 82,
    "pairs": {
-    "BR": 0.321,
-    "WBR": 0.357
+    "BR": 0.367,
+    "WBR": 0.389
    },
    "max": 2,
    "max_pairs": {
     "BR": 2,
-    "WBR": 1
+    "WBR": 2
    }
   },
   "bolgscompany": {
-   "set": 0.036,
-   "n": 56,
+   "set": 0.061,
+   "n": 82,
    "pairs": {
-    "BR": 0.071,
-    "WBR": 0.0
+    "BR": 0.082,
+    "WBR": 0.056
    },
    "max": 1,
    "max_pairs": {
-    "BR": 1
-   }
-  },
-  "thechiefwarg": {
-   "set": 0.489,
-   "n": 45,
-   "pairs": {
-    "BG": 0.565
-   },
-   "max": 2,
-   "max_pairs": {
-    "BG": 2
-   }
-  },
-  "chiefwargscompany": {
-   "set": 0.222,
-   "n": 45,
-   "pairs": {
-    "BG": 0.217
-   },
-   "max": 2,
-   "max_pairs": {
-    "BG": 2
-   }
-  },
-  "dinscompany": {
-   "set": 0.296,
-   "n": 54,
-   "pairs": {
-    "WR": 0.464,
-    "WUR": 0.167,
-    "WBR": 0.071
-   },
-   "max": 1,
-   "max_pairs": {
-    "WR": 1,
-    "WUR": 1,
+    "BR": 1,
     "WBR": 1
    }
   },
-  "duskwatchhunter": {
-   "set": 0.295,
-   "n": 217,
+  "thechiefwarg": {
+   "set": 0.463,
+   "n": 67,
    "pairs": {
-    "B": 0.538,
-    "BG": 0.652,
-    "BR": 0.357,
-    "G": 0.417,
-    "UG": 0.062,
+    "BG": 0.513,
+    "UBG": 0.333
+   },
+   "max": 2,
+   "max_pairs": {
+    "BG": 2,
+    "UBG": 2
+   }
+  },
+  "chiefwargscompany": {
+   "set": 0.224,
+   "n": 67,
+   "pairs": {
+    "BG": 0.231,
+    "UBG": 0.133
+   },
+   "max": 2,
+   "max_pairs": {
+    "BG": 2,
+    "UBG": 1
+   }
+  },
+  "dinscompany": {
+   "set": 0.284,
+   "n": 81,
+   "pairs": {
+    "WR": 0.367,
+    "WUR": 0.154,
+    "WBR": 0.111
+   },
+   "max": 2,
+   "max_pairs": {
+    "WR": 1,
+    "WUR": 1,
+    "WBR": 2
+   }
+  },
+  "duskwatchhunter": {
+   "set": 0.286,
+   "n": 290,
+   "pairs": {
+    "B": 0.467,
+    "BG": 0.615,
+    "BR": 0.306,
+    "G": 0.357,
+    "UG": 0.087,
     "RG": 0.385,
-    "UB": 0.059,
-    "WB": 0.375,
-    "WBR": 0.143,
-    "WUG": 0.083
+    "UB": 0.053,
+    "UBG": 0.267,
+    "WB": 0.389,
+    "WBR": 0.111,
+    "WUG": 0.077
    },
    "max": 3,
    "max_pairs": {
@@ -3685,75 +3956,80 @@
     "BG": 2,
     "BR": 2,
     "G": 1,
-    "UG": 1,
+    "UG": 2,
     "RG": 2,
     "UB": 1,
+    "UBG": 2,
     "WB": 2,
     "WBR": 1,
     "WUG": 2
    }
   },
   "dwalinweaponmaster": {
-   "set": 0.07,
-   "n": 186,
+   "set": 0.087,
+   "n": 263,
    "pairs": {
-    "BR": 0.071,
+    "BR": 0.061,
     "RG": 0.0,
-    "WR": 0.214,
+    "WR": 0.286,
     "WUR": 0.0,
     "UR": 0.0,
-    "WB": 0.062,
-    "WBR": 0.143,
-    "WU": 0.0,
+    "WB": 0.056,
+    "WBR": 0.111,
+    "WU": 0.024,
     "WUG": 0.0
-   },
-   "max": 1,
-   "max_pairs": {
-    "BR": 1,
-    "WR": 1,
-    "WB": 1,
-    "WBR": 1
-   }
-  },
-  "eaglesrescue": {
-   "set": 0.106,
-   "n": 198,
-   "pairs": {
-    "UG": 0.0,
-    "WR": 0.107,
-    "UB": 0.059,
-    "WUR": 0.167,
-    "UR": 0.077,
-    "WB": 0.062,
-    "WBR": 0.0,
-    "WU": 0.474,
-    "WUG": 0.167
    },
    "max": 2,
    "max_pairs": {
+    "BR": 1,
+    "WR": 2,
+    "WB": 1,
+    "WBR": 1,
+    "WU": 1
+   }
+  },
+  "eaglesrescue": {
+   "set": 0.11,
+   "n": 273,
+   "pairs": {
+    "UG": 0.022,
+    "WR": 0.102,
+    "UB": 0.053,
+    "UBG": 0.0,
+    "WUR": 0.154,
+    "UR": 0.077,
+    "WB": 0.056,
+    "WBR": 0.0,
+    "WU": 0.366,
+    "WUG": 0.154
+   },
+   "max": 2,
+   "max_pairs": {
+    "UG": 1,
     "WR": 1,
     "UB": 1,
     "WUR": 2,
     "UR": 2,
     "WB": 1,
-    "WU": 1,
+    "WU": 2,
     "WUG": 1
    }
   },
   "fearsomegoblinpair": {
-   "set": 0.144,
-   "n": 209,
+   "set": 0.139,
+   "n": 287,
    "pairs": {
-    "B": 0.231,
-    "BG": 0.13,
-    "BR": 0.393,
+    "B": 0.2,
+    "BG": 0.103,
+    "BR": 0.327,
     "RG": 0.0,
-    "WR": 0.071,
+    "WR": 0.082,
     "UB": 0.0,
-    "WUR": 0.0,
+    "UBG": 0.067,
+    "WUR": 0.077,
     "UR": 0.0,
     "WB": 0.0,
-    "WBR": 0.429
+    "WBR": 0.333
    },
    "max": 3,
    "max_pairs": {
@@ -3761,23 +4037,26 @@
     "BG": 1,
     "BR": 2,
     "WR": 1,
+    "UBG": 2,
+    "WUR": 1,
     "WBR": 3
    }
   },
   "goblinplatemail": {
-   "set": 0.483,
-   "n": 209,
+   "set": 0.467,
+   "n": 287,
    "pairs": {
-    "B": 0.846,
-    "BG": 0.391,
-    "BR": 0.607,
+    "B": 0.867,
+    "BG": 0.333,
+    "BR": 0.612,
     "RG": 0.385,
-    "WR": 0.571,
-    "UB": 0.294,
-    "WUR": 0.5,
+    "WR": 0.51,
+    "UB": 0.316,
+    "UBG": 0.267,
+    "WUR": 0.462,
     "UR": 0.231,
-    "WB": 0.438,
-    "WBR": 0.714
+    "WB": 0.389,
+    "WBR": 0.722
    },
    "max": 4,
    "max_pairs": {
@@ -3787,6 +4066,7 @@
     "RG": 3,
     "WR": 2,
     "UB": 2,
+    "UBG": 2,
     "WUR": 2,
     "UR": 1,
     "WB": 1,
@@ -3794,73 +4074,78 @@
    }
   },
   "thegreatgoblin": {
-   "set": 0.057,
-   "n": 209,
+   "set": 0.056,
+   "n": 287,
    "pairs": {
-    "B": 0.154,
-    "BG": 0.043,
-    "BR": 0.107,
+    "B": 0.2,
+    "BG": 0.026,
+    "BR": 0.122,
     "RG": 0.154,
-    "WR": 0.036,
+    "WR": 0.02,
     "UB": 0.0,
+    "UBG": 0.067,
     "WUR": 0.0,
     "UR": 0.0,
-    "WB": 0.062,
-    "WBR": 0.071
-   },
-   "max": 1,
-   "max_pairs": {
-    "B": 1,
-    "BG": 1,
-    "BR": 1,
-    "RG": 1,
-    "WR": 1,
-    "WB": 1,
-    "WBR": 1
-   }
-  },
-  "largebear": {
-   "set": 0.221,
-   "n": 217,
-   "pairs": {
-    "B": 0.231,
-    "BG": 0.174,
-    "BR": 0.179,
-    "G": 0.167,
-    "UG": 0.406,
-    "RG": 0.308,
-    "UB": 0.176,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WUG": 0.167
+    "WB": 0.056,
+    "WBR": 0.056
    },
    "max": 2,
    "max_pairs": {
     "B": 1,
     "BG": 1,
+    "BR": 2,
+    "RG": 1,
+    "WR": 1,
+    "UBG": 1,
+    "WB": 1,
+    "WBR": 1
+   }
+  },
+  "largebear": {
+   "set": 0.238,
+   "n": 290,
+   "pairs": {
+    "B": 0.2,
+    "BG": 0.308,
+    "BR": 0.204,
+    "G": 0.143,
+    "UG": 0.37,
+    "RG": 0.308,
+    "UB": 0.158,
+    "UBG": 0.267,
+    "WB": 0.111,
+    "WBR": 0.111,
+    "WUG": 0.154
+   },
+   "max": 2,
+   "max_pairs": {
+    "B": 1,
+    "BG": 2,
     "BR": 1,
     "G": 1,
-    "UG": 1,
+    "UG": 2,
     "RG": 1,
     "UB": 2,
-    "WB": 1,
+    "UBG": 1,
+    "WB": 2,
     "WBR": 1,
     "WUG": 1
    }
   },
   "mirkwoodnurturer": {
-   "set": 0.303,
-   "n": 195,
+   "set": 0.294,
+   "n": 262,
    "pairs": {
-    "BG": 0.304,
-    "G": 0.25,
-    "UG": 0.406,
+    "BG": 0.282,
+    "G": 0.214,
+    "UG": 0.435,
     "RG": 0.308,
-    "UB": 0.294,
+    "UB": 0.316,
+    "UBG": 0.4,
     "WUR": 0.0,
     "UR": 0.231,
-    "WU": 0.211,
-    "WUG": 0.167
+    "WU": 0.146,
+    "WUG": 0.154
    },
    "max": 5,
    "max_pairs": {
@@ -3868,24 +4153,25 @@
     "G": 2,
     "UG": 3,
     "RG": 2,
-    "UB": 2,
+    "UB": 3,
+    "UBG": 4,
     "UR": 3,
-    "WU": 2,
+    "WU": 3,
     "WUG": 2
    }
   },
   "noritelleroftales": {
-   "set": 0.263,
-   "n": 186,
+   "set": 0.274,
+   "n": 263,
    "pairs": {
-    "BR": 0.214,
+    "BR": 0.184,
     "RG": 0.154,
-    "WR": 0.607,
-    "WUR": 0.25,
+    "WR": 0.612,
+    "WUR": 0.231,
     "UR": 0.077,
-    "WB": 0.312,
-    "WBR": 0.571,
-    "WU": 0.105,
+    "WB": 0.333,
+    "WBR": 0.556,
+    "WU": 0.122,
     "WUG": 0.0
    },
    "max": 3,
@@ -3897,28 +4183,30 @@
     "UR": 1,
     "WB": 1,
     "WBR": 2,
-    "WU": 1
+    "WU": 2
    }
   },
   "patientinstructor": {
-   "set": 0.409,
-   "n": 198,
+   "set": 0.392,
+   "n": 273,
    "pairs": {
-    "UG": 0.156,
-    "WR": 0.214,
-    "UB": 0.588,
-    "WUR": 0.917,
+    "UG": 0.152,
+    "WR": 0.204,
+    "UB": 0.526,
+    "UBG": 0.067,
+    "WUR": 0.846,
     "UR": 0.538,
-    "WB": 0.5,
-    "WBR": 0.071,
-    "WU": 0.737,
-    "WUG": 0.583
+    "WB": 0.444,
+    "WBR": 0.056,
+    "WU": 0.805,
+    "WUG": 0.615
    },
    "max": 4,
    "max_pairs": {
     "UG": 2,
-    "WR": 1,
+    "WR": 2,
     "UB": 3,
+    "UBG": 2,
     "WUR": 3,
     "UR": 2,
     "WB": 3,
@@ -3928,38 +4216,40 @@
    }
   },
   "silvanreveler": {
-   "set": 0.544,
-   "n": 57,
+   "set": 0.558,
+   "n": 77,
    "pairs": {
-    "UG": 0.719,
-    "WUG": 0.5
+    "UG": 0.696,
+    "UBG": 0.267,
+    "WUG": 0.538
    },
    "max": 4,
    "max_pairs": {
     "UG": 4,
-    "WUG": 1
+    "UBG": 1,
+    "WUG": 2
    }
   },
   "smaugwickedworm": {
-   "set": 0.161,
-   "n": 56,
+   "set": 0.159,
+   "n": 82,
    "pairs": {
-    "BR": 0.107,
-    "WBR": 0.143
+    "BR": 0.143,
+    "WBR": 0.111
    },
-   "max": 1,
+   "max": 2,
    "max_pairs": {
-    "BR": 1,
+    "BR": 2,
     "WBR": 1
    }
   },
   "thorinoakenshield": {
    "set": 0.519,
-   "n": 54,
+   "n": 81,
    "pairs": {
-    "WR": 0.679,
-    "WUR": 0.417,
-    "WBR": 0.286
+    "WR": 0.612,
+    "WUR": 0.385,
+    "WBR": 0.333
    },
    "max": 3,
    "max_pairs": {
@@ -3969,71 +4259,82 @@
    }
   },
   "thranduilsindarinliege": {
-   "set": 0.256,
-   "n": 195,
+   "set": 0.275,
+   "n": 262,
    "pairs": {
-    "BG": 0.217,
-    "G": 0.5,
-    "UG": 0.75,
+    "BG": 0.179,
+    "G": 0.571,
+    "UG": 0.674,
     "RG": 0.154,
     "UB": 0.0,
-    "WUR": 0.0,
+    "UBG": 0.533,
+    "WUR": 0.077,
     "UR": 0.077,
-    "WU": 0.105,
-    "WUG": 0.167
+    "WU": 0.171,
+    "WUG": 0.231
    },
    "max": 4,
    "max_pairs": {
-    "BG": 1,
+    "BG": 2,
     "G": 1,
     "UG": 4,
     "RG": 1,
+    "UBG": 2,
+    "WUR": 1,
     "UR": 1,
     "WU": 1,
-    "WUG": 1
+    "WUG": 2
    }
   },
   "thranduiltheelvenking": {
-   "set": 0.182,
-   "n": 11,
-   "pairs": {},
+   "set": 0.188,
+   "n": 16,
+   "pairs": {
+    "UBG": 0.2
+   },
    "max": 2,
-   "max_pairs": {}
+   "max_pairs": {
+    "UBG": 2
+   }
   },
   "thranduilscompany": {
-   "set": 0.386,
-   "n": 57,
+   "set": 0.377,
+   "n": 77,
    "pairs": {
-    "UG": 0.438,
-    "WUG": 0.333
+    "UG": 0.391,
+    "UBG": 0.4,
+    "WUG": 0.308
    },
    "max": 1,
    "max_pairs": {
     "UG": 1,
+    "UBG": 1,
     "WUG": 1
    }
   },
   "tombertandwilliam": {
-   "set": 0.156,
-   "n": 45,
+   "set": 0.164,
+   "n": 67,
    "pairs": {
-    "BG": 0.174
+    "BG": 0.179,
+    "UBG": 0.133
    },
    "max": 2,
    "max_pairs": {
-    "BG": 2
+    "BG": 2,
+    "UBG": 1
    }
   },
   "thearkenstone": {
-   "set": 0.026,
-   "n": 115,
+   "set": 0.018,
+   "n": 169,
    "pairs": {
-    "WR": 0.036,
+    "WR": 0.02,
     "WUR": 0.0,
     "WB": 0.0,
     "WBR": 0.0,
     "WU": 0.0,
-    "WUG": 0.167
+    "WUG": 0.154
    },
    "max": 1,
    "max_pairs": {
@@ -4042,21 +4343,22 @@
    }
   },
   "theblackarrow": {
-   "set": 0.034,
-   "n": 298,
+   "set": 0.026,
+   "n": 416,
    "pairs": {
-    "B": 0.077,
-    "BG": 0.043,
-    "BR": 0.107,
+    "B": 0.067,
+    "BG": 0.026,
+    "BR": 0.061,
     "G": 0.0,
-    "UG": 0.031,
+    "UG": 0.022,
     "RG": 0.0,
-    "WR": 0.071,
+    "WR": 0.041,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
-    "WBR": 0.071,
+    "WBR": 0.056,
     "WU": 0.0,
     "WUG": 0.0
    },
@@ -4071,26 +4373,28 @@
    }
   },
   "dwarvenmattock": {
-   "set": 0.081,
-   "n": 298,
+   "set": 0.089,
+   "n": 416,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
-    "BR": 0.0,
+    "BR": 0.041,
     "G": 0.0,
     "UG": 0.0,
     "RG": 0.077,
-    "WR": 0.536,
+    "WR": 0.531,
     "UB": 0.0,
-    "WUR": 0.083,
+    "UBG": 0.0,
+    "WUR": 0.077,
     "UR": 0.0,
-    "WB": 0.062,
-    "WBR": 0.214,
+    "WB": 0.056,
+    "WBR": 0.167,
     "WU": 0.0,
     "WUG": 0.0
    },
    "max": 2,
    "max_pairs": {
+    "BR": 1,
     "RG": 1,
     "WR": 2,
     "WUR": 1,
@@ -4099,23 +4403,24 @@
    }
   },
   "giantsboulder": {
-   "set": 0.07,
-   "n": 298,
+   "set": 0.06,
+   "n": 416,
    "pairs": {
-    "B": 0.077,
-    "BG": 0.043,
-    "BR": 0.071,
-    "G": 0.083,
-    "UG": 0.062,
+    "B": 0.067,
+    "BG": 0.026,
+    "BR": 0.041,
+    "G": 0.071,
+    "UG": 0.043,
     "RG": 0.0,
-    "WR": 0.143,
-    "UB": 0.059,
-    "WUR": 0.083,
+    "WR": 0.102,
+    "UB": 0.053,
+    "UBG": 0.0,
+    "WUR": 0.154,
     "UR": 0.0,
-    "WB": 0.062,
-    "WBR": 0.143,
+    "WB": 0.056,
+    "WBR": 0.111,
     "WU": 0.0,
-    "WUG": 0.0
+    "WUG": 0.077
    },
    "max": 1,
    "max_pairs": {
@@ -4128,15 +4433,17 @@
     "UB": 1,
     "WUR": 1,
     "WB": 1,
-    "WBR": 1
+    "WBR": 1,
+    "WUG": 1
    }
   },
   "glamdringfoehammer": {
-   "set": 0.008,
-   "n": 130,
+   "set": 0.006,
+   "n": 176,
    "pairs": {
     "UG": 0.0,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.077,
     "WU": 0.0,
@@ -4148,17 +4455,18 @@
    }
   },
   "keytothesidedoor": {
-   "set": 0.007,
-   "n": 298,
+   "set": 0.01,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.043,
-    "BR": 0.0,
-    "G": 0.083,
+    "BG": 0.026,
+    "BR": 0.02,
+    "G": 0.143,
     "UG": 0.0,
     "RG": 0.0,
     "WR": 0.0,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
@@ -4169,39 +4477,43 @@
    "max": 1,
    "max_pairs": {
     "BG": 1,
+    "BR": 1,
     "G": 1
    }
   },
   "myprecious": {
-   "set": 0.043,
-   "n": 140,
+   "set": 0.046,
+   "n": 194,
    "pairs": {
     "B": 0.0,
-    "BG": 0.087,
-    "BR": 0.036,
+    "BG": 0.051,
+    "BR": 0.041,
     "UB": 0.0,
-    "WB": 0.125,
+    "UBG": 0.067,
+    "WB": 0.167,
     "WBR": 0.0
    },
    "max": 1,
    "max_pairs": {
     "BG": 1,
     "BR": 1,
+    "UBG": 1,
     "WB": 1
    }
   },
   "orcristgoblincleaver": {
-   "set": 0.007,
-   "n": 298,
+   "set": 0.005,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.043,
+    "BG": 0.026,
     "BR": 0.0,
-    "G": 0.083,
+    "G": 0.071,
     "UG": 0.0,
     "RG": 0.0,
     "WR": 0.0,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
@@ -4216,17 +4528,18 @@
    }
   },
   "stingbilbossword": {
-   "set": 0.03,
-   "n": 298,
+   "set": 0.024,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.087,
-    "BR": 0.036,
-    "G": 0.083,
-    "UG": 0.062,
+    "BG": 0.051,
+    "BR": 0.02,
+    "G": 0.071,
+    "UG": 0.043,
     "RG": 0.0,
-    "WR": 0.107,
+    "WR": 0.082,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
@@ -4244,33 +4557,35 @@
    }
   },
   "thrrsmap": {
-   "set": 0.117,
-   "n": 298,
+   "set": 0.111,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.087,
-    "BR": 0.107,
-    "G": 0.083,
-    "UG": 0.156,
+    "BG": 0.077,
+    "BR": 0.061,
+    "G": 0.071,
+    "UG": 0.13,
     "RG": 0.077,
-    "WR": 0.071,
-    "UB": 0.176,
-    "WUR": 0.083,
+    "WR": 0.061,
+    "UB": 0.211,
+    "UBG": 0.267,
+    "WUR": 0.154,
     "UR": 0.154,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WU": 0.105,
-    "WUG": 0.167
+    "WB": 0.056,
+    "WBR": 0.056,
+    "WU": 0.122,
+    "WUG": 0.154
    },
    "max": 2,
    "max_pairs": {
-    "BG": 1,
+    "BG": 2,
     "BR": 1,
     "G": 1,
     "UG": 1,
     "RG": 1,
     "WR": 1,
     "UB": 2,
+    "UBG": 1,
     "WUR": 1,
     "UR": 1,
     "WB": 1,
@@ -4280,21 +4595,22 @@
    }
   },
   "wellwornspatula": {
-   "set": 0.034,
-   "n": 298,
+   "set": 0.038,
+   "n": 416,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
-    "BR": 0.036,
+    "BR": 0.041,
     "G": 0.0,
     "UG": 0.0,
     "RG": 0.077,
-    "WR": 0.179,
+    "WR": 0.184,
     "UB": 0.0,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
-    "WBR": 0.214,
+    "WBR": 0.167,
     "WU": 0.0,
     "WUG": 0.0
    },
@@ -4307,30 +4623,34 @@
    }
   },
   "elvenpassage": {
-   "set": 0.06,
-   "n": 298,
+   "set": 0.065,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.0,
-    "BR": 0.036,
-    "G": 0.25,
-    "UG": 0.125,
+    "BG": 0.026,
+    "BR": 0.041,
+    "G": 0.214,
+    "UG": 0.13,
     "RG": 0.077,
-    "WR": 0.0,
+    "WR": 0.02,
     "UB": 0.0,
-    "WUR": 0.167,
+    "UBG": 0.067,
+    "WUR": 0.231,
     "UR": 0.0,
-    "WB": 0.062,
-    "WBR": 0.071,
-    "WU": 0.053,
-    "WUG": 0.083
+    "WB": 0.056,
+    "WBR": 0.056,
+    "WU": 0.073,
+    "WUG": 0.077
    },
-   "max": 1,
+   "max": 3,
    "max_pairs": {
+    "BG": 1,
     "BR": 1,
     "G": 1,
-    "UG": 1,
+    "UG": 3,
     "RG": 1,
+    "WR": 1,
+    "UBG": 1,
     "WUR": 1,
     "WB": 1,
     "WBR": 1,
@@ -4340,47 +4660,52 @@
   },
   "elvenkingshalls": {
    "set": 0.151,
-   "n": 298,
+   "n": 416,
    "pairs": {
     "B": 0.0,
-    "BG": 0.0,
+    "BG": 0.051,
     "BR": 0.0,
-    "G": 0.167,
-    "UG": 0.75,
+    "G": 0.214,
+    "UG": 0.739,
     "RG": 0.0,
     "WR": 0.0,
-    "UB": 0.059,
+    "UB": 0.053,
+    "UBG": 0.667,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
     "WBR": 0.0,
-    "WU": 0.0,
-    "WUG": 0.667
+    "WU": 0.024,
+    "WUG": 0.692
    },
-   "max": 2,
+   "max": 3,
    "max_pairs": {
+    "BG": 1,
     "G": 2,
     "UG": 2,
     "UB": 2,
+    "UBG": 2,
+    "WU": 3,
     "WUG": 2
    }
   },
   "goblintown": {
-   "set": 0.138,
-   "n": 298,
+   "set": 0.139,
+   "n": 416,
    "pairs": {
-    "B": 0.077,
-    "BG": 0.043,
-    "BR": 0.607,
+    "B": 0.067,
+    "BG": 0.026,
+    "BR": 0.592,
     "G": 0.0,
     "UG": 0.0,
     "RG": 0.077,
-    "WR": 0.107,
-    "UB": 0.059,
+    "WR": 0.061,
+    "UB": 0.053,
+    "UBG": 0.0,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
-    "WBR": 0.714,
+    "WBR": 0.778,
     "WU": 0.0,
     "WUG": 0.0
    },
@@ -4396,23 +4721,24 @@
    }
   },
   "hobbithole": {
-   "set": 0.433,
-   "n": 298,
+   "set": 0.392,
+   "n": 416,
    "pairs": {
-    "B": 0.308,
-    "BG": 0.304,
-    "BR": 0.321,
-    "G": 0.583,
-    "UG": 0.562,
+    "B": 0.333,
+    "BG": 0.308,
+    "BR": 0.245,
+    "G": 0.571,
+    "UG": 0.565,
     "RG": 0.538,
-    "WR": 0.214,
-    "UB": 0.412,
-    "WUR": 0.5,
+    "WR": 0.204,
+    "UB": 0.421,
+    "UBG": 0.333,
+    "WUR": 0.462,
     "UR": 0.308,
-    "WB": 0.375,
-    "WBR": 0.5,
-    "WU": 0.368,
-    "WUG": 0.667
+    "WB": 0.333,
+    "WBR": 0.611,
+    "WU": 0.317,
+    "WUG": 0.615
    },
    "max": 4,
    "max_pairs": {
@@ -4420,10 +4746,11 @@
     "BG": 2,
     "BR": 3,
     "G": 2,
-    "UG": 2,
+    "UG": 3,
     "RG": 2,
     "WR": 2,
     "UB": 2,
+    "UBG": 3,
     "WUR": 2,
     "UR": 2,
     "WB": 2,
@@ -4433,22 +4760,23 @@
    }
   },
   "ironhills": {
-   "set": 0.141,
-   "n": 298,
+   "set": 0.151,
+   "n": 416,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
-    "BR": 0.071,
+    "BR": 0.041,
     "G": 0.0,
     "UG": 0.0,
     "RG": 0.0,
-    "WR": 0.821,
+    "WR": 0.816,
     "UB": 0.0,
-    "WUR": 0.583,
+    "UBG": 0.0,
+    "WUR": 0.538,
     "UR": 0.077,
     "WB": 0.0,
-    "WBR": 0.571,
-    "WU": 0.0,
+    "WBR": 0.556,
+    "WU": 0.024,
     "WUG": 0.0
    },
    "max": 3,
@@ -4457,27 +4785,29 @@
     "WR": 3,
     "WUR": 2,
     "UR": 1,
-    "WBR": 2
+    "WBR": 2,
+    "WU": 1
    }
   },
   "laketown": {
-   "set": 0.181,
-   "n": 298,
+   "set": 0.19,
+   "n": 416,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
     "BR": 0.0,
-    "G": 0.083,
-    "UG": 0.156,
+    "G": 0.071,
+    "UG": 0.109,
     "RG": 0.0,
-    "WR": 0.071,
-    "UB": 0.176,
-    "WUR": 0.833,
+    "WR": 0.082,
+    "UB": 0.211,
+    "UBG": 0.0,
+    "WUR": 0.846,
     "UR": 0.077,
     "WB": 0.0,
     "WBR": 0.0,
-    "WU": 0.789,
-    "WUG": 0.833
+    "WU": 0.829,
+    "WUG": 0.846
    },
    "max": 3,
    "max_pairs": {
@@ -4487,26 +4817,27 @@
     "UB": 2,
     "WUR": 3,
     "UR": 1,
-    "WU": 2,
+    "WU": 3,
     "WUG": 2
    }
   },
   "thelonelymountain": {
-   "set": 0.057,
-   "n": 298,
+   "set": 0.05,
+   "n": 416,
    "pairs": {
     "B": 0.0,
     "BG": 0.0,
-    "BR": 0.071,
+    "BR": 0.061,
     "G": 0.0,
     "UG": 0.0,
     "RG": 0.077,
-    "WR": 0.214,
+    "WR": 0.184,
     "UB": 0.0,
-    "WUR": 0.167,
+    "UBG": 0.0,
+    "WUR": 0.154,
     "UR": 0.077,
     "WB": 0.0,
-    "WBR": 0.286,
+    "WBR": 0.222,
     "WU": 0.0,
     "WUG": 0.0
    },
@@ -4521,23 +4852,24 @@
    }
   },
   "mirkwood": {
-   "set": 0.191,
-   "n": 298,
+   "set": 0.18,
+   "n": 416,
    "pairs": {
-    "B": 0.308,
-    "BG": 0.696,
-    "BR": 0.107,
-    "G": 0.333,
-    "UG": 0.125,
+    "B": 0.267,
+    "BG": 0.718,
+    "BR": 0.082,
+    "G": 0.286,
+    "UG": 0.087,
     "RG": 0.385,
     "WR": 0.0,
-    "UB": 0.0,
+    "UB": 0.053,
+    "UBG": 0.733,
     "WUR": 0.0,
     "UR": 0.0,
     "WB": 0.0,
-    "WBR": 0.071,
+    "WBR": 0.056,
     "WU": 0.0,
-    "WUG": 0.167
+    "WUG": 0.231
    },
    "max": 2,
    "max_pairs": {
@@ -4547,13 +4879,15 @@
     "G": 2,
     "UG": 2,
     "RG": 1,
+    "UB": 1,
+    "UBG": 2,
     "WBR": 1,
-    "WUG": 1
+    "WUG": 2
    }
   }
  },
  "meta": {
-  "lists": 298,
+  "lists": 416,
   "alsa_early": 4.5,
   "trap_fraction": 0.25,
   "pair_min_lists": 12,
@@ -4564,6 +4898,7 @@
    "G",
    "RG",
    "UB",
+   "UBG",
    "UG",
    "UR",
    "WB",
@@ -4574,35 +4909,36 @@
    "WUR"
   ],
   "pair_lists": {
-   "B": 13,
-   "BG": 23,
-   "BR": 28,
-   "BRG": 10,
-   "G": 12,
-   "R": 1,
+   "B": 15,
+   "BG": 39,
+   "BR": 49,
+   "BRG": 11,
+   "G": 14,
+   "R": 2,
    "RG": 13,
    "U": 5,
-   "UB": 17,
-   "UBG": 10,
+   "UB": 19,
+   "UBG": 15,
    "UBR": 3,
    "UBRG": 1,
-   "UG": 32,
+   "UG": 46,
    "UR": 13,
    "URG": 2,
    "W": 3,
-   "WB": 16,
+   "WB": 18,
    "WBG": 1,
-   "WBR": 14,
-   "WG": 6,
-   "WR": 28,
-   "WU": 19,
-   "WUB": 4,
-   "WUG": 12,
-   "WUR": 12
+   "WBR": 18,
+   "WG": 7,
+   "WR": 49,
+   "WRG": 1,
+   "WU": 41,
+   "WUB": 5,
+   "WUG": 13,
+   "WUR": 13
   },
   "rarity_median": {
-   "common": 0.304,
-   "uncommon": 0.256,
+   "common": 0.294,
+   "uncommon": 0.273,
    "rare": 0.071
   }
  }

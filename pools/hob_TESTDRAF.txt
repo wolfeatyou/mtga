@@ -1,15 +1,25 @@
 Deck
 
 Sideboard
-1 An Unexpected Party
-1 Bilbo, Luckwearer
+1 Attercop
+1 Bilbo's Deadly Slice
+1 Boughside Wanderers
+1 Cantankerous Keepers
+1 Chief Warg's Company
+1 Front Porch Sentries
+1 Goblin Plate Mail
+1 Gollum, Silent Slinker
+1 Guardian of the Halls
+1 Lake-town
+2 Little Bear
+1 Long-Bodied Grey Dog
+3 Mirkwood Nurturer
 1 Moment of Glory
-1 Ori, Keeper of Songs
-1 Roads Go Ever, Ever On
-1 Settle the Wreckage
-1 Stone by Sunlight
-1 The Mountain-king's Return
-1 The Queen of Dale
-1 Thorin's Last Stand
-1 Velvetwing Butterflies
-1 Vow to Erebor
+2 Nasty Little Rabbit
+2 Ordinary Bear
+1 Plains
+2 Stir Up Trouble
+1 Warg Tactics
+1 Wargling
+1 Well-Worn Spatula
+1 Wood Elves

@@ -318,7 +318,13 @@ def clock_stats(kills):
     return med, (lambda t: sum(1 for x in kills if x <= t) / len(kills))
 
 def calibrate(setcode, N=1200):
-    """Медианные часы по парам на ref_decks/<set>/ → <set>_clocks.json."""
+    """Голдфиш-калибровка по парам на ref_decks/<set>/ → <set>_clocks.json.
+
+    Расширена 20.08.2026 (JOURNAL § 8.27, закрытие долга «числа n=23 старой MSH-выборки»):
+    кроме часов пишутся медианы ранней игры победителей КАЖДОЙ пары — screw% · существо-к-T2%
+    · блокер-к-T3% · removal-к-T3/T4% · муллиганы. Это те же метрики, которыми mode_build
+    меряет НАШУ колоду, посчитанные тем же simulate() — сравнение прибор-в-прибор.
+    Описательная популяция победителей, не предикторы (§ 8.6)."""
     import glob
     import build_audit as A
     import statistics as st
@@ -326,30 +332,47 @@ def calibrate(setcode, N=1200):
     db = load_db()
     rows = {}
     files = sorted(glob.glob(os.path.join(SKILL, "ref_decks", setcode, "*.txt")))
-    print(f"калибровка часов: {len(files)} листов · {N} игр на лист")
+    Ne = max(400, N // 2)          # ранние метрики: отдельный прогон simulate()
+    print(f"калибровка: {len(files)} листов · clock {N} + early {Ne} игр на лист")
     for i, f in enumerate(files):
         deck, missing = build_deck(parse_decklist(f), db)
         if len(deck) < 38:
             continue
         pair = A.deck_colors(f, dbA)
         ko, kw = clock_sim(deck, N)
-        mo = sorted(ko)[len(ko) // 2]
-        mw = sorted(kw)[len(kw) // 2]
-        rows.setdefault(pair, []).append((mo, mw))
+        res = [simulate(deck) for _ in range(Ne)]
+        e = dict(
+            screw=100 * sum(1 for r in res if r["lands_at"][4] <= 2) / Ne,
+            t2=100 * sum(1 for r in res if r["first_block"] <= 2) / Ne,
+            b3=100 * sum(1 for r in res if r["first_block"] <= 3) / Ne,
+            rem3=100 * sum(1 for r in res if r["first_removal"] <= 3) / Ne,
+            rem4=100 * sum(1 for r in res if r["first_removal"] <= 4) / Ne,
+            mull=sum(r["mcount"] for r in res) / Ne,
+        )
+        rows.setdefault(pair, []).append(
+            (sorted(ko)[len(ko) // 2], sorted(kw)[len(kw) // 2], e))
         if (i + 1) % 50 == 0:
             print(f"  …{i + 1}/{len(files)}")
     out = {}
     for pair, v in rows.items():
         if len(v) < 12:
             continue
-        out[pair] = dict(open=st.median([a for a, _ in v]), wall=st.median([b for _, b in v]),
-                         n=len(v))
+        rec = dict(open=st.median([a for a, _, _ in v]), wall=st.median([b for _, b, _ in v]),
+                   n=len(v))
+        for k in ("screw", "t2", "b3", "rem3", "rem4", "mull"):
+            vals = [e[k] for _, _, e in v]
+            rec[k] = round(st.median(vals), 1)
+            rec[k + "_q"] = [round(sorted(vals)[len(vals) // 4], 1),
+                             round(sorted(vals)[3 * len(vals) // 4], 1)]
+        out[pair] = rec
     p = os.path.join(SKILL, f"{setcode}_clocks.json")
     json.dump(out, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"{'пара':<5}{'n':>4} {'пустая':>7} {'стойка':>7}")
+    print(f"{'пара':<5}{'n':>4} {'пустая':>7} {'стойка':>7} {'T2%':>6} {'блкT3%':>7} "
+          f"{'remT4%':>7} {'скрю%':>6}")
     for pair in sorted(out, key=lambda x: -out[x]["n"]):
         r = out[pair]
-        print(f"{pair:<5}{r['n']:>4} {r['open']:>7} {r['wall']:>7}")
+        print(f"{pair:<5}{r['n']:>4} {r['open']:>7} {r['wall']:>7} {r['t2']:>6} "
+              f"{r['b3']:>7} {r['rem4']:>7} {r['screw']:>6}")
     print(f"→ записано {p}")
 
 def main():

@@ -1,19 +1,23 @@
 Deck
-2 Bilbo Baggins, Burglar
 2 Enchanted River's Grasp
-1 Thranduil's Company
-3 Quarrel
-2 Lakeshore Apothecary
-2 Silvan Reveler
+1 Quarrel
 1 Attercop
-1 Bilbo, Luckwearer
-1 Plunder the Trollshaws
+1 Silvan Reveler
+1 Bilbo Baggins, Burglar
 1 Thranduil, Sindarin Liege
-2 Mirkwood Pathmaker
-2 Old Fat Spider
-1 Bejeweled Warg
-1 Troll Negotiations
-1 Troop of Ponies
-1 Elvenking's Halls
-8 Island
+2 Wood Elves
+1 Mirkwood Pathmaker
+1 Plunder the Trollshaws
+1 Uneasy Partings
+1 Guardian of the Halls
+1 Boughside Wanderers
+1 Bilbo, Luckwearer
+1 Mirkwood Nurturer
+1 Thranduil's Company
+2 Lakeshore Apothecary
+1 Elvenking's Harper
+1 Woodland Weavemaster
+1 Beorn's Hospitality
+1 Large Bear
+9 Island
 8 Forest

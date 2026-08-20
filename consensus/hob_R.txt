@@ -1,18 +1,16 @@
 Deck
-4 Goblin-town Flunkies
-3 Pinecone Strike
+3 Goblin-town Flunkies
+2 Pinecone Strike
 2 Smaug, the Great Calamity
+2 Burn, Burn, Tree and Fern
+2 Gandalf, Spark Starter
 2 Tidings of War
 1 Bothersome Noisemaker
-1 Burn, Burn, Tree and Fern
-1 Desert Were-Worm
 1 Dori, Bearer of Friends
 1 Fearsome Goblin Pair
-1 Gandalf, Spark Starter
 1 Glóin the Mighty
 1 Gundabad Opportunist
-1 Misty Mountains Raider
-1 Nori, Teller of Tales
-1 Ragged Short Spear
 1 Smaug's Fury
+2 Bombur, Gentle Dreamer
+2 Dwarven Mauler
 16 Mountain

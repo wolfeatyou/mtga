@@ -66,18 +66,27 @@ check(any("ЛОВУШКА" in x and "Bard" in x for x in out), "названа �
 _bard = next(t for t in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hob_traps.json")))["traps"]
              if t["key"] == "bardkingofdale")
 check(any(f"{_bard['alsa']:.1f}" in x for x in out), "сказано, каким пиком её берут (ALSA из traps.json)")
-check(any("0 из 47" in x for x in out), "сказано, в скольких трофейных колодах стоит")
+check(any(f"{_bard['played']} из {_bard['seen']}" in x for x in out), "сказано, в скольких трофейных колодах стоит (played/seen из traps.json)")
 
-print("\nB. карта не для этой пары")
-out = banner(["Thranduil, Sindarin Liege"], {"W", "U"})
+print("\nB. карта не для этой пары — берётся ИЗ ТЕКУЩЕГО pair_bad, не хардкодом")
+# Первая редакция хардкодила Thranduil в WU — на популяции 416 (§ 8.27) он из WU-списка
+# ВЫПАЛ (set_rate упал ниже порога), и тест месяц запрещал бы карту по мёртвым данным.
+_traps_all = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hob_traps.json")))
+_pb = _traps_all["pair_bad"]["WU"][0]
+out = banner([_pb["name"]], {"W", "U"})
+print(f"   (кандидат из данных: {_pb['name']})")
 print("\n".join("   " + x for x in out) or "   (молчит)")
 check(any("НЕ В ЭТОЙ ПАРЕ" in x for x in out), "в WU предупреждает")
-check(any("26%" in x and "10%" in x for x in out), "названы обе доли — в сете и в паре")
+check(any(f"{round(100*_pb['set_rate'])}%" in x and f"{round(100*_pb['here'])}%" in x for x in out),
+      "названы обе доли — в сете и в паре (из traps.json)")
 
 print("\nB2. та же карта в СВОЕЙ паре — баннер обязан молчать")
-out = banner(["Thranduil, Sindarin Liege"], {"U", "G"})
+_played = _traps_all["played"][_pb["key"]]["pairs"]
+_home = max(_played, key=lambda k: _played[k])
+out = banner([_pb["name"]], set(_home))
+print(f"   (домашняя пара по данным: {_home}, доля {round(100*_played[_home])}%)")
 print("\n".join("   " + x for x in out) or "   (молчит)")
-check(not out, "в UG молчит — иначе баннер запрещал бы карту везде")
+check(not out, f"в {_home} молчит — иначе баннер запрещал бы карту везде")
 
 print("\nC. обычная карта")
 out = banner(["Patient Instructor"], {"W", "U"})

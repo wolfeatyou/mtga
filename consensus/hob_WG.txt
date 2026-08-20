@@ -1,15 +1,21 @@
 Deck
-2 The Mountain-king's Return
-2 Dwarven Provisioner
 2 Magnificent End
+2 Wood Elves
+1 Celebrate the Mountain-king
+1 Mirkwood Nurturer
+1 Mirkwood Pathmaker
 1 Stone by Sunlight
-1 Troll Negotiations
-4 Wood Elves
+2 Quarrel
+2 The Mountain-king's Return
 2 Attercop
-2 Dwarven Shortsword
-2 Iron Hills Blacksmith
-2 Nasty Little Rabbit
-2 Ori, Keeper of Songs
+1 Dwarven Provisioner
+1 Guardian of the Halls
+1 Ori, Keeper of Songs
 1 Settle the Wreckage
-11 Plains
-7 Forest
+1 Troll Negotiations
+2 Dwarven Shortsword
+1 Beorn's Hospitality
+1 Bifur, Melodic Rider
+1 Hobbit Hole
+8 Plains
+8 Forest

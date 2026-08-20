@@ -9,6 +9,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "b_mono_71_green.txt": {
+  "date": "2026-08-20 04:10:57+00:00",
+  "ds": "AAQAAQr9-kMiCRUHvQFFGAMnAoz7Q0UChftDFgH_-kMCB4cFCQYCCqn5QyjBASgHTn8SOkICivtDRwHO-0MAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "9980e3ac-5bf9-4694-bdf5-d252966bd208",
+  "losses": 1,
+  "player": "Green",
+  "rank": "gold",
+  "wins": 7
+ },
  "b_mono_71_ouzoutou.txt": {
   "date": "2026-08-16 09:51:47+00:00",
   "ds": "AAQAART9-kMCCxEEFwQDBwUFD7MBMwMJCwQXQwOO-0MaowMB4gkBhwUBB40FAgrLMuvHQ2UNSwMXIhwrAoz7Q70BAAAAAA",
@@ -16,6 +26,16 @@
   "id": "e79e3c98-26d6-4686-a701-a7463ad3f38c",
   "losses": 1,
   "player": "Ouzoutou",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "b_mono_71_schloops19.txt": {
+  "date": "2026-08-19 19:06:35+00:00",
+  "ds": "AAQAAQWF-0MHKqgCXgS--UPEATsRAv_6QxwAAwWIBQsFBa32QwINiPpDBigGhQEQIhYmGgk8EgKM-0PuAQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4ef0d6dd-ab1c-430a-bdc1-465bc3521eea",
+  "losses": 1,
+  "player": "Schloops19",
   "rank": "platinum",
   "wins": 7
  },
@@ -119,6 +139,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "bg_golgari_70_8elvis8.txt": {
+  "date": "2026-08-20 08:20:35+00:00",
+  "ds": "AAQAAQ36-kMDCBYiFHpPBiMDCTkFjPtDHyOzAREAAAIIhwUJBgIQ5PlDESgkCQQf8AEZFQMPAxBnHQH6_EMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "00955ce4-6cc0-4432-b09d-6af5f129270d",
+  "losses": 0,
+  "player": "8elvis8",
+  "rank": "platinum",
+  "wins": 7
+ },
  "bg_golgari_70_ansem.txt": {
   "date": "2026-08-16 15:31:20+00:00",
   "ds": "AAQAAQqF-0MFHgadAQI0HDJRBIL7Q0zAAb0BAZL9QwHe_UMCB4cFCAYCCKn5QwhgVqcCCSRcAp_8Qz4BrflDAAAA",
@@ -129,6 +159,36 @@
   "rank": "platinum",
   "wins": 7
  },
+ "bg_golgari_70_benkny.txt": {
+  "date": "2026-08-19 22:55:28+00:00",
+  "ds": "AAQAARL9-kMCAwMHAg0EFwsNA4kBNAQOLxYDy_xDMwMAAAIIhwUIBgIOxvlDHhEPDR8GFFvLAQYYmQENAZ39QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a34af6cd-4f90-48ad-a215-3282a582aea0",
+  "losses": 0,
+  "player": "benkny",
+  "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_70_ernham.txt": {
+  "date": "2026-08-20 07:52:27+00:00",
+  "ds": "AAQAAQr9-kMNCBYDJokBC9cBDwb_-kMcHwOOATMBgvtDAAIGhwUJBgIHyvpDGMQBCVZiUQP6_EMUiAEBnf1DAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b84e0609-e8b6-47fb-acdb-743407387592",
+  "losses": 0,
+  "player": "Ernham",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "bg_golgari_70_hubner.txt": {
+  "date": "2026-08-20 14:17:39+00:00",
+  "ds": "AAQAARLLMrTIQw01CAiBASQIDQcCCT0NITQPApL7QzwBy_xDAAIHhwUIBgIMqflDP0YCER4OuQElBygvAt38Q0MAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "7ab72ce2-cd6f-4be2-b6ee-c000d414c09a",
+  "losses": 0,
+  "player": "Hubner",
+  "rank": "platinum",
+  "wins": 7
+ },
  "bg_golgari_70_shleeepyhead.txt": {
   "date": "2026-08-16 16:37:32+00:00",
   "ds": "AAQAARH9-kMFJgkJAxR6KwgQBBIfGwlkAoX7Q_wBAf_6QwACCIcFCAYCCq35QwRdA5QBFZgBJAR1A8H7Qw3PAQAAAAA",
@@ -136,6 +196,16 @@
   "id": "2f6e5881-e42e-4cdd-ab37-7723af6a4524",
   "losses": 0,
   "player": "ShleeepyHead",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "bg_golgari_70_tororosso92.txt": {
+  "date": "2026-08-20 12:55:59+00:00",
+  "ds": "AAQAAQ6x-UPMAQ0hGZYBIAcNBAIGA0gGgvtDTNIBL1shAAACB4cFBwYCDNH5Qx1QgwEQPiAjxAEXCwsC-vxDJgAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a1c301b4-4e57-40ee-8dac-83888a47360a",
+  "losses": 0,
+  "player": "tororosso92",
   "rank": "platinum",
   "wins": 7
  },
@@ -179,6 +249,36 @@
   "rank": "platinum",
   "wins": 7
  },
+ "bg_golgari_71_jknapp427.txt": {
+  "date": "2026-08-20 00:07:24+00:00",
+  "ds": "AAQAAQ2S-0MWAwsHEY8BGQgiIyJmBP36Qw1HjQIBjv1DAAIHhwUJBgINxPlDEVsMDgmqASlohAEEFxIC8_tDXwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "3c90dc0a-c964-4f98-abf4-6f4b3d5a8fd2",
+  "losses": 1,
+  "player": "jknapp427",
+  "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_71_matesachi.txt": {
+  "date": "2026-08-20 10:37:49+00:00",
+  "ds": "AAQAAQqO-0MRBhwDrAEeBDSFAQb_-kM3BxGzAU4BgvtDAAIHhwUIBgIJrvpDjAEUjAEGFhUVBAPLMobJQ_4BAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "02bca72f-42bc-4706-a5fb-27484e18a0dc",
+  "losses": 1,
+  "player": "Matesachi",
+  "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_71_razordraft.txt": {
+  "date": "2026-08-20 13:57:17+00:00",
+  "ds": "AAQAARDLMrLIQwUDIxIHigECIwYLCgdMCQL_-kNPAb37QwACCYcFCAYCDZH6QwwZCxkWHHUhGW5tFAOt-UODAcMBAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "64638d08-883c-4a45-b50f-aaefd241ca9e",
+  "losses": 1,
+  "player": "RazorDraft",
+  "rank": "gold",
+  "wins": 7
+ },
  "bg_golgari_71_skeebum.txt": {
   "date": "2026-08-16 17:38:47+00:00",
   "ds": "AAQAAQv_-kMGFimSAQQxBxJoMAb9-kMNRLMBTnwBy_xDAAIHhwUHBgIFrflDxgI5Jp8BBMH7Q7UBGKYBAAAAAA",
@@ -219,6 +319,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "bg_golgari_72_garro.txt": {
+  "date": "2026-08-20 12:43:21+00:00",
+  "ds": "AAQAARD_-kMGBQgWDpUBAiMODQ8GJmoMAs_9Q3wBkv1DAb37QwIHhwUGBgIMyzLmxkMHDqcBVGsxAxYYYwG6-0MAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b157ca41-251d-4946-8286-2c9b049e82ce",
+  "losses": 2,
+  "player": "Garro",
+  "rank": "gold",
+  "wins": 7
+ },
  "bg_golgari_72_gonzu.txt": {
   "date": "2026-08-16 13:09:57+00:00",
   "ds": "AAQAAQqF-0MHAhcYswEwIwxtBv36QwIp1gFgCQHO-0MAAgeHBQgGAgut-UODARbcATgGLgx0HAoCnfpDjAMAAAAA",
@@ -227,6 +337,16 @@
   "losses": 2,
   "player": "GONZU",
   "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_72_inaindalias.txt": {
+  "date": "2026-08-20 13:59:22+00:00",
+  "ds": "AAQAARKw-kNNKyZ_CQQPDSQKBT4KCjkIDwTLMoDKQ0cxAY0FAYwFAQeHBQIHyzL_x0NwA2KwAQsC0vxDSwGO_UMAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4020db54-57df-49dd-a79d-fecc20019ac4",
+  "losses": 2,
+  "player": "InaInDalias",
+  "rank": "platinum",
   "wins": 7
  },
  "bg_golgari_72_kizaminori.txt": {
@@ -246,6 +366,16 @@
   "id": "81f2b4d2-88f8-492a-b429-501021d4d0ca",
   "losses": 2,
   "player": "konoha_4869",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "bg_golgari_72_kunatz.txt": {
+  "date": "2026-08-20 11:31:13+00:00",
+  "ds": "AAQAAQyC-0MmDgQXeg8nDQYvGwWb-0MikgIWZgH_-kMAAgeHBQgGAg_LMt7GQwQkaQIeDQk11QEjSggCAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "f952114e-8500-40e8-a112-21f6e8d120d0",
+  "losses": 2,
+  "player": "Kunatz",
   "rank": "platinum",
   "wins": 7
  },
@@ -279,6 +409,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "bg_golgari_72_myon37.txt": {
+  "date": "2026-08-20 12:55:20+00:00",
+  "ds": "AAQAAQm6-0MKCn0CLQQDQgP9-kMFNAOO_UMPAwACCIcFCAYCC635Q7UBbwIDE_EBEUkIDwKL_UNcAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6ea43ebd-f152-40e1-8700-842ab7661e86",
+  "losses": 2,
+  "player": "myon37",
+  "rank": "gold",
+  "wins": 7
+ },
  "bg_golgari_72_nanaki.txt": {
   "date": "2026-08-16 15:52:10+00:00",
   "ds": "AAQAAQ79-kMCBgcfBgUYA6UBCBQ9fAS9-0PEASMfAcv8QwACB4cFCAYCBrH5Q2zMAhxZCQTLMpnHQ8EBtQIAAAAA",
@@ -287,6 +427,26 @@
   "losses": 2,
   "player": "Nanaki",
   "rank": "platinum",
+  "wins": 7
+ },
+ "bg_golgari_72_oliver67.txt": {
+  "date": "2026-08-19 22:27:57+00:00",
+  "ds": "AAQAARL_-kMDDAQEEhWOAQ8WDgMRAhAiH2YD_fpDCMoCAAACCIcFCAYCDcsy_8ZDRysFNl-kARQPAypqAoz7Q8YBAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4e317a8f-4395-4558-a526-e9b98d607908",
+  "losses": 2,
+  "player": "Oliver67",
+  "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_72_practiceraedski.txt": {
+  "date": "2026-08-20 06:20:38+00:00",
+  "ds": "AAQAARXLMrTIQwMQEyl9BwsTCgcKAwQIBkUfMBcDjAXD-EMsAAACB4cFBgYCCqH6QxseYJgBCx0jeS0DrvpD4AJBAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "2fd1150e-9c78-4392-8eb0-eba40bd5f252",
+  "losses": 2,
+  "player": "Practice Raedski",
+  "rank": "gold",
   "wins": 7
  },
  "bg_golgari_72_renegadeshep.txt": {
@@ -306,6 +466,26 @@
   "id": "10b91d86-5a6a-4221-bc5f-6518a9fea7be",
   "losses": 2,
   "player": "rSV!",
+  "rank": "gold",
+  "wins": 7
+ },
+ "bg_golgari_72_sauceboss.txt": {
+  "date": "2026-08-20 07:04:10+00:00",
+  "ds": "AAQAARL_-kMDDBoVEQN6EhkVDwYEHxsHZgPLMsfIQwkAAAIIhwUIBgIL9flDORULGWpnQhQSjQECyvpDWwHd_EMAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "ca4e516d-89f9-424b-ad83-a111e448b9ef",
+  "losses": 2,
+  "player": "sauceboss",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "bg_golgari_72_subyster.txt": {
+  "date": "2026-08-20 02:23:07+00:00",
+  "ds": "AAQAARD_-kMDDC-zASILAwQfDBYCITQPAv36Q4QCApv7Q7ABAAIHhwUHBgIMvvlDiAEUFml5FyVZRgcEAvb8QwQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "280282bd-dfc4-4ee1-bcd0-a794846c1fad",
+  "losses": 2,
+  "player": "subyster",
   "rank": "gold",
   "wins": 7
  },
@@ -329,6 +509,26 @@
   "rank": "gold",
   "wins": 7
  },
+ "br_rakdos_70_cainv33.txt": {
+  "date": "2026-08-20 08:18:09+00:00",
+  "ds": "AAQAARGF-0MFDAUEHgQNDwMTLLABDwMUQwKJ_ENAAab8QwACCI0FCNUEAg-p-UNfQiYaHhkQWwMJQpQBDhgBpftDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "ed22c8c2-9dc7-4b0d-99f5-54e225f6d614",
+  "losses": 0,
+  "player": "cainv33",
+  "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_70_forgottenforce.txt": {
+  "date": "2026-08-20 04:06:37+00:00",
+  "ds": "AAQAAQ2p-UPWASkSCgoPEQ8iEKsBBAXz-0MSBB3PAQAAAgiNBQnVBAIItvpDVg8EMgJlPgSt-UOQAkxAAaX7QwAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4db17fbc-f8e1-40fe-9470-809535f07dd7",
+  "losses": 0,
+  "player": "ForgottenForce",
+  "rank": "gold",
+  "wins": 7
+ },
  "br_rakdos_70_improbableend.txt": {
   "date": "2026-08-13 20:10:40+00:00",
   "ds": "AAQAARe--UNGcwYCDS4HEAgEAykNDAQJDA5uI14HAY38QwGIBQACBo0FBtUEAhDLMvbGQwUIFhgSwwEnQBFXSwQfHwAAAAAA",
@@ -336,6 +536,16 @@
   "id": "83a0d6c7-4216-4ad1-87b0-1c65abdef65b",
   "losses": 0,
   "player": "improbable_end",
+  "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_70_longlife41.txt": {
+  "date": "2026-08-20 13:19:00+00:00",
+  "ds": "AAQAAQ-C-0MDBw8bBCYEDxIaAwodcgT_-kMpfrgBAAACCY0FCNUEAg2p-UM7KiBeAhc0SQp9JkcCwftDTAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "17600004-c4c1-4f4c-9f7c-1cdeeaaeab4a",
+  "losses": 0,
+  "player": "Longlife41",
   "rank": "gold",
   "wins": 7
  },
@@ -359,6 +569,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "br_rakdos_71_geru.txt": {
+  "date": "2026-08-20 12:50:38+00:00",
+  "ds": "AAQAAQ3_-kMNPQgPFgciBwkJEZgBBpv7Qx8DEZACWgAAAgiNBQfVBAINuPlDKVUUKRkZ1QEWJxNNFgABrvpDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "e61dd0c5-55f3-4103-bbe1-e506753961ec",
+  "losses": 1,
+  "player": "Geru",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_71_jamzdadestroyer.txt": {
+  "date": "2026-08-20 11:17:00+00:00",
+  "ds": "AAQAAQyF-0MHBgkbGyIKEBkGHQX9-kMCA2LUAgG9-0MAAgiNBQfVBAIP5PlDCkAYIQZUThMWJSgJcT0AAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "0ba60bfe-0bf4-4182-8e0e-c9ade05046e8",
+  "losses": 1,
+  "player": "JamZDaDestroyer",
+  "rank": "gold",
+  "wins": 7
+ },
  "br_rakdos_71_legendaryparker.txt": {
   "date": "2026-08-13 15:15:53+00:00",
   "ds": "AAQAARL9-kMCAwoGFgkMBBATKRmYAQgfEEcFhwWU9kNY3AFpAAACB40FBdUEAgyt-UNBSAsCKgNRigElMHYAAY79QwAAAA",
@@ -367,6 +597,16 @@
   "losses": 1,
   "player": "Legendary Parker",
   "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_71_matoga.txt": {
+  "date": "2026-08-20 10:27:15+00:00",
+  "ds": "AAQAAQyF-0MFMAoFCA8dGRCVAX0G_fpDAikmbQ4AAAIJjQUH1QQCD8syqsdDLBUUUQpOGgITFiUdxQEBifxDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b87baae0-0fac-4538-bb4a-fd59e4684a56",
+  "losses": 1,
+  "player": "Matoga",
+  "rank": "gold",
   "wins": 7
  },
  "br_rakdos_71_mmken.txt": {
@@ -399,6 +639,36 @@
   "rank": "gold",
   "wins": 7
  },
+ "br_rakdos_72_20thcenturyboy.txt": {
+  "date": "2026-08-20 12:43:17+00:00",
+  "ds": "AAQAARH_-kMcDQ4LEA8TCgwWAwoDDKMBBwOF-0MaLwAAAgmNBQjVBAISxPlDAigaOwsMDT40KAQKEwq_ASsXAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "78fca3bf-7b9b-4ee9-b31f-2e0df070a4a6",
+  "losses": 2,
+  "player": "20thcenturyboy",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_alagost.txt": {
+  "date": "2026-08-20 13:16:06+00:00",
+  "ds": "AAQAARL_-kMXBQQPDBcIBxYXLoABIwcGJyYCgvtDTAHz-0MAAgiNBQfVBAIOqflDXy5BMSk-BBkDcSMoYAGn-kMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "d8abfca5-f3eb-429d-8cc7-5da13e9cc402",
+  "losses": 2,
+  "player": "alagost",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_alc.txt": {
+  "date": "2026-08-20 12:11:28+00:00",
+  "ds": "AAQAAQ7_-kMDNAQPFAMTGi4EkAEmQwSb-0MiaQkB3v1DAAIIjQUI1QQCCsr6QxB5NgQCLA6GAV4CpftDxgIAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "c1b1f69f-2518-452c-a678-5db03e64beda",
+  "losses": 2,
+  "player": "alc",
+  "rank": "gold",
+  "wins": 7
+ },
  "br_rakdos_72_altruisticcockroach.txt": {
   "date": "2026-08-16 19:43:44+00:00",
   "ds": "AAQAARCp-UPZAQgRHxQDDBYFHhkMgAEfBAP_-kPKAe8BAb37QwACCI0FB9UEAgqu-kMTCRAW6gE0BFUKA8sy3spDiwEAAAAA",
@@ -407,6 +677,16 @@
   "losses": 2,
   "player": "AltruisticCockroach",
   "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_72_ar2enal.txt": {
+  "date": "2026-08-20 13:02:49+00:00",
+  "ds": "AAQAAQ36-kMDCA0NDAZUBBkKsgE-Ar37Q3ICm_tDiwEAAgmNBQjVBAIMxvlDSDADKQMDNWqIAVQrA635Q6YCZQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4a828dbb-0e71-483b-9c29-c25317809014",
+  "losses": 2,
+  "player": "Ar2enal",
+  "rank": "platinum",
   "wins": 7
  },
  "br_rakdos_72_asidbath.txt": {
@@ -437,6 +717,36 @@
   "losses": 2,
   "player": "chabababa",
   "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_72_cjps.txt": {
+  "date": "2026-08-20 11:35:45+00:00",
+  "ds": "AAQAAQ76-kMYCQQeDAgTDwoiBwkMA__6Q0UKAYn8QwACCY0FCNUEAhGI-kMuBisJHCoEBw0gEwwVFt4BFwAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "8eaeec58-88ba-48ef-9d2a-567a517e783b",
+  "losses": 2,
+  "player": "CJPS",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_co32.txt": {
+  "date": "2026-08-20 13:25:32+00:00",
+  "ds": "AAQAART6-kMDDREEBhgUEw8vChkEchgLNBsLAv_6Q7ABAAACCI0FCNUEAg2t-UMwMSJcMSwcKi6xASYLAvX5Q5oCAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "43323959-bdec-4461-9e61-d101759578fa",
+  "losses": 2,
+  "player": "co.32",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_cof.txt": {
+  "date": "2026-08-20 11:29:56+00:00",
+  "ds": "AAQAAQ_3-kMGDRUeSAgSEAyDASAHUwQF__pDTzsdtAEAAAIIjQUH1QQCC635Q2GNAVsXGQYDbnExAqX7Q30AAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "0638fbf9-1f58-4d69-9483-b7b2f4c2df26",
+  "losses": 2,
+  "player": "COF",
+  "rank": "platinum",
   "wins": 7
  },
  "br_rakdos_72_dality.txt": {
@@ -489,6 +799,26 @@
   "rank": "gold",
   "wins": 7
  },
+ "br_rakdos_72_hangedx.txt": {
+  "date": "2026-08-19 18:28:08+00:00",
+  "ds": "AAQAAQ_9-kMFAw0WNQMYBTKUARcLUxMGhwWH9kMsFD_CAQAAAgeNBQbVBAIKyzLixkNkHQhvHGtijgEDifxDJhoAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "3981730e-6a10-4355-a2cf-e1d7a3811f72",
+  "losses": 2,
+  "player": "HangedX",
+  "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_72_jamjam.txt": {
+  "date": "2026-08-20 11:27:57+00:00",
+  "ds": "AAQAAQ__-kMGBTADFAUDFQoFEBUncgSC-0MZWzAAAAIIjQUJ1QQCCcsy-8ZDV03CAR8ld1gFqflDBK0B6QMIAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a521628a-60e8-43b8-a0c2-d5a89a4dc8d1",
+  "losses": 2,
+  "player": "Jam Jam",
+  "rank": "platinum",
+  "wins": 7
+ },
  "br_rakdos_72_jandj320.txt": {
   "date": "2026-08-16 17:35:12+00:00",
   "ds": "AAQAAQ__-kMDCAgoCgUFDzAVHQqGAQsF_fpDHiJpkgIAAAIIjQUH1QQCEKn5QwRkPTcWHwdIHRIDDldLQgAAAAAA",
@@ -509,6 +839,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "br_rakdos_72_magman.txt": {
+  "date": "2026-08-20 12:45:19+00:00",
+  "ds": "AAQAAQ6M-0McFQQNDxYaEhAarAEXLAWl-0MsRRajAQAAAgiNBQjVBAILwflDTRkVMR-DAVE9fy8CifxDLwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b2eb5999-21a3-4ae8-ae6a-b88811a4b5e7",
+  "losses": 2,
+  "player": "magman",
+  "rank": "gold",
+  "wins": 7
+ },
  "br_rakdos_72_melon.txt": {
   "date": "2026-08-14 04:22:25+00:00",
   "ds": "AAQAARKt-UPKARUcDgsQUTgkPQsJDzgaCA8GhwX49UMcIjbYAgAB4gkBBo0FAgqp-UMhPi4sC_ABMRshAbj5QwAAAAA",
@@ -516,6 +856,16 @@
   "id": "93eba661-eb23-4fc1-81c2-6b2863cfaa54",
   "losses": 2,
   "player": "melon",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_mnl4eva.txt": {
+  "date": "2026-08-20 13:54:17+00:00",
+  "ds": "AAQAAQv9-kMCOyMwGRIRch8RBoz7QzERA40CAwAAAgmNBQjVBAINyzLmxkM9IwwEDZMBENgBiwEIBwOp-UPuA7QBAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "7bfa6bad-5ae2-4d2d-8caf-785db65609d9",
+  "losses": 2,
+  "player": "mnl4eva",
   "rank": "platinum",
   "wins": 7
  },
@@ -539,6 +889,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "br_rakdos_72_rikimaruboys.txt": {
+  "date": "2026-08-20 09:13:55+00:00",
+  "ds": "AAQAARSp-UPZARkECQkgDAMEDwoMHQYddSBaDwOF-0MFtQEAAAIIjQUH1QQCCt35Q22JAU97MhwrFxICj_xDKQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "ea437925-39c6-488b-bc6a-7d1c127df029",
+  "losses": 2,
+  "player": "Rikimaruboys ",
+  "rank": "platinum",
+  "wins": 7
+ },
  "br_rakdos_72_segiuwon.txt": {
   "date": "2026-08-16 19:29:05+00:00",
   "ds": "AAQAAQ6C-0MDBQgZD0MICBkjkQEEWgXO-0MDDAM_AAACCY0FB9UEAhCx-UMTAh4KAx2XAWQGIAlCcSwWAcH7QwAAAAA",
@@ -546,6 +906,16 @@
   "id": "2339013e-82d6-4aac-ad0c-187d1f4d1b80",
   "losses": 2,
   "player": "segiuwon",
+  "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_72_sergio.txt": {
+  "date": "2026-08-20 09:50:14+00:00",
+  "ds": "AAQAARH_-kMDAwcPCjQHFhMEHx1yFA8NBN37Q0kJiQIAAAIHjQUI1QQCCdH5QwxKDBcgnwHwATsCjvpDlAIB9flDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "e2f31644-3a95-43e3-9ba9-25f26ec8cbf1",
+  "losses": 2,
+  "player": "Sergio",
   "rank": "gold",
   "wins": 7
  },
@@ -587,6 +957,26 @@
   "losses": 2,
   "player": "ulamoguy",
   "rank": "platinum",
+  "wins": 7
+ },
+ "br_rakdos_72_zhatu.txt": {
+  "date": "2026-08-20 02:54:36+00:00",
+  "ds": "AAQAAQ76-kMDHgQeHAcTLBAQfCpXA7r7QxcsAAH_-kMCCY0FB9UEAgzR-UM9KG8cEga1ARJLJy0CqflDoQEAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "8581f636-b4cf-438d-a4dc-4a5d23eb82e0",
+  "losses": 2,
+  "player": "Zhatu",
+  "rank": "gold",
+  "wins": 7
+ },
+ "br_rakdos_72_zimayzw.txt": {
+  "date": "2026-08-20 05:40:34+00:00",
+  "ds": "AAQAARD9-kMCDQIjDBkKCQoWJowBH0YQBIX7QxoqJQG8_kMAAgeNBQbVBAINjvpDKFYxOUIlMQYvDGUPAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "ce62e68b-90af-4243-b7b8-accf389d1b00",
+  "losses": 2,
+  "player": "ZimaYZW",
+  "rank": "gold",
   "wins": 7
  },
  "brg_jund_70_veeonix.txt": {
@@ -679,6 +1069,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "brg_jund_72_theak47lion.txt": {
+  "date": "2026-08-20 01:21:00+00:00",
+  "ds": "AAQAARGp-UPUAQIGBQIZAyEUAx0vKjiiAQgE0ftDPDy_AQABhwUCBo0FBdUEAg7E-UNNLTKdAQIEHBwSWhgsEwAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b82a7b44-7698-4b37-bdaa-c92b30c291a4",
+  "losses": 2,
+  "player": "TheAK47Lion",
+  "rank": "platinum",
+  "wins": 7
+ },
  "brg_jund_72_zor.txt": {
   "date": "2026-08-14 13:42:15+00:00",
   "ds": "AAQAAQ79-kMVGSMDIgo2GA8nETF5B__6QwMZHyPbAhMChwXbBAABBo0FAg68-kMjCD4VaAomPA9iFxcSAAAAAAA",
@@ -759,6 +1159,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "g_mono_72_lexs.txt": {
+  "date": "2026-08-20 13:55:56+00:00",
+  "ds": "AAQAAQ2h-kM58QECDQ8HLQdNCiEgBN38QxkkDwHLMgACCocFBgUCEcb5QwQHJAcrDwsvYy4SYwQdBnEAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a72ee717-8c87-4867-9bd9-7b1226ee7fa4",
+  "losses": 2,
+  "player": "Lexs",
+  "rank": "platinum",
+  "wins": 7
+ },
  "g_mono_72_merlinranger.txt": {
   "date": "2026-08-16 16:06:49+00:00",
   "ds": "AAQAAQvLMrLIQ0SZARYGCwoSAy8E3fxDIUWIAQHL_EMBkv1DAgmHBQYGAg6R-kMlMSUPBBt-ODA3A1MWAAAAAAA",
@@ -766,6 +1176,16 @@
   "id": "51b67b01-2f8f-4ef4-9f13-77e529cc1363",
   "losses": 2,
   "player": "Merlin_Ranger",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "g_mono_72_nameless01.txt": {
+  "date": "2026-08-20 09:35:15+00:00",
+  "ds": "AAQAAQzLMuXHQ6oCAwgZAw0EDlEKBcv8Q08PWzAB9vxDAAIJhwUGBQIKsflDYCsCFX5CPwjxAQGu-kMB-vxDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "743d1ded-73d4-429b-b95e-33d57d26e4be",
+  "losses": 2,
+  "player": "Nameless01",
   "rank": "platinum",
   "wins": 7
  },
@@ -849,6 +1269,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "gu_simic_71_boeckelele.txt": {
+  "date": "2026-08-19 18:09:44+00:00",
+  "ds": "AAQAAQ3LMsnHQzII_QESAxAEAggDegXw-kPqATEHEgAAAgqHBQcFAg3E-UNNWYwBhAEjAxcYCCIdNQHd-kMBwfpDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "fd185d19-c221-46f8-892b-eb78037830d6",
+  "losses": 1,
+  "player": "Boeckelele",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_71_chataolauj.txt": {
+  "date": "2026-08-20 06:28:35+00:00",
+  "ds": "AAQAARSu-kMCBgYFBRkRhAICCwoDBAsHKwgYRQKd-kM9AAACCIcFCAUCEKn5QwggEwozDRAVCgIzeyJueQAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "2f4edae6-6b92-4acd-82e8-40842818c77f",
+  "losses": 1,
+  "player": "chataolauj",
+  "rank": "gold",
+  "wins": 7
+ },
  "gu_simic_71_corote.txt": {
   "date": "2026-08-16 02:06:43+00:00",
   "ds": "AAQAAQ6x-UNoBAQDsgIeCh9SAgosHAaIBcMt9sdDGdYChAEBsPpDAAIGhwUGBQIOqflDGAMGB2UkK_EBBBQSbjEAAAAAAA",
@@ -869,6 +1309,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "gu_simic_71_flug.txt": {
+  "date": "2026-08-19 18:13:12+00:00",
+  "ds": "AAQAAQ7LMsnHQw2qAg8cCwoHCEsMEywFvPpDHqQCaU0BsPpDAAIIhwUFBQIHyzKdx0MmIKQCTi8D8PpD7QHmAQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "62c40691-747f-4e50-87d5-4bf5561c9d84",
+  "losses": 1,
+  "player": "Flug",
+  "rank": "gold",
+  "wins": 7
+ },
+ "gu_simic_71_jimdavismtg.txt": {
+  "date": "2026-08-19 20:06:28+00:00",
+  "ds": "AAQAAQ-MBaH0QwRsE0DtAQwYCgcCDJQBCAP2_ENxFAPLMo_KQ9YBAAEKhwUCCa35Q3cKHAm2AQRtswEBvPpDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "bbd7d1aa-af63-4ba0-9559-4ace5960ba33",
+  "losses": 1,
+  "player": "JimDavisMTG",
+  "rank": "platinum",
+  "wins": 7
+ },
  "gu_simic_71_ltdangle.txt": {
   "date": "2026-08-16 13:45:58+00:00",
   "ds": "AAQAARKU-kMQEgQEHPEBGgsGFQcSQQIKCkECyzK2ykMBsPpDAAIIhwUHBQIK5PlDPRULHA3zAUN2FwLK-kOFAwAAAAA",
@@ -879,6 +1339,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "gu_simic_71_rakanishu.txt": {
+  "date": "2026-08-20 13:40:15+00:00",
+  "ds": "AAQAAQaw-kMjnQIbD1cHlPpDCR8FGRbfAgLL_EPxAQACB4cFBwUCC536Qy01jgE-B052FxYIAq76Q68CAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6dacb538-6b36-43f4-859b-6d84b61cb1da",
+  "losses": 1,
+  "player": "Rakanishu",
+  "rank": "platinum",
+  "wins": 7
+ },
  "gu_simic_71_rminator.txt": {
   "date": "2026-08-16 12:42:03+00:00",
   "ds": "AAQAARGx-UNjBQQTFhQW2wEPAyEDH1EKOQH2_EMCyzKcy0MAAgeHBQgFAgyE-kMyFERbCgUXExaiASUCu_1DWwAAAAA",
@@ -887,6 +1357,16 @@
   "losses": 1,
   "player": "Rminator",
   "rank": "gold",
+  "wins": 7
+ },
+ "gu_simic_71_simone007.txt": {
+  "date": "2026-08-19 21:31:06+00:00",
+  "ds": "AAQAAQud-kMEPBPqAScjQx0wCAeU-kMcDB7xAUMEAAACB4cFCAUCCoj6Qx8HEBwQnwEGjgF5Asr6QyYBvPpDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "9653e99f-158a-4955-967d-fdf8dc6e85ec",
+  "losses": 1,
+  "player": "simone007",
+  "rank": "platinum",
   "wins": 7
  },
  "gu_simic_71_varuz.txt": {
@@ -929,6 +1409,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "gu_simic_72_baldlotus.txt": {
+  "date": "2026-08-19 20:40:25+00:00",
+  "ds": "AAQAAQ6x-UO_Ad0BEBMODQcIVwoJCCgEyzLSx0OuAisBsPpDAAIIhwUIBQILvvlDfhcXJJQBBHcWFzUCrvpDEwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "04b0b547-954b-4417-bfe4-9dde354a892d",
+  "losses": 2,
+  "player": "BaldLotus",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_beef.txt": {
+  "date": "2026-08-19 21:37:45+00:00",
+  "ds": "AAQAAQmk-kMDCUDiAQgGCQcFyzKSykM1F4sBAvb8Q3sAAgiHBQcFAgnB-UMtB0cOE5kBLA0DiPpDUo0DAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "85059b5a-217f-4038-b032-de3be5027af4",
+  "losses": 2,
+  "player": "Beef",
+  "rank": "platinum",
+  "wins": 7
+ },
  "gu_simic_72_brainsickhater.txt": {
   "date": "2026-08-16 19:09:14+00:00",
   "ds": "AAQAAQ2n-kMJBiSAAgYrBwtIAhQ1Bcsy48dDrwJMkwEB8f1DAAIHhwUHBQIJqflDBB0XngGPAhKKAQMDyzKrykMEAAAAAA",
@@ -936,6 +1436,16 @@
   "id": "eb490095-5b1b-49b5-ac84-d7281ff184bd",
   "losses": 2,
   "player": "BrainsickHater",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_cavalettas.txt": {
+  "date": "2026-08-20 11:47:08+00:00",
+  "ds": "AAQAAQyu-kMCFg2KAjUORQIIRQgHlPpDCR-eAiAEEAAAAgeHBQcFAg3K-UM-DCIIAz4NxgEoIzIIAbD6QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "0372c446-eae2-4f47-8763-bef4feb66a2c",
+  "losses": 2,
+  "player": "Cavalettas",
   "rank": "platinum",
   "wins": 7
  },
@@ -966,6 +1476,16 @@
   "id": "73699fed-27b6-4daf-aea3-800498068c64",
   "losses": 2,
   "player": "Elite",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_garnett.txt": {
+  "date": "2026-08-20 02:48:43+00:00",
+  "ds": "AAQAAQyp-UMIfw4DjAIFHgoaZ0EGy_xDMxQORQwAAAIJhwUHBQILtvpDBgckVpUBQhBDISUCyvpDxAIAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "d89b57db-b0ef-4f2d-b7c3-85c6035f4995",
+  "losses": 2,
+  "player": "Garnett",
   "rank": "platinum",
   "wins": 7
  },
@@ -1019,6 +1539,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "gu_simic_72_peabrain.txt": {
+  "date": "2026-08-20 06:07:49+00:00",
+  "ds": "AAQAARCd-kMpDQcW4gEEBxMGFQcITRRBA8v8QzMrAfH9QwACCYcFBwUCC-T5Q0oIR0SRAQsxEgRDArz6Qw4AAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "d06fab1e-7cf4-42f4-9e89-b698729168dd",
+  "losses": 2,
+  "player": "Peabrain",
+  "rank": "platinum",
+  "wins": 7
+ },
  "gu_simic_72_pedrottomtg.txt": {
   "date": "2026-08-12 21:44:02+00:00",
   "ds": "AAQAAQ6NBYf1Qxos-AELGRwISwIKCgkGyzLlx0ObAl5WTAAAAgaHBQgFAgih-kM51QEjCEYvIgS2-kM6nQGBAQAAAAA",
@@ -1026,6 +1556,16 @@
   "id": "28aaa6da-4462-40d8-9233-01e9bf23c08b",
   "losses": 2,
   "player": "PedrottoMTG",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_sawomir.txt": {
+  "date": "2026-08-19 22:40:32+00:00",
+  "ds": "AAQAAQnS_EMIGiwJPAIUQQbLMtLHQ64CKwi2AQKw-kPBAwACB4cFBgUCC5n6QygZDRsD2AEZBBQSAfD6QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "33cc22e6-c9e1-45cb-9ba3-14b3834507fe",
+  "losses": 2,
+  "player": "Sławomir",
   "rank": "platinum",
   "wins": 7
  },
@@ -1076,6 +1616,36 @@
   "id": "3fcece0b-3484-4a8e-bb24-dc3e49347d98",
   "losses": 2,
   "player": "therealfunkyy",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_un3qualed.txt": {
+  "date": "2026-08-20 01:24:36+00:00",
+  "ds": "AAQAAQzO-kP_AQ0WDgMKDwoFSBMFyzLSx0MTmwLpAQGS_UMAAgmHBQYFAg6p-UNlIA4FCQkdnQErPgRddAG9-0MAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "c9a335dd-b2b4-43cf-adf7-276731d469f9",
+  "losses": 2,
+  "player": "UN3QUALED",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "gu_simic_72_yerr.txt": {
+  "date": "2026-08-19 18:49:37+00:00",
+  "ds": "AAQAAQqU-kMJJJkCDw1xCjkKCMsy5cdDDB7xAUdpQQAAAgeHBQcFAgnk-UM9DRApCWHMAaYBA536Qz31AgAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "7d8b0dfd-4ace-4b05-8aaa-6d92eddcdbb3",
+  "losses": 2,
+  "player": "yerr",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "r_mono_71_mtgo.txt": {
+  "date": "2026-08-19 23:05:06+00:00",
+  "ds": "AAQAAQvd-0MHDwUNCBUEEhGRAQbZ-0MHFgcMJgAAARHiCQINqflDCFcJHU92GgITGaoBKQKJ_EMKAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "de528d17-3498-413c-a4ab-d02ebbc16b42",
+  "losses": 1,
+  "player": "mtgo",
   "rank": "platinum",
   "wins": 7
  },
@@ -1209,6 +1779,26 @@
   "rank": "gold",
   "wins": 7
  },
+ "rw_boros_70_klubparano.txt": {
+  "date": "2026-08-20 04:35:36+00:00",
+  "ds": "AAQAAQ2MBa70QwQDDSMz0gEwpAFmDwQHxPlDJ-4BGsQBNCcAAAIGiAUH2gQCCNH5Qx0HmgIsJbYBFwOO-kOeAvABAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6ce9ef92-c320-4fe9-bf56-c7ee8b426dc3",
+  "losses": 0,
+  "player": "KlubParano",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_70_squidleader.txt": {
+  "date": "2026-08-20 09:51:03+00:00",
+  "ds": "AAQAARfG-UMIAwwOAwcEGMgBByUIAhMECQyYAQQHXgMB_ftDAAACB4gFCNoEAgjk-UNqES1CQY4BSgTu-UMHE2gAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "c0d2d464-6b0b-4a7b-8307-477bebf2d93a",
+  "losses": 0,
+  "player": "SquidLeader",
+  "rank": "gold",
+  "wins": 7
+ },
  "rw_boros_71_afrogafrog.txt": {
   "date": "2026-08-16 18:30:02+00:00",
   "ds": "AAQAARap-UMYAxUSChbLAQoTChAVBAYDDI8BIQ4dEQLe_UNhAAACB4gFB9oEAgvK-UMPFUVAlgEKNlQmKAGN_EMAAAAA",
@@ -1217,6 +1807,36 @@
   "losses": 1,
   "player": "AfrogAfrog",
   "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_71_anytargetv.txt": {
+  "date": "2026-08-20 10:47:20+00:00",
+  "ds": "AAQAAQ2--UMGEQgfD84BBEUEGZQBJgbG-UMliAI84wEtAAACB4gFCNoEAg3E-UMNEwoaHwdxVxcCKRECyvlD4gIAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "9a75e9de-bbb4-4119-bddb-92580928c3e7",
+  "losses": 1,
+  "player": "Any_Target_V",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_71_aurim.txt": {
+  "date": "2026-08-20 01:46:50+00:00",
+  "ds": "AAQAARK--UMDDQ8O9QElCBIDBAYDiAEjBA1UA_37Qz4EAAACB4gFCdoEAgfE-UMxlwFHWR3kAQXu-UMgA_gBBgAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "d229f971-c0e5-4dc1-bb5e-8ddfb96c3da2",
+  "losses": 1,
+  "player": "Aurim",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_71_bhejox.txt": {
+  "date": "2026-08-20 04:46:58+00:00",
+  "ds": "AAQAARO--UMICB0KBxXPAQQPAywWmwELDQ40DwPB-UMwlAIAAAIIiAUI2gQCDcsymcdDKgP8ARIDFj4YiAEXCwHu-UMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a7b8ee53-a8de-4fc6-97f3-96a58a035492",
+  "losses": 1,
+  "player": "bhejox",
+  "rank": "gold",
   "wins": 7
  },
  "rw_boros_71_bjornl7.txt": {
@@ -1259,6 +1879,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "rw_boros_71_jewbear.txt": {
+  "date": "2026-08-20 01:21:13+00:00",
+  "ds": "AAQAARDE-UMZDhnVAQQgIgMEBgMEDIsBdQS--UMIrQIDAAACB4gFCdoEAgzLMt7GQwQXICoDvQEFXBrvAQLR-UO8AgAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4da4d127-5731-49f2-9835-62eb46357749",
+  "losses": 1,
+  "player": "JewBear",
+  "rank": "gold",
+  "wins": 7
+ },
  "rw_boros_71_madras.txt": {
   "date": "2026-08-16 16:05:26+00:00",
   "ds": "AAQAARG--UMGEQgEEAQPB84BBy8XpAEhDkYC6_lDtwIBxvlDAAIIiAUI2gQCDsb5QwQHHQcHDAYDngJHdSsGAaz8QwAAAAA",
@@ -1279,6 +1909,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "rw_boros_71_tokajim.txt": {
+  "date": "2026-08-20 04:05:45+00:00",
+  "ds": "AAQAAQ-6-UMHBQ8WHQYDyAEaCroBNCc1BfX5Qw_yATDTAQAAAgiIBQfaBAINyvlDHgYODAYoFBCPAQo8iAEBkfpDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "a5ea8c4a-011c-48bc-b893-ac10fcb47b24",
+  "losses": 1,
+  "player": "Tokajim",
+  "rank": "gold",
+  "wins": 7
+ },
  "rw_boros_71_wrenzilly.txt": {
   "date": "2026-08-16 19:24:34+00:00",
   "ds": "AAQAARO6-UMEBgIIBw8HCgT6ARIqiAEcCw0OGQKE-kPVAQG__kMAAgeIBQfaBAIJxvlDKAccOcUBcmoZA635QyS4AgAAAAA",
@@ -1286,6 +1926,16 @@
   "id": "5f34a80b-3b39-42eb-ad84-48bcc0b5c8d5",
   "losses": 1,
   "player": "Wrenzilly",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_71_xnomad.txt": {
+  "date": "2026-08-20 04:07:56+00:00",
+  "ds": "AAQAAQ---UMDMBrSASAIGgMNiAETFA0EBev5QwqxAgaTAgAAAgeIBQjaBAIMrflDZwkZGIABQSneARQKDwLu-UO2AwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "db337ae1-5f5a-4afd-b489-5d714f614e31",
+  "losses": 1,
+  "player": "xnomad",
   "rank": "platinum",
   "wins": 7
  },
@@ -1329,11 +1979,41 @@
   "rank": "platinum",
   "wins": 7
  },
- "rw_boros_72_cheeseconqueso.txt": {
-  "date": "2026-08-16 18:47:16+00:00",
-  "ds": "AAQAARKt-UMNBAYRCA4G5QEdLwQwYRMvFTEExvlDsAIPtwIBhwUAAgWIBQbaBAIIxPlDICoDEFySAQQC7vlDGgG2-kMAAAA",
+ "rw_boros_72_billythekid.txt": {
+  "date": "2026-08-20 02:41:05+00:00",
+  "ds": "AAQAARefzAqlrTkCFwQKHQnIAQsPAwclDRZyEwkYDi4GAb_-QwAAAgeIBQjaBAIOrflDFxldCcYBBil_Bxw9LAgB8_tDAAAAAA",
   "event": "PREMIER_DRAFT",
-  "id": "a476781e-333e-4357-bf4b-ea2f6170398b",
+  "id": "b6a00cc9-25d9-4760-8815-786a2d4f69a3",
+  "losses": 2,
+  "player": "BillyTheKid",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_calcifer0908.txt": {
+  "date": "2026-08-20 03:53:40+00:00",
+  "ds": "AAQAAQy--UMtAwcT2AEWGRcJiAE0Bcb5Q0jLAVOTAgHd-0MAAgeIBQjaBAIIrflDJBNYBWTLAdMBAo38Q2kBuPxDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b3cdd8c5-dc7d-4732-b309-eb929340e3a0",
+  "losses": 2,
+  "player": "Calcifer0908",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_capgallico.txt": {
+  "date": "2026-08-19 22:57:47+00:00",
+  "ds": "AAQAAQrG-UMbCgYE5AEHFjmvAQjE-UNA7wEaGckBCkYAAAIHiAUH2gQCCvX5QxMmNKcBBikRRbUBAtH5Q18AAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "bc2ccd21-e7a1-44a4-8323-bfcab72e859e",
+  "losses": 2,
+  "player": "CapGallico",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_cheeseconqueso.txt": {
+  "date": "2026-08-20 02:32:47+00:00",
+  "ds": "AAQAARO6-UMMBAsIBBAghQIMBCOVAQ0OHRQDEgPE-UOvAhoAAAIIiAUH2gQCCan5QyiRASoZERt6TwPd_EMdnQEAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "671b6d18-06ae-4c6e-bc05-8e5e03cd4132",
   "losses": 2,
   "player": "CheeseConQueso",
   "rank": "platinum",
@@ -1346,6 +2026,16 @@
   "id": "9bf753ac-aa74-45c7-b5cd-7053ddce0034",
   "losses": 2,
   "player": "Gimbernard",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_72_hyaywoyd.txt": {
+  "date": "2026-08-20 02:03:02+00:00",
+  "ds": "AAQAAQ3B-UMFGzDMAQwmEAMNiAEcPwbd-UOWAjMGzQFGAAACB4gFCNoEAhCp-UMoE28HEKMBIhoJPA8yRxQDAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "879d8cc0-e97f-42f9-b1e8-0275780ba165",
+  "losses": 2,
+  "player": "Hyaywoyd",
   "rank": "platinum",
   "wins": 7
  },
@@ -1369,6 +2059,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "rw_boros_72_jothe.txt": {
+  "date": "2026-08-20 00:51:33+00:00",
+  "ds": "AAQAAQ6MBZPHCpKtOQkKDaICGhKRASofQwcHxvlDJQaMAiXNAVAAAAIGiAUG2gQCDan5QwQ3LQMTBwL8AbsBFCERAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "cba5fa03-bd60-434b-831f-26c3738cfe09",
+  "losses": 2,
+  "player": "jothe",
+  "rank": "platinum",
+  "wins": 7
+ },
  "rw_boros_72_legaleagle.txt": {
   "date": "2026-08-16 08:07:39+00:00",
   "ds": "AAQAARG6-UMKAiUKFtUBFg8dlQEcCw0nGxIE3flD_AEahgIAAAIIiAUH2gQCCdH5Qz0zeU8vA5QBXgKI-kPBAgHr_UMAAAA",
@@ -1376,6 +2076,26 @@
   "id": "9ab495d4-bb53-4a8a-ad32-bbbffa83354e",
   "losses": 2,
   "player": "LegalEagle",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_listik.txt": {
+  "date": "2026-08-19 20:22:04+00:00",
+  "ds": "AAQAAQ-6-UMbCA7uASwREAmIARwLMAQtA8T5QzH2AwHG-UMAAgmIBQfaBAIKsflDVy6zASY6CTw4UAKO-kMDAbz-QwAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "dd5b6405-b624-4482-989d-4b5e5e3c96b6",
+  "losses": 2,
+  "player": "listik",
+  "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_melkios.txt": {
+  "date": "2026-08-20 05:05:29+00:00",
+  "ds": "AAQAARCfzAqbrTkKERbyAQMEEgclBAnjAS0IA8H5QzSEBAHG-UMAAgiIBQfaBAIL7vlDgAIbBhMWPmE3DhwDjfxDHwMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "bd066984-7d5c-4131-a497-bb6c5b3b53ab",
+  "losses": 2,
+  "player": "Melkios",
   "rank": "gold",
   "wins": 7
  },
@@ -1387,6 +2107,16 @@
   "losses": 2,
   "player": "monmodrtor",
   "rank": "gold",
+  "wins": 7
+ },
+ "rw_boros_72_nanahikariman.txt": {
+  "date": "2026-08-20 11:41:30+00:00",
+  "ds": "AAQAARO6-UMHAwIbFBnSAQQSGRMEEqYBDQ4ZLQPd-UMniQIAAAIHiAUI2gQCDNn5QwsHngIZCgMJnwFJDRYB9flDAYj6QwAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "343690ac-558a-420d-8055-4a18303f796c",
+  "losses": 2,
+  "player": "nanahikariman",
+  "rank": "platinum",
   "wins": 7
  },
  "rw_boros_72_nobrawn.txt": {
@@ -1419,6 +2149,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "rw_boros_72_rubs.txt": {
+  "date": "2026-08-20 09:34:53+00:00",
+  "ds": "AAQAARG--UMDAxkOGdwBEwoQFQ2kARgOGSoCxvlD2QIBjvpDAAIIiAUI2gQCELr5QyoKTgoXrAEGEA0djgEDEQRUAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6c1de9be-3ed3-48a0-bdc2-4610c5dd4586",
+  "losses": 2,
+  "player": "Rubs",
+  "rank": "gold",
+  "wins": 7
+ },
  "rw_boros_72_sworldzen.txt": {
   "date": "2026-08-16 18:28:54+00:00",
   "ds": "AAQAARbB-UMFCAcIGBzPAQQhHQ2IARMUEQoZBBcSCALx-UOCAgAAAgeIBQfaBAIHrflDGS8ThwLIAUUD5PlDCiMAAAAA",
@@ -1426,6 +2166,16 @@
   "id": "0e2a360c-de83-4d3e-bfd6-6e563d827ef6",
   "losses": 2,
   "player": "Sworld Zen",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_72_thatgamerguy.txt": {
+  "date": "2026-08-20 04:01:43+00:00",
+  "ds": "AAQAAQy1-UMFNwQPBwMDyAFGHI8BBsT5QyeIAjMJ4wEAAAIJiAUI2gQCD8T5QwYHHRoJbCgVPgUQKwPTAQGO-kMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "117cc481-a190-4f4e-aa98-3c2243546c8b",
+  "losses": 2,
+  "player": "ThatGamerGuy",
   "rank": "platinum",
   "wins": 7
  },
@@ -1437,6 +2187,36 @@
   "losses": 2,
   "player": "TheDude",
   "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_72_thenidhogg.txt": {
+  "date": "2026-08-20 06:58:35+00:00",
+  "ds": "AAQAAQ7d-UMEFBngAQ8lCgMQmAFWEggEpvxDkQEcJgHG-UMAAgeIBQjaBAINxPlDDRMRGSU0qAET1wEjERYBuPxDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "2501f283-b413-4781-9646-30ffd04e3be7",
+  "losses": 2,
+  "player": "TheNidhogg",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_72_wheredidgandalfgo.txt": {
+  "date": "2026-08-20 01:20:14+00:00",
+  "ds": "AAQAAQ_E-UMCDxzvARMaEgOVARMUNCoDBfX5Qw_ZAY4CBAAAAgeIBQjaBAILyvlDRyInS4cBD0NFagcC5PlD3wQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "34097d78-7e02-4aee-9580-484e6158afe8",
+  "losses": 2,
+  "player": "WhereDidGandalfGo",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "rw_boros_72_wivicious.txt": {
+  "date": "2026-08-19 19:05:35+00:00",
+  "ds": "AAQAARC6-UMKAg8IDusBBxksBAmIATQnLQTB-UOYAhoSAAACCIgFCNoEAgjZ-UNxVWpAMRQCA5H6Q5sC8AEBiPpDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "24788c8c-93f1-480b-a071-ef55d756b3ad",
+  "losses": 2,
+  "player": "Wi Vicious",
+  "rank": "gold",
   "wins": 7
  },
  "rw_boros_72_zinovi.txt": {
@@ -1516,6 +2296,26 @@
   "id": "22e8fee4-0a6c-4c4e-9e26-4a4e48d70fad",
   "losses": 0,
   "player": "SpawnOfMuldrotha",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "ub_dimir_71_janco.txt": {
+  "date": "2026-08-19 23:17:16+00:00",
+  "ds": "AAQAAQ-IBZX1QyEIDSoCBjwQ3wEDdxIPBbz6QwUvXvUCAef9QwGMBQEIjQUCCan5Q0UOEqwBQ1lHOgOt-UOJAf4DAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b4a85dff-f37f-4696-a2be-3154dd8a8860",
+  "losses": 1,
+  "player": "Janco",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "ub_dimir_71_jimdavismtg.txt": {
+  "date": "2026-08-19 18:37:25+00:00",
+  "ds": "AAQAAQu6-kMHGSMCCwQNBC-QAgWd-kMfRjsHAbr7QwACB4wFCQECDcsy48dDAg4IHAg1IpwBigEUUALK-kMmAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4ddfef50-007e-4a85-8436-cb697e03ed9e",
+  "losses": 1,
+  "player": "JimDavisMTG",
   "rank": "platinum",
   "wins": 7
  },
@@ -1659,6 +2459,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "ubg_sultai_71_griff18.txt": {
+  "date": "2026-08-20 13:22:55+00:00",
+  "ds": "AAQAAQ_6-kMSBg0MEgSMAQUIAwg7R2QDzvtDA6oCAcsyAAIIhwUIBgIPqflDDHsDAwgDCSCJAWpaMFELAaH6QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "8326c844-c4ce-4172-9a21-cbb99f32c41b",
+  "losses": 1,
+  "player": "Griff18",
+  "rank": "platinum",
+  "wins": 7
+ },
  "ubg_sultai_71_influenza.txt": {
   "date": "2026-08-13 21:37:08+00:00",
   "ds": "AAQAAQ7LMubGQ6IBByUDAzgUejN9CTAG_fpDhAINBFVkAowFsPlDAocFBgACDbb6QxRwCgo7LyUZGAwDAwAAAAAA",
@@ -1666,6 +2476,26 @@
   "id": "312d2ccc-ee30-4cf7-98ad-d246c014c995",
   "losses": 1,
   "player": "Influenza",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "ubg_sultai_71_v1rtue.txt": {
+  "date": "2026-08-20 08:10:35+00:00",
+  "ds": "AAQAARGx-UPqASmWARYbCQYpIgwKBAUcCgoEyzK0yENPgQIBjAUAAgeHBQYGAgqt-UMXJDklFK8BhQGfAQsCtvpD6gIAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6b6b1ee4-ff60-4014-b1ed-45f51b1d0b03",
+  "losses": 1,
+  "player": "V1rtuE",
+  "rank": "gold",
+  "wins": 7
+ },
+ "ubg_sultai_72_baschi666.txt": {
+  "date": "2026-08-20 11:37:17+00:00",
+  "ds": "AAQAARPLMsnHQxMaPAIDDBEvA3olIggsKxMwA7D6Q1r0AQABjAUCBocFBgYCCsr5QwddJcwBDXQvGDAC0vxDjAEAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "0e159e9d-bf93-4535-a454-b175c18233bb",
+  "losses": 2,
+  "player": "Baschi666",
   "rank": "platinum",
   "wins": 7
  },
@@ -1729,6 +2559,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "ubg_sultai_72_ozzmousis.txt": {
+  "date": "2026-08-20 09:55:56+00:00",
+  "ds": "AAQAARKd-kNgAg8NChGvASYFCgorGBQJMBcDjAW_90N4AcsyAAIHhwUGBgIP0flDTBkGBQkQFjW4AR0UcR0cAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "618d9897-f1fb-4931-b1c9-71cae283e6b8",
+  "losses": 2,
+  "player": "Ozzmousis",
+  "rank": "platinum",
+  "wins": 7
+ },
  "ubg_sultai_72_shadorra.txt": {
   "date": "2026-08-13 17:40:50+00:00",
   "ds": "AAQAARbLMubGQ2MJHxcHFhIDCb0BEhMGHFMMCgQFRwGw-kMBjQUAAgaHBQcFAg6x-UM6AxoZDRMv2QFUMggiRgL1-UNRAAAAAA",
@@ -1737,6 +2577,16 @@
   "losses": 2,
   "player": "Shadorra",
   "rank": "platinum",
+  "wins": 7
+ },
+ "ubg_sultai_72_veeonix2.txt": {
+  "date": "2026-08-20 07:27:23+00:00",
+  "ds": "AAQAAQj9-kMC9QENEUwHZgiC-0MQKxF9K3EUAAACCIcFCAYCDu75Q0AlF1AHuQEWBwMGBCsYAssyxsdDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "c88f78e0-ef9e-417a-8ee3-3691a478a381",
+  "losses": 2,
+  "player": "Veeonix2",
+  "rank": "gold",
   "wins": 7
  },
  "ubr_grixis_72_aetherstorm.txt": {
@@ -1939,6 +2789,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wb_orzhov_70_mockingwhale.txt": {
+  "date": "2026-08-19 18:24:02+00:00",
+  "ds": "AAQAARC6-UMHCSEGGgZsAg8NBB4EDZ0CBMT5QzEP4QMAAAIJiAUIBQIPqflDHSgjTi0CFzspJu0BGAsEAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "03cf02e4-d66e-4377-af24-21ce934ff3b8",
+  "losses": 0,
+  "player": "MockingWhale",
+  "rank": "gold",
+  "wins": 7
+ },
  "wb_orzhov_70_yurlungur.txt": {
   "date": "2026-08-15 20:52:28+00:00",
   "ds": "AAQAAQy6-UMUBxYGkQEKAhEbCqcCBP36QwIcNgHv_UMAAgiIBQkFAgzu-UMHEwlOFEcHLQW9AX0AAsb5Qx4AAAA",
@@ -2037,6 +2897,16 @@
   "losses": 2,
   "player": "Jelly",
   "rank": "platinum",
+  "wins": 7
+ },
+ "wb_orzhov_72_kowe.txt": {
+  "date": "2026-08-20 01:44:06+00:00",
+  "ds": "AAQAARGt-UMIHBoDGgZvIgkJDAQN6QEYUQP1-UMHnwEAAAIHiAUKBQILyzKoyENOKIcBGwUEJzoGA_r8Qx0GAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "254704eb-2b33-4b47-a982-8c25e1fd3667",
+  "losses": 2,
+  "player": "Kowe",
+  "rank": "gold",
   "wins": 7
  },
  "wb_orzhov_72_roastedpheasant.txt": {
@@ -2149,6 +3019,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "wbr_mardu_72_ashenfenix.txt": {
+  "date": "2026-08-20 12:01:04+00:00",
+  "ds": "AAQAARC6-UM3BIIBCxkTIw8dEBUNrwFaBAbB-UO-ASAbbJkCAogF2gQAAQaNBQIJqflDoQG3ARIPVCpfLgKR-kMQAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4cc6a155-26d5-4540-9cc0-e5575dbef9ec",
+  "losses": 2,
+  "player": "AshenFenix",
+  "rank": "gold",
+  "wins": 7
+ },
  "wbr_mardu_72_beli3ver.txt": {
   "date": "2026-08-12 22:41:52+00:00",
   "ds": "AAQAARGfzAqZrTkGAxwECgYEBw-BAWoXGa0BEgbiCZ3xQ6MBvAFaBwGNBQABCIgFAgq4-UMwIDkyGxfxAikEAcn8QwAAAAA",
@@ -2179,6 +3059,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wbr_mardu_72_denas1984.txt": {
+  "date": "2026-08-19 19:58:50+00:00",
+  "ds": "AAQAAQzB-UMgsQFzIQYDiAEnDQ4_BY0FsfRDtQLIAYEBAuv5Q88BAAIGiAUG2gQCDKn5QxsqBxxZZz4dHcUBNQG2-kMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "bb478f08-779f-404b-b8f0-f1990984f47a",
+  "losses": 2,
+  "player": "Denas1984",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wbr_mardu_72_finblack.txt": {
+  "date": "2026-08-20 13:29:12+00:00",
+  "ds": "AAQAARPV-UMIoAFHBRAHEwMHCBEMCosBQj8EAwLd-0PtAQGb-0MCiAUFAQbiCQIJxPlDAh6JAQaWAS_eAQYDqflD5gIdAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "b68be4b8-0c56-4882-bcb6-96e81f80da17",
+  "losses": 2,
+  "player": "FIN-Black",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wbr_mardu_72_kurchatovio.txt": {
   "date": "2026-08-13 05:22:20+00:00",
   "ds": "AAQAAQyp-UMYQ4gBDx85GgIQEIkCB-v5Q5IBLiMSRpYCAYgFAAIGjQUF1QQCDK35QyQ3KAwrCVEQZ68BLwK2-kMUAAAAAA",
@@ -2196,6 +3096,16 @@
   "id": "64b53caf-9eb5-4f09-9c90-6dddb25516b8",
   "losses": 2,
   "player": "SometimesMull",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wbr_mardu_72_starmanjones7.txt": {
+  "date": "2026-08-20 01:38:47+00:00",
+  "ds": "AAQAARDB-UMqkgEeEAYFGwwwGZgBIAcGUQW6-UPFAU_tAX0CiAXaBAABCI0FAgm1-UMvSl4ZaFAxiAECqflDjwMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "872a58c1-010f-4ad7-8b0c-21283c61c7c8",
+  "losses": 2,
+  "player": "starmanjones7",
   "rank": "platinum",
   "wins": 7
  },
@@ -2249,6 +3159,36 @@
   "rank": "gold",
   "wins": 7
  },
+ "wg_selesnya_72_berokkan.txt": {
+  "date": "2026-08-20 09:43:18+00:00",
+  "ds": "AAQAAQyfzAqfrTkDNAcS4gIkIzAEPwbLMvvGQyXgAhI1AAACCIcFCAECEMsy4sZDFwIlHQYolQIHJBUHCAMDAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "5254ed2f-1b2e-4e20-8b38-956ed2cb0ef0",
+  "losses": 2,
+  "player": "berokkan",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wrg_naya_72_qmonstr.txt": {
+  "date": "2026-08-20 05:01:15+00:00",
+  "ds": "AAQAARfLMt7GQwQUBQQLJ9oBDg9MDicaBCUTLxUfDwMB6_lDAAADBYcFBQEF2gQCDNH5Qz0gjwFSZwQgAzJHNQGL_UMAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "f7faf7c2-b586-4ac8-9c59-25877a4b9a28",
+  "losses": 2,
+  "player": "Q_Monstr",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_70_neptune.txt": {
+  "date": "2026-08-20 09:39:46+00:00",
+  "ds": "AAQAAQfx-UMLNAoCCqkDBt35Qw4ZVtYCkwECnfpDJAACB4gFCAQCC8T5Qw0TCgdeCgIRNZICA476Q0yNAwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "e6d8e9a6-6d84-4167-8693-93c4fac464ac",
+  "losses": 0,
+  "player": "Neptune",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_70_popicas25.txt": {
   "date": "2026-08-16 16:03:59+00:00",
   "ds": "AAQAAQ26-UMEAwMgERMVBCASCo4DBtX5QxZFDPcCPAAAAgiIBQgEAg7G-UMlHSYICwU5hgIYEzdGHgAByvpDAAAA",
@@ -2259,6 +3199,16 @@
   "rank": "gold",
   "wins": 7
  },
+ "wu_azorius_70_rolly.txt": {
+  "date": "2026-08-20 13:37:45+00:00",
+  "ds": "AAQAAQq6-UMKDXAvwAIDJCRBA_H5Qz29AwO--UOpBAgAAgeIBQgEAg7LMt7GQyErEy4kYH5aPUMbBwHZ-0MAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "262bf7a5-df4b-4e0d-8bbf-5c68384a35f9",
+  "losses": 0,
+  "player": "rolly",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_71_biggoose.txt": {
   "date": "2026-08-16 01:55:45+00:00",
   "ds": "AAQAAQ61-UMgJxgJEQIKLQnAAicUWALr-UNRAcH6QwHa-kMCB4gFCAQCCq35QxkLFwYaLkd5XAGO-kMByvpDAAAA",
@@ -2266,6 +3216,16 @@
   "id": "8f942a6c-bc2e-48f7-8755-8f2dae529bc9",
   "losses": 1,
   "player": "biggoose",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_71_devilsxangel.txt": {
+  "date": "2026-08-20 02:34:44+00:00",
+  "ds": "AAQAAQjB-UMJCxwId8MCPASh-kMb9AKTAQOd-kMTKgACBogFCQQCCcr5Q2QIFKkBTB6OAU0ErflDSJkDsQEAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4a1e2359-c590-4c65-8f03-14166f91a87f",
+  "losses": 1,
+  "player": "devilsxangel",
   "rank": "gold",
   "wins": 7
  },
@@ -2279,6 +3239,26 @@
   "rank": "gold",
   "wins": 7
  },
+ "wu_azorius_71_hygge.txt": {
+  "date": "2026-08-20 11:23:39+00:00",
+  "ds": "AAQAARC1-UMFKgQDDhscDAUCEAoTwAJLA536Q9IDVAHa-kMAAgeIBQgEAg_h-UNVCAwQFnmAAQ0kBgQrGE0AAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "e8b9c9e0-1390-4c84-b4ea-4b5e338a001d",
+  "losses": 1,
+  "player": "Hygge",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_71_kondecigs.txt": {
+  "date": "2026-08-20 03:06:45+00:00",
+  "ds": "AAQAAQifzAqvrTkPNAxT-wJYB_H5QwQfLQUUjQMB7_1DAAIIiAUHBAIP0flDFwYHOQgUNXQaGVtOCFYAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "4e2d06d5-70a1-476f-9bae-d12001c2b151",
+  "losses": 1,
+  "player": "Kondecigs",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_71_readinthinkin.txt": {
   "date": "2026-08-16 19:21:16+00:00",
   "ds": "AAQAAQvE-UMKBxwjHAw05wJTEga--UMqA1sU6QMB7_1DAAIHiAUHBAIO0flDJBNCqQESBEARkQEGHQQKAaH6QwAAAAA",
@@ -2289,6 +3269,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wu_azorius_71_starless.txt": {
+  "date": "2026-08-20 00:58:56+00:00",
+  "ds": "AAQAAQ2fzAqirTkQEEAdHBAG-wIEQQwF6PlDVAUm3AMAAZ36QwIGiAUHBAILwflDEFb_ATc1BWQbFwcC2vxD8QEAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "63150a75-60a7-4b02-99e0-b16d7e85bd64",
+  "losses": 1,
+  "player": "Starless",
+  "rank": "gold",
+  "wins": 7
+ },
  "wu_azorius_72_angwar.txt": {
   "date": "2026-08-16 19:06:13+00:00",
   "ds": "AAQAARCfzAqfrTktBggDCAoTGQkXFvcCCFQC7vlDWAABwfpDAgiIBQgEAgqt-UMZC1Yj2AFOXxxCAq76Q8wCAd38QwAAAA",
@@ -2297,6 +3287,46 @@
   "losses": 2,
   "player": "Angwar",
   "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_anssia.txt": {
+  "date": "2026-08-20 06:46:09+00:00",
+  "ds": "AAQAAQe6-UMHHBFMGZwDBev5Q1YFkQNsA536Qx8eAAIHiAUHBAILwflDJwMKGQMdCBQJlAMCxPlDWQAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "9060d056-1d39-4089-a020-41e1e7c595ba",
+  "losses": 2,
+  "player": "Anssi A",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_batgirl.txt": {
+  "date": "2026-08-20 02:43:42+00:00",
+  "ds": "AAQAAQ-6-UMHDRocHQ8MChQNCb4CKWwD0flDGlYB7_1DAAIIiAUIBAIOqflDDwIjEQcTLhQjA4MB5AE_AeT5QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "762f14bb-f575-4620-9a2a-f26067e07ecb",
+  "losses": 2,
+  "player": "Batgirl",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_beethorn.txt": {
+  "date": "2026-08-19 23:49:01+00:00",
+  "ds": "AAQAAQ2--UMzCAsZHwoqiwMJJgYMBYcFyvRDX78DVAKU-kMtAAIFiAUGBAIM5PlDGCsPJAUDBQlZpgInAYj6QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "899bc66d-3af1-4764-8a92-ed0d6042ca35",
+  "losses": 2,
+  "player": "BeeThorn",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_benben.txt": {
+  "date": "2026-08-19 21:40:39+00:00",
+  "ds": "AAQAAQnO-UMDGiMGCboDGFQD8flDP0ADvPpDBQUAAgeIBQkEAg_u-UMaBigYTTMPERsKJQODAVgByvpDAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "ac4dd1ab-1536-4744-8042-26c104166c43",
+  "losses": 2,
+  "player": "Benben",
+  "rank": "gold",
   "wins": 7
  },
  "wu_azorius_72_blackm29.txt": {
@@ -2319,6 +3349,26 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wu_azorius_72_chirruto.txt": {
+  "date": "2026-08-20 03:49:37+00:00",
+  "ds": "AAQAAQfE-UMtCw8JKIcEBJ36QykUFgOw-kMRrgMAAgeIBQkEAgut-UMkPSgIDLcBDAnlAUQDofpDDYYEAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "7e620440-a2de-4926-b0e6-fe5d845d5874",
+  "losses": 2,
+  "player": "Chirruto",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_coldbled.txt": {
+  "date": "2026-08-20 01:11:45+00:00",
+  "ds": "AAQAARC6-UMEAwUbEAsPJREF8QIcJjEVA8T5Q1BGAuIJ--9DAYwFAQiIBQIMuvlDCiAEBhoJHUKtAk4rAAG2-kMAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "f261d571-65d9-4fec-8463-b152b5fd177b",
+  "losses": 2,
+  "player": "Coldbled",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_72_cwenct.txt": {
   "date": "2026-08-16 16:03:08+00:00",
   "ds": "AAQAAQ_E-UMNDA4yBBUGAhAi5wIQVQcEvvlDRhCcAwHG-kMAAgeIBQcEAg7G-UMEBwwHCgcTCTDOASllTgAAAAAA",
@@ -2327,6 +3377,26 @@
   "losses": 2,
   "player": "CWenCT",
   "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_damnuautotapper.txt": {
+  "date": "2026-08-20 09:06:18+00:00",
+  "ds": "AAQAARC6-UMHLQMEDxkZBh4DAhHAAktIBL75Qx9EDwAAAgiIBQgEAgyp-UMIVwYDHZ0CUgN2JgMBwftDAd38QwAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "aee58c08-c4b0-47a5-9e88-ff9c8fe9fea5",
+  "losses": 2,
+  "player": "DamnUAutotapper",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_dan7625.txt": {
+  "date": "2026-08-20 07:17:36+00:00",
+  "ds": "AAQAAQ6fzAqyrTkaBhMQCQoTAjTAAowBBwPu-UNTGQHv_UMBxvpDAgaIBQcEAgap-UN4SZMBVcQBBK76Q_gBwQFkAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "7fb9843e-b0a1-4b04-91d8-433c76a8cc2a",
+  "losses": 2,
+  "player": "Dan7625",
+  "rank": "platinum",
   "wins": 7
  },
  "wu_azorius_72_eloquentelephant.txt": {
@@ -2339,6 +3409,16 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wu_azorius_72_fade.txt": {
+  "date": "2026-08-20 04:49:15+00:00",
+  "ds": "AAQAARHLMtSZCputOTEGLAQgBQ0KE44CMj8MSAOHBf30QywCvPpD-AMAAgaIBQUEAg7LMuLGQzcKIAMlCNgBPCgUXSsAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "c499f85b-c694-4665-b6bc-83d635165182",
+  "losses": 2,
+  "player": "Fade",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_72_fenton.txt": {
   "date": "2026-08-16 18:23:18+00:00",
   "ds": "AAQAARC6-UMKBgscCAsQLRkNCcACJyRIBN35Q0ATvwMAAAIIiAUIBAIK5PlDLRZDkwEETJoBQwMD7vlDXCYAAAAA",
@@ -2347,6 +3427,16 @@
   "losses": 2,
   "player": "Fenton",
   "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_finheri.txt": {
+  "date": "2026-08-19 18:36:44+00:00",
+  "ds": "AAQAAQm6-UMuFAgQHAoMDQa--UMGcgYFggQAAe_9QwIHiAUIBAILyzKZx0MKBxMJFhf6AUK-AQHG-UMBofpDAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "55c9ae57-11e9-4acf-9eda-c04869c5643d",
+  "losses": 2,
+  "player": "Finheri",
+  "rank": "gold",
   "wins": 7
  },
  "wu_azorius_72_jabronisauce.txt": {
@@ -2369,6 +3459,36 @@
   "rank": "platinum",
   "wins": 7
  },
+ "wu_azorius_72_patientnumber5.txt": {
+  "date": "2026-08-20 13:51:27+00:00",
+  "ds": "AAQAAQrK-UMeCTAbFx3nAhhNBbX5Q4wBBRfmAwKd-kM9AAIGiAUIBAIHqflDERcTUgvpAwLE-UOGAQGt-UMAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "6be4bb27-a7ee-4716-afb8-6c30cd1c61a5",
+  "losses": 2,
+  "player": "Patient Number 5",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_pr0d0s.txt": {
+  "date": "2026-08-20 01:31:07+00:00",
+  "ds": "AAQAAQjE-UMNFwMyEyrpAwTO-UNzBSoD8flDS7MDAAIHiAUIBAIKqflDGDQZAxAgLJQCNgPk-UNKCAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "3d1ff4ee-2591-45cb-98bc-35260158d702",
+  "losses": 2,
+  "player": "pr0d0s",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_reireibarker.txt": {
+  "date": "2026-08-20 09:51:47+00:00",
+  "ds": "AAQAAQjk-UMHKSYCBQ3cAwiO-kMiEwMUA_oCGAHD_kMAAgWIBQgEAgnR-UM3CVYMDybvAYABAcb5QwGl-0MAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "574af647-b185-47ef-a670-e36fb434f910",
+  "losses": 2,
+  "player": "reireibarker",
+  "rank": "platinum",
+  "wins": 7
+ },
  "wu_azorius_72_rokired.txt": {
   "date": "2026-08-16 07:41:27+00:00",
   "ds": "AAQAAQ2fzAqyrTkTBBQIEAkEDzeIAzsEvvlDgwEF6gIBvPpDAAIIiAUIBAIOwflDGAsHChkDLQwQBQ4D9wIB7vlDAAAAAA",
@@ -2379,6 +3499,26 @@
   "rank": "gold",
   "wins": 7
  },
+ "wu_azorius_72_rrreee95.txt": {
+  "date": "2026-08-20 04:33:44+00:00",
+  "ds": "AAQAAQi6-UMUHQ4LP_ACkAEIvvlDXxMMHgPTAj8AAAIJiAUHBAIQxvlDBEQZDxQpYFkPSmYGOQoXAfr8QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "3f697591-713e-4d24-a521-fe4f6f84333a",
+  "losses": 2,
+  "player": "rrreee95",
+  "rank": "gold",
+  "wins": 7
+ },
+ "wu_azorius_72_schafspeter.txt": {
+  "date": "2026-08-20 10:06:36+00:00",
+  "ds": "AAQAAQ2--UMDFAgnCiAICAMcDckCArD6QyoD6_lDMqYEAAIHiAUHBAIMuPlDORcGE0Y0DRJ-GsoBAeT5QwAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "88c3a0f5-9c85-4ee3-9e16-174575623760",
+  "losses": 2,
+  "player": "Schafspeter",
+  "rank": "gold",
+  "wins": 7
+ },
  "wu_azorius_72_sehia.txt": {
   "date": "2026-08-16 17:33:21+00:00",
   "ds": "AAQAAQm--UMGAggDGvwDCFQG6PlDHDgFBRQBnfpDAAIIiAUIBAINrflDBDMtED4II4UBBMQBIgYC0flDJAAAAAA",
@@ -2386,6 +3526,16 @@
   "id": "6f4c3f39-9869-42dc-8c8e-9c3415eda880",
   "losses": 2,
   "player": "Sehia",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wu_azorius_72_tfinchsig.txt": {
+  "date": "2026-08-20 13:54:28+00:00",
+  "ds": "AAQAAQifzAqbrTlCCBUEkwOMAQXr-UMGSx4DArD6Q78DAAIJiAUHBAISwflDAyAREwkWBxwJCgIRdEIGzwEXAAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "e45bc0ae-8e00-48af-a422-c5e34e60b57a",
+  "losses": 2,
+  "player": "TFinchSig",
   "rank": "platinum",
   "wins": 7
  },
@@ -2417,6 +3567,16 @@
   "losses": 2,
   "player": "Homelander",
   "rank": "gold",
+  "wins": 7
+ },
+ "wub_esper_72_nejiokun.txt": {
+  "date": "2026-08-20 13:32:39+00:00",
+  "ds": "AAQAAQzx-UMICxkkWiIR4gFmFBkD2vpDYPkBArz6Q0MAAwWIBQYEBQECELr5QwoNCAQHBBw6TmcKO380MQAAAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "cb21eead-07d3-48be-b5a2-e33612e1d00d",
+  "losses": 2,
+  "player": "nejiokun",
+  "rank": "platinum",
   "wins": 7
  },
  "wub_esper_72_samp.txt": {
@@ -2506,6 +3666,16 @@
   "id": "9207bf8b-9338-4cb7-973d-1776203fd8ef",
   "losses": 2,
   "player": "Carpenstein",
+  "rank": "platinum",
+  "wins": 7
+ },
+ "wug_bant_72_ejakepuzycki.txt": {
+  "date": "2026-08-20 04:13:05+00:00",
+  "ds": "AAQAAQ6NBb4t0sdDE0DtARknDAdYDh4PBogFtvRDsQQCClACvPpDwgIAAgWHBQUFAge4-UNpIDxxjAEjAef9QwGu-kMAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "5ba27774-2ca4-484b-adb9-94f30d836206",
+  "losses": 2,
+  "player": "ejakepuzycki",
   "rank": "platinum",
   "wins": 7
  },
@@ -2627,6 +3797,16 @@
   "losses": 2,
   "player": "DarkestMage",
   "rank": "platinum",
+  "wins": 7
+ },
+ "wur_jeskai_72_ebteoeg.txt": {
+  "date": "2026-08-19 21:29:24+00:00",
+  "ds": "AAQAARSfzAqSrTkNFy8QCRMMBQUZfhZMmwEhGxQGA9r6Q8UBpAIBiAUAAgaMBQXWBAIL7fpDIQQWGQ0DMAiHAWEAAcr6QwAAAA",
+  "event": "PREMIER_DRAFT",
+  "id": "bc9b7ace-67ff-4e4a-a352-bef3713d9837",
+  "losses": 2,
+  "player": "ebteoeg",
+  "rank": "gold",
   "wins": 7
  },
  "wur_jeskai_72_leastbean.txt": {

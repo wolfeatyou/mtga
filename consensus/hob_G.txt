@@ -1,17 +1,20 @@
 Deck
-3 Mirkwood Pathmaker
-3 Troll Negotiations
-3 Woodland Weavemaster
-2 Mirkwood Nurturer
-2 Quarrel
-2 Wargling
 2 Wood Elves
-1 Beorn the Fierce
-1 Boughside Wanderers
-1 Galion, Elvenking's Butler
+2 Quarrel
 1 Guardian of the Halls
-1 Radagast of Rhosgobel
+2 Mirkwood Pathmaker
+2 Wargling
+1 Boughside Wanderers
+1 Troll Negotiations
+2 Attercop
+1 Beorn's Hospitality
+1 Beorn, Reluctant Host
+1 Galion, Elvenking's Butler
+1 Thranduil's Company
 1 Thranduil, Sindarin Liege
-1 Elven Passage
-1 Hobbit Hole
-15 Forest
+1 Nasty Little Rabbit
+1 Warg Tactics
+1 Woodland Weavemaster
+1 Old Fat Spider
+1 Duskwatch Hunter
+17 Forest
