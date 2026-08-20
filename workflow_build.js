@@ -17,10 +17,14 @@ export const meta = {
 // Ускорение 20.08.2026 (JOURNAL § 8.22): раньше судья был отдельным агентом ПОСЛЕ воркфлоу,
 // скорборды и промпт судьи собирала сессия руками — медленно и с ошибкой переноса листа.
 // Теперь всё в одной инвокации, судья сам гоняет скрипты, листы не перепечатываются.
-// Модель по умолчанию opus/high (боевая конфигурация сборки, SKILL.md хард-рул 3);
-// args.model / args.effort — ручки для A/B скорости (например sonnet/medium — § 8.22).
+// ДЕФОЛТЫ МОДЕЛЕЙ (утверждено пользователем 20.08.2026 по A/B § 8.22):
+//   строители — sonnet/medium (их огрехи чинит судья; medium-судья в A/B пропустил
+//   нарушение потолка и графтил против линии — судьёй его не ставить);
+//   судья и проектировщик — sonnet/high (повторил opus-вердикт карта-в-карту и поймал
+//   Lake-town, которую opus пропустил). args.model/effort и judgeModel/judgeEffort — оверрайды.
 
-const MODEL = { model: (args && args.model) || 'opus', effort: (args && args.effort) || 'high' }
+const B_MODEL = { model: (args && args.model) || 'sonnet', effort: (args && args.effort) || 'medium' }
+const J_MODEL = { model: (args && args.judgeModel) || 'sonnet', effort: (args && args.judgeEffort) || 'high' }
 const SKILL = '~/.claude/skills/mtg-draft-helper'
 
 const LANES_SCHEMA = {
@@ -212,7 +216,7 @@ if (a.lanes && a.lanes.length) {
   phase('Линии')
   log(`проектирую линии для ${a.set}/${a.draft8} (${a.pair})`)
   design = await agent(laneDesignerPrompt(a), {
-    ...MODEL, label: `lanes:${a.draft8}`, phase: 'Линии', schema: LANES_SCHEMA,
+    ...J_MODEL, label: `lanes:${a.draft8}`, phase: 'Линии', schema: LANES_SCHEMA,
   })
   if (!design) throw new Error('проектировщик линий не вернул результат')
 }
@@ -223,7 +227,7 @@ log(`режим ${design.mode}: ${lanes.map(l => l.name).join(' · ')}`)
 phase('Сборка')
 const builds = (await parallel(lanes.map(lane => () =>
   agent(builderPrompt(a, lane), {
-    ...MODEL, label: `build:${lane.name.slice(0, 18)}`, phase: 'Сборка', schema: BUILD_SCHEMA,
+    ...B_MODEL, label: `build:${lane.name.slice(0, 18)}`, phase: 'Сборка', schema: BUILD_SCHEMA,
   }).then(b => b && { lane: lane.name, ...b })))).filter(Boolean)
 
 if (a.judge === false || !builds.length) return { design, builds }
@@ -231,6 +235,6 @@ if (!a.outDir) throw new Error('для судьи нужен args.outDir (куд
 
 phase('Судья')
 const verdict = await agent(judgePrompt(a, builds), {
-  ...MODEL, label: `judge:${a.draft8}`, phase: 'Судья', schema: JUDGE_SCHEMA,
+  ...J_MODEL, label: `judge:${a.draft8}`, phase: 'Судья', schema: JUDGE_SCHEMA,
 })
 return { design, builds, verdict }
