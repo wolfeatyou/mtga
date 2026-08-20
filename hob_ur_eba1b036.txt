@@ -2,33 +2,36 @@ Deck
 1 Bothersome Noisemaker
 1 Nori, Teller of Tales
 1 Elvenking's Harper
-1 Old Thrush
 3 Patient Instructor
 2 Mirkwood Nurturer
-1 Long-Bodied Grey Dog
 1 Long Lake Nuisance
 1 Ravenhill Flock
+1 Gandalf, Wandering Wizard
 1 Gandalf, Spark Starter
+1 Lake-town Mariners
 1 Smaug, the Great Calamity
+1 The Lord of the Eagles
 1 Pinecone Strike
 1 Plunder the Trollshaws
 1 Ragged Short Spear
 2 Confusticate and Bebother
-1 Sound the Trumpets
 1 Enchanted River's Grasp
 2 Uneasy Partings
 10 Island
 7 Mountain
 
 Sideboard
-1 Long-Bodied Grey Dog
-1 Gandalf, Wandering Wizard
-1 Patient Instructor
-2 Confusticate and Bebother
 1 Sound the Trumpets
-2 Old Thrush
-1 Lake-town Mariners
-1 The Lord of the Eagles
+1 Sound the Trumpets
+1 Old Thrush
+1 Old Thrush
+1 Old Thrush
+1 Long-Bodied Grey Dog
+1 Long-Bodied Grey Dog
+1 Long-Bodied Grey Dog
+1 Patient Instructor
+1 Confusticate and Bebother
+1 Confusticate and Bebother
 1 Fearsome Goblin Pair
 1 Giant's Boulder
 1 Key to the Side-Door

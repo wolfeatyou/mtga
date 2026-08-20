@@ -123,6 +123,13 @@ def metrics(path, db, rat, prat=None):
     pure_pips = Counter()
     cheap_bodies, evasion, hard, soft, topend, missing = [], [], [], [], [], []
     reach = []
+    # 🔴 «ЧЕМ Я УБИВАЮ» — тела силой ≥4 (ось заведена 20.08.2026 по разбору драфта eba1b036).
+    # Повод: колода 0-3, в двух доигранных партиях нанесла РОВНО НОЛЬ урона (оппонент 20→22
+    # оба раза), а аудит не показал ни одного дефекта: существ 14, эвейжн 4 карты, суммарная
+    # сила 34 — всё «в диапазоне». Ни одна ось не спрашивала «чем эта колода заканчивает
+    # партию». Замер по 298 листам: тел силы ≥4 медиана 3 (UR — 4, минимум 1); у той колоды
+    # было 2 = 7-й перцентиль своей пары. Это единственная ось, которая её отбраковывает.
+    big_bodies = []
     gih_g, gih_p = [], []
     BASICS = {"plains", "island", "swamp", "mountain", "forest"}
     ANYCOLOR = re.compile(r"mana of any (one )?color|create a treasure", re.I)
@@ -165,6 +172,13 @@ def metrics(path, db, rat, prat=None):
             evasion += [name] * n
         if is_cre and REACH_RE.search(oracle(c) + " " + tl):
             reach += [name] * n
+        if is_cre:
+            pw = c.get("power") if c.get("power") is not None else face(c, "power")
+            try:
+                if int(pw) >= 4:
+                    big_bodies += [name] * n
+            except (TypeError, ValueError):
+                pass          # */X и прочие нечисловые силы в ось не идут
         ot = oracle(c)
         if HARD_RE.search(ot):
             hard += [name] * n
@@ -198,6 +212,7 @@ def metrics(path, db, rat, prat=None):
     return dict(
         name=os.path.basename(path), lands=lands, nonlands=nonlands, creatures=ncre,
         cheap=len(cheap_bodies), cheap_names=cheap_bodies, evasion=len(evasion),
+        big=len(big_bodies), big_names=big_bodies,
         reach=len(reach), reach_names=reach,
         evasion_names=evasion, hard=len(hard), hard_names=hard, soft=len(soft),
         soft_names=soft, fixers=fixers, colors="".join(real), splash="".join(splash),

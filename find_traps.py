@@ -201,8 +201,85 @@ def main():
             played_tbl[k] = dict(set=round(pl / sn, 3), n=sn, pairs=pairs,
                                  max=mx, max_pairs=mx_pairs)
 
+    # ── РОЛЬ «ЧЕМ УБИВАЮ»: распределение тел силой ≥4 по парам ───────────────
+    # Заведено 20.08.2026 по разбору драфта eba1b036 (UR, 0-3). В обеих доигранных
+    # партиях колода нанесла РОВНО НОЛЬ урона, а все восемь осей аудита показывали
+    # «в диапазоне»: ни одна не спрашивала, чем колода заканчивает партию. Эвейжн-ось
+    # не ловит этого по построению — она считает КАРТЫ, и 1/2-флаер весит в ней
+    # столько же, сколько 5/5. Контроль: у той же колоды 2 тела силы ≥4 (8-й перцентиль),
+    # у BR-листа того же игрока с результатом 7W-1L — восемь (96-й).
+    import statistics as _st
+    big_by_pair = {}
+    for pair, decks in by_pair.items():
+        vals = []
+        for cnt in counts_by_pair[pair]:
+            tot = 0
+            for c in cards:
+                k = norm(c["name"])
+                if k not in cnt or "Creature" not in face(c, "type_line"):
+                    continue
+                pw = c.get("power")
+                if pw is None and c.get("card_faces"):
+                    pw = c["card_faces"][0].get("power")
+                try:
+                    if int(pw) >= 4:
+                        tot += cnt[k]
+                except (TypeError, ValueError):
+                    pass
+            vals.append(tot)
+        if vals:
+            big_by_pair[pair] = dict(n=len(vals), min=min(vals),
+                                     med=round(_st.median(vals)), max=max(vals))
+    print("\n⚔ ТЕЛ СИЛОЙ ≥4 ПО ПАРАМ (чем колода заканчивает партию):")
+    for pair in sorted(big_by_pair, key=lambda x: -big_by_pair[x]["n"]):
+        d = big_by_pair[pair]
+        if d["n"] >= PAIR_MIN_LISTS:
+            print(f"  {pair:<5} n={d['n']:>3}  мин {d['min']} · медиана {d['med']} · макс {d['max']}")
+
+    # ── МАРШРУТЫ ПОБЕДЫ по парам (заведено 20.08.2026) ───────────────────────
+    # Замер: 93.3% трофейных листов вытягивают ХОТЯ БЫ ОДНУ ось победы до медианы
+    # своей популяции; листов «ни одной оси» всего 20 из 298 (6.7%). Проигравшая
+    # колода драфта eba1b036 (0-3) была ниже медианы по ВСЕМ четырём — мягкая
+    # середина как измеримое состояние, а не как метафора.
+    EV_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
+    ACT_RE = re.compile(r"\{[^}]+\}\s*:")
+    import deck_profile as _DP
+    def _sig(cnt):
+        big = evp = cre = cheap = rem = 0
+        for c in cards:
+            k = norm(c["name"])
+            if k not in cnt: continue
+            n_ = cnt[k]; tl = face(c, "type_line"); ora = _DP.oracle(c)
+            if _DP.HARD_RE.search(ora) or _DP.SOFT_RE.search(ora): rem += n_
+            if "Creature" not in tl: continue
+            cre += n_
+            if int(c.get("cmc") or 0) <= 2: cheap += n_
+            pw = c.get("power")
+            if pw is None and c.get("card_faces"): pw = c["card_faces"][0].get("power")
+            try: pw = int(pw)
+            except (TypeError, ValueError): pw = 0
+            if pw >= 4: big += n_
+            if any(EV_RE.search(l) and not ACT_RE.search(l) for l in ora.split("\n")):
+                evp += pw * n_
+        return dict(big=big, evp=evp, cre=cre, cheap=cheap, rem=rem)
+    routes = {}
+    for pair, cnts in counts_by_pair.items():
+        if len(cnts) < PAIR_MIN_LISTS: continue
+        sigs = [_sig(c) for c in cnts]
+        routes[pair] = {k: round(_st.median([x[k] for x in sigs]))
+                        for k in ("big", "evp", "cre", "cheap", "rem")}
+        routes[pair]["n"] = len(sigs)
+    print("\n🏁 МАРШРУТЫ ПОБЕДЫ — медианы по парам (ось на медиане = маршрут открыт):")
+    print(f"  {'пара':<6}{'n':>4}  {'тел≥4':>6} {'воздух':>7} {'существ':>8} {'дешёвых':>8} {'ответов':>8}")
+    for pair in sorted(routes, key=lambda x: -routes[x]["n"]):
+        r = routes[pair]
+        print(f"  {pair:<6}{r['n']:>4}  {r['big']:>6} {r['evp']:>7} {r['cre']:>8} "
+              f"{r['cheap']:>8} {r['rem']:>8}")
+
     if "--write" in sys.argv:
         out = dict(
+            big_bodies=big_by_pair,
+            routes=routes,
             traps=[dict(name=r["name"], key=r["key"], alsa=r["alsa"], rar=r["rar"],
                         played=r["played"], seen=r["seen"], rate=round(r["rate"], 3))
                    for r in traps],

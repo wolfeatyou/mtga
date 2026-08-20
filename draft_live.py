@@ -877,6 +877,23 @@ def curve_banner(ids, by_id, ratings, main, pnum, pick, picks):
     """
     have = cheap_bodies(picks, by_id, ratings, main)
     n = len(have)
+    # 🔴 ПОЛОСА КРУПНЫХ ТЕЛ ОТМЕНЯЕТ КВОТУ КРИВОЙ (внесено 20.08.2026, разбор eba1b036, 0-3).
+    # Замер по 298 трофейным листам: корреляция «тел силой ≥4» ↔ «существ cmc≤2» = −0.28,
+    # то есть победители РАЗМЕНИВАЮТ одно на другое, а не берут оба. Листы с ≤4 дешёвыми
+    # телами держат медиану 4 крупных; листы с ≥8 дешёвыми — медиану 2. Требовать оба
+    # порога сразу = требовать конфигурацию, которой у победителей нет: это и есть
+    # инструментальный источник «мягкой середины».
+    # Цена ошибки задокументирована: в том драфте пул давал ПЯТЬ тел силы ≥4 (выше медианы
+    # UR), в колоду попало два — три вырезаны ссылками на кривую, и колода не нанесла
+    # урона вообще в обеих доигранных партиях.
+    _big = _pool_roles(picks, by_id, ratings, main)["big"]
+    _ref = ((load_traps() or {}).get("big_bodies") or {}).get(
+        "".join(x for x in "WUBRG" if x in (main or set())) or "?", {})
+    if _ref.get("n", 0) >= 12 and _big >= _ref.get("med", 99):
+        return [f"⚑ КРИВАЯ: существ cmc≤2 — {n} · но ты на полосе КРУПНЫХ ТЕЛ "
+                f"(силой ≥4 уже {_big} при медиане пары {_ref['med']}) — квота кривой "
+                f"НЕ применяется", "   у победителей это размен (r=−0.28), а не два порога "
+                "сразу: не режь тело силы 4+ ради дешёвого."]
     prev = CHEAP_TARGET.get((pnum or 1) - 1, 0)
     tgt = CHEAP_TARGET.get(pnum or 1, 5)
     need_now = int(prev + (tgt - prev) * min(pick or 1, PICKS_PER_PACK) / PICKS_PER_PACK)
@@ -984,7 +1001,7 @@ _BREAK_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re
 def _pool_roles(picks, by_id, ratings, main):
     """Счётчики ролей по КАСТУЕМОЙ части пула."""
     r = {"fly": 0, "reach": 0, "brk": 0, "creatures": 0, "cheap": 0, "c5": 0,
-         "fixers": 0, "n": 0}
+         "fixers": 0, "n": 0, "big": 0}
     for cid in picks:
         c = by_id.get(cid)
         if not c:
@@ -1007,6 +1024,18 @@ def _pool_roles(picks, by_id, ratings, main):
         cmc = c.get("cmc") or 0
         if "Creature" in tl:
             r["creatures"] += 1
+            # 🔴 «ЧЕМ Я УБИВАЮ» — тела силой ≥4 (заведено 20.08.2026, разбор драфта eba1b036).
+            # Колода 0-3 нанесла НОЛЬ урона в обеих доигранных партиях, и ни один баннер
+            # этого не предсказал: эвейжн-счётчик показывал 4-6 «ломателей стойки», потому
+            # что 1/2-флаер весит там столько же, сколько 5/5. По 298 трофейным листам тел
+            # силы ≥4 медиана 3 (в UR — 4); у той колоды их было 2. На сборке это уже
+            # не чинится — тела берутся ТОЛЬКО пиком, поэтому счётчик обязан быть здесь.
+            pw = c.get("power") if c.get("power") is not None else face(c, "power")
+            try:
+                if int(pw) >= 4:
+                    r["big"] += 1
+            except (TypeError, ValueError):
+                pass
             if cmc <= 2 and "{X}" not in (face(c, "mana_cost") or ""):
                 r["cheap"] += 1
         if cmc >= 5:
@@ -1105,12 +1134,159 @@ def axis_banner(ids, by_id, ratings, main, picks):
     return out
 
 
+_EVA_RE = re.compile(r"\bflying\b|\bmenace\b|can't be blocked|\btrample\b", re.I)
+_ACTCOST_RE = re.compile(r"\{[^}]+\}\s*:")
+_HARD_RE = __import__("deck_profile").HARD_RE
+_SOFT_RE = __import__("deck_profile").SOFT_RE
+
+ROUTE_LABEL = {"big": "КРУПНЫЕ ТЕЛА", "evp": "ВОЗДУХ",
+               "wide": "ШИРИНА/АГРО", "rem": "ОТВЕТЫ/ГРАЙНД"}
+
+
+def _pool_routes(picks, by_id, ratings, main):
+    """Сигнатура пула по четырём осям победы (кастуемая часть)."""
+    sig = {"big": 0, "evp": 0, "cre": 0, "cheap": 0, "rem": 0}
+    for cid in picks:
+        c = by_id.get(cid)
+        if not c:
+            continue
+        tl = face(c, "type_line") or ""
+        if "Land" in tl:
+            continue
+        if main and (_colors_of(cid, by_id, ratings) - set(main)):
+            continue
+        ora = full_oracle(c)
+        if _HARD_RE.search(ora) or _SOFT_RE.search(ora):
+            sig["rem"] += 1
+        if "Creature" not in tl:
+            continue
+        sig["cre"] += 1
+        if (c.get("cmc") or 0) <= 2:
+            sig["cheap"] += 1
+        pw = c.get("power") if c.get("power") is not None else face(c, "power")
+        try:
+            pw = int(pw)
+        except (TypeError, ValueError):
+            pw = 0
+        if pw >= 4:
+            sig["big"] += 1
+        if any(_EVA_RE.search(l) and not _ACTCOST_RE.search(l) for l in ora.split("\n")):
+            sig["evp"] += pw
+    return sig
+
+
+def plan_banner_v2(picks, by_id, ratings, main, pnum, pick):
+    """⚑ ПЛАН ПОБЕДЫ — чем эта колода выигрывает. Печатается со 2-го бустера.
+
+    🔴 ЗАЧЕМ (заведено 20.08.2026 по указанию пользователя, повод — драфт eba1b036, 0-3).
+    Скилл умел считать роли, но нигде не отвечал на вопрос «как эта колода выигрывает».
+    Итог: собрана колода, которая в двух доигранных партиях нанесла НОЛЬ урона, при том
+    что все восемь осей аудита показывали «в диапазоне».
+
+    ЗАМЕР, на котором стоит баннер (298 трофейных листов HOB): **93.3% победителей
+    вытягивают хотя бы одну ось победы до медианы своей пары**; листов «ни одной оси»
+    всего 20 из 298 (6.7%). Проигравшая колода была ниже медианы по ВСЕМ четырём —
+    то есть мягкая середина это измеримое состояние, а не оценочное суждение.
+
+    Четыре оси (медианы берутся ПО ПАРЕ из <set>_traps.json → routes, их пишет
+    find_traps.py; норма сильно разная — у WU крупных тел медиана 0, у RG 7):
+      · КРУПНЫЕ ТЕЛА — тел силой ≥4;
+      · ВОЗДУХ — суммарная сила тел с ПЕЧАТНЫМ эвейжном (за ману не считается);
+      · ШИРИНА/АГРО — существ И дешёвых тел одновременно на медиане;
+      · ОТВЕТЫ/ГРАЙНД — removal (hard+soft).
+
+    Печатается с P2P1: раньше проекция шумит, позже уже не починить пиками.
+    """
+    ref = ((load_traps() or {}).get("routes") or {}).get(
+        "".join(x for x in "WUBRG" if x in (main or set())) or "?")
+    if not ref:
+        return []
+    done = (pnum - 1) * PICKS_PER_PACK + pick if pnum else pick
+    if done < PICKS_PER_PACK:            # весь первый бустер молчим
+        return []
+    sig = _pool_routes(picks, by_id, ratings, main)
+    scale = TOTAL_PICKS / max(done, 1)
+    proj = {k: v * scale for k, v in sig.items()}
+    open_, near = [], []
+    for key in ("big", "evp", "rem"):
+        need = ref[key]
+        if need and proj[key] >= need:
+            open_.append((ROUTE_LABEL[key], sig[key], need))
+        elif need and proj[key] >= need * 0.7:
+            near.append((ROUTE_LABEL[key], sig[key], need))
+    if proj["cre"] >= ref["cre"] and proj["cheap"] >= ref["cheap"]:
+        open_.append((ROUTE_LABEL["wide"], sig["cre"], ref["cre"]))
+    elif proj["cre"] >= ref["cre"] * 0.7 and proj["cheap"] >= ref["cheap"] * 0.7:
+        near.append((ROUTE_LABEL["wide"], sig["cre"], ref["cre"]))
+
+    def fmt(lst):
+        return " · ".join(f"{lab} ({have}→норма {need})" for lab, have, need in lst)
+
+    if open_:
+        out = [f"⚑ ПЛАН ПОБЕДЫ ✔ {fmt(open_)}"]
+        if len(open_) == 1:
+            out.append(f"   это ЕДИНСТВЕННЫЙ маршрут — углубляй его, а не выравнивай остальные "
+                       f"(у 93% победителей маршрутов 1+, ровных по всем осям почти нет).")
+        return out
+    if near:
+        return [f"⚑ ПЛАН ПОБЕДЫ ⚠ ни один маршрут не добран, ближе всего: {fmt(near)}",
+                "   ДОБИРАЙ ОДИН ИЗ НИХ ЦЕЛЕНАПРАВЛЕННО. Ровный пул без маршрута — "
+                "мягкая середина: у победителей это 6.7% листов."]
+    return ["⚑ ПЛАН ПОБЕДЫ 🔴 НИ ОДНОГО МАРШРУТА: "
+            + " · ".join(f"{ROUTE_LABEL[k]} {sig[k]}/{ref[k]}" for k in ("big", "evp", "rem")),
+            "   Колода ниже медианы пары по всем осям — это и есть мягкая середина "
+            "(6.7% трофейных листов). Выбери маршрут СЕЙЧАС и бери только в него."]
+
+
+def kill_banner(picks, by_id, ratings, main, pnum, pick):
+    """⚑ ЧЕМ УБИВАЮ — проекция тел силой ≥4 против нормы СВОЕЙ ПАРЫ.
+
+    🔴 ЗАЧЕМ (заведено 20.08.2026, разбор драфта eba1b036, счёт 0-3).
+    Колода в двух доигранных партиях нанесла РОВНО НОЛЬ урона — оппонент оба раза ушёл
+    с 20 на 22 — и при этом ни один прибор не сказал ни слова: существ 14 (норма),
+    эвейжн 4 карты (медиана), суммарная сила 34 (медиана). Единственная ось, которая
+    её отбраковывает, — тела силой ≥4: их было 2 при медиане пары 4 (8-й перцентиль).
+    Для контроля: BR-лист того же игрока с результатом 7W-1L держит восемь (96-й).
+
+    Почему эвейжн-счётчик этого не ловит: он считает КАРТЫ, и `Old Thrush` 1/2 весит в нём
+    столько же, сколько `Smaug` 5/5. Колода может быть «в верхних 10% по ломателям стойки»
+    и не наносить урона вовсе — ровно это и случилось.
+
+    Норма СИЛЬНО зависит от пары и потому берётся из данных, а не из головы:
+    у WU медиана 0 (они выигрывают воздухом и шириной), у UR 4, у BR 6, у RG 7.
+    Поэтому баннер молчит там, где паре крупные тела не нужны.
+
+    На сборке это НЕ чинится — тела берутся только пиком. Отсюда баннер в драфте.
+    """
+    tbl = ((load_traps() or {}).get("big_bodies") or {})
+    pair = "".join(x for x in "WUBRG" if x in (main or set()))
+    ref = tbl.get(pair)
+    if not ref or ref.get("n", 0) < 12:
+        return []
+    done = (pnum - 1) * PICKS_PER_PACK + pick if pnum else pick
+    if done < 12:                      # раньше проекция шумит
+        return []
+    r = _pool_roles(picks, by_id, ratings, main)
+    proj = r["big"] * TOTAL_PICKS / max(done, 1)
+    if proj >= ref["med"]:
+        return []
+    sign = "🔴" if proj < ref["min"] else "⚠"
+    tail = ("НИЖЕ МИНИМУМА пары — такой колодой не выигрывают, ищи тело силой 4+ сейчас"
+            if proj < ref["min"] else
+            "ниже медианы пары — крупное тело в приоритет, на сборке это уже не добрать")
+    return [f"⚑ ЧЕМ УБИВАЮ {sign}: тел силой ≥4 — {r['big']} (пик {done}/{TOTAL_PICKS} → "
+            f"к финалу ~{proj:.1f}) · у победителей {pair}: мин {ref['min']} · "
+            f"медиана {ref['med']} · макс {ref['max']} (n={ref['n']})",
+            f"   {tail}."]
+
+
 def plan_banner(picks, by_id, ratings, main, pnum, pick):
     """ЧЕМ ЛОМАЮ СТОЙКУ (воздух/земля) — это НЕ архетип, архетип печатает axis_banner."""
     done = (pnum - 1) * 14 + pick if pnum else pick
     r = _pool_roles(picks, by_id, ratings, main)
     if done < 10:
-        return [f"⚑ СТОЙКА: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}"]
+        return [f"⚑ СТОЙКА: рано (пик {done}/{TOTAL_PICKS}) — флай {r['fly']}, reach {r['reach']}, "
+                f"тел силой ≥4 {r['big']}"]
     cal = calib()
     if not cal:
         # Сет без референс-выборки: считаем, но НЕ выносим вердикт кластера —
@@ -1690,6 +1866,8 @@ def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     out += combo_banner(ids, by_id, ratings, picks, main=main, pnum=pnum, pick=pick)
     out += hub_banner(ids, by_id, ratings, picks)
     out += passed_color_banner(by_id, ratings, main, picks, draft_id, pnum, pick)
+    out += plan_banner_v2(picks, by_id, ratings, main, pnum or 1, pick or 1)
+    out += kill_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     out += plan_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
     if (pnum or 1) > 1 and (pick or 1) == 1:
         out += profile_banner(picks, by_id, ratings, main, pnum or 1, pick or 1)
