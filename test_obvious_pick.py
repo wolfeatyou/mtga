@@ -101,24 +101,34 @@ else:
     if "3-2" not in packs:
         print("  ⏭ пак P3P2 вымыт из .draft_hist.json — кейс пропущен")
     else:
-        # P3P2: Mirkwood Pathmaker 61.7 против 4-й Mirkwood Nurturer — отрыв ≥5, дрейф
-        # чисел 17Lands его не съест (P1P4 с отрывом ровно 3.0 намеренно не проверяется).
+        # Кейс жив, только пока отрыв на ТЕКУЩИХ числах ≥ порога 3.0: 17Lands уже ДВАЖДЫ
+        # пересобирал датасет HOB (§ 8.2 ③ — 17.08, § 8.26 — 20.08: −30% выборки, 80 карт
+        # сдвинулись на ≥1.0), и «отрыв ≥5, дрейф его не съест» из первой редакции — неправда.
+        # Порог считаем боевым rank_score; деградировал — пропускаем ГРОМКО (паттерн § 8.18),
+        # логика баннера при этом покрыта синтетикой в части 1.
         pl = pool(28)
         main = D.pool_main_colors(pl, by_id)
         grouped = D.pack_order(packs["3-2"], by_id, rat, {}, main)
-        b = D.obvious_pick_banner(grouped, by_id, rat, {}, pl)
-        print("\n".join("  " + x for x in b) if b else "  (молчит)")
-        check(bool(b) and "Mirkwood Pathmaker" in b[0],
-              "P3P2: баннер называет Mirkwood Pathmaker — реальная ошибка того драфта")
-
-        # метка копий: в пуле к P3P2 три Mirkwood Nurturer, и в паке лежит четвёртая
+        scores = sorted((x for x in ((D.rank_score(c, rat, {}), c) for c in
+                                     (grouped[0][1] if grouped else []))
+                         if x[0] is not None), reverse=True)
+        gap = scores[0][0] - scores[1][0] if len(scores) >= 2 else 0.0
         blk = D.render_block(3, 2, packs["3-2"], pl, by_id, rat, "testdraf")
+        if gap < 3.0:
+            print(f"  ⏭ отрыв на текущих данных {gap:.1f} < 3.0 — интеграционный кейс "
+                  f"деградировал с дрейфом 17Lands, пропущен громко")
+        else:
+            b = D.obvious_pick_banner(grouped, by_id, rat, {}, pl)
+            print("\n".join("  " + x for x in b) if b else "  (молчит)")
+            check(bool(b), f"P3P2: отрыв {gap:.1f} ≥ 3.0 — баннер горит")
+            check(any("⚑ ОЧЕВИДНЫЙ ПИК" in x for x in blk.splitlines()),
+                  "⚑ ОЧЕВИДНЫЙ ПИК подключён в render_block (общий путь Premier/Quick)")
+
+        # метка копий: от рейтингов не зависит — проверяется всегда
         line = next((x for x in blk.splitlines()
                      if "Mirkwood Nurturer" in x and "⟳" in x), "")
         print("  " + (line.strip() or "(метки нет)"))
         check("⟳в пуле ×3" in line, "render_block печатает ⟳в пуле ×3 у 4-й копии Nurturer")
-        check(any("⚑ ОЧЕВИДНЫЙ ПИК" in x for x in blk.splitlines()),
-              "⚑ ОЧЕВИДНЫЙ ПИК подключён в render_block (общий путь Premier/Quick)")
         # pools/hob_testdraf.txt НЕ удалять: на регистронезависимой macOS-ФС это тот же
         # файл, что закоммиченный pools/hob_TESTDRAF.txt (поймано 20.08.2026 — клинап
         # первой редакции удалил его из рабочего дерева). Файл просто перезаписывается,

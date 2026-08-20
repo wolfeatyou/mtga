@@ -9,8 +9,13 @@ Live drafting assistant for **MTG Arena Limited**. The user opens packs in Arena
 
 **Supported sets:** `sos` (Secrets of Strixhaven, Premier) · `mkm` (Murders at Karlov Manor, Quick) · `msh` (Marvel Super Heroes, Premier) · **`hob` (The Hobbit — вышел на Arena 11.08.2026, текущий)**.
 
-> **✅ HOB: 17Lands ПРОГРЕЛСЯ 16.08.2026** — 146 карт из 188 с выборкой >200 игр. GIH/IWD/ALSA,
-> пар-GIH, `⚠trap` и тайбрейк по IWD работают штатно. Обновить: `python3 ~/.claude/skills/mtg-draft-helper/fetch_17l.py hob`
+> **✅ HOB: данные 17Lands живы, но ДВАЖДЫ ПЕРЕСОБИРАЛИСЬ** (17.08 −17% выборки — § 8.2 ③;
+> 20.08 ещё −30%, 80 карт сдвинулись на ≥1.0 GIH, у части карт GIH пропал вовсе,
+> вкл. Chief Warg's Company — § 8.26). Сейчас с GIH 119 карт из 188. **Освежать перед
+> каждым драфтом** и не сравнивать числа разных снапшотов (§ 8.2 урок). GIH/IWD/ALSA и
+> `⚠trap` работают штатно; тайбрейк по IWD СНЯТ 18.08 (§ 8.9, могильник § 9), пар-GIH на
+> HOB не работает (см. «Чего нет» ниже) — эта строка лгала про оба с 18.08, болезнь § 8.14.
+> Обновить: `python3 ~/.claude/skills/mtg-draft-helper/fetch_17l.py hob`
 > (с `--check` — только проверить, не перезаписывая).
 > **Якоря полосы B по HOB сняты — таблица в `hob_knowledge.md` § ЯКОРЯ ПОЛОСЫ B**, там же
 > разделение «якорь vs бомба» (маркер IWD/ALSA ловит оба класса, путать их дорого).

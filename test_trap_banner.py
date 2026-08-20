@@ -61,7 +61,11 @@ print("\nA. ловушка сета лежит в паке")
 out = banner(["Bard, King of Dale"], {"W", "U"})
 print("\n".join("   " + x for x in out) or "   (молчит)")
 check(any("ЛОВУШКА" in x and "Bard" in x for x in out), "названа поимённо")
-check(any("2.7" in x for x in out), "сказано, каким пиком её берут")
+# ALSA Барда берём из ТЕКУЩЕГО traps.json, а не хардкодом 2.7: числа 17Lands
+# дважды пересобирались (§ 8.2 ③, § 8.26), захардкоженное значение сгнило за 2 дня.
+_bard = next(t for t in json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hob_traps.json")))["traps"]
+             if t["key"] == "bardkingofdale")
+check(any(f"{_bard['alsa']:.1f}" in x for x in out), "сказано, каким пиком её берут (ALSA из traps.json)")
 check(any("0 из 47" in x for x in out), "сказано, в скольких трофейных колодах стоит")
 
 print("\nB. карта не для этой пары")
