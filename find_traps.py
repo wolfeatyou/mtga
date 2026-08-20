@@ -57,14 +57,20 @@ def castable(c, pair):
 
 
 def maindeck(text):
-    out = set()
+    return set(maindeck_counts(text))
+
+
+def maindeck_counts(text):
+    """{имя: число копий} мейна. Нужно для потолка копий (см. блок `played`)."""
+    out = {}
     for line in text.splitlines():
         line = line.strip()
         if line == "Sideboard":
             break
         m = re.match(r"^(\d+)\s+(.+?)(?:\s+\([A-Z0-9]+\)\s+\d+)?$", line)
         if m:
-            out.add(norm(m.group(2)))
+            k = norm(m.group(2))
+            out[k] = max(out.get(k, 0), int(m.group(1)))
     return out
 
 
@@ -77,8 +83,12 @@ def main():
     cards = json.load(open(os.path.join(HERE, f"{code}_set.json"), encoding="utf-8"))
 
     by_pair = defaultdict(list)
+    counts_by_pair = defaultdict(list)      # то же, но с числом копий — для потолка копий
     for f in sorted(glob.glob(os.path.join(HERE, "ref_decks", code, "*.txt"))):
-        by_pair[A.deck_colors(f, db)].append(maindeck(open(f, encoding="utf-8").read()))
+        cnt = maindeck_counts(open(f, encoding="utf-8").read())
+        pair = A.deck_colors(f, db)
+        by_pair[pair].append(set(cnt))
+        counts_by_pair[pair].append(cnt)
     total = sum(len(v) for v in by_pair.values())
     if total < 50:
         print(f"трофейных листов всего {total} — мало для этого разбора, нужно ≥50")
@@ -175,7 +185,21 @@ def main():
             if pair in big_pairs:
                 pairs[pair] = round(hits / len(decks), 3)
         if sn:
-            played_tbl[k] = dict(set=round(pl / sn, 3), n=sn, pairs=pairs)
+            # ПОТОЛОК КОПИЙ: максимум, встреченный у победителей, и максимум ВНУТРИ пары.
+            # Нужен баннеру ⚑ КОПИИ: за драфт eba1b036 набрано 4 Confusticate при
+            # максимуме 3 и 3 Old Thrush / 3 Long-Bodied Grey Dog при максимуме 2,
+            # и ни один прибор этого не назвал в момент пика.
+            mx = 0
+            mx_pairs = {}
+            for pair, decks in counts_by_pair.items():
+                if not castable(c, pair):
+                    continue
+                here = max((d.get(k, 0) for d in decks), default=0)
+                mx = max(mx, here)
+                if pair in big_pairs and here:
+                    mx_pairs[pair] = here
+            played_tbl[k] = dict(set=round(pl / sn, 3), n=sn, pairs=pairs,
+                                 max=mx, max_pairs=mx_pairs)
 
     if "--write" in sys.argv:
         out = dict(

@@ -1619,9 +1619,71 @@ def trap_banner(ids, by_id, ratings, main, max_lines=2):
     return out
 
 
+def last_pick_banner(picks, by_id, ratings):
+    """⚑ ПОСЛЕДНИЙ ПИК — что реально ушло в пул на прошлом ходу.
+
+    Внесено 20.08.2026 по разбору драфта eba1b036. Дыра: на P2P8 советчик рекомендовал
+    `Gollum the Abandoned`, игрок взял `Gandalf, Wandering Wizard` (50.5, ALSA 8.1) —
+    и РАСХОЖДЕНИЕ ПРОШЛО НЕЗАМЕЧЕННЫМ до самого конца драфта. Формально имя было видно:
+    пул печатается каждый пик. Но искать разницу в хвосте списка из сорока имён никто
+    не будет, а следующие двадцать советов строились на пуле, которого советчик не сверял.
+    Отдельная строка стоит один ряд и делает сверку механической.
+
+    Номер пика печатается намеренно: если он равен номеру ТЕКУЩЕГО пака, значит игрок
+    успел пикнуть до рендера (та же гонка дебаунса, что чинилась в pick_index) — и
+    сверять надо с советом на пак раньше.
+    """
+    if not picks:
+        return []
+    return [f"⚑ ПОСЛЕДНИЙ ПИК (№{len(picks)}): {_name_of(picks[-1], by_id, ratings)} — "
+            f"сверь со своим прошлым советом; разошлось — скажи вслух и учти в плане."]
+
+
+def copies_banner(ids, by_id, ratings, main, picks, max_lines=2):
+    """⚑ КОПИИ — в паке лежит N-я копия карты, а победители столько не играют.
+
+    Внесено 20.08.2026 по разбору драфта eba1b036: набрано 4 `Confusticate and Bebother`
+    при максимуме 3 у победителей, 3 `Old Thrush` и 3 `Long-Bodied Grey Dog` при максимуме
+    2 — и ни один прибор этого не назвал В МОМЕНТ ПИКА. Потолок берётся из блока `played`
+    в <set>_traps.json (пишет find_traps.py по ref_decks/): предпочтительно максимум ВНУТРИ
+    пары, при нуле/отсутствии — максимум по сету, чтобы не шуметь на редких парах.
+
+    Это не запрет: у победителей встречаются и 8 копий одной карты (Lakeshore Apothecary).
+    Баннер говорит ровно одно — «дальше ты выходишь за пределы наблюдавшегося», и решение
+    остаётся за планом колоды.
+    """
+    tbl = (load_traps() or {}).get("played") or {}
+    if not tbl or not picks:
+        return []
+    have = {}
+    for cid in picks:
+        have[_trap_key(_name_of(cid, by_id, ratings))] = \
+            have.get(_trap_key(_name_of(cid, by_id, ratings)), 0) + 1
+    pair = "".join(x for x in "WUBRG" if x in (main or set()))
+    out, seen = [], set()
+    for cid in ids:
+        nm = _name_of(cid, by_id, ratings)
+        k = _trap_key(nm)
+        if k in seen or len(out) >= max_lines:
+            continue
+        rec, n = tbl.get(k), have.get(k, 0)
+        if not rec or not n:
+            continue
+        lim = (rec.get("max_pairs", {}) or {}).get(pair) or rec.get("max") or 0
+        if lim and n >= lim:
+            seen.add(k)
+            where = f"в {pair} {rec['max_pairs'][pair]}" if (rec.get("max_pairs") or {}).get(pair) \
+                else f"по сету {rec.get('max')}"
+            out.append(f"⚑ КОПИИ: {nm} — в пуле уже {n}, у победителей максимум {lim} ({where}). "
+                       f"Следующая копия за пределами наблюдавшегося — бери только под план.")
+    return out
+
+
 def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
-    out = curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
+    out = last_pick_banner(picks, by_id, ratings)
+    out += curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
+    out += copies_banner(ids, by_id, ratings, main, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
     out += axis_banner(ids, by_id, ratings, main, picks)
     out += trap_banner(ids, by_id, ratings, main)
