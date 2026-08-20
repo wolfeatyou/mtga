@@ -16,6 +16,12 @@
 
 КОНТРОЛЬ ОБЕИМИ СТОРОНАМИ: проваленная колода (2 тела, 8-й перцентиль) против
 BR-листа того же игрока с результатом 7W-1L (8 тел, 96-й перцентиль).
+
+⚠️ ФИКСТУРА — `hob_ur_eba1b036_fail.txt` (восстановлена 20.08.2026 из cc89970).
+Тест изначально читал `hob_ur_eba1b036.txt`, но тот же коммит d84bb16 перезаписал файл
+ПЕРЕСОБРАННОЙ версией (5 тел в мейне) — и тест не мог пройти с момента своего рождения:
+зеркальный случай к «тесту, который не мог упасть» из § 8.5. Файл-объект теста обязан
+быть фикстурой, а не рабочим файлом, который следующий шаг работы перепишет.
 """
 import os
 import re
@@ -40,7 +46,7 @@ def check(cond, msg):
 
 # ── 1. deck_profile считает ось ──────────────────────────────────────────────
 db, rat = DP.load_db(), DP.load_ratings("hob")
-M = DP.metrics(os.path.join(HERE, "hob_ur_eba1b036.txt"), db, rat)
+M = DP.metrics(os.path.join(HERE, "hob_ur_eba1b036_fail.txt"), db, rat)
 check("big" in M, "deck_profile отдаёт ось big")
 check(M["big"] == 2, f"проваленная колода: тел силой ≥4 = {M['big']}, ожидалось 2")
 check("Smaug, the Great Calamity" in M["big_names"], "Smaug 5/5 попал в ось")
@@ -119,7 +125,7 @@ check(bool(pb) and "✔" in pb[0], "на реальном ПУЛЕ маршру�
 check("КРУПНЫЕ ТЕЛА" in pb[0], "пул давал маршрут крупных тел (их было 5 при норме 4)")
 
 deck_names = []
-for ln in open(os.path.join(HERE, "hob_ur_eba1b036.txt"), encoding="utf-8"):
+for ln in open(os.path.join(HERE, "hob_ur_eba1b036_fail.txt"), encoding="utf-8"):
     if ln.strip() == "Sideboard":
         break
     m = re.match(r"^\s*(\d+)\s+(.+?)\s*$", ln.strip())

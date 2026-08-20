@@ -139,6 +139,23 @@ def bomb_bonus(gih_pts):
     return min(BOMB_CAP, BOMB_RATE * max(0.0, gih_pts - BOMB_KNEE))
 
 
+def rank_score(cid, ratings, cratings):
+    """Единая ось ранжировки пака: GIH (парный, если открыт) + цветовая поправка + бомба.
+
+    Вынесено из pack_order 20.08.2026, чтобы ⚑ ОЧЕВИДНЫЙ ПИК считал отрыв ТЕМ ЖЕ кодом,
+    которым сортируется пак (урок JOURNAL § 8.5: копия логики у потребителя — измеритель,
+    который не измеряет). None = нет данных."""
+    if cid in cratings:                    # парный GIH точнее глобального, когда цвета известны
+        gv = cratings[cid]
+    else:
+        r = ratings.get(cid)
+        gv = r.get("ever_drawn_win_rate") if r else None
+    if gv is None:
+        return None
+    pts = gv * 100
+    return pts + color_adj(ratings.get(cid)) + bomb_bonus(pts)
+
+
 def pack_order(ids, by_id, ratings, cratings, main):
     """Порядок печати пака: сначала ГРУППА по кастуемости, внутри — GIH с поправками.
 
@@ -177,11 +194,7 @@ def pack_order(ids, by_id, ratings, cratings, main):
         if not g:
             continue
         def score(cid):
-            gv = gih(cid)
-            if gv is None:
-                return None                      # нет данных — в конец группы
-            pts = gv * 100
-            return pts + color_adj(ratings.get(cid)) + bomb_bonus(pts)
+            return rank_score(cid, ratings, cratings)    # нет данных → None → в конец группы
         g.sort(key=lambda c: (score(c) is None, -(score(c) or 0), -(gih(c) or 0)))
         out.append((label, g))
     # пул ещё не закоммичен (main=None) → cast_flag молчит, всё падает в одну группу
@@ -1795,7 +1808,69 @@ def trap_banner(ids, by_id, ratings, main, max_lines=2):
     return out
 
 
-def last_pick_banner(picks, by_id, ratings):
+# § 8.9 JOURNAL (2.18 млн пиков MSH): «очевидный пак» = отрыв топа ≥3 GIH; именно там
+# провальщики и теряют (берут топ в 56.7% против 64.9% у трофейщиков) — не на спорных.
+OBVIOUS_GAP = 3.0
+
+
+def obvious_pick_banner(grouped, by_id, ratings, cratings, picks):
+    """⚑ ОЧЕВИДНЫЙ ПИК — топ-1 первой группы оторвался от следующей карты на ≥3 пункта.
+
+    Внесено 20.08.2026 по разбору драфта 3657e8ab (подтверждено игроком). На P1P4
+    ранжировка ставила Bilbo, Luckwearer (60.9, топ-1; стоит у 74% победителей — § 4.8),
+    следующая карта 57.9 — а совет модели ушёл в Mirkwood Nurturer 55.6 «чтобы остаться
+    в цветах» пула из ТРЁХ карт. Синий тёк весь драфт (13 сильных моносиних отданы с
+    пика ≥5, включая второго Bilbo на P3P6), Nurturer'ов после этого пришло ещё три.
+    На P3P2 та же механика: Mirkwood Pathmaker 61.7 отдан за ЧЕТВЁРТУЮ копию Nurturer.
+
+    Прозой это уже лечили («сверка с GIH последним шагом, разошлось — назови почему»,
+    mode_draft.md шаг 5) — проза проиграла, как и в § 8.16 ③. Отсюда баннер: отрыв
+    считается тем же rank_score, что сортирует пак, и печатается ДО совета.
+    Это не приказ «бери топ»: отклонение легально, но только с причиной-ролью,
+    названной вслух, — и «не мой цвет» при незакоммиченном пуле причиной не является.
+    """
+    if not grouped:
+        return []
+    scored = [(c, rank_score(c, ratings, cratings)) for c in grouped[0][1]]
+    scored = [(c, s) for c, s in scored if s is not None]
+    if len(scored) < 2:
+        return []
+    scored.sort(key=lambda x: -x[1])
+    (c1, s1), (c2, s2) = scored[0], scored[1]
+    if s1 - s2 < OBVIOUS_GAP:
+        return []
+    out = [f"⚑ ОЧЕВИДНЫЙ ПИК: {_name_of(c1, by_id, ratings)} — отрыв +{s1 - s2:.1f} от "
+           f"следующей в группе ({_name_of(c2, by_id, ratings)} {s2:.1f}). Провальщики теряют "
+           f"именно на таких паках (§ 8.9: 56.7% против 64.9%)."]
+    if len(picks) < 5:                     # pool_main_colors ещё молчит — цвета НЕ выбраны
+        out.append(f"   Пул из {len(picks)} карт — НЕ цветовое обязательство: «не мой цвет» "
+                   f"причиной отклонения не является (случай 3657e8ab P1P4, пас Bilbo, Luckwearer).")
+    else:
+        out.append("   Отклоняться — только с причиной-ролью, названной в ЛОГИКА "
+                   "(дыра / бюджет оси / квадранты / сработавший баннер).")
+    return out
+
+
+def _last_advice(draft_id, idx):
+    """adv-запись телеметрии для пика с индексом idx (что ставила ранжировка на том паке).
+    Никогда не роняет драфт: любые проблемы файла → None."""
+    try:
+        path = _telemetry_path(draft_id)
+        if not draft_id or not os.path.exists(path):
+            return None
+        for line in open(path, encoding="utf-8"):
+            try:
+                rec = json.loads(line)
+            except Exception:
+                continue
+            if rec.get("t") == "pack" and rec.get("i") == idx and rec.get("adv"):
+                return rec["adv"]
+    except Exception:
+        pass
+    return None
+
+
+def last_pick_banner(picks, by_id, ratings, draft_id=None):
     """⚑ ПОСЛЕДНИЙ ПИК — что реально ушло в пул на прошлом ходу.
 
     Внесено 20.08.2026 по разбору драфта eba1b036. Дыра: на P2P8 советчик рекомендовал
@@ -1811,7 +1886,15 @@ def last_pick_banner(picks, by_id, ratings):
     """
     if not picks:
         return []
-    return [f"⚑ ПОСЛЕДНИЙ ПИК (№{len(picks)}): {_name_of(picks[-1], by_id, ratings)} — "
+    nm = _name_of(picks[-1], by_id, ratings)
+    # Расхождение с МЕХАНИЧЕСКОЙ ранжировкой печатается явно (внесено 20.08.2026, драфт
+    # 3657e8ab): «сверь сам» из первой редакции — та же проза, что уже проигрывала
+    # сортировке (§ 8.16 ③); сверка из телеметрии стоит один lookup и не забывается.
+    adv = _last_advice(draft_id, len(picks) - 1)
+    if adv and adv[0] != nm:
+        return [f"⚑ ПОСЛЕДНИЙ ПИК (№{len(picks)}): {nm} — РАЗОШЁЛСЯ с ранжировкой "
+                f"(она ставила {adv[0]}). Причина была названа? Нет — это дрейф, учти в плане."]
+    return [f"⚑ ПОСЛЕДНИЙ ПИК (№{len(picks)}): {nm} — "
             f"сверь со своим прошлым советом; разошлось — скажи вслух и учти в плане."]
 
 
@@ -1855,9 +1938,11 @@ def copies_banner(ids, by_id, ratings, main, picks, max_lines=2):
     return out
 
 
-def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id):
+def draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id,
+                  grouped=None, cratings=None):
     """Список баннеров-предупреждений (кривая/план/пивот/сплеш/колесо/audit). Печатаются ПЕРЕД паком."""
-    out = last_pick_banner(picks, by_id, ratings)
+    out = last_pick_banner(picks, by_id, ratings, draft_id)
+    out += obvious_pick_banner(grouped or [], by_id, ratings, cratings or {}, picks)
     out += curve_banner(ids, by_id, ratings, main, pnum, pick, picks)
     out += copies_banner(ids, by_id, ratings, main, picks)
     out += tiebreak_banner(ids, by_id, ratings, main)
@@ -1948,7 +2033,8 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
     spell_n = pool_spell_count(picks, by_id)
     _record_hist(draft_id, pnum, pick, ids)
     lines = []
-    sigs = draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id)
+    sigs = draft_signals(ids, by_id, ratings, main, pnum, pick, picks, draft_id,
+                         grouped=grouped, cratings=cratings)
     if sigs:
         lines.append("─── СИГНАЛЫ ───")
         lines += sigs
@@ -1957,6 +2043,14 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
     lines.append("  ⓘ порядок = кастуемость, затем GIH + поправки (цвет сета, бомба). ЭТО НЕ РЕЙТИНГ СИЛЫ и не "
                  "порядок пика — верхняя строка не является ответом. Решают роль, план полосы, "
                  "дыра и квадранты; числа сверяются ПОСЛЕДНИМИ.")
+    # Счёт копий в пуле печатается у каждой карты пака (внесено 20.08.2026, драфт 3657e8ab):
+    # правило «2+ копии коммона = карты в паке нет» жило прозой и было нарушено — взята
+    # ЧЕТВЁРТАЯ Mirkwood Nurturer над Mirkwood Pathmaker 61.7 (−6.1). Считать копии по
+    # сорокаэлементному списку пула в момент пика никто не будет — метка делает это за нас.
+    pool_copies = {}
+    for pcid in picks:
+        pn_ = _name_of(pcid, by_id, ratings)
+        pool_copies[pn_] = pool_copies.get(pn_, 0) + 1
     for glabel, gids in grouped:
         if glabel:
             lines.append(f"  ── {glabel} ──")
@@ -1972,7 +2066,9 @@ def render_block(pnum, pick, ids, picks, by_id, ratings, draft_id, header=None):
             cost = face(c, "mana_cost") if c else ""
             tl = face(c, "type_line") if c else (r or {}).get("types", "")
             pt = f" {c['power']}/{c['toughness']}" if c and c.get("power") is not None else ""
-            lines.append(f"  {tag}{flags} {nm} {cost}{pt} — {tl}")
+            ncop = pool_copies.get(nm.split(" //")[0], 0)
+            dup = f"  ⟳в пуле ×{ncop}" if ncop else ""
+            lines.append(f"  {tag}{flags} {nm} {cost}{pt} — {tl}{dup}")
             ot = full_oracle(c)
             if ot:
                 if len(ot) > 280:

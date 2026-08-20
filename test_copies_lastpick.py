@@ -73,24 +73,44 @@ cases = [
     (3, 2, 29, "Old Thrush"),                   # в пуле 2, максимум 2
     (3, 13, 40, "Long-Bodied Grey Dog"),        # в пуле 2, максимум в UR 1
 ]
+# ⚠ .draft_hist.json хранит ограниченную историю и вымывается следующими драфтами
+# (поймано 20.08.2026: от eba1b036 остался 1 пак из 42, тест падал KeyError — ровно
+# «тест на летучих данных» из § 8.16 ⑤). Недостающий пак — ГРОМКИЙ пропуск кейса,
+# а не падение; сам факт пропуска печатается, чтобы деградация была видна.
+skipped_hist = 0
+
+def pack_or_skip(pn, pk):
+    global skipped_hist
+    p = packs.get(f"{pn}-{pk}")
+    if p is None:
+        skipped_hist += 1
+        print(f"  ⏭ P{pn}P{pk}: пак вымыт из .draft_hist.json — кейс пропущен")
+    return p
+
 for pn, pk, npool, card in cases:
+    pk_ids = pack_or_skip(pn, pk)
+    if pk_ids is None:
+        continue
     pl = pool(npool)
     main = D.pool_main_colors(pl, by_id)
-    b = D.copies_banner(packs[f"{pn}-{pk}"], by_id, rat, main, pl)
+    b = D.copies_banner(pk_ids, by_id, rat, main, pl)
     txt = " ".join(b)
     print("\n".join(f"  P{pn}P{pk}: {x}" for x in b) if b else f"  P{pn}P{pk}: (молчит)")
     check(card in txt, f"P{pn}P{pk}: назван {card} — реальный перебор того драфта")
 
 # молчит, когда копий ещё мало
-early = pool(6)
-b0 = D.copies_banner(packs["1-7"], by_id, rat, D.pool_main_colors(early, by_id), early)
-check(not b0, "молчит на раннем пуле, где ни одна карта потолка не достигла")
-check(D.copies_banner(packs["1-1"], by_id, rat, None, []) == [], "молчит при пустом пуле")
+if pack_or_skip(1, 7) is not None:
+    early = pool(6)
+    b0 = D.copies_banner(packs["1-7"], by_id, rat, D.pool_main_colors(early, by_id), early)
+    check(not b0, "молчит на раннем пуле, где ни одна карта потолка не достигла")
+if pack_or_skip(1, 1) is not None:
+    check(D.copies_banner(packs["1-1"], by_id, rat, None, []) == [], "молчит при пустом пуле")
 
 # не больше двух строк — иначе баннер превращается в шум
-big = pool(41)
-b_many = D.copies_banner(packs["3-1"], by_id, rat, D.pool_main_colors(big, by_id), big)
-check(len(b_many) <= 2, f"не больше двух строк за пик (получено {len(b_many)})")
+if pack_or_skip(3, 1) is not None:
+    big = pool(41)
+    b_many = D.copies_banner(packs["3-1"], by_id, rat, D.pool_main_colors(big, by_id), big)
+    check(len(b_many) <= 2, f"не больше двух строк за пик (получено {len(b_many)})")
 
 print()
 print("=" * 78)
@@ -105,11 +125,16 @@ check("№22" in b[0], "печатает НОМЕР пика — по нему �
 check(D.last_pick_banner([], by_id, rat) == [], "молчит на первом пике, когда пул пуст")
 
 # баннер обязан быть ПЕРВОЙ строкой блока сигналов: сверка идёт до рассуждения
-sig = D.draft_signals(packs["3-2"], by_id, rat, D.pool_main_colors(pool(29), by_id),
-                      3, 2, pool(29), DID)
-check(sig and sig[0].startswith("⚑ ПОСЛЕДНИЙ ПИК"),
-      "печатается первой строкой блока СИГНАЛЫ (сверка до рассуждения)")
-check(any(x.startswith("⚑ КОПИИ") for x in sig), "⚑ КОПИИ подключён в draft_signals")
+if pack_or_skip(3, 2) is not None:
+    sig = D.draft_signals(packs["3-2"], by_id, rat, D.pool_main_colors(pool(29), by_id),
+                          3, 2, pool(29), DID)
+    check(sig and sig[0].startswith("⚑ ПОСЛЕДНИЙ ПИК"),
+          "печатается первой строкой блока СИГНАЛЫ (сверка до рассуждения)")
+    check(any(x.startswith("⚑ КОПИИ") for x in sig), "⚑ КОПИИ подключён в draft_signals")
+
+if skipped_hist:
+    print(f"\n⚠ пропущено кейсов из-за вымытой истории: {skipped_hist} — "
+          f"покрытие деградировало, паки eba1b036 не восстановить")
 
 print("=" * 78)
 if fails:
