@@ -1,21 +1,27 @@
 export const meta = {
   name: 'orchestrated-build',
-  description: 'Оркестрированная сборка лимитед-колоды: линии из досье → веер строителей',
+  description: 'Оркестрированная сборка лимитед-колоды: линии из досье → веер строителей → судья',
   whenToUse: 'mode_build.md § МУЛЬТИСБОРКА: после DRAFT COMPLETE, вход — пул + досье pool_dossier.py',
   phases: [
-    { title: 'Линии', detail: 'проектировщик читает досье, решает веер/одиночку, пишет брифы' },
+    { title: 'Линии', detail: 'брифы линий: из args.lanes (сессия решила по досье) или агент-проектировщик' },
     { title: 'Сборка', detail: 'по строителю на линию, каждый: constraint=линия, objective=качество карт' },
+    { title: 'Судья', detail: 'сам пишет кандидатов в файлы, гоняет скорборд-скрипты, решает по приору' },
   ],
 }
 
-// args: {set, draft8, pair, pool, dossier, medians, maxLanes}
-//   pool/dossier — текст файлов; medians — строка с медианами routes пары.
-// Возвращает {lanes, builds}. Судья НЕ здесь: скорборды считаются скриптами между
-// этапами (build_audit/goldfish/sig_of), судья — отдельный агент после них.
-// Модель пришпилена к opus/high: боевая конфигурация сборки (SKILL.md хард-рул 3),
-// и тест инструмента обязан идти на ней же (указание пользователя 17.08).
+// args: {set, draft8, pair, pool, dossier, medians, maxLanes,
+//        lanes?: [{name,plan,must,avoid}]  — брифы от сессии: этап «Линии» пропускается
+//                                            (в проде контроль загрязнения не нужен — финала ещё нет),
+//        judge?: false                     — вернуть только кандидатов (ретро/отладка),
+//        outDir?: строка                   — куда судье писать кандидатов (обязателен для судьи)}
+// Ускорение 20.08.2026 (JOURNAL § 8.22): раньше судья был отдельным агентом ПОСЛЕ воркфлоу,
+// скорборды и промпт судьи собирала сессия руками — медленно и с ошибкой переноса листа.
+// Теперь всё в одной инвокации, судья сам гоняет скрипты, листы не перепечатываются.
+// Модель по умолчанию opus/high (боевая конфигурация сборки, SKILL.md хард-рул 3);
+// args.model / args.effort — ручки для A/B скорости (например sonnet/medium — § 8.22).
 
-const MODEL = { model: 'opus', effort: 'high' }
+const MODEL = { model: (args && args.model) || 'opus', effort: (args && args.effort) || 'high' }
+const SKILL = '~/.claude/skills/mtg-draft-helper'
 
 const LANES_SCHEMA = {
   type: 'object',
@@ -130,23 +136,101 @@ ${a.dossier}
 инструменты. Верни строго JSON по схеме.`
 }
 
+const JUDGE_SCHEMA = {
+  type: 'object',
+  properties: {
+    winner: { type: 'string' },
+    rationale: { type: 'string' },
+    grafts: {
+      type: 'array', maxItems: 3,
+      items: {
+        type: 'object',
+        properties: { cut: { type: 'string' }, add: { type: 'string' }, why: { type: 'string' } },
+        required: ['cut', 'add', 'why'], additionalProperties: false,
+      },
+    },
+    final_main: { type: 'array', items: CARD },
+    final_lands: { type: 'array', items: CARD },
+    contested: {
+      type: 'array', minItems: 2, maxItems: 4,
+      items: {
+        type: 'object',
+        properties: { slot: { type: 'string' }, alternative: { type: 'string' }, tradeoff: { type: 'string' } },
+        required: ['slot', 'alternative', 'tradeoff'], additionalProperties: false,
+      },
+    },
+    convergence_note: { type: 'string' },
+  },
+  required: ['winner', 'rationale', 'grafts', 'final_main', 'final_lands', 'contested', 'convergence_note'],
+  additionalProperties: false,
+}
+
+function judgePrompt(a, builds) {
+  const cands = builds.map((b, i) => {
+    const list = b.main.map(c => `${c.n} ${c.name}`).join('\n')
+    const lands = b.lands.map(c => `${c.n} ${c.name}`).join('\n')
+    return `=== КАНДИДАТ ${i + 1} «${b.lane}» ===\nПлан строителя: ${b.plan}\nФлекс строителя: ${(b.flex || []).join(' · ')}\nМейн:\n${list}\nЗемли:\n${lands}`
+  }).join('\n\n')
+  return `Ты — судья оркестрированной сборки лимитед-колоды MTG Arena (сет ${a.set.toUpperCase()}, Premier Bo1, пара ${a.pair}). Кандидаты собраны строителями по взаимоисключающим линиям.
+
+ПРИОР РЕШЕНИЯ (зашит, не обсуждается):
+1. При прочих равных побеждает КАЧЕСТВО КАРТ: средний GIH мейна и тест «отдано к жадному» (норма победителей +0.49/карту, максимум популяции +0.96; больше — «план дороже качества карт», меньше +0.2 — «плана нет»).
+2. Жертва качества допустима только за (а) ось НИЖЕ ВСЕЙ популяции пары в аудите или (б) явное обязательство линии; размер — в норме популяции.
+3. Роль (removal/закрывашка) не режется ради метрики; тело силой ≥4 меняется только на тело ≥4 или removal.
+4. Запрещено ссылаться на правила, которых нет в этих материалах и в выводах скриптов.
+5. Гибрид = каркас ПОБЕДИТЕЛЯ + 0–3 графта слот-в-слот с причиной; графт не роняет маршруты победителя и не тащит в мейн половину анти-связки его плана. Смешивать планы нельзя.
+6. Кандидаты сошлись — сказать прямо.
+
+ПОРЯДОК РАБОТЫ — ОБЯЗАТЕЛЬНЫЙ, числа только из выводов команд (не по памяти):
+1. Запиши каждый мейн+земли в файл ${a.outDir}/cand_<номер>.txt в формате MTGA («Deck», затем «N Имя» построчно, земли в конце).
+2. По каждому файлу прогони и прочитай вывод:
+   cd ${SKILL} && python3 build_audit.py <файл> --pool pools/${a.set}_${a.draft8}.txt --set ${a.set}
+   python3 ${SKILL}/pool_dossier.py <файл> --set ${a.set} --deck ${a.pair}
+   python3 ${SKILL}/draft_goldfish.py <файл> 8000 | tail -14
+3. Сравни по приору, примени 0–3 графта (после графта — перепрогони скорборд финала), выдай финальные 23+17 и 2–4 реально спорных слота с ценой альтернативы.
+Другие файлы скилла (журнал, матч-логи, чужие листы) НЕ читай.
+
+=== МЕДИАНЫ ПОБЕДИТЕЛЕЙ ПАРЫ ${a.pair} ===
+${a.medians}
+
+=== ДОСЬЕ ПУЛА ===
+${a.dossier}
+
+${cands}
+
+Верни строго JSON по схеме.`
+}
+
 const a = args
 if (!a || !a.pool || !a.dossier) throw new Error('нужны args: {set, draft8, pair, pool, dossier, medians}')
 
-phase('Линии')
-log(`проектирую линии для ${a.set}/${a.draft8} (${a.pair})`)
-const design = await agent(laneDesignerPrompt(a), {
-  ...MODEL, label: `lanes:${a.draft8}`, phase: 'Линии', schema: LANES_SCHEMA,
-})
-if (!design) throw new Error('проектировщик линий не вернул результат')
+let design
+if (a.lanes && a.lanes.length) {
+  design = { mode: a.lanes.length > 1 ? 'fan' : 'single', rationale: 'линии заданы сессией по досье', lanes: a.lanes }
+  log(`линии от сессии: ${a.lanes.map(l => l.name).join(' · ')}`)
+} else {
+  phase('Линии')
+  log(`проектирую линии для ${a.set}/${a.draft8} (${a.pair})`)
+  design = await agent(laneDesignerPrompt(a), {
+    ...MODEL, label: `lanes:${a.draft8}`, phase: 'Линии', schema: LANES_SCHEMA,
+  })
+  if (!design) throw new Error('проектировщик линий не вернул результат')
+}
 const lanes = design.mode === 'single' ? design.lanes.slice(0, 1)
   : design.lanes.slice(0, a.maxLanes || 3)
 log(`режим ${design.mode}: ${lanes.map(l => l.name).join(' · ')}`)
 
 phase('Сборка')
-const builds = await parallel(lanes.map(lane => () =>
+const builds = (await parallel(lanes.map(lane => () =>
   agent(builderPrompt(a, lane), {
     ...MODEL, label: `build:${lane.name.slice(0, 18)}`, phase: 'Сборка', schema: BUILD_SCHEMA,
-  }).then(b => b && { lane: lane.name, ...b })))
+  }).then(b => b && { lane: lane.name, ...b })))).filter(Boolean)
 
-return { design, builds: builds.filter(Boolean) }
+if (a.judge === false || !builds.length) return { design, builds }
+if (!a.outDir) throw new Error('для судьи нужен args.outDir (куда писать кандидатов)')
+
+phase('Судья')
+const verdict = await agent(judgePrompt(a, builds), {
+  ...MODEL, label: `judge:${a.draft8}`, phase: 'Судья', schema: JUDGE_SCHEMA,
+})
+return { design, builds, verdict }

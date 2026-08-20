@@ -126,8 +126,13 @@ def roles_of(c):
     mc = FT.face(c, "mana_cost")
     out = []
     if "Land" in tl:
-        out.append("земля")
-        if FT.norm(c["name"]) not in BASICS:
+        # Цвета земли печатаются явно (поймано 20.08.2026, § 8.22): «нонбейзик = фикс»
+        # без проверки produced_mana назвал Lake-town ({T}: Add {W} or {U}, тапленная)
+        # «фиксом» в BG-колоде — и оба opus-агента сыграли землю НЕ СВОИХ цветов;
+        # поймал только sonnet/high-судья по полному оракл-тексту.
+        pm = c.get("produced_mana") or []
+        out.append("земля" + (":" + "/".join(pm) if pm else ""))
+        if FT.norm(c["name"]) not in BASICS and (DP.ANYCOLOR_RE.search(ora) or len(pm) >= 5):
             out.append("фикс")
         return out
     is_cre = "Creature" in tl
@@ -265,6 +270,10 @@ def render(path, setcode=None, pairs=None, lanes_only=False):
         rows_c.sort(key=lambda x: (x[0] is None, -(x[0] or 0)))
         for gih, alsa, n, name, c, k in rows_c:
             flags, share, cap = card_flags(k, pair, traps)
+            if "Land" in FT.face(c, "type_line"):
+                pm = set(c.get("produced_mana") or [])
+                if pm and not (pm & set(pair)) and len(pm) < 5:
+                    flags.append("⚠НЕ-ДАЁТ-ЦВЕТОВ-ПАРЫ")
             rl = ",".join(roles_of(c)) or "—"
             pt = pt_of(c)
             core = "★" if share is not None and share >= CORE_SHARE else ""
@@ -346,6 +355,10 @@ def deck_check(path, setcode, pair):
         if c is None:
             continue
         flags, share, cap = card_flags(k, pair, traps)
+        if "Land" in FT.face(c, "type_line"):
+            pm = set(c.get("produced_mana") or [])
+            if pm and not (pm & set(pair)) and len(pm) < 5:
+                flags.append("⚠НЕ-ДАЁТ-ЦВЕТОВ-ПАРЫ")
         if cap and n > cap:
             flags.append(f"⚠×{n}>потолка(≤{cap})")
         if share is not None and share < 0.08 and "Land" not in FT.face(c, "type_line"):
