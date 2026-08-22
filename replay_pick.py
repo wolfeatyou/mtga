@@ -53,6 +53,7 @@ def main():
     code = argv[0].lower()
     os.environ["MTGA_SET"] = code
     os.environ.setdefault("MTGA_OFFLINE", "1")
+    os.environ["MTGA_REPLAY"] = "1"   # рендер БЕЗ побочных записей (pools/, телеметрия) — 22.08.2026
     sys.argv = ["draft_live.py", code]
     import draft_live as D
 

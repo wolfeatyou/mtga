@@ -377,6 +377,8 @@ def save_pool(picks, by_id, ratings, draft_id):
     """
     if not picks:
         return None
+    if os.environ.get("MTGA_REPLAY"):
+        return None   # переигровка (replay_pick) затирала боевой pools/<id>.txt — поймано 22.08.2026
     try:
         os.makedirs(POOL_DIR, exist_ok=True)
         tag = (draft_id or "nodraftid")[:8]
@@ -442,6 +444,8 @@ def record_telemetry(draft_id, pnum, pick, ids, picks, grouped, by_id, ratings):
     финальный совет модели: прозу советчика машинно не сверить, ранжировку — можно.
     Как и save_pool: телеметрия никогда не роняет живой драфт."""
     try:
+        if os.environ.get("MTGA_REPLAY"):
+            return None   # переигровка не должна дописывать боевую телеметрию — 22.08.2026
         # Реальные draftId Арены — hex (как и фейки gen_feed, намеренно hex — § 8 JOURNAL).
         # Не-hex тег значит тестовый/служебный рендер (test_parser_parity, ручные вызовы) —
         # без гарда каждый прогон тестов плодил telemetry-файлы в pools/ (поймано 18.08.2026).
@@ -1144,6 +1148,81 @@ def axis_banner(ids, by_id, ratings, main, picks):
             out.append("   кормят ось ЗДЕСЬ: " + " · ".join(feed[:4]))
     else:
         out.append(f"⚑ ОСЬ: пара не закоммичена · оси пула: {top}")
+    # ⚑ ОСЬ-КОНФЛИКТ (внесено 22.08.2026, драфт 91a4b8e8): топ-ось пула живёт в ДРУГОЙ
+    # паре, чем ведёт советчик. Дыра — инерция коммита: ярлык пары, навешенный в Б1, не
+    # пересматривался, хотя ⚑ОСЬ с середины Б2 печатал «Волк 5-7» (ось BG), советчик вёл
+    # UB — и пивот сделал ИГРОК (BG-ядро затем взяло 5W-3L). Счётчики оси инструмент уже
+    # печатал; не хватало ровно перевода «ось → её пара → сверь с ведомой». Порог: пул ≥12
+    # (середина Б2, раньше шум), плотность оси ≥4.
+    if pair and len(picks) >= 12:
+        # своя лучшая ось: чужая плотность должна её ПРЕВОСХОДИТЬ, иначе это шум
+        # (ложный пример: BG с Волк 5 получал «Человек ×4 — ось WU, пивот дорогой»)
+        own = next((v.get("axes", []) for k, v in pairs.items()
+                    if sorted(k) == sorted(pair)), [])
+        own_best = max((cnt.get(a, 0) for a in own), default=0)
+        for a, n in cnt.most_common(3):
+            if n < 4 or n <= own_best:
+                continue
+            homes = [k for k, v in pairs.items() if a in v.get("axes", [])]
+            if not homes or any(sorted(h) == sorted(pair) for h in homes):
+                continue
+            h = homes[0]
+            shared = set(h) & set(pair)
+            cost = (f"общий цвет {'/'.join(sorted(shared))} — меняется только ВТОРОЙ, "
+                    f"гибриды не теряются" if shared else "общих цветов нет — пивот дорогой")
+            # Вердикт ЧИСЛОМ считает ИНСТРУМЕНТ, а не советчик (внесено 22.08.2026, § 8.35).
+            # В переигровке 91a4b8e8 агент B отвечал на баннер формально и отказывался с
+            # арифметически ложными доводами («цена ~8 U-карт» — не посчитано, ядро общее;
+            # «G-фикса нет» — смена ПАРЫ фикса не требует, второй цвет кастуется с базовых).
+            # Проза проигрывает рационализации; число — нет.
+            def _n_castable(cfg):
+                k = 0
+                for pcid in picks:
+                    pc = by_id.get(pcid)
+                    if not pc or "Land" in (face(pc, "type_line") or ""):
+                        continue
+                    if cast_flag(pc, cfg) == "":
+                        k += 1
+                return k
+            nh = _n_castable(set(h))
+            # Потери при смене считает ИНСТРУМЕНТ (v3, § 8.35): в прогоне v2 агент «легально»
+            # отказался, сам назвав бомбами карты 57-58 GIH. Судить потери самому больше нельзя —
+            # баннер печатает их с числами и выносит вердикт по порогу бомбы (GIH ≥ 60).
+            losses = []
+            for pcid in picks:
+                pc = by_id.get(pcid)
+                if not pc or "Land" in (face(pc, "type_line") or ""):
+                    continue
+                if cast_flag(pc, set(pair)) == "" and cast_flag(pc, set(h)) != "":
+                    g = _gih_of(pcid, ratings)
+                    losses.append((g if g is not None else -1.0,
+                                   _name_of(pcid, by_id, ratings)))
+            losses.sort(reverse=True)
+            ltxt = ", ".join(f"{nm} ({g:.1f})" if g > 0 else f"{nm} (—)"
+                             for g, nm in losses[:4]) or "нет"
+            bombs = sorted({nm for g, nm in losses if g >= 60.0})
+            if nh >= 20:
+                if bombs:
+                    verdict = (f"ВЕРДИКТ: пивот обязателен, ЕДИНСТВЕННАЯ легальная причина "
+                               f"отказа — бомба в потерях: {', '.join(bombs)}. "
+                               f"Остальные потери заменимы: {ltxt}.")
+                else:
+                    verdict = (f"ВЕРДИКТ: пивот ОБЯЗАТЕЛЕН, отказ НЕлегален — конфиг {h} "
+                               f"держит {nh} плейблов, ось {a} ×{n} против {own_best} у "
+                               f"ведомой, а потери при смене ({ltxt}) бомб (GIH≥60) не "
+                               f"содержат. Фикс для смены ПАРЫ не нужен: второй цвет = "
+                               f"базовые земли.")
+            elif bombs:
+                verdict = (f"конфиг {h} держит {nh} плейблов (<20), и в потерях бомба "
+                           f"({', '.join(bombs)}) — конфликт ИНФОРМАЦИОННЫЙ, пару не менять "
+                           f"без веской причины.")
+            else:
+                verdict = (f"конфиг {h} пока держит {nh} плейблов (<20) — ПИК-ПРАВИЛО до "
+                           f"снятия конфликта: при разнице GIH ≤3 обязан брать карту "
+                           f"пары {h}. Потери, если сменишь: {ltxt}.")
+            out.append(f"⚑ ОСЬ-КОНФЛИКТ: {a} ×{n} — ось пары {h} ({pairs[h]['name']}), "
+                       f"ты ведёшь {pair}. Цена смены: {cost}. {verdict}")
+            break
     return out
 
 

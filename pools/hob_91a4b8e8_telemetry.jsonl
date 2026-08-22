@@ -1,0 +1,79 @@
+{"t": "pack", "pn": 1, "pk": 1, "i": 0, "n": 14, "adv": ["Lakeshore Apothecary", "Wood Elves"], "gih_top": "Lakeshore Apothecary"}
+{"t": "pack", "pn": 1, "pk": 2, "i": 1, "n": 13, "adv": ["Desolation Prowler", "Bard the Bowman"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 0, "name": "Lakeshore Apothecary"}
+{"t": "pack", "pn": 1, "pk": 3, "i": 2, "n": 12, "adv": ["Bilbo's Deadly Slice", "Thorin Oakenshield"], "gih_top": "Bilbo's Deadly Slice"}
+{"t": "pick", "i": 1, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 1, "pk": 4, "i": 3, "n": 11, "adv": ["Patient Instructor", "Dwarven Mattock"], "gih_top": "Patient Instructor"}
+{"t": "pick", "i": 2, "name": "Bilbo's Deadly Slice"}
+{"t": "pack", "pn": 1, "pk": 5, "i": 4, "n": 10, "adv": ["Mirkwood Pathmaker", "Tidings of War"], "gih_top": "Mirkwood Pathmaker"}
+{"t": "pick", "i": 3, "name": "Patient Instructor"}
+{"t": "pack", "pn": 1, "pk": 6, "i": 5, "n": 9, "adv": ["Down, Down to Goblin-town", "Patient Instructor"], "gih_top": "Down, Down to Goblin-town"}
+{"t": "pick", "i": 4, "name": "Mirkwood Pathmaker"}
+{"t": "pack", "pn": 1, "pk": 7, "i": 6, "n": 8, "adv": ["Goblin Plate Mail", "Gandalf, Wandering Wizard"], "gih_top": "Ordinary Bear"}
+{"t": "pick", "i": 5, "name": "Down, Down to Goblin-town"}
+{"t": "pack", "pn": 1, "pk": 8, "i": 7, "n": 7, "adv": ["Stir Up Trouble", "Well-Worn Spatula"], "gih_top": "Stir Up Trouble"}
+{"t": "pick", "i": 6, "name": "Gandalf, Wandering Wizard"}
+{"t": "pack", "pn": 1, "pk": 9, "i": 8, "n": 6, "adv": ["Goblin-town", "Key to the Side-Door"], "gih_top": "Wood Elves"}
+{"t": "pick", "i": 7, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 1, "pk": 10, "i": 9, "n": 5, "adv": ["Island"], "gih_top": "Esgaroth Garrison"}
+{"t": "pick", "i": 8, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 1, "pk": 11, "i": 10, "n": 4, "adv": ["Well-Worn Spatula", "Forest"], "gih_top": "Wood Elves"}
+{"t": "pick", "i": 9, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 1, "pk": 12, "i": 11, "n": 3, "adv": ["Well-Worn Spatula"], "gih_top": "Well-Worn Spatula"}
+{"t": "pick", "i": 10, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 1, "pk": 13, "i": 12, "n": 2, "adv": ["Giant's Boulder", "Swamp"], "gih_top": "Giant's Boulder"}
+{"t": "pick", "i": 11, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 1, "pk": 14, "i": 13, "n": 1, "adv": ["Island"], "gih_top": "Island"}
+{"t": "pick", "i": 12, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 2, "pk": 1, "i": 14, "n": 14, "adv": ["Gollum, Silent Slinker", "Dreaded Bat-Cloud"], "gih_top": "Bard's Company"}
+{"t": "pick", "i": 13, "name": "Stir Up Trouble"}
+{"t": "pack", "pn": 2, "pk": 2, "i": 15, "n": 13, "adv": ["Desolation Prowler", "Gollum, Silent Slinker"], "gih_top": "Celebrate the Mountain-king"}
+{"t": "pick", "i": 14, "name": "Gollum, Silent Slinker"}
+{"t": "pack", "pn": 2, "pk": 3, "i": 16, "n": 12, "adv": ["Desolation Prowler", "Dwarven Mattock"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 15, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 4, "i": 17, "n": 11, "adv": ["Crude Bent Blade", "Uneasy Partings"], "gih_top": "Crude Bent Blade"}
+{"t": "pick", "i": 16, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 5, "i": 18, "n": 10, "adv": ["Desolation Prowler", "Master's Councillors"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 17, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 6, "i": 19, "n": 9, "adv": ["Down, Down to Goblin-town", "Bilbo Baggins, Burglar"], "gih_top": "Down, Down to Goblin-town"}
+{"t": "pick", "i": 18, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 7, "i": 20, "n": 8, "adv": ["Desolation Prowler", "Uneasy Partings"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 19, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 8, "i": 21, "n": 7, "adv": ["Down, Down to Goblin-town", "Mirkwood"], "gih_top": "Down, Down to Goblin-town"}
+{"t": "pick", "i": 20, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 9, "i": 22, "n": 6, "adv": ["Dreaded Bat-Cloud", "Elvenking's Harper"], "gih_top": "Dreaded Bat-Cloud"}
+{"t": "pick", "i": 21, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 10, "i": 23, "n": 5, "adv": ["Gollum, Silent Slinker", "Well-Worn Spatula"], "gih_top": "Gollum, Silent Slinker"}
+{"t": "pick", "i": 22, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 11, "i": 24, "n": 4, "adv": ["Desolation Prowler", "Ravening Warg"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 23, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 12, "i": 25, "n": 3, "adv": ["Mirkwood Nurturer", "Well-Worn Spatula"], "gih_top": "Mirkwood Nurturer"}
+{"t": "pick", "i": 24, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 2, "pk": 13, "i": 26, "n": 2, "adv": ["Plains"], "gih_top": "Smaug's Fury"}
+{"t": "pick", "i": 25, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 3, "pk": 1, "i": 28, "n": 14, "adv": ["Nighthowl Pursuer", "Goblin Plate Mail"], "gih_top": "Nighthowl Pursuer"}
+{"t": "pick", "i": 26, "name": "Gollum, Silent Slinker"}
+{"t": "pick", "i": 27, "name": "Desolation Prowler"}
+{"t": "pack", "pn": 3, "pk": 2, "i": 29, "n": 13, "adv": ["Uneasy Partings", "Great Ugly-Looking Goblin"], "gih_top": "Bothersome Noisemaker"}
+{"t": "pick", "i": 28, "name": "Nighthowl Pursuer"}
+{"t": "pack", "pn": 3, "pk": 3, "i": 30, "n": 12, "adv": ["Gollum, Silent Slinker", "Mirkwood Nurturer"], "gih_top": "Gollum, Silent Slinker"}
+{"t": "pick", "i": 29, "name": "Duskwatch Hunter"}
+{"t": "pack", "pn": 3, "pk": 4, "i": 31, "n": 11, "adv": ["Desolation Prowler", "Gollum, Silent Slinker"], "gih_top": "Desolation Prowler"}
+{"t": "pick", "i": 30, "name": "Gathering of Darkness"}
+{"t": "pack", "pn": 3, "pk": 5, "i": 32, "n": 10, "adv": ["Lakeshore Apothecary", "Duskwatch Hunter"], "gih_top": "Lakeshore Apothecary"}
+{"t": "pick", "i": 31, "name": "Patient Instructor"}
+{"t": "pack", "pn": 3, "pk": 6, "i": 33, "n": 9, "adv": ["Elvenking's Halls", "Long-Bodied Grey Dog"], "gih_top": "Elvenking's Halls"}
+{"t": "pick", "i": 32, "name": "Duskwatch Hunter"}
+{"t": "pack", "pn": 3, "pk": 7, "i": 34, "n": 8, "adv": ["Uneasy Partings", "Iron Hills"], "gih_top": "Uneasy Partings"}
+{"t": "pick", "i": 33, "name": "Boughside Wanderers"}
+{"t": "pack", "pn": 3, "pk": 8, "i": 35, "n": 7, "adv": ["Nighthowl Pursuer", "Hobbit Hole"], "gih_top": "Nighthowl Pursuer"}
+{"t": "pick", "i": 34, "name": "The Black Arrow"}
+{"t": "pack", "pn": 3, "pk": 9, "i": 36, "n": 6, "adv": ["Enchanted River's Grasp", "Stir Up Trouble"], "gih_top": "Enchanted River's Grasp"}
+{"t": "pick", "i": 35, "name": "Nighthowl Pursuer"}
+{"t": "pack", "pn": 3, "pk": 10, "i": 37, "n": 5, "adv": ["Great Ugly-Looking Goblin", "Long-Bodied Grey Dog"], "gih_top": "Great Ugly-Looking Goblin"}
+{"t": "pick", "i": 36, "name": "Nighthowl Pursuer"}
+{"t": "pick", "i": 37, "name": "Great Ugly-Looking Goblin"}
+{"t": "pick", "i": 38, "name": "Mirkwood Nurturer"}
+{"t": "pick", "i": 39, "name": "Wargling"}
+{"t": "pick", "i": 40, "name": "Old Thrush"}
+{"t": "pick", "i": 41, "name": "Moment of Glory"}
